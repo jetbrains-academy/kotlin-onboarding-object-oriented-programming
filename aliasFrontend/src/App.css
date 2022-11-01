@@ -44,7 +44,6 @@
 }
 
 .App-button-base {
-  background-image: url('assets/button.svg');
   height: 10vmin;
   margin-top: 5vmin;
   background-repeat: no-repeat;
