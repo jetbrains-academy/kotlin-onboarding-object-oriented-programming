@@ -4,8 +4,6 @@ import throwInternalCourseError
 import java.io.File
 import java.lang.reflect.Field
 import kotlin.reflect.KProperty
-import kotlin.reflect.KType
-import kotlin.reflect.jvm.javaType
 import kotlin.reflect.jvm.kotlinProperty
 
 enum class VariableMutability(val key: String) {
@@ -29,7 +27,7 @@ data class Variable(
     val visibility: Visibility? = null,
     val mutability: VariableMutability? = null,
     val isInPrimaryConstructor: Boolean = false,
-    ) {
+) {
     private fun getTypePrettyString() = kotlinType?.getTypePrettyString() ?: javaType
 
     fun prettyString(): String {
@@ -41,7 +39,8 @@ data class Variable(
     }
 
     fun checkField(field: Field) {
-        val kotlinProp = field.kotlinProperty ?: error("Can not find Kotlin property for the field ${this.prettyString()}")
+        val kotlinProp =
+            field.kotlinProperty ?: error("Can not find Kotlin property for the field ${this.prettyString()}")
         assert(kotlinProp.name == name) { "The field name must be: $name" }
         val visibility = kotlinProp.visibility?.name?.lowercase()
         val visibilityErrorMessage = this.visibility?.let {

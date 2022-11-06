@@ -33,7 +33,7 @@ private fun KType.checkAbbreviation(abbreviation: String, errorMessagePrefix: St
 fun KType.checkType(kotlinType: KotlinType?, javaType: String, errorMessagePrefix: String) {
     kotlinType?.let {
         this.checkNullability(kotlinType, errorMessagePrefix)
-        it.abbreviation?. let { abr ->
+        it.abbreviation?.let { abr ->
             this.checkAbbreviation(abr, errorMessagePrefix)
         }
     }

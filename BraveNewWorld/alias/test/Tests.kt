@@ -1,15 +1,18 @@
+import models.ConstructorGetter
 import models.findMethod
 import org.junit.jupiter.api.Test
-import java.lang.Exception
 
 class Test {
     @Test
     fun identifierFactoryClassTest() {
         val clazz = identifierFactoryClass.checkBaseDefinition()
         identifierFactoryClass.checkFieldsDefinition(clazz)
-        identifierFactoryClass.checkConstructorWithDefaultArguments(
+        identifierFactoryClass.checkConstructors(
             clazz,
-            defaultParameterTypes = listOf(Int::class.java)
+            listOf(
+                ConstructorGetter(),
+                ConstructorGetter(defaultParameterTypes = listOf(Int::class.java)),
+            )
         )
         identifierFactoryClass.checkDeclaredMethods(clazz)
     }
@@ -19,7 +22,7 @@ class Test {
         val clazz = identifierFactoryClass.getJavaClass()
         val method = identifierFactoryClass.findMethod(clazz, uniqueIdentifierMethod)
         val instance = clazz.getConstructor().newInstance()
-        for(i in 0..100) {
+        for (i in 0..100) {
             val id = identifierFactoryClass.invokeMethodWithoutArgs(clazz, instance, method)
             assert(id == i) { "The ${uniqueIdentifierMethod.name} works incorrect. Try to get id $i-th time, it should be $i, but was $id" }
         }
@@ -29,15 +32,19 @@ class Test {
     fun teamClassTest() {
         val clazz = teamClass.checkBaseDefinition()
         teamClass.checkFieldsDefinition(clazz)
-        val constructor = teamClass.checkConstructorWithDefaultArguments(
+        val constructor = teamClass.checkConstructors(
             clazz,
-            parameterTypes = listOf(Int::class.java),
-            defaultParameterTypes = listOf(Int::class.java)
+            listOf(
+                ConstructorGetter(
+                    parameterTypes = listOf(Int::class.java),
+                    defaultParameterTypes = listOf(Int::class.java),
+                )
+            )
         )
         // Check the name field value
         constructor?.let {
             val method = clazz.methods.findMethod(getNameFromTeamMethod)
-            for(i in 0..100) {
+            for (i in 0..100) {
                 val instance = try {
                     it.newInstance(i, 0, 0, null)
                 } catch (e: Exception) {

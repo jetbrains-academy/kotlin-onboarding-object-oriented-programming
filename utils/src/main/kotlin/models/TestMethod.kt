@@ -24,7 +24,8 @@ data class TestMethod(
     private fun Variable.paramPrettyString() = "$name: $javaType"
 
     fun checkMethod(method: Method) {
-        val kotlinFunction = method.kotlinFunction ?: error("Can not find Kotlin method for the method ${this.prettyString()}")
+        val kotlinFunction =
+            method.kotlinFunction ?: error("Can not find Kotlin method for the method ${this.prettyString()}")
         assert(kotlinFunction.name == name) { "The function name must be: $name" }
         val visibility = kotlinFunction.visibility?.name?.lowercase()
         assert(visibility == this.visibility.key) { "The visibility of the method $name must be ${this.visibility.key}" }
@@ -73,5 +74,5 @@ fun Method.invokeWithArgs(
     if (isPrivate) {
         this.isAccessible = true
     }
-    return obj?.let{ invoke(it, *args) } ?: invoke(clazz, *args)
+    return obj?.let { invoke(it, *args) } ?: invoke(clazz, *args)
 }

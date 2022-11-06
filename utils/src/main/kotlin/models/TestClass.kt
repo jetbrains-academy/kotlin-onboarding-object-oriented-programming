@@ -14,6 +14,22 @@ enum class ClassType(val key: String) {
     ;
 }
 
+data class ConstructorGetter(
+    val parameterTypes: List<Class<*>> = emptyList(),
+    val defaultParameterTypes: List<Class<*>> = emptyList()
+) {
+    fun getConstructorWithDefaultArguments(clazz: Class<*>) = try {
+        val parameters = (parameterTypes + defaultParameterTypes.map { listOf(it, Int::class.java) }
+            .flatten()).toMutableList()
+        if (defaultParameterTypes.isNotEmpty()) {
+            parameters.add(DefaultConstructorMarker::class.java)
+        }
+        clazz.getConstructor(*parameters.toTypedArray())
+    } catch (e: NoSuchMethodException) {
+        null
+    }
+}
+
 data class TestClass(
     val name: String = "MainKt",
     val classPackage: String? = null,
@@ -67,21 +83,16 @@ data class TestClass(
         return clazz!!
     }
 
-    fun checkConstructorWithDefaultArguments(
-        clazz: Class<*>,
-        parameterTypes: List<Class<*>> = emptyList(),
-        defaultParameterTypes: List<Class<*>> = emptyList()
-    ): Constructor<out Any>? {
-        try {
-            val parameters = (parameterTypes + defaultParameterTypes.map { listOf(it, Int::class.java) }
-                .flatten()).toMutableList()
-            if (defaultParameterTypes.isNotEmpty()) {
-                parameters.add(DefaultConstructorMarker::class.java)
+    fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any>? {
+        require(constructorGetters.isNotEmpty())
+        val arguments = constructorGetters.map { it.parameterTypes }.toSet()
+        require(arguments.size == 1)
+        constructorGetters.forEach {
+            it.getConstructorWithDefaultArguments(clazz)?.let { constructor ->
+                return constructor
             }
-            return clazz.getConstructor(*parameters.toTypedArray())
-        } catch (e: NoSuchMethodException) {
-            assert(false) { "You don't have any constructors with ${parameterTypes.size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
         }
+        assert(false) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
         return null
     }
 
