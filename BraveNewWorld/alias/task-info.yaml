@@ -21,6 +21,10 @@ files:
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Utils.kt
-  visible: false
+  visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Words.kt
+  visible: false
+- name: test/IdentifierFactoryTestClass.kt
+  visible: false
+- name: test/TeamTestClass.kt
   visible: false

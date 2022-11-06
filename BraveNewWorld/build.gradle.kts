@@ -13,6 +13,7 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":utils"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -46,7 +47,7 @@ val setDev = tasks.register("setDev") {
 }
 
 tasks.named("processResources") {
-    dependsOn(":aliasFrontend:build")
+//    dependsOn(":aliasFrontend:build")
 }
 
 sourceSets {
