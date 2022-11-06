@@ -11,6 +11,7 @@ enum class ClassType(val key: String) {
     INTERFACE("interface"),
     ENUM("enum class"),
     OBJECT("object"),
+//    COMPANION_OBJECT
     ;
 }
 
@@ -65,7 +66,7 @@ data class TestClass(
     }
 
     private fun checkFields(clazz: Class<*>) {
-        clazz.declaredFields.forEach { field ->
+        clazz.getDeclaredFieldsWithoutCompanion().forEach { field ->
             val currentField = declaredFields.find { it.name == field.name }
             assert(currentField != null) { "Can not find the field with name ${field.name}" }
             currentField!!.checkField(field)
@@ -73,7 +74,7 @@ data class TestClass(
     }
 
     fun checkFieldsDefinition(clazz: Class<*>) {
-        assert(clazz.declaredFields.size == this.declaredFields.size) { "You need to declare the following fields: ${this.getFieldsListPrettyString()}" }
+        assert(clazz.getDeclaredFieldsWithoutCompanion().size == this.declaredFields.size) { "You need to declare the following fields: ${this.getFieldsListPrettyString()}" }
         this.checkFields(clazz)
     }
 
@@ -121,15 +122,7 @@ fun TestClass.findClassSafe() = try {
     null
 }
 
-private fun Class<*>.getVisibility(): Visibility? {
-    if (Modifier.isPublic(this.modifiers)) {
-        return Visibility.PUBLIC
-    }
-    if (Modifier.isPrivate(this.modifiers)) {
-        return Visibility.PRIVATE
-    }
-    return null
-}
+private fun Class<*>.getVisibility() = this.modifiers.getVisibility()
 
 private fun Class<*>.getClassType(): ClassType {
     if (this.isInterface) {

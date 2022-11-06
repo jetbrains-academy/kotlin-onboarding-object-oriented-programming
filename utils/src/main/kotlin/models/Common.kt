@@ -1,5 +1,6 @@
 package models
 
+import java.lang.reflect.Modifier
 import java.lang.reflect.Type
 import kotlin.reflect.KType
 import kotlin.reflect.jvm.javaType
@@ -30,14 +31,33 @@ private fun KType.checkAbbreviation(abbreviation: String, errorMessagePrefix: St
     assert(abr!! == abbreviation) { "The return type for $errorMessagePrefix must be $abbreviation" }
 }
 
-fun KType.checkType(kotlinType: KotlinType?, javaType: String, errorMessagePrefix: String) {
+fun KType.checkType(
+    kotlinType: KotlinType?,
+    javaType: String,
+    errorMessagePrefix: String,
+    toCheckJavaType: Boolean = true
+) {
     kotlinType?.let {
         this.checkNullability(kotlinType, errorMessagePrefix)
         it.abbreviation?.let { abr ->
             this.checkAbbreviation(abr, errorMessagePrefix)
         }
     }
-    assert(this.javaType.getShortName() == javaType) { "The return type of $errorMessagePrefix must be $javaType" }
+    if (toCheckJavaType) {
+        assert(this.javaType.getShortName() == javaType.lowercase()) { "The return type of $errorMessagePrefix must be $javaType" }
+    }
 }
 
-private fun Type.getShortName() = this.toString().lowercase().split(".").last()
+fun Type.getShortName() = this.toString().lowercase().split(".").last()
+
+fun Class<*>.getDeclaredFieldsWithoutCompanion() = this.declaredFields.filter { it.name != "Companion" }
+
+fun Int.getVisibility(): Visibility? {
+    if (Modifier.isPublic(this)) {
+        return Visibility.PUBLIC
+    }
+    if (Modifier.isPrivate(this)) {
+        return Visibility.PRIVATE
+    }
+    return null
+}

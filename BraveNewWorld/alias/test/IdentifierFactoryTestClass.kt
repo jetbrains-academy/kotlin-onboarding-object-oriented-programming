@@ -18,7 +18,7 @@ internal val identifierFactoryClass = TestClass(
             kotlinType = kotlinTypeIdentifier,
             visibility = Visibility.PRIVATE,
             mutability = VariableMutability.VAR,
-        )
+        ),
     ),
     customMethods = listOf(uniqueIdentifierMethod),
 )

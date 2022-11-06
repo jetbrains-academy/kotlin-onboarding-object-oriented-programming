@@ -21,3 +21,18 @@ Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package t
 - it must have two fields in the primary constructor: `id` with `Identifier` type to identify each team and `points` with `Int` type 
 to store the number of points in the game. For `points` set the default value `0`.
 - is must have an additional field `name`, that initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.
+
+___
+
+### Task
+
+The package `jetbrains.kotlin.course.alias.team` already contains the regular class `TeamService`. 
+It is responsible for the game logic for the teams. In this task you need to implement several things to make the game alive:
+
+- add a field `identifierFactory` with the type `IdentifierFactory` to generate identifiers for each team. 
+Don't forget to add the default value for it (just create a new instance of the `IdentifierFactory` class).
+- add a companion object into the `TeamService` class and declare the `teamsStorage` variable to store all previous teams. 
+The type of the storage should be the `MutableMap` of `Identifier` to `Team`. Don't forget to init it via an empty map.
+- implement the `generateTeamsForOneRound` method.
+The method must generate the teams list and also store all of them into the `teamsStorage` map. 
+We need it to save the games results for the leaderboard.

@@ -57,4 +57,11 @@ class Test {
 
         }
     }
+
+    @Test
+    fun teamTeamServiceTest() {
+        val clazz = teamServiceTestClass.checkBaseDefinition()
+        teamServiceTestClass.checkFieldsDefinition(clazz)
+        // TODO: check companion and generateTeamsForOneRound
+    }
 }
