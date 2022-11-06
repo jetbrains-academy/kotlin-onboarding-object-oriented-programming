@@ -17,7 +17,7 @@ ___
 
 ### Task
 
-Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package:
-- it must have two fields in the primary constructor: `id` with `Identifier` type and `points` with `Int` type 
-to calculate the number of points in the game. For `points` set the default value `0`.
-- is must have an additional field `name`, that initializes automatically as `"Team#${id + 1}"`.
+Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package to store the information about teams:
+- it must have two fields in the primary constructor: `id` with `Identifier` type to identify each team and `points` with `Int` type 
+to store the number of points in the game. For `points` set the default value `0`.
+- is must have an additional field `name`, that initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.
