@@ -1,7 +1,22 @@
-import models.TestClass
-import models.Variable
-import models.VariableMutability
-import models.Visibility
+import models.*
+
+internal val generateTeamsForOneRoundMethod = TestMethod(
+    name = "generateTeamsForOneRound",
+    returnType = KotlinType("List", params = listOf(teamClass.getFullName())),
+    returnTypeJava = "List",
+    arguments = listOf(
+        Variable(
+            name = "teamsNumber",
+            javaType = "int",
+        )
+    )
+)
+
+internal val getTeamsStorageMethod = TestMethod(
+    name = "access\$getTeamsStorage\$cp",
+    returnType = KotlinType("Map"),
+    returnTypeJava = "Map",
+)
 
 internal val teamServiceTestClass = TestClass(
     "TeamService",
@@ -21,5 +36,11 @@ internal val teamServiceTestClass = TestClass(
             mutability = VariableMutability.VAL,
             isStatic = true,
         ),
-    )
+    ),
+    customMethods = listOf(generateTeamsForOneRoundMethod),
+)
+
+internal val teamServiceCompanionTestClass = TestClass(
+    "TeamService\$Companion",
+    "jetbrains.kotlin.course.alias.team",
 )

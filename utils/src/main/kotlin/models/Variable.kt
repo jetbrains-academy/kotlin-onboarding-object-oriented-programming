@@ -27,8 +27,15 @@ data class KotlinType(
     val type: String,
     val abbreviation: String? = null,
     val isNullable: Boolean = false,
+    val params: List<String> = emptyList(),
 ) {
-    fun getTypePrettyString() = abbreviation ?: type
+    fun getTypePrettyString() = abbreviation ?: run {
+        if (params.isNotEmpty()) {
+            "$type<${params.joinToString(", ")}>"
+        } else {
+            type
+        }
+    }
 }
 
 private data class FieldProperties(

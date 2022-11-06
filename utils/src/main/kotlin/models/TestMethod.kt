@@ -46,7 +46,7 @@ fun Array<Method>.findMethod(method: TestMethod): Method {
         this.toList().filterByCondition("The method ${method.prettyString()} is missed") { it.name == method.name }
     val returnTypeJava = method.returnTypeJava ?: method.returnType.type
     val filteredByType =
-        filteredByName.filterByCondition("The method ${method.name} should have the return type ${method.returnType}") {
+        filteredByName.filterByCondition("The method ${method.name} should have the return type ${method.returnType.getTypePrettyString()}") {
             it.returnType.name.shortName().lowercase() == returnTypeJava.lowercase()
         }
     val filteredByArgumentsCount =

@@ -44,7 +44,14 @@ fun KType.checkType(
         }
     }
     if (toCheckJavaType) {
-        assert(this.javaType.getShortName() == javaType.lowercase()) { "The return type of $errorMessagePrefix must be $javaType" }
+        val message = "The return type of $errorMessagePrefix must be $javaType"
+        // We have a parametrized type
+        if ("<" in this.javaType.toString()) {
+            val type = kotlinType?.getTypePrettyString() ?: javaType
+            assert(type.lowercase() in this.javaType.toString().lowercase()) { message }
+        } else {
+            assert(this.javaType.getShortName() == javaType.lowercase()) { message }
+        }
     }
 }
 

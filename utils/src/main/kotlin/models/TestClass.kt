@@ -3,7 +3,6 @@ package models
 import throwInternalCourseError
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method
-import java.lang.reflect.Modifier
 import kotlin.jvm.internal.DefaultConstructorMarker
 
 enum class ClassType(val key: String) {
@@ -66,15 +65,18 @@ data class TestClass(
     }
 
     private fun checkFields(clazz: Class<*>) {
-        clazz.getDeclaredFieldsWithoutCompanion().forEach { field ->
+        val declaredFields = clazz.getDeclaredFieldsWithoutCompanion()
+        this.declaredFields.forEach { field ->
             val currentField = declaredFields.find { it.name == field.name }
             assert(currentField != null) { "Can not find the field with name ${field.name}" }
-            currentField!!.checkField(field)
+            field.checkField(currentField!!)
         }
     }
 
-    fun checkFieldsDefinition(clazz: Class<*>) {
-        assert(clazz.getDeclaredFieldsWithoutCompanion().size == this.declaredFields.size) { "You need to declare the following fields: ${this.getFieldsListPrettyString()}" }
+    fun checkFieldsDefinition(clazz: Class<*>, toCheckDeclaredFieldsSize: Boolean = true) {
+        if (toCheckDeclaredFieldsSize) {
+            assert(clazz.getDeclaredFieldsWithoutCompanion().size == this.declaredFields.size) { "You need to declare the following fields: ${this.getFieldsListPrettyString()}" }
+        }
         this.checkFields(clazz)
     }
 
@@ -110,8 +112,17 @@ data class TestClass(
         return clazz.methods.findMethod(method)
     }
 
-    fun <T> invokeMethodWithoutArgs(clazz: Class<*>, instance: T, javaMethod: Method) =
-        javaMethod.invokeWithoutArgs(clazz, obj = instance)
+    fun <T> invokeMethodWithoutArgs(clazz: Class<*>, instance: T, javaMethod: Method, isPrivate: Boolean = false) =
+        javaMethod.invokeWithoutArgs(clazz, obj = instance, isPrivate = isPrivate)
+
+    fun <T> invokeMethodWithArgs(
+        vararg args: Any,
+        clazz: Class<*>,
+        instance: T,
+        javaMethod: Method,
+        isPrivate: Boolean = false
+    ) =
+        javaMethod.invokeWithArgs(*args, clazz = clazz, obj = instance, isPrivate = isPrivate)
 }
 
 fun TestClass.findClass(): Class<*> = Class.forName(this.getFullName())
