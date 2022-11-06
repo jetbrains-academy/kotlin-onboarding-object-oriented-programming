@@ -101,8 +101,14 @@ data class TestClass(
 
     fun checkDeclaredMethods(clazz: Class<*>) {
         val methods = clazz.methods
+        val privateMethods = clazz.declaredMethods
         customMethods.forEach {
-            val method = methods.findMethod(it)
+            val candidates = if (it.visibility == Visibility.PRIVATE) {
+                privateMethods
+            } else {
+                methods
+            }
+            val method = candidates.findMethod(it)
             it.checkMethod(method)
         }
     }

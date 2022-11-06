@@ -26,7 +26,7 @@ ___
 
 ### Task
 
-The package `jetbrains.kotlin.course.alias.team` already contains the regular class `TeamService`. 
+The package `jetbrains.kotlin.course.alias.team` already has the regular class `TeamService`. 
 It is responsible for the game logic for the teams. In this task you need to implement several things to make the game alive:
 
 - add a field `identifierFactory` with the type `IdentifierFactory` to generate identifiers for each team. 
@@ -46,3 +46,23 @@ Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.
 - a data class `Card` to store information for each card. 
 Each card must store `id` with the `Identifier` type, and a list of `words` (`List<Word>`). 
 These fields don't have default values and also must be defined in the primary constructor.
+
+___
+
+### Task
+
+It's time to revive the cards. The package `jetbrains.kotlin.course.alias.card` already has the regular class `CardService`.
+You just need to add several fields and implement several methods:
+
+- add a field `identifierFactory` with the type `IdentifierFactory` to generate identifiers for each card.
+Don't forget to add the default value for it (just create a new instance of the `IdentifierFactory` class).
+- add a field `cards` that stores a list of cards (`List<Card>`), you should initialize it by the calling the `generateCards` method.
+- add a companion object into the `CardService` class and declare the `WORDS_IN_CARD` const variable to store the number of words for the cards.
+You need to assign the value `4` for it. Also declare `cardsAmount` here, that stores the possible number of cards: `words.size / WORDS_IN_CARD`.
+The project contains the predefined list of words `words`.
+- implement the `getCardByIndex` method that accepts `index` (an integer number) and the `Card` at this index. 
+If the card does not exist, throw an error.
+- add the `toWords` function into the `CardService` clas, that is an extension function for `List<String>` 
+and converts each element from this list into `Word`.
+- implement the `generateCards` function that shuffles the `words` list, chunks into chunks with `WORDS_IN_CARD` words each, 
+takes `cardsAmount` chunks for `cardsAmount` cards, and finally creates a new `Card` for each chunk.

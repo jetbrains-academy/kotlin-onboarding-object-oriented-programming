@@ -1,3 +1,4 @@
+import jetbrains.kotlin.course.alias.util.words
 import models.ConstructorGetter
 import models.findMethod
 import org.junit.jupiter.api.Test
@@ -139,4 +140,36 @@ class Test {
         // Just check if the constructor works well
         constructor?.newInstance(1, listOf("dog"))
     }
+
+    @Test
+    fun cardServiceTest() {
+        val clazz = cardServiceTestClass.checkBaseDefinition()
+        cardServiceCompanionTestClass.checkBaseDefinition()
+
+        cardServiceTestClass.checkFieldsDefinition(clazz, false)
+        val identifierFactoryClazz = identifierFactoryClass.getJavaClass()
+        cardServiceTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(),
+                ConstructorGetter(defaultParameterTypes = listOf(identifierFactoryClazz)),
+            )
+        )
+
+        // Check WORDS_IN_CARD and cardsAmount values
+        val instance = clazz.getConstructor().newInstance()
+        val getCardsAmountJavaMethod = clazz.methods.findMethod(getCardsAmountMethod)
+        val field = clazz.declaredFields.find { it.name == wordsInCardTestVariable.name }
+            ?: error("Can not find the field ${wordsInCardTestVariable.name}")
+        field.isAccessible = true
+        val wordsInCardVariable = field.get(instance)
+        assert(4 == wordsInCardVariable as Int) { "The value of the field ${wordsInCardTestVariable.name} must be 4." }
+        val cardsAmount = identifierFactoryClass.invokeMethodWithoutArgs(clazz, instance, getCardsAmountJavaMethod)
+        val expectedCardsAmount = words.size / wordsInCardVariable
+        assert(expectedCardsAmount == cardsAmount as Int) { "The value in the field cardsAmount must be calculated as: words.size / WORDS_IN_CARD" }
+
+        cardServiceTestClass.checkDeclaredMethods(clazz)
+    }
+
+    // TODO: check methods implementations
 }

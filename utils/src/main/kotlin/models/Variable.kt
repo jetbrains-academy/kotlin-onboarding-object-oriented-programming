@@ -83,6 +83,7 @@ data class Variable(
     val mutability: VariableMutability? = null,
     val isInPrimaryConstructor: Boolean = false,
     val isStatic: Boolean = false,
+    val isConst: Boolean = false,
 ) {
     private fun getTypePrettyString() = kotlinType?.getTypePrettyString() ?: javaType
 
@@ -102,6 +103,13 @@ data class Variable(
         commonProp.checkProperties(this)
         if (isStatic) {
             assert(Modifier.isStatic(field.modifiers)) { "The field $name must be defined into an object or a companion object." }
+        }
+        if (isConst) {
+            val errorMessage = "The field $name must be a const value."
+            assert(Modifier.isFinal(field.modifiers)) { errorMessage }
+            field.kotlinProperty?.isConst?.let {
+                assert(it) { errorMessage }
+            }
         }
         field.kotlinProperty?.returnType?.checkType(
             kotlinType,

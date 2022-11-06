@@ -35,7 +35,7 @@ data class TestMethod(
 private fun List<Method>.filterByCondition(errorMessage: String, condition: (Method) -> Boolean): List<Method> {
     val filteredByCondition = this.filter { condition(it) }
     if (filteredByCondition.isEmpty()) {
-        error(errorMessage)
+        assert(false) { errorMessage }
     }
     return filteredByCondition
 }

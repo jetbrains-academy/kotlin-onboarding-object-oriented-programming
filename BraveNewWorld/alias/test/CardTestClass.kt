@@ -19,7 +19,7 @@ internal val cardTestClass = TestClass(
             kotlinType = KotlinType(
                 "List",
                 abbreviation = "jetbrains.kotlin.course.alias.card.Word",
-                params = listOf(String())
+                params = listOf("String")
             ),
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
