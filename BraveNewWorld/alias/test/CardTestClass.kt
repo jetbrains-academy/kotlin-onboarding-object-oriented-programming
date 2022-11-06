@@ -1,7 +1,7 @@
 import models.*
 
 internal val cardTestClass = TestClass(
-    "Card1",
+    "Card",
     "jetbrains.kotlin.course.alias.card",
     isDataClass = true,
     declaredFields = listOf(
@@ -18,7 +18,7 @@ internal val cardTestClass = TestClass(
             javaType = "List",
             kotlinType = KotlinType(
                 "List",
-                abbreviation = "jetbrains.kotlin.course.alias.card.Word1",
+                abbreviation = "jetbrains.kotlin.course.alias.card.Word",
                 params = listOf(String())
             ),
             visibility = Visibility.PUBLIC,
