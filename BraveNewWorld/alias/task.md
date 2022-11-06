@@ -36,3 +36,13 @@ The type of the storage should be the `MutableMap` of `Identifier` to `Team`. Do
 - implement the `generateTeamsForOneRound` method.
 The method must generate the teams list and also store all of them into the `teamsStorage` map. 
 We need it to save the games results for the leaderboard.
+
+___
+
+### Task
+
+Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.card` package:
+- a value class `Word` with one `String` `word` field to store a word;
+- a data class `Card` to store information for each card. 
+Each card must store `id` with the `Identifier` type, and a list of `words` (`List<Word>`). 
+These fields don't have default values and also must be defined in the primary constructor.

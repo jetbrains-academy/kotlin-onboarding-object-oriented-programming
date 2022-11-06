@@ -25,5 +25,3 @@ fun setSystemOut(): ByteArrayOutputStream {
 fun isSystemInEmpty() = String(System.`in`.readBytes()).isEmpty()
 
 fun throwInternalCourseError(): Nothing = error("Internal course error!")
-
-fun String.shortName() = this.split(".").last()

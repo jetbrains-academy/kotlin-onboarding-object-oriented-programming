@@ -17,7 +17,7 @@ files:
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamService.kt
   visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamResource.kt
-  visible: true
+  visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Utils.kt
@@ -29,4 +29,6 @@ files:
 - name: test/TeamTestClass.kt
   visible: false
 - name: test/TeamServiceTestClass.kt
+  visible: false
+- name: test/CardTestClass.kt
   visible: false

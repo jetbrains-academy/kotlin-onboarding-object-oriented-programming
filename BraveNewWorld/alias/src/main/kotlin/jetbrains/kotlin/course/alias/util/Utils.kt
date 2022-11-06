@@ -6,9 +6,9 @@ class IdentifierFactory(private var counter: Identifier = 0) {
     fun uniqueIdentifier(): Identifier = counter++
 }
 
-// Create typealias Identifier, IdentifierFactory class and uniqueIdentifier function
-// create data class Team
-// add companion object into TeamService and implement to make the teams screen alive
-// create Word and Card classes
+// +Create typealias Identifier, IdentifierFactory class and uniqueIdentifier function
+// +create data class Team
+// +add companion object into TeamService and implement to make the teams screen alive
+// +create Word and Card classes
 // implement CardService
 // implement GameResultsService

@@ -123,4 +123,20 @@ class Test {
 
     private fun teamsOutput(startId: Int, n: Int) =
         "[${generateTeamsStringRepresentation(startId, n).joinToString(", ")}]"
+
+    @Test
+    fun cardTest() {
+        val clazz = cardTestClass.checkBaseDefinition()
+        cardTestClass.checkFieldsDefinition(clazz)
+        val constructor = cardTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(
+                    parameterTypes = listOf(Int::class.java, List::class.java),
+                )
+            )
+        )
+        // Just check if the constructor works well
+        constructor?.newInstance(1, listOf("dog"))
+    }
 }

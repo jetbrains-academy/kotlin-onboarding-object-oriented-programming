@@ -20,6 +20,12 @@ private fun KType.getAbbreviation(): String? {
     val separator = " /*"
     val strRepresentation = this.toString()
     if (separator !in strRepresentation) {
+        // Because we call it only if the abbreviation was defined into the expected type
+        if (arguments.isNotEmpty()) {
+            this.arguments.first().type?.toString()?.let {
+                return it
+            }
+        }
         return null
     }
     return strRepresentation.split(separator).first()
@@ -55,7 +61,14 @@ fun KType.checkType(
     }
 }
 
-fun Type.getShortName() = this.toString().lowercase().split(".").last()
+fun Type.getShortName() = if ("<" in this.toString()) {
+    val types = this.toString().split("<").toMutableList()
+    types[0].getShortName()
+} else {
+    this.toString().lowercase().split(".").last()
+}
+
+fun String.getShortName() = lowercase().split(".").last()
 
 fun Class<*>.getDeclaredFieldsWithoutCompanion() = this.declaredFields.filter { it.name != "Companion" }
 
