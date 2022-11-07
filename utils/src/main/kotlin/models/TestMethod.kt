@@ -88,5 +88,6 @@ data class TestMethodInvokeData(
     } else {
         clazz.methods.findMethod(testMethod)
     }
-    val instance: Any = clazz.getConstructor(*constructorArgumentsTypes.toTypedArray()).newInstance(*constructorArguments.toTypedArray())
+    val instance: Any = clazz.getConstructor(*constructorArgumentsTypes.toTypedArray())
+        .newInstance(*constructorArguments.toTypedArray())
 }

@@ -31,13 +31,15 @@ class Test {
 
         private fun String.wordMatches() = Regex(WORD).findAll(this).toList().size
 
-        private fun callGetCardByIndexMethod(invokeData: TestMethodInvokeData, index: Int) = cardServiceTestClass.invokeMethodWithArgs(
-            args = arrayOf(index),
-            clazz = invokeData.clazz,
-            instance = invokeData.instance,
-            javaMethod = invokeData.method,
-        ).toString()
+        private fun callGetCardByIndexMethod(invokeData: TestMethodInvokeData, index: Int) =
+            cardServiceTestClass.invokeMethodWithArgs(
+                args = arrayOf(index),
+                clazz = invokeData.clazz,
+                instance = invokeData.instance,
+                javaMethod = invokeData.method,
+            ).toString()
     }
+
     @Test
     fun identifierFactoryClassTest() {
         val clazz = identifierFactoryClass.checkBaseDefinition()
@@ -56,7 +58,8 @@ class Test {
     fun uniqueIdentifierMethodTest() {
         val invokeData = TestMethodInvokeData(identifierFactoryClass, uniqueIdentifierMethod)
         for (i in 0..100) {
-            val id = identifierFactoryClass.invokeMethodWithoutArgs(invokeData.clazz, invokeData.instance, invokeData.method)
+            val id =
+                identifierFactoryClass.invokeMethodWithoutArgs(invokeData.clazz, invokeData.instance, invokeData.method)
             assert(id == i) { "The ${uniqueIdentifierMethod.name} works incorrect. Try to get id $i-th time, it should be $i, but was $id" }
         }
     }
