@@ -47,10 +47,11 @@ val setDev = tasks.register("setDev") {
 }
 
 tasks.named("processResources") {
-//    dependsOn(":aliasFrontend:build")
+    dependsOn(":aliasFrontend:build")
 }
 
 sourceSets {
     getByName("main").java.srcDirs("alias/src/main/kotlin")
+    getByName("main").resources.srcDirs("alias/src/main/resources")
     getByName("test").java.srcDirs("alias/test")
 }
