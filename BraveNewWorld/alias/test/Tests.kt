@@ -34,10 +34,26 @@ class Test {
         private fun callGetCardByIndexMethod(invokeData: TestMethodInvokeData, index: Int) =
             cardServiceTestClass.invokeMethodWithArgs(
                 args = arrayOf(index),
+                invokeData = invokeData,
+            ).toString()
+
+        private fun callGenerateTeamsForOneRound(invokeData: TestMethodInvokeData, n: Int) =
+            teamServiceTestClass.invokeMethodWithArgs(
+                n,
                 clazz = invokeData.clazz,
                 instance = invokeData.instance,
                 javaMethod = invokeData.method,
-            ).toString()
+            )
+
+        private fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData): String {
+            val field = invokeData.clazz.declaredFields.find { it.name == gameHistoryVariable.name }
+                ?: error("Can not find the field ${gameHistoryVariable.name}")
+            field.isAccessible = true
+
+            // TODO: why gameResultsServiceTestClass.invokeMethodWithArgs does not work?
+            invokeData.method.invoke(invokeData.instance, *arrayOf(teams))
+            return field.get(invokeData.instance).toString()
+        }
     }
 
     @Test
@@ -117,12 +133,7 @@ class Test {
         val teamsStorageMethod = invokeData.clazz.methods.findMethod(getTeamsStorageMethod)
         val teamsStorageSb = StringBuilder()
         repeat(n) {
-            val teams = teamServiceTestClass.invokeMethodWithArgs(
-                n,
-                clazz = invokeData.clazz,
-                instance = invokeData.instance,
-                javaMethod = invokeData.method,
-            )
+            val teams = callGenerateTeamsForOneRound(invokeData, n)
             val expected = teamsOutput(it * n, n)
             assert(expected == teams.toString()) { "${generateTeamsForOneRoundMethod.name} must return $expected for teamsNumber = $n and $it-th attempt." }
             if (it > 0) {
@@ -210,9 +221,7 @@ class Test {
         val invokeData = TestMethodInvokeData(cardServiceTestClass, toWordsMethod)
         val actualWords = cardServiceTestClass.invokeMethodWithArgs(
             args = arrayOf(words),
-            clazz = invokeData.clazz,
-            instance = invokeData.instance,
-            javaMethod = invokeData.method,
+            invokeData = invokeData,
             isPrivate = true,
         ).toString()
         assert(expected == actualWords) { "For the list $words the method ${toWordsMethod.name} must return $expected." }
@@ -222,9 +231,7 @@ class Test {
     fun generateCardsMethodTest() {
         val invokeData = TestMethodInvokeData(cardServiceTestClass, generateCardsMethod)
         (cardServiceTestClass.invokeMethodWithoutArgs(
-            clazz = invokeData.clazz,
-            instance = invokeData.instance,
-            javaMethod = invokeData.method,
+            invokeData,
             isPrivate = true,
         ) as? ArrayList<*>)?.let { cards ->
             assert(expectedCardsListSize == cards.size) { "The method $generateCardsMethod must return a list of Cards with $expectedCardsListSize items." }
@@ -252,5 +259,52 @@ class Test {
                 assert(false) { "The method ${getCardByIndexMethod.name} must not throw any exceptions for index = $i." }
             }
         }
+    }
+
+    @Test
+    fun gameResultsServiceTest() {
+        val clazz = gameResultsServiceTestClass.checkBaseDefinition()
+        gameResultsServiceCompanionTestClass.checkBaseDefinition()
+        gameResultsServiceTestClass.checkFieldsDefinition(clazz, false)
+        cardServiceTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(),
+            )
+        )
+        gameResultsServiceTestClass.checkDeclaredMethods(clazz)
+    }
+
+    @Test
+    fun saveGameResultsMethodTest() {
+        val teamInvokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
+        val teams = callGenerateTeamsForOneRound(teamInvokeData, 4)
+        val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
+        assert(
+            "$teams" in callSaveGameResultsMethod(
+                teams,
+                gameResultsInvokeData
+            )
+        ) { "Try to save the game results for the teams: $teams, but they are not in the ${gameHistoryVariable.name} field." }
+    }
+
+    @Test
+    fun getAllGameResultsMethodTest() {
+        val invokeData = TestMethodInvokeData(gameResultsServiceTestClass, getAllGameResultsMethod)
+        val field = invokeData.clazz.declaredFields.find { it.name == gameHistoryVariable.name }
+            ?: error("Can not find the field ${gameHistoryVariable.name}")
+        field.isAccessible = true
+        val emptyResults = field.get(invokeData.instance) as ArrayList<*>
+        assert(emptyResults.size == 0) { "After initialization of the class ${gameResultsServiceTestClass.name} the field ${gameHistoryVariable.name} must store an empty list." }
+        val reversedEmptyResults = gameResultsServiceTestClass.invokeMethodWithoutArgs(invokeData)
+        assert("${emptyResults.reversed()}" == "$reversedEmptyResults") { "Try to call the ${getAllGameResultsMethod.name} on an empty list, but got $reversedEmptyResults" }
+
+        val teamInvokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
+        val teams = callGenerateTeamsForOneRound(teamInvokeData, 3)
+        val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
+        callSaveGameResultsMethod(teams, gameResultsInvokeData)
+        val notEmptyResults = field.get(invokeData.instance) as ArrayList<*>
+        val reversedNotEmptyResults = gameResultsServiceTestClass.invokeMethodWithoutArgs(invokeData)
+        assert("${notEmptyResults.reversed()}" == "$reversedNotEmptyResults") { "Try to call the ${getAllGameResultsMethod.name} on the $notEmptyResults list, got $reversedNotEmptyResults" }
     }
 }

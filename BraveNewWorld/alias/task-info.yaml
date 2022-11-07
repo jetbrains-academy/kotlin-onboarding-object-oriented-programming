@@ -1,6 +1,6 @@
 type: edu
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardModel.kt
   visible: true
@@ -33,4 +33,6 @@ files:
 - name: test/CardTestClass.kt
   visible: false
 - name: test/CardServiceTestClass.kt
+  visible: false
+- name: test/GameResultsServiceTestClass.kt
   visible: false

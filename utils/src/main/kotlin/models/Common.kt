@@ -28,7 +28,12 @@ private fun KType.getAbbreviation(): String? {
         }
         return null
     }
-    return strRepresentation.split(separator).first()
+    val abr = strRepresentation.split(separator).first()
+    return if ("<" in strRepresentation) {
+        "$abr>"
+    } else {
+        abr
+    }
 }
 
 private fun KType.checkAbbreviation(abbreviation: String, errorMessagePrefix: String) {
@@ -52,7 +57,7 @@ fun KType.checkType(
     if (toCheckJavaType) {
         val message = "The return type of $errorMessagePrefix must be $javaType"
         // We have a parametrized type
-        if ("<" in this.javaType.toString()) {
+        if ("<" in this.javaType.toString() && kotlinType?.abbreviation == null) {
             val type = kotlinType?.getTypePrettyString() ?: javaType
             assert(type.lowercase() in this.javaType.toString().lowercase()) { message }
         } else {

@@ -56,13 +56,34 @@ You just need to add several fields and implement several methods:
 
 - add a field `identifierFactory` with the type `IdentifierFactory` to generate identifiers for each card.
 Don't forget to add the default value for it (just create a new instance of the `IdentifierFactory` class).
-- add a field `cards` that stores a list of cards (`List<Card>`), you should initialize it by the calling the `generateCards` method.
-- add a companion object into the `CardService` class and declare the `WORDS_IN_CARD` const variable to store the number of words for the cards.
-You need to assign the value `4` for it. Also declare `cardsAmount` here, that stores the possible number of cards: `words.size / WORDS_IN_CARD`.
-The project contains the predefined list of words `words`.
-- add the `toWords` function into the `CardService` clas, that is an extension function for `List<String>` 
-and converts each element from this list into `Word`.
-- implement the `generateCards` function that shuffles the `words` list, chunks into chunks with `WORDS_IN_CARD` words each, 
-takes `cardsAmount` chunks for `cardsAmount` cards, and finally creates a new `Card` for each chunk.
+- add a field `cards` that stores a list of cards (`List<Card>`), you should initialize it by the calling
+  the `generateCards` method.
+- add a companion object into the `CardService` class and declare the `WORDS_IN_CARD` const variable to store the number
+  of words for the cards.
+  You need to assign the value `4` for it. Also declare `cardsAmount` here, that stores the possible number of
+  cards: `words.size / WORDS_IN_CARD`.
+  The project contains the predefined list of words `words`.
+- add the `toWords` function into the `CardService` clas, that is an extension function for `List<String>`
+  and converts each element from this list into `Word`.
+- implement the `generateCards` function that shuffles the `words` list, chunks into chunks with `WORDS_IN_CARD` words
+  each,
+  takes `cardsAmount` chunks for `cardsAmount` cards, and finally creates a new `Card` for each chunk.
 - implement the `getCardByIndex` method that accepts `index` (an integer number) and the `Card` at this index.
   If the card does not exist, throw an error.
+
+___
+
+### Task
+
+Congratulations! Your game is almost ready, it remains only to add the display of the leaderboard at the end of the game
+and the for the previous rounds.
+In this task implement several things in the already defined class `GameResultsService` in
+the `jetbrains.kotlin.course.alias.results` package:
+
+- add a companion object into the `GameResultsService`
+  and declare the `gameHistory` variable to store the list of game results (`MutableList<GameResult>`).
+  By default, it must be initialized via an empty list.
+- implement the `saveGameResults` method that adds the `result` into the `gameHistory`.
+  Before adding the `result` you need to check two requirements and throw an error if they are broken: 1) `result` must
+  be not empty; 2) all teams ids from the `result` must be in the `TeamService.teamsStorage`.
+- implement the `getAllGameResults` method that returns the reversed `gameHistory` list. 

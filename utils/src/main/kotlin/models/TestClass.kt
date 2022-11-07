@@ -118,8 +118,25 @@ data class TestClass(
         return clazz.methods.findMethod(method)
     }
 
+    fun invokeMethodWithoutArgs(invokeData: TestMethodInvokeData, isPrivate: Boolean = false): Any =
+        invokeMethodWithoutArgs(
+            clazz = invokeData.clazz,
+            instance = invokeData.instance,
+            javaMethod = invokeData.method,
+            isPrivate = isPrivate,
+        )
+
     fun <T> invokeMethodWithoutArgs(clazz: Class<*>, instance: T, javaMethod: Method, isPrivate: Boolean = false) =
         javaMethod.invokeWithoutArgs(clazz, obj = instance, isPrivate = isPrivate)
+
+    fun invokeMethodWithArgs(vararg args: Any, invokeData: TestMethodInvokeData, isPrivate: Boolean = false): Any =
+        invokeMethodWithArgs(
+            args = args,
+            clazz = invokeData.clazz,
+            instance = invokeData.instance,
+            javaMethod = invokeData.method,
+            isPrivate = isPrivate,
+        )
 
     fun <T> invokeMethodWithArgs(
         vararg args: Any,
