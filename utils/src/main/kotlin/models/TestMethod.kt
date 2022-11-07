@@ -75,3 +75,18 @@ fun Method.invokeWithArgs(
     }
     return obj?.let { invoke(it, *args) } ?: invoke(clazz, *args)
 }
+
+data class TestMethodInvokeData(
+    val testClass: TestClass,
+    val testMethod: TestMethod,
+    val constructorArgumentsTypes: List<Class<*>> = emptyList(),
+    val constructorArguments: List<Any> = emptyList(),
+) {
+    val clazz = testClass.getJavaClass()
+    val method = if (testMethod.visibility == Visibility.PRIVATE) {
+        clazz.declaredMethods.findMethod(testMethod)
+    } else {
+        clazz.methods.findMethod(testMethod)
+    }
+    val instance: Any = clazz.getConstructor(*constructorArgumentsTypes.toTypedArray()).newInstance(*constructorArguments.toTypedArray())
+}

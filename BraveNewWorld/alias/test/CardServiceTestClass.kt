@@ -48,6 +48,17 @@ internal val wordsInCardTestVariable = Variable(
     isStatic = true,
 )
 
+internal val cardsVariable = Variable(
+    name = "cards",
+    javaType = "List",
+    kotlinType = KotlinType(
+        "List",
+        abbreviation = "jetbrains.kotlin.course.alias.card.Card"
+    ),
+    visibility = Visibility.PRIVATE,
+    mutability = VariableMutability.VAL,
+)
+
 internal val cardServiceTestClass = TestClass(
     "CardService",
     "jetbrains.kotlin.course.alias.card",
@@ -58,16 +69,7 @@ internal val cardServiceTestClass = TestClass(
             visibility = Visibility.PRIVATE,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
-            name = "cards",
-            javaType = "List",
-            kotlinType = KotlinType(
-                "List",
-                abbreviation = "jetbrains.kotlin.course.alias.card.Card"
-            ),
-            visibility = Visibility.PRIVATE,
-            mutability = VariableMutability.VAL,
-        ),
+        cardsVariable,
         wordsInCardTestVariable,
         Variable(
             name = "cardsAmount",

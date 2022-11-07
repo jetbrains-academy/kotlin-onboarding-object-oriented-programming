@@ -1,9 +1,43 @@
 import jetbrains.kotlin.course.alias.util.words
 import models.ConstructorGetter
+import models.TestMethodInvokeData
 import models.findMethod
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
+import java.lang.reflect.InvocationTargetException
 
 class Test {
+    companion object {
+
+        private val emptyList = emptyList<String>()
+        private val listWithOneWord = listOf("dog")
+        private val listWithSeveralWords = listOf("dog", "cat")
+
+        private val expectedCardsListSize = words.size / 4
+        private const val WORD = "Word"
+
+        @JvmStatic
+        fun toWordsMethodTestData() = listOf(
+            // initial, expected
+            Arguments.of(emptyList, emptyList.toListWithWordsString()),
+            Arguments.of(listWithOneWord, listWithOneWord.toListWithWordsString()),
+            Arguments.of(listWithSeveralWords, listWithSeveralWords.toListWithWordsString()),
+        )
+
+        private fun List<String>.toListWithWordsString() = "[${this.joinToString(", ") { "$WORD(word=$it)" }}]"
+
+        private fun String.wordMatches() = Regex(WORD).findAll(this).toList().size
+
+        private fun callGetCardByIndexMethod(invokeData: TestMethodInvokeData, index: Int) = cardServiceTestClass.invokeMethodWithArgs(
+            args = arrayOf(index),
+            clazz = invokeData.clazz,
+            instance = invokeData.instance,
+            javaMethod = invokeData.method,
+        ).toString()
+    }
     @Test
     fun identifierFactoryClassTest() {
         val clazz = identifierFactoryClass.checkBaseDefinition()
@@ -20,11 +54,9 @@ class Test {
 
     @Test
     fun uniqueIdentifierMethodTest() {
-        val clazz = identifierFactoryClass.getJavaClass()
-        val method = identifierFactoryClass.findMethod(clazz, uniqueIdentifierMethod)
-        val instance = clazz.getConstructor().newInstance()
+        val invokeData = TestMethodInvokeData(identifierFactoryClass, uniqueIdentifierMethod)
         for (i in 0..100) {
-            val id = identifierFactoryClass.invokeMethodWithoutArgs(clazz, instance, method)
+            val id = identifierFactoryClass.invokeMethodWithoutArgs(invokeData.clazz, invokeData.instance, invokeData.method)
             assert(id == i) { "The ${uniqueIdentifierMethod.name} works incorrect. Try to get id $i-th time, it should be $i, but was $id" }
         }
     }
@@ -63,7 +95,6 @@ class Test {
     fun teamTeamServiceTest() {
         val clazz = teamServiceTestClass.checkBaseDefinition()
         teamServiceCompanionTestClass.checkBaseDefinition()
-
         teamServiceTestClass.checkFieldsDefinition(clazz, false)
         val identifierFactoryClazz = identifierFactoryClass.getJavaClass()
         teamServiceTestClass.checkConstructors(
@@ -78,18 +109,16 @@ class Test {
 
     @Test
     fun generateTeamsForOneRoundMethodTest() {
-        val clazz = teamServiceTestClass.getJavaClass()
-        val method = teamServiceTestClass.findMethod(clazz, generateTeamsForOneRoundMethod)
-        val instance = clazz.getConstructor().newInstance()
+        val invokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
         val n = 5
-        val teamsStorageMethod = clazz.methods.findMethod(getTeamsStorageMethod)
+        val teamsStorageMethod = invokeData.clazz.methods.findMethod(getTeamsStorageMethod)
         val teamsStorageSb = StringBuilder()
         repeat(n) {
             val teams = teamServiceTestClass.invokeMethodWithArgs(
                 n,
-                clazz = clazz,
-                instance = instance,
-                javaMethod = method,
+                clazz = invokeData.clazz,
+                instance = invokeData.instance,
+                javaMethod = invokeData.method,
             )
             val expected = teamsOutput(it * n, n)
             assert(expected == teams.toString()) { "${generateTeamsForOneRoundMethod.name} must return $expected for teamsNumber = $n and $it-th attempt." }
@@ -98,8 +127,8 @@ class Test {
             }
             teamsStorageSb.append(generateTeamsStringRepresentation(it * n, n, true).joinToString(", "))
             val teamsStorageRes = teamServiceTestClass.invokeMethodWithoutArgs(
-                clazz = clazz,
-                instance = instance,
+                clazz = invokeData.clazz,
+                instance = invokeData.instance,
                 javaMethod = teamsStorageMethod
             ).toString()
             val expectedTeamsStorage = "{$teamsStorageSb}"
@@ -138,6 +167,7 @@ class Test {
             )
         )
         // Just check if the constructor works well
+        // Unfortunately we can not check the type of the argument, because we don't have them at runtime
         constructor?.newInstance(1, listOf("dog"))
     }
 
@@ -171,5 +201,53 @@ class Test {
         cardServiceTestClass.checkDeclaredMethods(clazz)
     }
 
-    // TODO: check methods implementations
+    @ParameterizedTest
+    @MethodSource("toWordsMethodTestData")
+    fun toWordsMethodTest(words: List<String>, expected: String) {
+        val invokeData = TestMethodInvokeData(cardServiceTestClass, toWordsMethod)
+        val actualWords = cardServiceTestClass.invokeMethodWithArgs(
+            args = arrayOf(words),
+            clazz = invokeData.clazz,
+            instance = invokeData.instance,
+            javaMethod = invokeData.method,
+            isPrivate = true,
+        ).toString()
+        assert(expected == actualWords) { "For the list $words the method ${toWordsMethod.name} must return $expected." }
+    }
+
+    @Test
+    fun generateCardsMethodTest() {
+        val invokeData = TestMethodInvokeData(cardServiceTestClass, generateCardsMethod)
+        (cardServiceTestClass.invokeMethodWithoutArgs(
+            clazz = invokeData.clazz,
+            instance = invokeData.instance,
+            javaMethod = invokeData.method,
+            isPrivate = true,
+        ) as? ArrayList<*>)?.let { cards ->
+            assert(expectedCardsListSize == cards.size) { "The method $generateCardsMethod must return a list of Cards with $expectedCardsListSize items." }
+            cards.forEachIndexed { id, item ->
+                val strItem = item.toString()
+                // This method will be called during the class initialization, so we need to shift all ids
+                assert((id + expectedCardsListSize).toString() in strItem) { "Each card must have an unique identifier." }
+                assert(4 == strItem.wordMatches()) { "Each card must have only four words." }
+            }
+        } ?: assert(false) { "The method $generateCardsMethod must return a list of Cards" }
+    }
+
+    @Test
+    fun getCardByIndexMethodTest() {
+        val invokeData = TestMethodInvokeData(cardServiceTestClass, getCardByIndexMethod)
+        assertThrows<InvocationTargetException>("\"The method ${getCardByIndexMethod.name} must throw an exception for index = -1.") {
+            callGetCardByIndexMethod(invokeData, -1)
+        }
+        for (i in 0 until expectedCardsListSize) {
+            try {
+                val card = callGetCardByIndexMethod(invokeData, i)
+                assert("id=$i" in card) { "The generated card at the position $i in the cards list must have id = $i." }
+                assert(4 == card.wordMatches()) { "Each card must have only four words." }
+            } catch (e: InvocationTargetException) {
+                assert(false) { "The method ${getCardByIndexMethod.name} must not throw any exceptions for index = $i." }
+            }
+        }
+    }
 }
