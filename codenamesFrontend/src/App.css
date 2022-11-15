@@ -1,0 +1,91 @@
+.App-header {
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-image: url('assets/bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.App-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-buttons-container {
+  min-height: 10vmin;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-display-flex {
+  display: flex;
+}
+
+.App-button-base {
+  background-image: url('assets/button.svg');
+  height: 10vmin;
+  margin-top: 5vmin;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  cursor:pointer;
+  color: white;
+  font-size: 100%;
+}
+
+.App-button-start {
+  width: 40vmin;
+  height: 10vmin;
+}
+
+.App-card-container {
+  background-image: url('assets/card_bg.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 10vmin;
+  width: 20vmin;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 2.5vmin;
+  cursor: pointer;
+}
+
+.App-cards-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-cards-container-row {
+}
+
+.App-key-card-container {
+  height: 50vmin;
+  width: 50vmin;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-key-card-container-row {
+  height: 10vmin;
+}
+
+.App-key-card-square {
+  height: 10vmin;
+  width: 10vmin;
+}

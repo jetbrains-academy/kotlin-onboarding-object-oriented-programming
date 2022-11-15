@@ -5,4 +5,6 @@ include(
     "aliasFrontend",
     "BraveNewWorld",
     "utils",
+    "Codenames",
+    "codenamesFrontend",
 )
