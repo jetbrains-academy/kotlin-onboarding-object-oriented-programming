@@ -27,6 +27,6 @@ tasks {
                 rename { name -> name.replace("${rootProject.name}-common", "index") }
             }
         }
-        finalizedBy(":aliasFrontend:addCommonTypes")
+        finalizedBy(":aliasFrontend:addCommonTypes", ":codenamesFrontend:addCommonTypes")
     }
 }
