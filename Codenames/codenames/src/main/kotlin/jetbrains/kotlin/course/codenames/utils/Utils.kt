@@ -35,10 +35,10 @@ object Utils {
 }
 
 // +Utils + consts + init
-// KeyCardType + KeyCardCell
+// +KeyCardType
 // KeyCardGenerator
 // uniqueKeyCardGenerator + previousAttempts
-// KeyCard + KeyCardService
+// KeyCard + KeyCardService + KeyCardCell
 // CardData + WordCardData
 // CardState + Card
 // CardService

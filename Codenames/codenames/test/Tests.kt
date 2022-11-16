@@ -6,7 +6,7 @@ class Test {
         val clazz = utilObjectTestClass.checkBaseDefinition()
         // TODO: Delete the false flag in the final version
         utilObjectTestClass.checkFieldsDefinition(clazz, toCheckDeclaredFieldsSize = false)
-        utilObjectTestClass.checkObjectConstructors(clazz)
+        utilObjectTestClass.checkNoConstructors(clazz)
     }
 
     @Test
@@ -18,8 +18,23 @@ class Test {
                 ?: error("Can not find the field ${currentConst.name}")
             field.isAccessible = true
             val currentValue = field.get(instance)
-            val expectedValue = expectedVariablesValues[currentConst.name] ?: error("Can not find the value for the const ${currentConst.name}")
+            val expectedValue = expectedVariablesValues[currentConst.name]
+                ?: error("Can not find the value for the const ${currentConst.name}")
             assert(expectedValue == currentValue) { "The const ${currentConst.name} must be $expectedValue" }
         }
+    }
+
+    @Test
+    fun keyCardTypeTestClassTest() {
+        val clazz = keyCardTypeTestClass.checkBaseDefinition()
+        keyCardTypeTestClass.checkFieldsDefinition(clazz, toCheckDeclaredFieldsSize = false)
+        keyCardTypeTestClass.checkNoConstructors(clazz)
+        keyCardTypeTestClass.checkEnumEntryDefinition(clazz)
+    }
+
+    @Test
+    fun keyCardGeneratorTestClassTest() {
+        val clazz = keyCardGeneratorTestClass.checkBaseDefinition()
+        keyCardTypeTestClass.checkNoConstructors(clazz)
     }
 }

@@ -15,10 +15,21 @@ ___
 
 ### Task
 
-TODO
-
-Create a value class `KeyCardCell`, and an enum class `KeyCardType` function
+Create an enum class `KeyCardType` function
 in the `jetbrains.kotlin.course.codenames.keyCard` package:
 
-- the enum class `KeyCardType` must store fours values: `Pink`, `Violet`, `Gray`, `Black`
-- the value class `KeyCardCell`
+- the enum class `KeyCardType` must store four values: `Pink`, `Violet`, `Gray`, `Black`. 
+Each value must store the `Int` `amount`, to initialize the amount you need to use the consts from the `Utils` object.
+
+___
+
+### Task
+
+Create a SAM interface `KeyCardGenerator` in the `jetbrains.kotlin.course.codenames.utils` package:
+
+- add a `generateData` function into the `KeyCardGenerator` interface, that accepts nothing and returns `List<KeyCardCell>`
+- add a `previousAttempts` field into the `Utils` object with the type `MutableList<List<KeyCardCell>>` and init this field via an empty mutable list.
+- add a `uniqueKeyCardGenerator` field into the `Utils` object with the type `KeyCardGenerator` and implement the `generateData` function:
+generate a new `List<KeyCardCell>`: put the `amount` of each `KeyCardType` into this list and shuffle it. 
+Next, check if this combination of `List<KeyCardCell>` was not used before (it is not in the `previousAttempts`) and return this list. 
+If the generated list was used before, repeat generation while a new list (that is not in the `previousAttempts`) will not be generated.

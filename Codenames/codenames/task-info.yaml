@@ -26,3 +26,7 @@ files:
   visible: false
 - name: test/UtilObjectTestClass.kt
   visible: false
+- name: test/KeyCardTypeTestClass.kt
+  visible: false
+- name: test/KeyCardGeneratorTestClass.kt
+  visible: false

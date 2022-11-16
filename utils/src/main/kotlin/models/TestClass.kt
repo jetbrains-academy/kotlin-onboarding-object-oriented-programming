@@ -9,6 +9,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker
 enum class ClassType(val key: String) {
     CLASS("class"),
     INTERFACE("interface"),
+    SAM_INTERFACE("fun interface"),
     ENUM("enum class"),
     OBJECT("object"),
 //    COMPANION_OBJECT
@@ -39,6 +40,7 @@ data class TestClass(
     val declaredFields: List<Variable> = emptyList(),
     val customMethods: List<TestMethod> = emptyList(),
     val isDataClass: Boolean = false,
+    val declaredEnumEntries: List<Variable> = emptyList(),
 ) {
     fun getFullName() = classPackage?.let {
         "$it.$name"
@@ -66,12 +68,20 @@ data class TestClass(
     }
 
     private fun checkFields(clazz: Class<*>) {
+        checkVariables(clazz, this.declaredFields)
+    }
+
+    private fun checkVariables(clazz: Class<*>, variables: List<Variable>) {
         val declaredFields = clazz.getDeclaredFieldsWithoutCompanion()
-        this.declaredFields.forEach { field ->
+        variables.forEach { field ->
             val currentField = declaredFields.find { it.name == field.name }
             assert(currentField != null) { "Can not find the field with name ${field.name}" }
             field.checkField(currentField!!)
         }
+    }
+
+    fun checkEnumEntryDefinition(clazz: Class<*>) {
+        checkVariables(clazz, this.declaredEnumEntries)
     }
 
     fun checkFieldsDefinition(clazz: Class<*>, toCheckDeclaredFieldsSize: Boolean = true) {
@@ -87,8 +97,8 @@ data class TestClass(
         return clazz!!
     }
 
-    fun checkObjectConstructors(clazz: Class<*>) {
-        assert(clazz.constructors.isEmpty()) { "The ${getBaseDefinition()} must be an object and don't have any constructors" }
+    fun checkNoConstructors(clazz: Class<*>) {
+        assert(clazz.constructors.isEmpty()) { "The ${getBaseDefinition()} must not have any constructors" }
     }
 
     fun getObjectInstance(clazz: Class<*>): Any {
@@ -171,6 +181,9 @@ private fun Class<*>.getVisibility() = this.modifiers.getVisibility()
 
 private fun Class<*>.getClassType(): ClassType {
     if (this.isInterface) {
+        if (this.isSamInterface()) {
+            return ClassType.SAM_INTERFACE
+        }
         return ClassType.INTERFACE
     }
     if (this.isEnum) {
@@ -181,6 +194,13 @@ private fun Class<*>.getClassType(): ClassType {
     }
     // TODO: think about companion object
     return ClassType.CLASS
+}
+
+private fun Class<*>.isSamInterface(): Boolean {
+    if (methods.size != 1) {
+        return false
+    }
+    return Modifier.isAbstract(methods.first().modifiers)
 }
 
 private fun Class<*>.getInstanceFiled() = this.fields.find { it.name == "INSTANCE" }
