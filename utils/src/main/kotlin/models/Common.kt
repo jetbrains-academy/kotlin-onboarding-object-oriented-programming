@@ -75,7 +75,8 @@ fun Type.getShortName() = if ("<" in this.toString()) {
 
 fun String.getShortName() = lowercase().split(".").last()
 
-fun Class<*>.getDeclaredFieldsWithoutCompanion() = this.declaredFields.filter { it.name != "Companion" }
+fun Class<*>.getDeclaredFieldsWithoutCompanion() =
+    this.declaredFields.filter { it.name !in listOf("Companion", "INSTANCE") }
 
 fun Int.getVisibility(): Visibility? {
     if (Modifier.isPublic(this)) {

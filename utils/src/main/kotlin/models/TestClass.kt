@@ -3,6 +3,7 @@ package models
 import throwInternalCourseError
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method
+import java.lang.reflect.Modifier
 import kotlin.jvm.internal.DefaultConstructorMarker
 
 enum class ClassType(val key: String) {
@@ -86,6 +87,16 @@ data class TestClass(
         return clazz!!
     }
 
+    fun checkObjectConstructors(clazz: Class<*>) {
+        assert(clazz.constructors.isEmpty()) { "The ${getBaseDefinition()} must be an object and don't have any constructors" }
+    }
+
+    fun getObjectInstance(clazz: Class<*>): Any {
+        val field = clazz.getInstanceFiled()
+        require(field != null) { "Did not find the INSTANCE of the ${getFullName()}" }
+        return field.get(clazz) ?: error("Did not get the INSTANCE of the ${getFullName()}")
+    }
+
     fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any>? {
         require(constructorGetters.isNotEmpty())
         val arguments = constructorGetters.map { it.parameterTypes }.toSet()
@@ -165,9 +176,17 @@ private fun Class<*>.getClassType(): ClassType {
     if (this.isEnum) {
         return ClassType.ENUM
     }
-    // TODO: think about object and companion object
+    if (this.isObject()) {
+        return ClassType.OBJECT
+    }
+    // TODO: think about companion object
     return ClassType.CLASS
 }
+
+private fun Class<*>.getInstanceFiled() = this.fields.find { it.name == "INSTANCE" }
+
+private fun Class<*>.isObject() =
+    this.fields.all { Modifier.isStatic(it.modifiers) } && this.getInstanceFiled() != null
 
 private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
     val methods = this.methods

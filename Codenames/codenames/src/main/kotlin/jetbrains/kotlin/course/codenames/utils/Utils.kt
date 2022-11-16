@@ -34,8 +34,8 @@ object Utils {
     }
 }
 
+// +Utils + consts + init
 // KeyCardType + KeyCardCell
-// Utils + consts + init
 // KeyCardGenerator
 // uniqueKeyCardGenerator + previousAttempts
 // KeyCard + KeyCardService
