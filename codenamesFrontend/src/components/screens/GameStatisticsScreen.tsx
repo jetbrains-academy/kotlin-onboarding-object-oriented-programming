@@ -1,6 +1,5 @@
 import {GameState} from "../GameScreen";
 import {CardState, GameCardModel} from "../../models/GameCard";
-import CodeNamesPictureCard from "../CodeNamesPictureCard";
 import {GRAY_CARDS_NUMBER, KeyCardType, PINK_CARDS_NUMBER, VIOLET_CARDS_NUMBER} from "../../models/KeyCard";
 import GameStatisticsItemScreen from "../GameStatisticsItem";
 
@@ -11,7 +10,7 @@ type GameStatisticsProps = {
 
 function currentAmount(gameCards: Array<GameCardModel>, type: KeyCardType) {
     return gameCards.filter(function(element){
-        return element.type == type && element.state == CardState.PICTURE;
+        return element.type === type && element.state === CardState.PICTURE;
     }).length
 }
 

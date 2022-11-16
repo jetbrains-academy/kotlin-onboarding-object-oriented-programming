@@ -2,7 +2,7 @@ import {GameState} from "../GameScreen";
 import {KeyCardModel} from "../../models/KeyCard";
 import {GameCardModel} from "../../models/GameCard";
 import CodeNamesCard from "../Card";
-import {convertCards, initCards} from "../../App";
+import {initGame} from "../../App";
 
 type GameRoundScreenProps = {
     gameStateSetter: (gs: GameState) => void
@@ -46,11 +46,8 @@ export default function GameRoundScreen({
             </div>
         <div className="App-buttons-container">
             <button className="App-button-base App-button-start App-no-top-margin" onClick={() => {
-                const newKeyCard = new KeyCardModel()
-                keyCardSetter(newKeyCard)
+                initGame(keyCardSetter, gameCardsSetter)
                 gameStateSetter(GameState.START)
-                // TODO: call a server function to get new cards
-                gameCardsSetter(convertCards(initCards, newKeyCard))
             }}>Finish the game
             </button>
         </div>

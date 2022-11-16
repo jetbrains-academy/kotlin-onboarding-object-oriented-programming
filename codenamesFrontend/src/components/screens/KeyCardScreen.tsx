@@ -4,7 +4,7 @@ import KeyCard from "../KeyCard";
 
 type KeyCardScreenProps = {
     gameStateSetter: (gs: GameState) => void
-    keyCard: KeyCardModel
+    keyCard: KeyCardModel | null
     N: number
 }
 

@@ -15,7 +15,7 @@ export enum GameState {
 export type GameScreenProps = {
     state: GameState,
     gameStateSetter: (gs: GameState) => void,
-    keyCard: KeyCardModel,
+    keyCard: KeyCardModel | null,
     gameCards: Array<GameCardModel>,
     N: number,
 

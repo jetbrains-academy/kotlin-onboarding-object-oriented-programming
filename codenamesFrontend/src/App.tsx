@@ -1,11 +1,12 @@
 import './App.css';
 import './util/util'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import GameScreen, {GameState} from "./components/GameScreen";
 import {KeyCardModel} from "./models/KeyCard";
 import {codenames} from "common-types";
 import {CardState, GameCardModel} from "./models/GameCard";
 import JsCodeNamesCard = codenames.JsCodeNamesCard;
+import axios from "axios";
 
 const N = 5
 export const initCards = [
@@ -36,17 +37,36 @@ export const initCards = [
     new JsCodeNamesCard(25, "word 25"),
 ]
 
-export function convertCards(cards: Array<JsCodeNamesCard>, keyCard: KeyCardModel) {
+export function convertCards(cards: Array<JsCodeNamesCard>, keyCard: KeyCardModel | null) {
     return cards.map((card, index) => {
-        return new GameCardModel(card, keyCard.cards[index], CardState.WORD)
+        return new GameCardModel(card, keyCard?.cards[index]!!, CardState.WORD)
         }
     )
 }
 
+export function initGame(
+    keyCardSetter: (kc: KeyCardModel) => void,
+    gameCardsSetter: (cards: Array<GameCardModel>) => void
+) {
+    axios.get("/keyCard/new").then((response) => {
+        console.log(response)
+        const keyCardCells = response.data as Array<number>
+        const newKeyCard = new KeyCardModel(keyCardCells)
+        keyCardSetter(newKeyCard)
+        // TODO: call a server function to get new cards
+        gameCardsSetter(convertCards(initCards, newKeyCard))
+    })
+}
+
 function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
-    let [keyCard, keyCardSetter] = useState(new KeyCardModel())
-    let [gameCards, gameCardsSetter] = useState(convertCards(initCards, keyCard))
+    let [keyCard, keyCardSetter] = useState<KeyCardModel | null>(null)
+    let [gameCards, gameCardsSetter] = useState<Array<GameCardModel>>([])
+
+    // Load initial data
+    useEffect(() => {
+        initGame(keyCardSetter, gameCardsSetter)
+    }, []);
 
     return (<div className="App">
             <header className="App-header">
