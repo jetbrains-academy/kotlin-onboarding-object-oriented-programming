@@ -1,28 +1,37 @@
-import {useState} from "react";
 import StartScreen from "./screens/StartScreen";
 import GameRoundScreen from "./screens/GameRoundScreen";
 import {KeyCardModel} from "../models/KeyCard";
-import {codenames} from "common-types";
-import JsCodeNamesCard = codenames.JsCodeNamesCard;
 import KeyCardScreen from "./screens/KeyCardScreen";
+import {GameCardModel} from "../models/GameCard";
+import GameStatisticsScreen from "./screens/GameStatisticsScreen";
 
 export enum GameState {
     START,
     GAME,
     KEY_CARD,
+    GAME_STAT,
 }
 
 export type GameScreenProps = {
     state: GameState,
     gameStateSetter: (gs: GameState) => void,
     keyCard: KeyCardModel,
-    cards: Array<JsCodeNamesCard>,
+    gameCards: Array<GameCardModel>,
     N: number,
 
     keyCardSetter: (kc: KeyCardModel) => void,
+    gameCardsSetter: (cards: Array<GameCardModel>) => void,
 }
 
-export default function GameScreen({state, gameStateSetter, keyCard, cards, N, keyCardSetter}: GameScreenProps) {
+export default function GameScreen({
+                                       state,
+                                       gameStateSetter,
+                                       keyCard,
+                                       gameCards,
+                                       N,
+                                       keyCardSetter,
+                                       gameCardsSetter
+                                   }: GameScreenProps) {
     switch (state) {
         case GameState.START: {
             return <StartScreen gameStateSetter={gameStateSetter}/>
@@ -30,14 +39,17 @@ export default function GameScreen({state, gameStateSetter, keyCard, cards, N, k
         case GameState.GAME: {
             return <GameRoundScreen
                 gameStateSetter={gameStateSetter}
-                keyCard={keyCard}
-                cards={cards}
+                gameCards={gameCards}
                 N={N}
                 keyCardSetter={keyCardSetter}
+                gameCardsSetter={gameCardsSetter}
             />
         }
         case GameState.KEY_CARD: {
             return <KeyCardScreen gameStateSetter={gameStateSetter} keyCard={keyCard} N={N}/>
+        }
+        case GameState.GAME_STAT: {
+            return <GameStatisticsScreen gameStateSetter={gameStateSetter} gameCards={gameCards}/>
         }
     }
 }

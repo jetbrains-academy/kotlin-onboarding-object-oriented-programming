@@ -4,10 +4,11 @@ import {useState} from "react";
 import GameScreen, {GameState} from "./components/GameScreen";
 import {KeyCardModel} from "./models/KeyCard";
 import {codenames} from "common-types";
+import {CardState, GameCardModel} from "./models/GameCard";
 import JsCodeNamesCard = codenames.JsCodeNamesCard;
 
 const N = 5
-const initCards = [
+export const initCards = [
     new JsCodeNamesCard(1, "word 1"),
     new JsCodeNamesCard(2, "word 2"),
     new JsCodeNamesCard(3, "word 3"),
@@ -35,19 +36,27 @@ const initCards = [
     new JsCodeNamesCard(25, "word 25"),
 ]
 
+export function convertCards(cards: Array<JsCodeNamesCard>, keyCard: KeyCardModel) {
+    return cards.map((card, index) => {
+        return new GameCardModel(card, keyCard.cards[index], CardState.WORD)
+        }
+    )
+}
+
 function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
     let [keyCard, keyCardSetter] = useState(new KeyCardModel())
-    let [cards, cardsSetter] = useState(initCards)
+    let [gameCards, gameCardsSetter] = useState(convertCards(initCards, keyCard))
 
     return (<div className="App">
             <header className="App-header">
                 <GameScreen state={gameState}
                             gameStateSetter={gameStateSetter}
                             keyCard={keyCard}
-                            cards={cards}
+                            gameCards={gameCards}
                             N={N}
                             keyCardSetter={keyCardSetter}
+                            gameCardsSetter={gameCardsSetter}
                 />
             </header>
         </div>);

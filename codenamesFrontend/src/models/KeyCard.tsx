@@ -7,6 +7,10 @@ export enum KeyCardType {
     BLACK, // 1
 }
 
+export const PINK_CARDS_NUMBER = 8
+export const VIOLET_CARDS_NUMBER = 9
+export const GRAY_CARDS_NUMBER = 7
+
 export class KeyCardModel {
     cards: Array<KeyCardType>
 
@@ -19,9 +23,9 @@ export class KeyCardModel {
     // TODO: init on the server
     constructor() {
         const cards: Array<KeyCardType> = [KeyCardType.BLACK];
-        this.addCards(KeyCardType.PINK, cards, 8)
-        this.addCards(KeyCardType.VIOLET, cards, 9)
-        this.addCards(KeyCardType.GRAY, cards, 7)
+        this.addCards(KeyCardType.PINK, cards, PINK_CARDS_NUMBER)
+        this.addCards(KeyCardType.VIOLET, cards, VIOLET_CARDS_NUMBER)
+        this.addCards(KeyCardType.GRAY, cards, GRAY_CARDS_NUMBER)
         this.cards = shuffle(cards)
     }
 }

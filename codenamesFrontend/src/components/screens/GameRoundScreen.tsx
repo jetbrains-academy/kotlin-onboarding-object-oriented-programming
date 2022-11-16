@@ -1,47 +1,58 @@
 import {GameState} from "../GameScreen";
-import {codenames} from "common-types";
-import CodeNamesCard, {CardState} from "../Card";
 import {KeyCardModel} from "../../models/KeyCard";
-import JsCodeNamesCard = codenames.JsCodeNamesCard;
+import {GameCardModel} from "../../models/GameCard";
+import CodeNamesCard from "../Card";
+import {convertCards, initCards} from "../../App";
 
 type GameRoundScreenProps = {
     gameStateSetter: (gs: GameState) => void
-    keyCard: KeyCardModel
-    cards: Array<JsCodeNamesCard>
+    gameCards: Array<GameCardModel>
     N: number
 
     keyCardSetter: (kc: KeyCardModel) => void
+    gameCardsSetter: (cards: Array<GameCardModel>) => void
 }
 
-export default function GameRoundScreen({gameStateSetter, keyCard, cards, N, keyCardSetter}: GameRoundScreenProps) {
-    return (
-        <div className="App-container">
+let id = 0
+
+export default function GameRoundScreen({
+                                            gameStateSetter,
+                                            gameCards,
+                                            N,
+                                            keyCardSetter,
+                                            gameCardsSetter
+                                        }: GameRoundScreenProps) {
+    return (<div className="App-container">
             <div className="App-cards-container">
-                {
-                    cards?.chunk(N)?.map((row: Array<JsCodeNamesCard> | null, i: number) => (
-                        <div className="App-cards-container-row">
-                            {
-                                row?.map((card, j) => (
-                                    <CodeNamesCard card={card} type={keyCard.cards[i * j]}
-                                                   state={CardState.WORD}></CodeNamesCard>
-                                ))
-                            }
-                        </div>
-                    ))
-                }
+                {gameCards?.chunk(N)?.map((row: Array<GameCardModel> | null, i: number) => (
+                    <div className="App-cards-container-row" key={"Key:" + id++}>
+                        {row?.map((card, j) => (<CodeNamesCard
+                                gameCard={card}
+                                gameCardsSetter={gameCardsSetter}
+                                gameCards={gameCards}
+                                index={i * N + j}
+                                key={"Row:" + i + "Column:" + j}
+                            />))}
+                    </div>))}
             </div>
             <div className="App-buttons-container">
-                <button className="App-button-base App-button-start"
+                <button className="App-button-base App-button-start App-button-no-bg"
                         onClick={() => gameStateSetter(GameState.KEY_CARD)}>Show the key card
                 </button>
-                <button className="App-button-base App-button-start" onClick={() => {
-                    keyCardSetter(new KeyCardModel())
-                    // TODO: update cards
-                    gameStateSetter(GameState.START)
-                }
-                }>Finish the game
+                <button className="App-button-base App-button-start App-button-no-bg" onClick={() => {
+                    gameStateSetter(GameState.GAME_STAT)
+                }}>Show game statistics
                 </button>
             </div>
+        <div className="App-buttons-container">
+            <button className="App-button-base App-button-start App-no-top-margin" onClick={() => {
+                const newKeyCard = new KeyCardModel()
+                keyCardSetter(newKeyCard)
+                gameStateSetter(GameState.START)
+                // TODO: call a server function to get new cards
+                gameCardsSetter(convertCards(initCards, newKeyCard))
+            }}>Finish the game
+            </button>
         </div>
-    )
+        </div>)
 }

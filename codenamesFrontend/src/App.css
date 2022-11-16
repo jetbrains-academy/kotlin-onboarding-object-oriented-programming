@@ -45,13 +45,11 @@
   height: 10vmin;
 }
 
-.App-card-container {
-  background-image: url('assets/card_bg.svg');
+.App-card-container-base {
   background-repeat: no-repeat;
   background-size: auto;
   height: 10vmin;
   width: 20vmin;
-  pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,6 +57,26 @@
   color: black;
   margin: 2.5vmin;
   cursor: pointer;
+}
+
+.App-card-container-word {
+  background-image: url('assets/card_bg.svg');
+}
+
+.App-card-container-pink {
+  background-image: url('assets/covers/pink.svg');
+}
+
+.App-card-container-gray {
+  background-image: url('assets/covers/gray.svg');
+}
+
+.App-card-container-violet {
+  background-image: url('assets/covers/violet.svg');
+}
+
+.App-card-container-black {
+  background-image: url('assets/covers/black.svg');
 }
 
 .App-cards-container {
@@ -76,8 +94,7 @@
   width: 50vmin;
   pointer-events: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -88,4 +105,38 @@
 .App-key-card-square {
   height: 10vmin;
   width: 10vmin;
+}
+
+.App-button-no-bg {
+  background-image: none;
+  color: black;
+}
+
+.App-no-top-margin {
+  margin-top: 0;
+}
+
+.App-top-margin {
+  margin-top: 5vmin;
+}
+
+.App-game-stat-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 5vmin;
+  margin-right: 5vmin;
+}
+
+.App-game-stat-item-amount {
+  display: flex;
+  align-items: center;
+  margin-left: 2.5vmin;
+  font-size: 6vmin;
+}
+
+.App-game-stat-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
