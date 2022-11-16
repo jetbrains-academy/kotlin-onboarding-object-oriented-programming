@@ -1,5 +1,6 @@
 package jetbrains.kotlin.course.codenames.keyCard
 
+import jetbrains.kotlin.course.codenames.utils.Utils
 import jetbrains.kotlin.course.codenames.utils.Utils.BLACK_CARDS_NUMBER
 import jetbrains.kotlin.course.codenames.utils.Utils.GRAY_CARDS_NUMBER
 import jetbrains.kotlin.course.codenames.utils.Utils.PINK_CARDS_NUMBER
@@ -16,7 +17,5 @@ enum class KeyCardType(val amount: Int) {
 value class KeyCardCell(val type: KeyCardType)
 
 class KeyCard {
-    val cells: List<KeyCardCell> = KeyCardType.values().map { type ->
-        List(type.amount) { KeyCardCell(type) }
-    }.flatten().shuffled()
+    val cells: List<KeyCardCell> = Utils.uniqueKeyCardGenerator.generateData()
 }

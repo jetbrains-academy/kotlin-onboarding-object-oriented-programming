@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.codenames.utils
 
-val words = setOf(
+var words = listOf(
     "cable",
     "curve",
     "substance",

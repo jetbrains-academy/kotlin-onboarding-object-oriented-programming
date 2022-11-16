@@ -1,17 +1,14 @@
 package jetbrains.kotlin.course.codenames.card
 
-import jetbrains.kotlin.course.codenames.utils.Identifier
-
-@JvmInline
-value class Word(val word: String)
+interface CardData
+data class WordCardData(val word: String): CardData
 
 enum class CardState {
-    Word,
-    Picture,
+    Data,
+    Back,
 }
 
 data class Card(
-    val id: Identifier,
-    val word: Word,
+    val data: CardData,
     val state: CardState,
 )
