@@ -62,5 +62,25 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
         ),
+
+        // Need for 4th task
+        Variable(
+            name = "previousAttempts",
+            javaType = "List",
+            isStatic = true,
+            visibility = Visibility.PRIVATE,
+            mutability = VariableMutability.VAL,
+            kotlinType = KotlinType(
+                "MutableList",
+                abbreviation = "kotlin.collections.List<jetbrains.kotlin.course.codenames.keyCard.KeyCardCell>"
+            ),
+        ),
+        Variable(
+            name = "uniqueKeyCardGenerator",
+            javaType = "KeyCardGenerator",
+            isStatic = true,
+            visibility = Visibility.PUBLIC,
+            mutability = VariableMutability.VAL,
+        ),
     ),
 )

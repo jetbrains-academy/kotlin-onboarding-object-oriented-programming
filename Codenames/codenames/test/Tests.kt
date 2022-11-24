@@ -35,6 +35,14 @@ class Test {
     @Test
     fun keyCardGeneratorTestClassTest() {
         val clazz = keyCardGeneratorTestClass.checkBaseDefinition()
-        keyCardTypeTestClass.checkNoConstructors(clazz)
+        keyCardGeneratorTestClass.checkNoConstructors(clazz)
+        keyCardGeneratorTestClass.checkDeclaredMethods(clazz)
     }
+    @Test
+    fun utilObjectExtendedTestClassTest() {
+        val clazz = utilObjectTestClass.checkBaseDefinition()
+        utilObjectTestClass.checkFieldsDefinition(clazz)
+    }
+
+    // Get utilObject, get
 }

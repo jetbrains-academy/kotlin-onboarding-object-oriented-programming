@@ -27,9 +27,28 @@ ___
 
 Create a SAM interface `KeyCardGenerator` in the `jetbrains.kotlin.course.codenames.utils` package:
 
+- add a value class `KeyCardCell` in the `jetbrains.kotlin.course.codenames.keyCard` package with one field `type: KeyCardType`
 - add a `generateData` function into the `KeyCardGenerator` interface, that accepts nothing and returns `List<KeyCardCell>`
-- add a `previousAttempts` field into the `Utils` object with the type `MutableList<List<KeyCardCell>>` and init this field via an empty mutable list.
-- add a `uniqueKeyCardGenerator` field into the `Utils` object with the type `KeyCardGenerator` and implement the `generateData` function:
-generate a new `List<KeyCardCell>`: put the `amount` of each `KeyCardType` into this list and shuffle it. 
-Next, check if this combination of `List<KeyCardCell>` was not used before (it is not in the `previousAttempts`) and return this list. 
-If the generated list was used before, repeat generation while a new list (that is not in the `previousAttempts`) will not be generated.
+
+
+___
+
+### Task
+
+Improve the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package:
+
+- add a `previousAttempts` field with the type `MutableList<List<KeyCardCell>>` and init this field via an empty mutable list.
+- add a `uniqueKeyCardGenerator` field into the `Utils` object with the type `KeyCardGenerator`, ypu need to add a `TODO` statement as a temporary implementation of the `generateData` function.
+
+___
+
+### Task
+
+Implement the `generateData` function for the `uniqueKeyCardGenerator` field in the `Utils` object.
+The behaviour of the `generateData` function must be the following:
+1) Generate a new `List<KeyCardCell>`: put the `amount` of each `KeyCardType` into this list and shuffle it. 
+2) Next, check if this combination of `List<KeyCardCell>` was not used before (it is not in the `previousAttempts`) and return this list. 
+3) If the generated list was used before, repeat generation while a new list (that is not in the `previousAttempts`) will not be generated.
+
+Add a new class `KeyCard` into the `jetbrains.kotlin.course.codenames.keyCard` package to store the key class. 
+Add one immutable field into the primary constructor: `cells: List<KeyCardCell>` and init through `Utils.uniqueKeyCardGenerator.generateData()` by default.
