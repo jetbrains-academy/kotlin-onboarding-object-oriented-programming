@@ -52,3 +52,28 @@ The behaviour of the `generateData` function must be the following:
 
 Add a new class `KeyCard` into the `jetbrains.kotlin.course.codenames.keyCard` package to store the key class. 
 Add one immutable field into the primary constructor: `cells: List<KeyCardCell>` and init through `Utils.uniqueKeyCardGenerator.generateData()` by default.
+
+___
+
+### Task
+
+The package `jetbrains.kotlin.course.codenames.keyCard` already has the regular class `KeyCardService`.
+It is responsible for the game logic for the key card. In this task you need to implement the `generateKeyCard` function to make the game alive:
+
+- implement the `generateKeyCard` function, that just returns a new instance of the `KeyCard` class
+
+___
+
+### Task
+
+Let's switch to the card model. Add a new interface `CardData` into the `jetbrains.kotlin.course.codenames.card` package. 
+Next, create a new class `WordCardData` in the same package to store words for this game. 
+The  `WordCardData` class should inheritance the `CardData` interface and have only one immutable field: `word: String`.
+
+___
+
+### Task
+
+Next we need to create a special class to store the card information. Firstly, we need to create a new enum class to store a state for the cards. 
+Create an enum class `CardState` in the package `jetbrains.kotlin.course.codenames.card`. This class must store two values: `Data`, and `Back`.
+Secondly, create a class `Card` in the same package with two immutable fields in the primary constructor: `data: CardData` and `state: CardState`.

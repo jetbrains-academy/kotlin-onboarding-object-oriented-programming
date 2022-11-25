@@ -41,6 +41,7 @@ data class TestClass(
     val customMethods: List<TestMethod> = emptyList(),
     val isDataClass: Boolean = false,
     val declaredEnumEntries: List<Variable> = emptyList(),
+    val interfaces: List<TestClass> = emptyList(),
 ) {
     fun getFullName() = classPackage?.let {
         "$it.$name"
@@ -64,7 +65,19 @@ data class TestClass(
         if (isDataClass) {
             clazz.checkIfIsDataClass(this)
         }
+        if (this.interfaces.isNotEmpty()) {
+            checkInterfaces(clazz)
+        }
         return clazz
+    }
+
+    private fun checkInterfaces(clazz: Class<*>) {
+        val clazzInterfaces = clazz.interfaces
+        assert(this.interfaces.size == clazzInterfaces.size) { "The class ${getFullName()} must have ${this.interfaces.size} direct superclasses" }
+        this.interfaces.forEach {
+            val currentClazz = it.findClass()
+            assert(currentClazz in clazzInterfaces) { "The class ${getFullName()} must have ${it.getFullName()} as a direct superclass" }
+        }
     }
 
     private fun checkFields(clazz: Class<*>) {
@@ -107,17 +120,18 @@ data class TestClass(
         return field.get(clazz) ?: error("Did not get the INSTANCE of the ${getFullName()}")
     }
 
-    fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any>? {
+    fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any> {
         require(constructorGetters.isNotEmpty())
         val arguments = constructorGetters.map { it.parameterTypes }.toSet()
         require(arguments.size == 1)
+        val constructors = mutableListOf<Constructor<*>>()
         constructorGetters.forEach {
             it.getConstructorWithDefaultArguments(clazz)?.let { constructor ->
-                return constructor
+                constructors.add(constructor)
             }
         }
-        assert(false) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
-        return null
+        assert(constructors.isNotEmpty()) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
+        return constructors.first()
     }
 
     fun checkDeclaredMethods(clazz: Class<*>) {

@@ -30,3 +30,15 @@ files:
   visible: false
 - name: test/KeyCardGeneratorTestClass.kt
   visible: false
+- name: test/KeyCardTestClass.kt
+  visible: false
+- name: test/KeyCardServiceTestClass.kt
+  visible: false
+- name: test/CardDataInterfaceTestClass.kt
+  visible: false
+- name: test/WordCardDataTestClass.kt
+  visible: false
+- name: test/CardStateTestClass.kt
+  visible: false
+- name: test/CardTestClass.kt
+  visible: false
