@@ -17,7 +17,7 @@ class CardService {
                 CardState.Data,
             )
         }
-        words = words.drop(TOTAL_AMOUNT)
+        words = shuffledWords.drop(TOTAL_AMOUNT)
         return cards
     }
 }

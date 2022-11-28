@@ -1,8 +1,11 @@
+import jetbrains.kotlin.course.codenames.utils.words
 import models.ConstructorGetter
 import models.TestClass
 import models.findMethod
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.lang.reflect.Constructor
+import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 
 class Test {
@@ -169,27 +172,54 @@ class Test {
 
         val previousCards = mutableListOf<String>()
         val previousWords = mutableListOf<String>()
-        // TODO: use total amount
-        repeat(10) {
-            val instance = try {
-                constructor.newInstance()
-            } catch (e: Exception) {
-                assert(false) { "Can not create an instance of the class ${cardServiceTestClass.getFullName()}" }
-            }
+        val cardServiceInstance = try {
+            constructor.newInstance()
+        } catch (e: Exception) {
+            assert(false) { "Can not create an instance of the class ${cardServiceTestClass.getFullName()}" }
+        }
 
-            val cards = cardServiceTestClass.invokeMethodWithoutArgs(clazz, instance, method).toString()
-            assert(cards !in previousCards) { "You need to generate different lists of cards" }
+        val utilObjectClazz = utilObjectTestClass.checkBaseDefinition()
+        val utilObjectInstance = utilObjectTestClass.getObjectInstance(utilObjectClazz)
+        val totalAmountField = utilObjectClazz.declaredFields.find { it.name == "TOTAL_AMOUNT" }
+            ?: error("Can not find the field TOTAL_AMOUNT")
+        val totalAmountValue = totalAmountField.get(utilObjectInstance) as Int
+        val attempts = words.size / totalAmountValue
 
-            val cardsAsStrings = cards.split("[", "]")
-            assert(cardsAsStrings.size == 3) { "You need to return a list from the ${generateWordsCardsMethod.name} method" }
-            val wordsFromCards = cardsAsStrings[1].split("Card(data=WordCardData(word=").filter{ it.isNotEmpty() }.map{ it.split(")").first() }
-            assert(wordsFromCards.size == wordsFromCards.toSet().size) { "The list of cards must contain only unique words" }
-            wordsFromCards.forEach {
-                assert(!previousWords.contains(it)) { "You created a card with the word <$it> before! Please, use different words for each generation!" }
-            }
-
+        repeat(attempts) {
+            val cards = generateWordsCards(clazz, cardServiceInstance, method, previousCards)
             previousCards.add(cards)
+            val wordsFromCards = parseWordsCards(cards, previousWords)
             previousWords.addAll(wordsFromCards)
         }
+
+        assertThrows<InvocationTargetException>("The method ${generateWordsCardsMethod.name} must throw the an exception if words.size < TOTAL_AMOUNT") {
+            generateWordsCards(clazz, cardServiceInstance, method, previousCards)
+        }
     }
+
+    private fun <T> generateWordsCards(
+        cardServiceClazz: Class<*>,
+        cardServiceInstance: T,
+        generateWordsCardsMethod: Method,
+        previousCards: List<String>,
+    ): String {
+        val cards = cardServiceTestClass
+            .invokeMethodWithoutArgs(cardServiceClazz, cardServiceInstance, generateWordsCardsMethod).toString()
+        assert(cards !in previousCards) { "You need to generate different lists of cards" }
+
+        val cardsAsStrings = cards.splitToWords()
+        assert(cardsAsStrings.size == 3) { "You need to return a list from the ${generateWordsCardsMethod.name} method" }
+        return cards
+    }
+
+    private fun parseWordsCards(wordsCardsStr: String, previousWords: List<String>): List<String> {
+        val wordsFromCards = wordsCardsStr.splitToWords()[1].split("Card(data=WordCardData(word=").filter{ it.isNotEmpty() }.map{ it.split(")").first() }
+        assert(wordsFromCards.size == wordsFromCards.toSet().size) { "The list of cards must contain only unique words" }
+        wordsFromCards.forEach {
+            assert(!previousWords.contains(it)) { "You created a card with the word <$it> before! Please, use different words for each generation!" }
+        }
+        return wordsFromCards
+    }
+
+    private fun String.splitToWords() = this.split("[", "]")
 }

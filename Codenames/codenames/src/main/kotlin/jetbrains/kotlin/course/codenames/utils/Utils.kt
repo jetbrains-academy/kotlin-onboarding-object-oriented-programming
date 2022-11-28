@@ -33,13 +33,3 @@ object Utils {
         require(PINK_CARDS_NUMBER + VIOLET_CARDS_NUMBER + GRAY_CARDS_NUMBER + BLACK_CARDS_NUMBER == TOTAL_AMOUNT) { "The total amount in the game must be: $TOTAL_AMOUNT" }
     }
 }
-
-// +Utils + consts + init
-// +KeyCardType
-// +KeyCardGenerator
-// + uniqueKeyCardGenerator + previousAttempts
-// + uniqueKeyCardGenerator impl + KeyCard
-// + KeyCardService
-// + CardData + WordCardData
-// + CardState + Card
-// CardService
