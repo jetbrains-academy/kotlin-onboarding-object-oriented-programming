@@ -3,11 +3,13 @@ package models
 import throwInternalCourseError
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method
+import java.lang.reflect.Modifier
 import kotlin.jvm.internal.DefaultConstructorMarker
 
 enum class ClassType(val key: String) {
     CLASS("class"),
     INTERFACE("interface"),
+    SAM_INTERFACE("fun interface"),
     ENUM("enum class"),
     OBJECT("object"),
 //    COMPANION_OBJECT
@@ -38,6 +40,8 @@ data class TestClass(
     val declaredFields: List<Variable> = emptyList(),
     val customMethods: List<TestMethod> = emptyList(),
     val isDataClass: Boolean = false,
+    val declaredEnumEntries: List<Variable> = emptyList(),
+    val interfaces: List<TestClass> = emptyList(),
 ) {
     fun getFullName() = classPackage?.let {
         "$it.$name"
@@ -61,16 +65,36 @@ data class TestClass(
         if (isDataClass) {
             clazz.checkIfIsDataClass(this)
         }
+        if (this.interfaces.isNotEmpty()) {
+            checkInterfaces(clazz)
+        }
         return clazz
     }
 
+    private fun checkInterfaces(clazz: Class<*>) {
+        val clazzInterfaces = clazz.interfaces
+        assert(this.interfaces.size == clazzInterfaces.size) { "The class ${getFullName()} must have ${this.interfaces.size} direct superclasses" }
+        this.interfaces.forEach {
+            val currentClazz = it.findClass()
+            assert(currentClazz in clazzInterfaces) { "The class ${getFullName()} must have ${it.getFullName()} as a direct superclass" }
+        }
+    }
+
     private fun checkFields(clazz: Class<*>) {
+        checkVariables(clazz, this.declaredFields)
+    }
+
+    private fun checkVariables(clazz: Class<*>, variables: List<Variable>) {
         val declaredFields = clazz.getDeclaredFieldsWithoutCompanion()
-        this.declaredFields.forEach { field ->
+        variables.forEach { field ->
             val currentField = declaredFields.find { it.name == field.name }
             assert(currentField != null) { "Can not find the field with name ${field.name}" }
             field.checkField(currentField!!)
         }
+    }
+
+    fun checkEnumEntryDefinition(clazz: Class<*>) {
+        checkVariables(clazz, this.declaredEnumEntries)
     }
 
     fun checkFieldsDefinition(clazz: Class<*>, toCheckDeclaredFieldsSize: Boolean = true) {
@@ -86,17 +110,28 @@ data class TestClass(
         return clazz!!
     }
 
-    fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any>? {
+    fun checkNoConstructors(clazz: Class<*>) {
+        assert(clazz.constructors.isEmpty()) { "The ${getBaseDefinition()} must not have any constructors" }
+    }
+
+    fun getObjectInstance(clazz: Class<*>): Any {
+        val field = clazz.getInstanceFiled()
+        require(field != null) { "Did not find the INSTANCE of the ${getFullName()}" }
+        return field.get(clazz) ?: error("Did not get the INSTANCE of the ${getFullName()}")
+    }
+
+    fun checkConstructors(clazz: Class<*>, constructorGetters: List<ConstructorGetter>): Constructor<out Any> {
         require(constructorGetters.isNotEmpty())
         val arguments = constructorGetters.map { it.parameterTypes }.toSet()
         require(arguments.size == 1)
+        val constructors = mutableListOf<Constructor<*>>()
         constructorGetters.forEach {
             it.getConstructorWithDefaultArguments(clazz)?.let { constructor ->
-                return constructor
+                constructors.add(constructor)
             }
         }
-        assert(false) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
-        return null
+        assert(constructors.isNotEmpty()) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
+        return constructors.first()
     }
 
     fun checkDeclaredMethods(clazz: Class<*>) {
@@ -160,14 +195,32 @@ private fun Class<*>.getVisibility() = this.modifiers.getVisibility()
 
 private fun Class<*>.getClassType(): ClassType {
     if (this.isInterface) {
+        if (this.isSamInterface()) {
+            return ClassType.SAM_INTERFACE
+        }
         return ClassType.INTERFACE
     }
     if (this.isEnum) {
         return ClassType.ENUM
     }
-    // TODO: think about object and companion object
+    if (this.isObject()) {
+        return ClassType.OBJECT
+    }
+    // TODO: think about companion object
     return ClassType.CLASS
 }
+
+private fun Class<*>.isSamInterface(): Boolean {
+    if (methods.size != 1) {
+        return false
+    }
+    return Modifier.isAbstract(methods.first().modifiers)
+}
+
+private fun Class<*>.getInstanceFiled() = this.fields.find { it.name == "INSTANCE" }
+
+private fun Class<*>.isObject() =
+    this.fields.all { Modifier.isStatic(it.modifiers) } && this.getInstanceFiled() != null
 
 private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
     val methods = this.methods

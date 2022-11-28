@@ -94,19 +94,16 @@ class Test {
             )
         )
         // Check the name field value
-        constructor?.let {
-            val method = clazz.methods.findMethod(getNameFromTeamMethod)
-            for (i in 0..100) {
-                val instance = try {
-                    it.newInstance(i, 0, 0, null)
-                } catch (e: Exception) {
-                    assert(false) { "Can not create an instance of the class ${teamClass.getFullName()} with id = $i" }
-                }
-                val name = teamClass.invokeMethodWithoutArgs(clazz, instance, method)
-                val teamName = "Team#${i + 1}"
-                assert(teamName == name) { "For the team with id $i the name must be $teamName" }
+        val method = clazz.methods.findMethod(getNameFromTeamMethod)
+        for (i in 0..100) {
+            val instance = try {
+                constructor.newInstance(i, 0, 0, null)
+            } catch (e: Exception) {
+                assert(false) { "Can not create an instance of the class ${teamClass.getFullName()} with id = $i" }
             }
-
+            val name = teamClass.invokeMethodWithoutArgs(clazz, instance, method)
+            val teamName = "Team#${i + 1}"
+            assert(teamName == name) { "For the team with id $i the name must be $teamName" }
         }
     }
 
@@ -182,7 +179,7 @@ class Test {
         )
         // Just check if the constructor works well
         // Unfortunately we can not check the type of the argument, because we don't have them at runtime
-        constructor?.newInstance(1, listOf("dog"))
+        constructor.newInstance(1, listOf("dog"))
     }
 
     @Test
