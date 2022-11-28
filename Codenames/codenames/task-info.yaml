@@ -42,3 +42,5 @@ files:
   visible: false
 - name: test/CardTestClass.kt
   visible: false
+- name: test/CardServiceTestClass.kt
+  visible: false

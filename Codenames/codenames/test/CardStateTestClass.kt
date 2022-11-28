@@ -4,7 +4,7 @@ import models.Variable
 import models.Visibility
 
 internal val cardStateTestClass = TestClass(
-    "CardState",
+    "CardService",
     "jetbrains.kotlin.course.codenames.card",
     classType = ClassType.ENUM,
     declaredEnumEntries = listOf(

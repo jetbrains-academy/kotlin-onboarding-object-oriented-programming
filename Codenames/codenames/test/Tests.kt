@@ -140,14 +140,56 @@ class Test {
 
     @Test
     fun cardTestClassTest() {
-        val clazz = cardStateTestClass.checkBaseDefinition()
-        cardStateTestClass.checkFieldsDefinition(clazz, toCheckDeclaredFieldsSize = false)
-        // TODO: check constructors
-//        keyCardTestClass.checkConstructors(
-//            clazz,
-//            listOf(
-//                ConstructorGetter(parameterTypes = listOf(List::class.java)),
-//            )
-//        )
+        val clazz = cardTestClass.checkBaseDefinition()
+        cardTestClass.checkFieldsDefinition(clazz)
+
+        val cardDataClazz = cardDataInterfaceTestClass.checkBaseDefinition()
+        val cardStateClazz = cardStateTestClass.checkBaseDefinition()
+        keyCardTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(parameterTypes = listOf(cardDataClazz, cardStateClazz)),
+            )
+        )
+    }
+
+    @Test
+    fun cardServiceTestClassTest() {
+        val clazz = cardServiceTestClass.checkBaseDefinition()
+        cardServiceTestClass.checkDeclaredMethods(clazz)
+        val constructor = cardServiceTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(),
+            )
+        )
+
+        // Check the generateWordsCards method
+        val method = clazz.methods.findMethod(generateWordsCardsMethod)
+
+        val previousCards = mutableListOf<String>()
+        val previousWords = mutableListOf<String>()
+        // TODO: use total amount
+        repeat(10) {
+            val instance = try {
+                constructor.newInstance()
+            } catch (e: Exception) {
+                assert(false) { "Can not create an instance of the class ${cardServiceTestClass.getFullName()}" }
+            }
+
+            val cards = cardServiceTestClass.invokeMethodWithoutArgs(clazz, instance, method).toString()
+            assert(cards !in previousCards) { "You need to generate different lists of cards" }
+
+            val cardsAsStrings = cards.split("[", "]")
+            assert(cardsAsStrings.size == 3) { "You need to return a list from the ${generateWordsCardsMethod.name} method" }
+            val wordsFromCards = cardsAsStrings[1].split("Card(data=WordCardData(word=").filter{ it.isNotEmpty() }.map{ it.split(")").first() }
+            assert(wordsFromCards.size == wordsFromCards.toSet().size) { "The list of cards must contain only unique words" }
+            wordsFromCards.forEach {
+                assert(!previousWords.contains(it)) { "You created a card with the word <$it> before! Please, use different words for each generation!" }
+            }
+
+            previousCards.add(cards)
+            previousWords.addAll(wordsFromCards)
+        }
     }
 }

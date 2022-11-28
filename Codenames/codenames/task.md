@@ -77,3 +77,16 @@ ___
 Next we need to create a special class to store the card information. Firstly, we need to create a new enum class to store a state for the cards. 
 Create an enum class `CardState` in the package `jetbrains.kotlin.course.codenames.card`. This class must store two values: `Data`, and `Back`.
 Secondly, create a class `Card` in the same package with two immutable fields in the primary constructor: `data: CardData` and `state: CardState`.
+
+___
+
+### Task
+
+Wow! You almost finish the project! It is the last step.
+
+The package `jetbrains.kotlin.course.codenames.card` already has the regular class `CardService`. In this task you need to implement the `generateWordsCards` function with the following behaviour:
+- if `words.size < TOTAL_AMOUNT`, you need to throw an error. The `words` is already defined variable with `List<String>`, that contains all possible words for the game. The `TOTAL_AMOUNT` you already declared in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
+- next, you need to _shuffle_ `words` and create `TOTAL_AMOUNT` cards by taking them from the shuffled words list and creating new instances of the `Card` class.
+- don't forget to _drop_ all words from the `words` list that were used for the generated cards.
+
+Good luck!
