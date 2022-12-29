@@ -1,9 +1,10 @@
 plugins {
-    kotlin("multiplatform") version "1.6.10"
+    val kotlinVersion = libs.versions.kotlin.get()
+    kotlin("multiplatform") version kotlinVersion
 }
 
-group = "com.example"
-version = "0.0.1"
+group = rootProject.group
+version = rootProject.version
 
 kotlin {
     js(IR) {
@@ -27,6 +28,8 @@ tasks {
                 rename { name -> name.replace("${rootProject.name}-common", "index") }
             }
         }
-        finalizedBy(":aliasFrontend:addCommonTypes", ":codenamesFrontend:addCommonTypes")
+
+        val frontEndModules = listOf("aliasFrontend", "codenamesFrontend")
+        finalizedBy(frontEndModules.map { ":$it:addCommonTypes" })
     }
 }
