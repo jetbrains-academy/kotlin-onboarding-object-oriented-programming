@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="run app dev" type="CompoundRunConfigurationType">
-    <toRun name="frontend (hot reload)" type="js.build_tools.npm" />
-    <toRun name="run app" type="SpringBootApplicationConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>

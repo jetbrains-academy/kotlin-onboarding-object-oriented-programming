@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="frontend (hot reload)" type="js.build_tools.npm">
+  <configuration default="false" name="run_alias_client" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/aliasFrontend/package.json" />
     <command value="run" />
     <scripts>

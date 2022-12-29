@@ -1,0 +1,35 @@
+[versions]
+
+kotlin = "1.7.10"
+
+junit-jupiter = "5.9.0"
+junit-platform = "1.9.0"
+
+springframework = "2.7.3"
+spring-dependency-management = "1.0.13.RELEASE"
+spring-plugin = "1.7.10"
+
+frontend-jdk11 = "6.0.0"
+node = "16.17.1"
+yarn = "3.0.0"
+
+[libraries]
+
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit-jupiter" }
+junit-platform-console = { module = "org.junit.platform:junit-platform-console", version.ref = "junit-platform" }
+
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+
+[plugins]
+
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+springframework = { id = "org.springframework.boot", version.ref = "springframework" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+spring-plugin = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "spring-plugin" }
+
+frontend-jdk11 = { id = "org.siouan.frontend-jdk11", version.ref = "frontend-jdk11" }
