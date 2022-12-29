@@ -42,6 +42,7 @@ tasks {
 val alias = "alias"
 val codenames = "codenames"
 val frontend = "Frontend"
+val server = "Server"
 
 val ignored = listOf("common", "$alias$frontend", "$codenames$frontend")
 configure(subprojects.filter { it.name !in ignored }) {
@@ -95,7 +96,7 @@ val jupiterConsole = libs.junit.platform.console
 val reflect = libs.kotlin.reflect
 val springBootStarterWeb = libs.spring.boot.starter.web
 
-val servers = mapOf("BraveNewWorld" to alias, "Codenames" to codenames)
+val servers = mapOf("$alias$server" to alias, "$codenames$server" to codenames)
 configure(subprojects.filter { it.name in servers.keys }) {
     val projectName = this.name
 
@@ -168,7 +169,7 @@ configure(subprojects.filter { it.name in clients.keys }) {
             doLast {
                 copy {
                     from("$buildDir")
-                    into("$rootDir/BraveNewWorld/${clients[projectName]!!}/src/main/resources/static/")
+                    into("$rootDir/${clients[projectName]!!}$server/${clients[projectName]!!}/src/main/resources/static/")
                 }
             }
         }

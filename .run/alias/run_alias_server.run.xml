@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="run_alias_server" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <module name="CSC_Kotlin_Course_Part2.BraveNewWorld.main" />
+    <module name="CSC_Kotlin_Course_Part2.aliasServer.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="jetbrains.kotlin.course.alias.AliasApplication" />
     <extension name="net.ashald.envfile">
       <option name="IS_ENABLED" value="false" />

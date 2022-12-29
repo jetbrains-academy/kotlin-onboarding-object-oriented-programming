@@ -1,8 +1,8 @@
 type: marketplace
 title: CSC Kotlin Course
 language: English
-summary: "TODO"
-content:
-  - BraveNewWorld
-  - Codenames
+summary: TODO
 programming_language: Kotlin
+content:
+- aliasServer
+- codenamesServer
