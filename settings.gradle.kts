@@ -11,8 +11,8 @@ pluginManagement {
 include(
     "common",
     "aliasFrontend",
-    "BraveNewWorld",
+    "aliasServer",
     "utils",
-    "Codenames",
+    "codenamesServer",
     "codenamesFrontend",
 )
