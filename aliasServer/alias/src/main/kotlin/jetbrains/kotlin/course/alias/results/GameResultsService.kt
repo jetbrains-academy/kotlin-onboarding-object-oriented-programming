@@ -14,7 +14,7 @@ class GameResultsService {
 
     fun saveGameResults(result: GameResult) {
         require(result.isNotEmpty()) { "Internal error! Game result is empty!" }
-        require(result.all { it.id in TeamService.teamsStorage }) { "Internal error! Unknown team was received!" }
+        require(result.all { it.id in TeamService.teamsStorage.keys }) { "Internal error! Unknown team was received!" }
         gameHistory.add(result)
     }
 
