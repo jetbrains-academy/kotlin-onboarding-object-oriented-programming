@@ -1,13 +1,50 @@
-.App-header {
+.font-link-base {
+  font-family: 'Gotham', sans-serif;
+  color: black;
+}
+
+.font-link-bold {
+  font-family: 'Gotham Black', sans-serif;
+}
+
+.font-link-light {
+  font-family: 'Gotham XLight', sans-serif;
+}
+
+.App-header-base {
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: url('assets/bg.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.App-header-white {
+  background-image: url('assets/Kotlin_bg_white.svg');
+}
+
+.App-header-black {
+  background-image: url('assets/Kotlin_bg.svg');
+}
+
+.App-covers {
+  height: 25vmin;
+  pointer-events: none;
+}
+
+.App-big-name {
+  font-size: 10vmin;
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
+}
+
+.App-small-name {
+  font-size: 4vmin;
+  margin-top: 4vmin;
+  margin-bottom: 2vmin;
+  color: white;
+}
+
 .App-container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +64,6 @@
 }
 
 .App-button-base {
-  background-image: url('assets/button.svg');
   height: 10vmin;
   margin-top: 5vmin;
   background-repeat: no-repeat;
@@ -41,15 +77,17 @@
 }
 
 .App-button-start {
-  width: 40vmin;
-  height: 10vmin;
+  background-image: url('assets/play_button.svg');
+  width: 30vmin;
+  height: 6vmin;
+  margin-top: 4vmin;
 }
 
 .App-card-container-base {
   background-repeat: no-repeat;
-  background-size: auto;
-  height: 10vmin;
-  width: 20vmin;
+  background-size: 100%;
+  height: 9vmin;
+  width: 18vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +98,7 @@
 }
 
 .App-card-container-word {
-  background-image: url('assets/card_bg.svg');
+  background-image: url('assets/covers/empty.svg');
 }
 
 .App-card-container-pink {
@@ -79,19 +117,24 @@
   background-image: url('assets/covers/black.svg');
 }
 
+.App-min-height {
+  min-height: 100vh;
+}
+
 .App-cards-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.App-cards-container-row {
+.App-flex-direction-row {
+  flex-direction: row;
 }
 
 .App-key-card-container {
-  height: 50vmin;
-  width: 50vmin;
+  height: 40vmin;
+  width: 40vmin;
   pointer-events: none;
   display: flex;
   flex-direction: row;
@@ -99,30 +142,36 @@
 }
 
 .App-key-card-container-row {
-  height: 10vmin;
+  height: 8vmin;
 }
 
 .App-key-card-square {
-  height: 10vmin;
-  width: 10vmin;
+  height: 8vmin;
+  width: 8vmin;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
 }
 
-.App-button-no-bg {
-  background-image: none;
-  color: black;
+.App-key-card-square-pink {
+  background-image: url('assets/keyCard/pink.svg');
 }
 
-.App-no-top-margin {
-  margin-top: 0;
+.App-key-card-square-violet {
+  background-image: url('assets/keyCard/violet.svg');
 }
 
-.App-top-margin {
-  margin-top: 5vmin;
+.App-key-card-square-gray {
+  background-image: url('assets/keyCard/gray.svg');
+}
+
+.App-key-card-square-black {
+  background-image: url('assets/keyCard/black.svg');
 }
 
 .App-game-stat-item-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-left: 5vmin;
   margin-right: 5vmin;
@@ -131,12 +180,45 @@
 .App-game-stat-item-amount {
   display: flex;
   align-items: center;
+  font-size: 2.5vmin;
+  margin-top: 0.5vmin;
   margin-left: 2.5vmin;
-  font-size: 6vmin;
+  margin-bottom: 3vmin;
 }
 
 .App-game-stat-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.App-game-show-key-card {
+  height: 5vmin;
+  width: 25vmin;
+  background-image: url('assets/show_card.svg');
+}
+
+.App-game-finish-game {
+  height: 5vmin;
+  width: 18vmin;
+  background-image: url('assets/finish_game.svg');
+}
+
+.App-game-stats {
+  height: 5vmin;
+  width: 23vmin;
+  background-image: url('assets/stats.svg');
+}
+
+.App-back-button {
+  height: 5vmin;
+  width: 23vmin;
+  background-image: url('assets/back.svg');
+}
+
+.App-game-stat {
+  color: black;
+  font-size: 6vmin;
+  margin-top: 0;
+  margin-bottom: 5vmin;
 }

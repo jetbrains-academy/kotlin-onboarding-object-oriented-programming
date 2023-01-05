@@ -16,7 +16,10 @@ function currentAmount(gameCards: Array<GameCardModel>, type: KeyCardType) {
 
 export default function GameStatisticsScreen({gameStateSetter, gameCards}: GameStatisticsProps) {
     return (
-        <div className="App-container">
+        <div className="App-container App-min-height">
+            <h3 className="App-game-stat font-link-base">
+                Game statistics
+            </h3>
             <div className="App-game-stat-container">
                 <GameStatisticsItemScreen
                     cardType={KeyCardType.VIOLET}
@@ -42,8 +45,8 @@ export default function GameStatisticsScreen({gameStateSetter, gameCards}: GameS
                 />
             </div>
             <div className="App-buttons-container">
-                <button className="App-button-base App-button-start App-top-margin"
-                        onClick={() => gameStateSetter(GameState.GAME)}>Back to the game
+                <button className="App-button-base App-back-button"
+                        onClick={() => gameStateSetter(GameState.GAME)}>
                 </button>
             </div>
         </div>

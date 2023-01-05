@@ -45,18 +45,37 @@ function App() {
         initGame(keyCardSetter, gameCardsSetter)
     }, []);
 
-    return (<div className="App">
-            <header className="App-header">
-                <GameScreen state={gameState}
-                            gameStateSetter={gameStateSetter}
-                            keyCard={keyCard}
-                            gameCards={gameCards}
-                            N={N}
-                            keyCardSetter={keyCardSetter}
-                            gameCardsSetter={gameCardsSetter}
-                />
-            </header>
-        </div>);
+
+    switch (gameState) {
+        case GameState.START: {
+            return (<div className="App">
+                <header className="App-header-base App-header-black">
+                    <GameScreen state={gameState}
+                                gameStateSetter={gameStateSetter}
+                                keyCard={keyCard}
+                                gameCards={gameCards}
+                                N={N}
+                                keyCardSetter={keyCardSetter}
+                                gameCardsSetter={gameCardsSetter}
+                    />
+                </header>
+            </div>);
+        }
+        default: {
+            return (<div className="App">
+                <header className="App-header-base App-header-white">
+                    <GameScreen state={gameState}
+                                gameStateSetter={gameStateSetter}
+                                keyCard={keyCard}
+                                gameCards={gameCards}
+                                N={N}
+                                keyCardSetter={keyCardSetter}
+                                gameCardsSetter={gameCardsSetter}
+                    />
+                </header>
+            </div>);
+        }
+    }
 }
 
 export default App;
