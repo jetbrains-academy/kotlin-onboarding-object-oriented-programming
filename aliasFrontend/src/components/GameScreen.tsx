@@ -37,7 +37,7 @@ export default function GameScreen({state, gameStateSetter}: GameScreenProps) {
             return <EndScreen gameStateSetter={gameStateSetter} gameTeams={gameTeams}/>
         }
         case GameState.STAT: {
-            return <PreviousGamesScreen gameStateSetter={gameStateSetter} />
+            return <PreviousGamesScreen gameStateSetter={gameStateSetter}/>
         }
     }
 }

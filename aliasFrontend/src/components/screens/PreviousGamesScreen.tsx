@@ -1,4 +1,3 @@
-import cards from "../../assets/Kotlin_Alias_cover.svg";
 import {GameState} from "../GameScreen";
 import {useEffect, useState} from "react";
 import {alias} from "common-types";
@@ -20,8 +19,7 @@ function PreviousGames({gameResults, index, currentIndexSetter}: PreviousGamesPr
     if (gameResults.length === 0) {
         return (
             <div className="App-leaderboard-container">
-                <p className="App-no-top-margin">You have not had completed games yet :(</p>
-                <img src={cards} className="App-cards" alt="cards"/>
+                <p className="App-no-top-margin font-link-base">You have not had completed games yet :(</p>
             </div>
         )
     }
@@ -43,13 +41,14 @@ function PreviousGames({gameResults, index, currentIndexSetter}: PreviousGamesPr
         <div className="App-container">
             <Leaderboard teams={gameResults[index]} />
             <div className="App-buttons-container">
-                <button className="App-button-base App-small-button App-button-right-small-margin App-button-no-bg App-top-margin-small" onClick={
-                    () => getResults(index - 1)
-                }>Prev</button>
-                |
-                <button className="App-button-base App-small-button App-button-left-small-margin App-button-no-bg App-top-margin-small" onClick={
-                    () => getResults(index + 1)
-                }>Next</button>
+                <div className="App-buttons-container App-teams-buttons-container">
+                    <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={
+                        () => getResults(index - 1)
+                    }></button>
+                    <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={
+                        () => getResults(index + 1)
+                    }></button>
+                </div>
             </div>
         </div>
     )
@@ -74,8 +73,7 @@ export default function PreviousGamesScreen({gameStateSetter}: PreviousGamesScre
                 gameResults={gameResults}
                 index={currentIndex}
                 currentIndexSetter={currentIndexSetter} />
-            <button className="App-button-base App-big-button App-button-start" onClick={() => gameStateSetter(GameState.START)}>To main
-                menu
+            <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={() => gameStateSetter(GameState.START)}>
             </button>
         </div>
     );
