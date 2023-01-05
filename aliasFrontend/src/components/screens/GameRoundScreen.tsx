@@ -50,42 +50,42 @@ export default function GameRoundScreen({gameStateSetter, gameTeams, gameTeamsSe
     }
     return (
         <div className="App-cards-container">
-            <p>
+            <p className="App-game-p font-link-base">
                 Current team: {gameTeams.teams[gameTeams.currentTeamIndex].name}
             </p>
             <AliasCard card={currentCardState.card}/>
             <div className="App-buttons-container">
-                <button className="App-button-base App-small-button App-button-right-small-margin App-game_button" onClick={
+                <button className="App-button-base App-game-button-base App-game-button-base-skip" onClick={
                     () => {
                         nextCard()
-                        roundPointsSetter(roundPoints - 1)
+                        if (roundPoints - 1 < 0) {
+                            roundPointsSetter(0)
+                        } else {
+                            roundPointsSetter(roundPoints - 1)
+                        }
                     }
-                }>Skip</button>
-                <button className="App-button-base App-small-button App-game_button App-button-left-small-margin" onClick={
+                }></button>
+                <button className="App-button-base App-game-button-base App-game-button-base-next" onClick={
                             () => {
                                 nextCard()
                                 roundPointsSetter(roundPoints + 1)
                             }
-                        }>Next
+                        }>
                 </button>
             </div>
 
-            {/*<p>*/}
-            {/*    {currentCardState.card?.words.toString()}*/}
-            {/*</p>*/}
-
             <div className="App-buttons-container">
-                <button className="App-button-base App-small-button App-button-right-small-margin App-button-no-bg App-top-margin-small" onClick={
+                <button className="App-button-base App-game-button-bottom-base App-game-button-bottom-next-round" onClick={
                     () => {
                         gameTeams.addPoints(roundPoints)
                         nextCard()
                         roundPointsSetter(0)
                     }
-                }>Next round</button>
+                }></button>
                 |
-                <button className="App-button-base App-small-button App-button-left-small-margin App-button-no-bg App-top-margin-small" onClick={
+                <button className="App-button-base App-game-button-bottom-base App-game-button-bottom-finish" onClick={
                     () => endGame()
-                }>Finish game</button>
+                }></button>
             </div>
         </div>
     );

@@ -9,9 +9,11 @@ export default function StartScreen({gameStateSetter}: StartScreenProps) {
     return (
         <div className="App-cards-container">
             <img src={cards} className="App-cards" alt="cards"/>
+            <p className="App-big-name font-link-bold">Alias Game</p>
+            <p className="App-small-name font-link-base">by Kotlin Course</p>
             <div className="App-buttons-container App-display-flex">
-                <button className="App-button-base App-button-start" onClick={() => gameStateSetter(GameState.TEAMS)} >Start</button>
-                <button className="App-button-base App-big-button App-button-no-bg App-top-margin-small" onClick={() => gameStateSetter(GameState.STAT)} >Previous games results</button>
+                <button className="App-button-base App-button-start" onClick={() => gameStateSetter(GameState.TEAMS)} ></button>
+                <button className="App-button-base App-stat-button" onClick={() => gameStateSetter(GameState.STAT)} ><p className="font-link-light App-no-margin App-stat-button-p">Previous games results</p></button>
             </div>
         </div>
     );

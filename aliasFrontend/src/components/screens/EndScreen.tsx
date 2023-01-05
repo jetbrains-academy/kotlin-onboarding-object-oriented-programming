@@ -28,14 +28,13 @@ export default function EndScreen({gameStateSetter, gameTeams}: EndScreenProps) 
     return (
         <div className="App-cards-container">
             <Leaderboard teams={sortedTeams} />
-            {/*<img src={cards} className="App-cards" alt="cards"/>*/}
-            <button className="App-button-base App-big-button App-button-start" onClick={
+            <button className="App-button-base App-game-button-bottom-base App-game-button-bottom-finish" onClick={
                 () => {
                     axios.post("/results/save", makeBody()).then((response) => {
                         gameStateSetter(GameState.START)
                     })
                 }
-            } >Exit</button>
+            } ></button>
         </div>
     );
 }
