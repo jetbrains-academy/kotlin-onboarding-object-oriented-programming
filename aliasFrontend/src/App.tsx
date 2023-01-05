@@ -9,7 +9,7 @@ function App() {
     switch (gameState) {
         case GameState.START: {
             return (<div className="App">
-                <header className="App-header-black">
+                <header className="App-header-base App-header-black">
                     <GameScreen state={gameState}
                                 gameStateSetter={gameStateSetter}
                     />
@@ -18,7 +18,7 @@ function App() {
         }
         default: {
             return (<div className="App">
-                <header className="App-header">
+                <header className="App-header-base App-header-white">
                     <GameScreen state={gameState}
                                 gameStateSetter={gameStateSetter}
                     />

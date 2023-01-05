@@ -22,8 +22,8 @@ export default function GameRoundScreen({
                                             keyCardSetter,
                                             gameCardsSetter
                                         }: GameRoundScreenProps) {
-    return (<div className="App-container">
-            <div className="App-cards-container">
+    return (<div className="App-container App-min-height">
+            <div className="App-cards-container App-flex-direction-row">
                 {gameCards?.chunk(N)?.map((row: Array<GameCardModel> | null, i: number) => (
                     <div className="App-cards-container-row" key={"Key:" + id++}>
                         {row?.map((card, j) => (<CodeNamesCard
@@ -36,20 +36,18 @@ export default function GameRoundScreen({
                     </div>))}
             </div>
             <div className="App-buttons-container">
-                <button className="App-button-base App-button-start App-button-no-bg"
-                        onClick={() => gameStateSetter(GameState.KEY_CARD)}>Show the key card
+                <button className="App-button-base App-game-show-key-card"
+                        onClick={() => gameStateSetter(GameState.KEY_CARD)}>
                 </button>
-                <button className="App-button-base App-button-start App-button-no-bg" onClick={() => {
+                <button className="App-button-base App-game-finish-game" onClick={() => {
+                    initGame(keyCardSetter, gameCardsSetter)
+                    gameStateSetter(GameState.START)
+                }}>
+                </button>
+                <button className="App-button-base App-game-stats" onClick={() => {
                     gameStateSetter(GameState.GAME_STAT)
-                }}>Show game statistics
+                }}>
                 </button>
             </div>
-        <div className="App-buttons-container">
-            <button className="App-button-base App-button-start App-no-top-margin" onClick={() => {
-                initGame(keyCardSetter, gameCardsSetter)
-                gameStateSetter(GameState.START)
-            }}>Finish the game
-            </button>
-        </div>
         </div>)
 }

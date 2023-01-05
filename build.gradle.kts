@@ -95,6 +95,7 @@ val jupiterParams = libs.junit.jupiter.params
 val jupiterConsole = libs.junit.platform.console
 val reflect = libs.kotlin.reflect
 val springBootStarterWeb = libs.spring.boot.starter.web
+val jackson = libs.jackson.module.kotlin
 
 val servers = mapOf("$alias$server" to alias, "$codenames$server" to codenames)
 configure(subprojects.filter { it.name in servers.keys }) {
@@ -114,6 +115,7 @@ configure(subprojects.filter { it.name in servers.keys }) {
 
         implementation(springBootStarterWeb)
         implementation(reflect)
+        implementation(jackson)
 
         testImplementation(jupiterApi)
         testRuntimeOnly(jupiterEngine)

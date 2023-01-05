@@ -68,20 +68,19 @@
   padding-right: 1vmin;
 }
 
-.App-header {
+.App-header-base {
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: url('assets/Kotlin_Alias_bg_white.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.App-header-white {
+  background-image: url('assets/Kotlin_Alias_bg_white.svg');
+}
+
 .App-header-black {
   background-image: url('assets/Kotlin_Alias_bg.svg');
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .App-cards-container {

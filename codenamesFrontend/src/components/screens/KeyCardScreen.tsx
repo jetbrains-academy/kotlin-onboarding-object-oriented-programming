@@ -9,10 +9,10 @@ type KeyCardScreenProps = {
 }
 
 export default function KeyCardScreen({gameStateSetter, keyCard, N}: KeyCardScreenProps) {
-    return (<div className="App-container">
+    return (<div className="App-container App-min-height">
         <KeyCard keyCard={keyCard} N={N}></KeyCard>
         <div className="App-buttons-container App-display-flex">
-            <button className="App-button-base" onClick={() => gameStateSetter(GameState.GAME)}>Hide the key card
+            <button className="App-button-base App-back-button" onClick={() => gameStateSetter(GameState.GAME)}>
             </button>
         </div>
     </div>)

@@ -11,7 +11,7 @@ export default function GameStatisticsItemScreen({cardType, current, all}: GameS
     return (
         <div className="App-game-stat-item-container">
             <CodeNamesPictureCard cardType={cardType}/>
-            <div className="App-game-stat-item-amount">{current}/{all}</div>
+            <div className="App-game-stat-item-amount font-link-base">{current}/{all}</div>
         </div>
     )
 }
