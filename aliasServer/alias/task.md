@@ -425,8 +425,7 @@ data class GameCard(
     private val id: Int,
     private val capacity: Int = 5,
     val name: String = "Card#${id + 1}"
-) {
-}
+)
 
 fun main() {
     val card = GameCard(3)
@@ -481,8 +480,127 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Companion objects
 
- **TODO**
-+ mutable map + keys
+#### Definition
+
+Classes can contain variables or functions that are specific to 
+that class, but do not require the use of a concrete instance state of this class, 
+but rather can be applied generally.
+
+For example, we have a `GameCard` class and would like to store the maximum number 
+of cards that can be generated. Such a variable can be placed in a [`companion object`](https://kotlinlang.org/docs/object-declarations.html#companion-objects) within that class 
+and then accessed _directly_ via the class name:
+
+```kotlin
+class GameCard(private val capacity: Int = 5) {
+    companion object {
+        val maxNumberOfCards = 10
+    }
+}
+
+fun main() {
+    println(GameCard.maxNumberOfCards) // 10
+    println(GameCard().maxNumberOfCards) // ERROR
+}
+```
+
+#### Access modifiers
+
+If you use the `private` access modifier **inside** the companion object, 
+it will be available **inside** the external class, but **not outside**:
+
+```kotlin
+class GameCard(private val capacity: Int = 5) {
+    companion object {
+        private val maxNumberOfCards = 10
+    }
+    
+    fun foo() {
+        println(maxNumberOfCards) // OK
+    }
+}
+
+fun main() {
+    println(GameCard.maxNumberOfCards) // ERROR
+}
+```
+
+### Mutable map
+
+#### Definition
+
+You are already familiar with [`List`](https://kotlinlang.org/docs/collections-overview.html#list) a little, which stores a list of objects of the same type, 
+such as `List<Int>`. The second popular collection is [`Map`](https://kotlinlang.org/docs/collections-overview.html#map). 
+It stores key and values, where all keys are different, but values can be the same.
+`Map` is very similar to an address book, where you can find the corresponding address for each person. 
+Accordingly, the same address can occur several times, but each person will be in the book only once.
+
+In Kotlin, if you want to create a _mutable_ `Map`, then you need to say so _explicitly_, 
+because by default, an _immutable_ collection is created, 
+to which it will not be possible to add new elements later.
+
+To create a new map you can use `mapOf` for the _immutable_ collection or `mutableMapOf` for _mutable_ one:
+
+```kotlin
+val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
+immutableMap.put(3 to "three") // ERROR
+
+val mutableMap =  mutableMapOf<Int, String>(1 to "one", 2 to "two")
+mutableMap.put(3 to "three") // OK
+```
+
+#### Built-in functions
+
+You can find a lot of useful built-in functions to work with maps in the [official Kotlin documentation](https://kotlinlang.org/docs/map-operations.html).
+Let's consider several basic ones that can help you to solve this task:
+
+<div class="hint" title="The `keys` built-in property">
+  
+  If you need to get all _keys_ from an immutable or mutable map, you can use the [_keys_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
+  ```kotlin
+  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  for (key in immutableMap.keys) {
+      println(key) // Will print 1 and 2
+  }
+  ```
+</div>
+
+<div class="hint" title="The `values` built-in property">
+
+If you need to get all _values_ from an immutable or mutable map, you can use the [_values_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
+  ```kotlin
+  val mutableMap = mutableMapOf<Int, String>(1 to "one", 2 to "two")
+  for (value in mutableMap.values) {
+      println(value) // Will print "one" and "two"
+  }
+  ```
+</div>
+
+<div class="hint" title="Get a value by the key">
+
+  If you need to get a value by the key, you can use the [following construction](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values):
+  ```kotlin
+  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  println(immutableMap[1]) // one
+  ```
+  
+  But it can return `null` if the key is not exist:
+  ```kotlin
+  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  println(immutableMap[3]) // null
+  ```
+  In this case you can use the [null-safety](https://kotlinlang.org/docs/null-safety.html) mechanism from the previous module to handle such situations:
+
+  ```kotlin
+  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  immutableMap[3]?.let {
+      println(it) // Nothing to print because immutableMap[3] is null
+  }
+
+  println(immutableMap[3] ?: "Incorrect key") // "Incorrect key", because immutableMap[3] is null
+  println(immutableMap[2] ?: "Incorrect key") // "two", because immutableMap[2] is not null
+  ```
+
+</div>
 
 ----
 
