@@ -690,13 +690,39 @@ ___
 
 ### Theory
 
-### Value classes
-
-**TODO**
-
 ### Annotations
 
-**TODO**
+[Annotations](https://kotlinlang.org/docs/annotations.html) are means of attaching metadata to code.
+They usually start with `@` in code. 
+We will **not focus** on developing our own annotations in this module, 
+but we will analyze the most common ones when developing on Kotlin.
+
+An example of a popular annotation is the `Deprecated` annotation, that marks classes or functions as deprecated and informs the user about it:
+
+```kotlin
+@Deprecated("This class will be deprecated in the future release") // <-- annotation
+class GameCard(private val capacity: Int = 5)
+```
+
+### Value classes
+
+[Value or inline classes](https://kotlinlang.org/docs/inline-classes.html) are special classes to wrap only one property.
+They are needed for some optimizations while the program is running, you can read about it in the [official documentation](https://kotlinlang.org/docs/inline-classes.html).
+All value classes must be marked the `JvmInline` annotation.
+
+```kotlin
+@JvmInline
+value class Word(val word: String)
+
+fun main() {
+    val w = Word("cat")
+    println(w.word) // cat
+}
+```
+
+Do not confuse inline classes with type aliases.
+Type aliases _only refer_ to an already existing type, 
+while inline classes create a _new_ one for convenient use in your program without performance degradation.
 
 ----
 
@@ -726,7 +752,11 @@ To use `Identifier` you need to import it in the top on the file with the `Word`
 </div>
 
 <div class="hint" title="Why do we use the value class?">
-  **TODO**
+
+  Of course, we can just use the `String` type or create a type alias for the `String` type. 
+  All of these options will undoubtedly be true in our case. 
+  However, the _purpose_ of this course is to show you the power of Kotlin so that you can 
+  choose the one you like best in the future.
 </div>
 
 ___
@@ -735,7 +765,23 @@ ___
 
 ### Const variables 
 
-**TODO**
+To help the Kotlin compiler to optimize your code you can use the `const` modifier for the variables, that are unchanged always - the [compile-time constants](https://kotlinlang.org/docs/properties.html#compile-time-constants).
+Constants can only have basic (primitive) types such as `String`, `Int`, and so on. 
+Also, they cannot be initialized by calling functions or anything like that. 
+Last but not least, you must only use constants inside `companion objects` (or just inside `objects`, which we will talk about later):
+
+```kotlin
+class GameCard(private val capacity: Int = 5) {
+  companion object {
+    private const val MAX_NUMBER_OF_CARDS_OK = 10 // OK
+    private const val MAX_NUMBER_OF_CARDS_NOT_OK = foo() // ERROR
+
+    private fun foo() = 10
+  }
+}
+```
+
+As you can see from the example, Kotlin has adopted a special style code for naming compile-time constants - all letters must be capitalized, words in the name are separated by underscore.
 
 ___
 
@@ -753,7 +799,7 @@ Don't forget to add the default value for it (just create a new instance of the 
   You need to assign the value `4` for it. Also declare `cardsAmount` here, that stores the possible number of
   cards: `words.size / WORDS_IN_CARD`.
   The project contains the predefined list of words `words`.
-- add the `toWords` function into the `CardService` clas, that is an extension function for `List<String>`
+- add the `toWords` function into the `CardService` class, that is an extension function for `List<String>`
   and converts each element from this list into `Word`.
 - implement the `generateCards` function that shuffles the `words` list, chunks into chunks with `WORDS_IN_CARD` words
   each,
@@ -761,6 +807,165 @@ Don't forget to add the default value for it (just create a new instance of the 
 - implement the `getCardByIndex` method that accepts `index` (an integer number) and the `Card` at this index.
   If the card does not exist, throw an error.
 
+If you have any difficulties, **hints will help you solve this task**.
+
+----
+
+### Hints
+
+<div class="hint" title="The `shuffled` built-in function">
+
+  Sometimes you need to randomly shuffle the contents of a list, for example,
+  to change the order of the words in the original list.
+  To do this, you can generate different word positions from the original list and build a new one,
+  or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html):
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  println(numbers.shuffled()) // 1, 2, 3, 4, 5, 6 in the different random order
+  ```
+</div>
+
+<div class="hint" title="The `chunked` built-in function">
+
+  Sometimes you need to split a list into `N` sublists of the same length,
+  for example when you want a large list of words into sublists for each game card.
+  To do this, you can manually iterate every `N` elements and create a new sublist,
+  but you can use the built-in function [`chunked`](https://kotlinlang.org/docs/collection-parts.html#chunked):
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  println(numbers.chunked(2)) // [[1, 2], [3, 4], [5, 6]]
+  ```
+</div>
+
+<div class="hint" title="The `take` built-in function">
+
+  Sometimes you need to take the first `N` elements from a list, 
+  for this you can loop up to the `N` element and make a new list, 
+  or use the built-in function [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html).
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  println(numbers.take(4)) // [1, 2, 3, 4]
+  ```
+</div>
+
+<div class="hint" title="Chaining multiple function calls">
+
+  In Kotlin you don't need to create a new variable for each call of functions 
+  if you work with collections, e.g. with a list. 
+  You can call them sequentially, thus creating a chain of calls:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  val chunkedList = numbers.chunked(2)
+  println(chunkedList.take(2)) // [[1, 2], [3, 4]]
+  ```
+
+  is the **same** with
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  println(numbers.chunked(2).take(2)) // [[1, 2], [3, 4]]
+  ```
+</div>
+
+<div class="hint" title="The `map` and `forEach` built-in functions">
+
+  If you need to handle each element in a collection, for example in a list or in a map,
+  you can use the `forEach` or `map` built-in functions instead of the `for` loop.
+  In this case you need to write the action inside curly brackets.
+
+  The main difference between `forEach` or `map` is the return value. 
+  If you use the `map` function, you **will get** a new collection, e.g. a list with transformed values and can continue the sequence of the calls.
+  If you use the `forEach` function, you **will not get** a new collection:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  for (number in numbers) {
+    println(number)
+  }
+  ```
+  is the **same** with:
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  numbers.forEach { println(it) }
+  ```
+
+  But if you use the `map` function, behaviour will be different:
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  val squared = numbers.map { 
+    println(it) 
+    it * it
+  } // [1, 4, 9, 16, 25, 36]
+  ```
+
+  In the last case the initial list `[1, 2, 3, 4]` will be printed, and next each nu,ber in this list will be squared.
+  The result of the last action in the curly brackets will be in the final list.
+
+  You also can combine map with other function:
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4, 5, 6)
+  println(numbers.take(3).map { it * it }) // [1, 4, 9]
+  ```
+</div>
+
+<div class="hint" title="The `getOrNull` built-in function">
+
+  If you try to get an element from a list be the index and this index does not exit, you will get an error. 
+  To avoid this, you can use the built-in function [`getOrNull`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html) that returns the value or `null` if the index does not exist:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4)
+  println(numbers[10]) // Throws the index of bounds error
+
+  println(numbers.getOrNull(10) ?: error("You use incorrect index 10 for the list")) // Is better because the error will inform the user about the error in detail
+  ```
+</div>
+___
+
+### Theory
+
+### Mutable list
+
+You already familiar with the `List` and with the `Map`.
+Just like the `Map`, a `List` can be _mutable_ or _immutable_ and it must be reported directly.
+
+In Kotlin, if you want to create a _mutable_ `List`, then you need to say so _explicitly_,
+because by default, an _immutable_ collection is created,
+to which it will not be possible to add new elements later.
+
+To create a new list you can use `listOf` for the _immutable_ collection or `mutableListOf` for _mutable_ one:
+
+```kotlin
+val immutableList = listOf<Int>(1, 2, 3)
+immutableList.add(4) // ERROR
+
+val mutableList =  mutableListOf<Int>(1, 2, 3)
+mutableList.add(4) // OK
+```
+
+### Checking some conditions
+
+When developing applications, some invariants can often be true for values.
+For example, if we are working with game cards and we know the maximum number of the cards, 
+the list of cards can not have cards more than the maximum value.
+
+To handle these case you can use the [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) built-in function, that throws an IllegalArgumentException if the value is false:
+
+```kotlin
+class GameCard(private val capacity: Int = 5) {
+    companion object {
+        const val MAX_NUMBER_OF_CARDS = 10 // OK
+    }
+}
+
+fun foo(cards: List<GameCard>) {
+    require(cards.size <= GameCard.MAX_NUMBER_OF_CARDS) { "The maximum number of cards is ${GameCard.MAX_NUMBER_OF_CARDS}" }
+}
+```
 ___
 
 ### Task
@@ -777,3 +982,82 @@ the `jetbrains.kotlin.course.alias.results` package:
   Before adding the `result` you need to check two requirements and throw an error if they are broken: 1) `result` must
   be not empty; 2) all teams ids from the `result` must be in the `TeamService.teamsStorage`.
 - implement the `getAllGameResults` method that returns the reversed `gameHistory` list. 
+
+If you have any difficulties, **hints will help you solve this task**.
+
+----
+
+### Hints
+
+<div class="hint" title="The `isNotEmpty` built-in function">
+
+  If you need to check if a list is not empty you can check its size ot use the [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) built-in function:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3)
+  if (numbers.size != 0) {
+      TODO()
+  }
+  ```
+  is the **same** with
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3)
+  if (numbers.isNotEmpty()) {
+      TODO()
+  }
+  ```
+</div>
+
+<div class="hint" title="`contains` and `in`">
+
+  In Kotlin you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted several functions to make code shorter.
+  For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains some element:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4)
+  println(numbers.contains(1)) // true
+  ```
+  is the **same** with
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4)
+  println(1 in numbers) // true
+  ```
+  Hint text
+</div>
+
+
+<div class="hint" title="The `all` built-in function">
+
+  If you need verification that if **all** elements match the given predicate, you can use the [`all`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) built-in function.
+  The predicate you need to put into the curly brackets:
+
+  ```kotlin
+  val evenNumbers = listOf(2, 4, 6)
+  println(evenNumbers.all { it % 2 == 0 }) // true
+  println(evenNumbers.all { it == 4 }) // false, because only one item satisfies the predicate
+  ```
+</div>
+
+<div class="hint" title="The `reversed` built-in function">
+
+  If you need to get a list in which the elements are in reverse order, 
+  you can loop through the elements of the original list from the end to the beginning and 
+  return a new list, or use the [`reversed`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) built-in function:
+
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4)
+  val reversedList = mutableListOf<Int>()
+  for (i in numbers.size - 1 downTo 0) {
+    reversedList.add(numbers[i])
+  }
+  println(reversedList) // [4, 3, 2, 1]
+  ```
+
+  is the **same** with 
+  ```kotlin
+  val numbers = listOf(1, 2, 3, 4)
+  val reversedList = numbers.reversed()
+  println(reversedList) // [4, 3, 2, 1]
+  ```
+</div>
