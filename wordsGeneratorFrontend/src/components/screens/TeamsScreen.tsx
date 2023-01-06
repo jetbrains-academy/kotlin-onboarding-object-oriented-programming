@@ -1,13 +1,27 @@
 import {GameState} from "../GameScreen";
 import {useState} from "react";
+import axios from "axios";
+import {alias} from "common-types";
+import Team = alias.JsTeam;
+import {GameTeams} from "../../models/Team";
 
 type TeamsScreenProps = {
     gameStateSetter: (gs: GameState) => void
+    gameTeamsSetter: (gt: GameTeams) => void
 }
 
-export default function TeamsScreen({gameStateSetter}: TeamsScreenProps) {
+export default function TeamsScreen({gameStateSetter, gameTeamsSetter}: TeamsScreenProps) {
     const [teamsNumber, teamsNumberSettler] = useState(1);
     const baseClasses = "App-teams-p-number-border App-teams-p-number-border-small-padding-right"
+
+    function startGame(teamsNumber: number) {
+        axios.post("/teams/generate", teamsNumber, {headers: {'Content-Type': 'application/json'}})
+            .then((response) => {
+                let teams = response.data as Array<Team>
+                gameStateSetter(GameState.GAME)
+                gameTeamsSetter(new GameTeams(teams.map((t) => new Team(t.id, t.points, t.name))))
+            })
+    }
 
     return (
         <div className="App-main-container">
@@ -27,7 +41,7 @@ export default function TeamsScreen({gameStateSetter}: TeamsScreenProps) {
             </div>
             <div className="App-buttons-container App-teams-buttons-container">
                 <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={() => gameStateSetter(GameState.START)}></button>
-                <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={() => gameStateSetter(GameState.GAME)}></button>
+                <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={() => startGame(teamsNumber)}></button>
             </div>
         </div>
     );

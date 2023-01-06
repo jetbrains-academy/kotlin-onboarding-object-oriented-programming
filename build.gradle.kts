@@ -98,7 +98,11 @@ val reflect = libs.kotlin.reflect
 val springBootStarterWeb = libs.spring.boot.starter.web
 val jackson = libs.jackson.module.kotlin
 
-val servers = mapOf("$alias$server" to alias, "$codenames$server" to codenames)
+val servers = mapOf(
+    "$alias$server" to alias,
+    "$codenames$server" to codenames,
+    "$wordsGenerator$server" to wordsGenerator
+)
 configure(subprojects.filter { it.name in servers.keys }) {
     val projectName = this.name
 

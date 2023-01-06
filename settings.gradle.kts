@@ -19,4 +19,5 @@ include(
     "codenamesFrontend",
 
     "wordsGeneratorFrontend",
+    "wordsGeneratorServer",
 )

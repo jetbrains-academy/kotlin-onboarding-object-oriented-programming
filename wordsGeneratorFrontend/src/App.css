@@ -265,6 +265,32 @@
   background-position: center;
   position: absolute;
   box-sizing: border-box;
-  top: 50%;
+  top: 55%;
   transform: translateY(-1.8vmin) translateX(43vmin);
+}
+
+.App-container-min-height {
+  min-height: 35vmin;
+}
+
+.App-game-current-team {
+  margin-bottom: 7vmin;
+}
+
+.App-game-button-bottom-base {
+  width: 16vmin;
+  margin-top: -2vmin;
+  height: 5vmin;
+}
+
+.App-game-button-bottom-finish {
+  background-image: url('assets/finish_game_button.svg');
+}
+
+.App-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
 }
