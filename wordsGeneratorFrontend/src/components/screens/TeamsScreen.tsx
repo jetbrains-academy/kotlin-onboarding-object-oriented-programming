@@ -10,7 +10,7 @@ export default function TeamsScreen({gameStateSetter}: TeamsScreenProps) {
     const baseClasses = "App-teams-p-number-border App-teams-p-number-border-small-padding-right"
 
     return (
-        <div className="App-cards-container">
+        <div className="App-main-container">
             <p className="App-top-margin App-no-bottom-margin font-link-bold App-teams-p ">
                 How many teams will play to the game?
             </p>
@@ -27,7 +27,7 @@ export default function TeamsScreen({gameStateSetter}: TeamsScreenProps) {
             </div>
             <div className="App-buttons-container App-teams-buttons-container">
                 <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={() => gameStateSetter(GameState.START)}></button>
-                <button className="App-button-base App-teams-button-base App-teams-button-next"></button>
+                <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={() => gameStateSetter(GameState.GAME)}></button>
             </div>
         </div>
     );

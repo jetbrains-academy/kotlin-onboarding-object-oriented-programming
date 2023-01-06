@@ -83,7 +83,7 @@
   background-image: url('assets/bg.svg');
 }
 
-.App-cards-container {
+.App-main-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -113,12 +113,6 @@
 .App-teams-buttons-container {
   min-height: 0;
   margin-top: 0;
-}
-
-.App-game-p {
-  color: black;
-  font-family: 'Gotham', sans-serif;
-  font-size: 3vmin;
 }
 
 .App-display-flex {
@@ -172,27 +166,6 @@
   margin-top: 5vmin;
 }
 
-.App-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: inherit;
-}
-
-.App-container-min-height {
-  min-height: 35vmin;
-}
-
-.App-word-container {
-  border: none;
-  background-position: center;
-  font-family: 'Gotham', sans-serif;
-  height: 5vmin;
-  font-size: 2.2vmin;
-  margin-left: -1.5vmin;
-}
-
 .App-game-stat {
   color: black;
   font-size: 6vmin;
@@ -225,4 +198,73 @@
   width: 15vmin;
   margin-top: 0;
   height: 5vmin;
+}
+
+.App-game-word-p {
+  color: black;
+  font-size: 8vmin;
+  margin-bottom: 4vmin;
+}
+
+.App-game-next-team-button {
+  width: 20vmin;
+  background-image: url('assets/next_team_button.svg');
+}
+
+.App-game-new-round-button {
+  width: 20vmin;
+  background-image: url('assets/new_round_button.svg');
+}
+
+.App-game-stat-button {
+  width: 25vmin;
+  background-image: url('assets/stats_button.svg');
+}
+
+.App-game-finish-button {
+  width: 18vmin;
+  background-image: url('assets/finish_game_button.svg');
+}
+
+.App-input-container {
+  margin-bottom: 5vmin;
+  margin-top: 2vmin;
+}
+
+/* TODO: change font inside input  */
+.App-input {
+  border: 1px solid #bababa;
+  font-size: 2.5vmin;
+  height: 5vmin;
+  width: 45vmin;
+  color: #949292 !important;
+  padding: 0.5vmin 1vmin;
+}
+
+.App-input:focus {
+  outline: none !important;
+  color: black !important;
+}
+
+.App-input-hint {
+  color: #949292;
+  font-size: 2vmin;
+  margin-top: 2.5vmin;
+  margin-bottom: 0;
+}
+
+/* TODO: how do it better?*/
+.App-input-icon {
+  background-image: url(assets/arrow.svg);
+  height: 2vmin;
+  width: 2vmin;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  transform: translateY(-1.8vmin) translateX(43vmin);
 }

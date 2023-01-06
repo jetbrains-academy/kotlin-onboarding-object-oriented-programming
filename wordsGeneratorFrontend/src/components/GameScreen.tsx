@@ -1,9 +1,12 @@
 import StartScreen from "./screens/StartScreen";
 import TeamsScreen from "./screens/TeamsScreen";
+import GameRoundScreen from "./screens/GameRoundScreen";
 
 export enum GameState {
     START,
     TEAMS,
+    GAME,
+    // END,
 }
 
 export type GameScreenProps = {
@@ -18,6 +21,9 @@ export default function GameScreen({state, gameStateSetter}: GameScreenProps) {
         }
         case GameState.TEAMS: {
             return <TeamsScreen gameStateSetter={gameStateSetter}/>
+        }
+        case GameState.GAME: {
+            return <GameRoundScreen gameStateSetter={gameStateSetter}/>
         }
     }
 }

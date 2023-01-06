@@ -7,7 +7,7 @@ type StartScreenProps = {
 
 export default function StartScreen({gameStateSetter}: StartScreenProps) {
     return (
-        <div className="App-cards-container">
+        <div className="App-main-container">
             <img src={logo} className="App-logo" alt="logo"/>
             <p className="App-big-name font-link-bold">Words Generator</p>
             <p className="App-small-name font-link-base">by Kotlin Course</p>
