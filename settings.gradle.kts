@@ -10,9 +10,13 @@ pluginManagement {
 
 include(
     "common",
+    "utils",
+
     "aliasFrontend",
     "aliasServer",
-    "utils",
+
     "codenamesServer",
     "codenamesFrontend",
+
+    "wordsGeneratorFrontend",
 )
