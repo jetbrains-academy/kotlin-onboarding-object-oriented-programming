@@ -41,10 +41,11 @@ tasks {
 
 val alias = "alias"
 val codenames = "codenames"
+val wordsGenerator = "wordsGenerator"
 val frontend = "Frontend"
 val server = "Server"
 
-val ignored = listOf("common", "$alias$frontend", "$codenames$frontend")
+val ignored = listOf("common", "$alias$frontend", "$codenames$frontend", "$wordsGenerator$frontend")
 configure(subprojects.filter { it.name !in ignored }) {
     val jvmVersion = "11"
 
@@ -97,7 +98,11 @@ val reflect = libs.kotlin.reflect
 val springBootStarterWeb = libs.spring.boot.starter.web
 val jackson = libs.jackson.module.kotlin
 
-val servers = mapOf("$alias$server" to alias, "$codenames$server" to codenames)
+val servers = mapOf(
+    "$alias$server" to alias,
+    "$codenames$server" to codenames,
+    "$wordsGenerator$server" to wordsGenerator
+)
 configure(subprojects.filter { it.name in servers.keys }) {
     val projectName = this.name
 
@@ -138,7 +143,11 @@ configure(subprojects.filter { it.name in servers.keys }) {
 val nodeVersion = libs.versions.node.get()
 val yarnVersion = libs.versions.yarn.get()
 
-val clients = mapOf("$alias$frontend" to alias, "$codenames$frontend" to codenames)
+val clients = mapOf(
+    "$alias$frontend" to alias,
+    "$codenames$frontend" to codenames,
+    "$wordsGenerator$frontend" to wordsGenerator
+)
 configure(subprojects.filter { it.name in clients.keys }) {
     val projectName = this.name
 
