@@ -178,7 +178,7 @@ First of all, create a value class `Word` with one `String` `word` property to s
 Next, find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
 - add a companion object into the `WordServices` class and declare the `numberOfWords` variable to store the number
   of words in the game. Initialize this variable as the _size_ of the predefined list of words `words`.
-- implement `getNextWord` function: if the `words` list _is empty_, throw an error, 
+- implement `generateNextWord` function: if the `words` list _is empty_, throw an error, 
 else get the first element from the `words` list and remove it from the list, create a new `Word` and return it.
 
 If you have any difficulties, **hints will help you solve this task**.

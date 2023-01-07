@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*
 class WordResource(val service: WordService) {
     @CrossOrigin
     @GetMapping("/next")
-    fun getNextWord(): String = service.getNextWord().word
+    fun getNextWord(): String = service.generateNextWord().word
 
     @CrossOrigin
     @GetMapping("/amount")
