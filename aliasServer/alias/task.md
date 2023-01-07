@@ -1,5 +1,3 @@
-### Theory
-
 Hello! Welcome to the second module of the Kotlin course. 
 This module will introduce you to the concepts of **object-oriented programming** (OOP) 
 in the context of the Kotlin language.
@@ -314,7 +312,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 </div>
 
-<div class="hint" title="Shor notation for functions">
+<div class="hint" title="Short notation for functions">
 
   Since the `uniqueIdentifier` function is too short, we can use the short notation for this:
 
@@ -783,6 +781,64 @@ class GameCard(private val capacity: Int = 5) {
 
 As you can see from the example, Kotlin has adopted a special style code for naming compile-time constants - all letters must be capitalized, words in the name are separated by underscore.
 
+### Extension functions
+
+#### Definition
+
+In Kotlin you can add new member function to the existing classes. This is done via special declarations called [extensions](https://kotlinlang.org/docs/extensions.html).
+This is useful if, for example, you don't have access to the original class, but would like to add a new function. 
+Consider an example - lets we need to count the amount of letters in a string, we can make it by the following way:
+
+```kotlin
+fun getAmountOfLetter(s: String, letter: Char) = s.count { it == letter }
+
+fun main() {
+  println(getAmountOfLetter("photothermoelasticity", 'o')) // 3
+}
+```
+
+However, we can also create an _extension function_ so as not to pass a string as a function argument:
+```kotlin
+fun String.getAmountOfLetter(letter: Char) = this.count { it == letter }
+
+fun main() {
+  println("photothermoelasticity".getAmountOfLetter('o')) // 3
+}
+```
+
+In this case, we have added a new function to the `String` class. 
+The main difference in implementation is 1) we use `this` instead of the passed a string parameter 2) we don't need to pass the string as an argument and we 
+can call the function directly on the `String` type.
+
+#### Access
+
+It's important to note that this functionality only works for functions that _don't already exist in the original class_. 
+If you define a new function that is already defined in the class, then the original implementation will be called:
+
+```kotlin
+fun String.isEmpty() = true
+
+fun main() {
+    println("photothermoelasticity".isEmpty()) // false, because the original isEmpty function was called
+}
+```
+
+Also, if you define a new extension function _inside_ a class, it will not be available outside of it:
+
+```kotlin
+class Example {
+    fun String.getAmountOfLetter(letter: Char) = this.count { it == letter }
+    
+    fun foo(string: String) {
+        string.getAmountOfLetter('a') // OK
+    }
+}
+
+fun main() {
+    println("photothermoelasticity".getAmountOfLetter()) // ERROR
+}
+```
+
 ___
 
 ### Task
@@ -975,6 +1031,7 @@ and the for the previous rounds.
 In this task implement several things in the already defined class `GameResultsService` in
 the `jetbrains.kotlin.course.alias.results` package:
 
+- add a type alias `GameResult` to `List<Team>` into `jetbrains.kotlin.course.alias.results` package;
 - add a companion object into the `GameResultsService`
   and declare the `gameHistory` variable to store the list of game results (`MutableList<GameResult>`).
   By default, it must be initialized via an empty list.
@@ -1023,7 +1080,6 @@ If you have any difficulties, **hints will help you solve this task**.
   val numbers = listOf(1, 2, 3, 4)
   println(1 in numbers) // true
   ```
-  Hint text
 </div>
 
 

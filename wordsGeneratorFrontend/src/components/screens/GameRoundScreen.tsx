@@ -21,7 +21,6 @@ export default function GameRoundScreen({gameStateSetter, gameTeams, gameTeamsSe
     let [maxIndex, maxIndexSetter] = useState<number>(-1)
     let [roundPoints, roundPointsSetter] = useState<number>(0)
 
-    // TODO: check the previous attempts??
     let [helpText, helpTextSetter] = useState(initialHelp)
 
     function nextWord() {
@@ -72,8 +71,16 @@ export default function GameRoundScreen({gameStateSetter, gameTeams, gameTeamsSe
             axios.get(`/words/valid?keyWord=${currentWordState.word}&newWord=${currentText}`).then((response) => {
                 let isValid = response.data as Boolean
                 if (isValid) {
-                    roundPointsSetter(roundPoints + 1)
-                    helpTextSetter('Hooray! Correct word!')
+                    axios.get(`/words/isNew?keyWord=${currentWordState.word}&newWord=${currentText}`).then((response) => {
+                        let isNew = response.data as Boolean
+                        if (isNew) {
+                            helpTextSetter('Hooray! Correct word!')
+                            roundPointsSetter(roundPoints + 1)
+                        } else {
+                            // TODO: decrease points?
+                            helpTextSetter('Sorry this word was already taken :(')
+                        }
+                    })
                 } else {
                     if (roundPoints - 1 < 0) {
                         roundPointsSetter(0)

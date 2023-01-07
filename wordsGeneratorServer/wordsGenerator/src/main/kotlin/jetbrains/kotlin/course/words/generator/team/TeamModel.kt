@@ -1,10 +1,14 @@
 package jetbrains.kotlin.course.words.generator.team
 
-import jetbrains.kotlin.course.words.generator.util.Identifier
+typealias Identifier = Int
 
 data class Team(
-    val id: Identifier,
+    val id: Identifier = idCounter++,
     var points: Int = 0,
 ) {
     val name: String = "Team#${id + 1}"
+
+    companion object {
+        private var idCounter: Identifier = 0
+    }
 }
