@@ -14,8 +14,6 @@ files:
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Words.kt
   visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Utils.kt
-  visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordModel.kt
   visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordService.kt
