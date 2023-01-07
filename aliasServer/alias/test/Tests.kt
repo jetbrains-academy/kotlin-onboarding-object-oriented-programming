@@ -1,3 +1,7 @@
+import commonTests.team.callGenerateTeamsForOneRound
+import commonTests.team.checkNameAndIdFieldsValue
+import commonTests.team.generateTeamsStringRepresentation
+import commonTests.team.teamsOutput
 import jetbrains.kotlin.course.alias.util.words
 import models.ConstructorGetter
 import models.TestMethodInvokeData
@@ -36,14 +40,6 @@ class Test {
                 args = arrayOf(index),
                 invokeData = invokeData,
             ).toString()
-
-        private fun callGenerateTeamsForOneRound(invokeData: TestMethodInvokeData, n: Int) =
-            teamServiceTestClass.invokeMethodWithArgs(
-                n,
-                clazz = invokeData.clazz,
-                instance = invokeData.instance,
-                javaMethod = invokeData.method,
-            )
 
         private fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData): String {
             val field = invokeData.clazz.declaredFields.find { it.name == gameHistoryVariable.name }
@@ -94,17 +90,11 @@ class Test {
             )
         )
         // Check the name field value
-        val method = clazz.methods.findMethod(getNameFromTeamMethod)
-        for (i in 0..100) {
-            val instance = try {
-                constructor.newInstance(i, 0, 0, null)
-            } catch (e: Exception) {
-                assert(false) { "Can not create an instance of the class ${teamClass.getFullName()} with id = $i" }
-            }
-            val name = teamClass.invokeMethodWithoutArgs(clazz, instance, method)
-            val teamName = "Team#${i + 1}"
-            assert(teamName == name) { "For the team with id $i the name must be $teamName" }
-        }
+        checkNameAndIdFieldsValue(
+            clazz,
+            teamClass,
+            getNameFromTeamMethod,
+        ) { i: Int -> constructor.newInstance(i, 0, 0, null) }
     }
 
     @Test
@@ -125,45 +115,12 @@ class Test {
 
     @Test
     fun generateTeamsForOneRoundMethodTest() {
-        val invokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
-        val n = 5
-        val teamsStorageMethod = invokeData.clazz.methods.findMethod(getTeamsStorageMethod)
-        val teamsStorageSb = StringBuilder()
-        repeat(n) {
-            val teams = callGenerateTeamsForOneRound(invokeData, n)
-            val expected = teamsOutput(it * n, n)
-            assert(expected == teams.toString()) { "${generateTeamsForOneRoundMethod.name} must return $expected for teamsNumber = $n and $it-th attempt." }
-            if (it > 0) {
-                teamsStorageSb.append(", ")
-            }
-            teamsStorageSb.append(generateTeamsStringRepresentation(it * n, n, true).joinToString(", "))
-            val teamsStorageRes = teamServiceTestClass.invokeMethodWithoutArgs(
-                clazz = invokeData.clazz,
-                instance = invokeData.instance,
-                javaMethod = teamsStorageMethod
-            ).toString()
-            val expectedTeamsStorage = "{$teamsStorageSb}"
-            assert(expectedTeamsStorage == teamsStorageRes) { "You need to save generated teams into the teamsStorage after each generation." }
-        }
+        commonTests.team.generateTeamsForOneRoundMethodTest(
+            teamServiceTestClass,
+            generateTeamsForOneRoundMethod,
+            getTeamsStorageMethod
+        )
     }
-
-    private fun generateTeamsStringRepresentation(startId: Int, n: Int, toAddId: Boolean = false): List<String> {
-        var id = startId
-        val teams = mutableListOf<String>()
-        repeat(n) {
-            val prefix = if (toAddId) {
-                "$id="
-            } else {
-                ""
-            }
-            teams.add("${prefix}Team(id=$id, points=0)")
-            id++
-        }
-        return teams
-    }
-
-    private fun teamsOutput(startId: Int, n: Int) =
-        "[${generateTeamsStringRepresentation(startId, n).joinToString(", ")}]"
 
     @Test
     fun cardTest() {
@@ -275,7 +232,7 @@ class Test {
     @Test
     fun saveGameResultsMethodTest() {
         val teamInvokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
-        val teams = callGenerateTeamsForOneRound(teamInvokeData, 4)
+        val teams = teamServiceTestClass.callGenerateTeamsForOneRound(teamInvokeData, 4)
         val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
         assert(
             "$teams" in callSaveGameResultsMethod(
@@ -297,7 +254,7 @@ class Test {
         assert("${emptyResults.reversed()}" == "$reversedEmptyResults") { "Try to call the ${getAllGameResultsMethod.name} on an empty list, but got $reversedEmptyResults" }
 
         val teamInvokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
-        val teams = callGenerateTeamsForOneRound(teamInvokeData, 3)
+        val teams = teamServiceTestClass.callGenerateTeamsForOneRound(teamInvokeData, 3)
         val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
         callSaveGameResultsMethod(teams, gameResultsInvokeData)
         val notEmptyResults = field.get(invokeData.instance) as ArrayList<*>

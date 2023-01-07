@@ -24,3 +24,5 @@ files:
   visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsResource.kt
   visible: false
+- name: test/WordServiceTestClass.kt
+  visible: false

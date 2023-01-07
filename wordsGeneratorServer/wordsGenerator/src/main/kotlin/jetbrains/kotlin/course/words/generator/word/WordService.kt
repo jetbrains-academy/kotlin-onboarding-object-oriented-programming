@@ -10,7 +10,7 @@ class WordService {
         private val previousWords = mutableMapOf<String, MutableList<String>>()
     }
 
-    fun getNextWord(): Word {
+    fun generateNextWord(): Word {
         if (words.isEmpty()) {
             error("No words in the list")
         }
