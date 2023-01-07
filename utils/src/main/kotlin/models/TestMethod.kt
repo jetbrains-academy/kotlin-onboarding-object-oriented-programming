@@ -9,6 +9,7 @@ data class TestMethod(
     val arguments: List<Variable> = emptyList(),
     val returnTypeJava: String? = null,
     val visibility: Visibility = Visibility.PUBLIC,
+    val hasGeneratedPartInName: Boolean = false,
 ) {
     fun prettyString(withToDo: Boolean = true): String {
         val args = arguments.joinToString(", ") { it.paramPrettyString() }
@@ -42,7 +43,13 @@ private fun List<Method>.filterByCondition(errorMessage: String, condition: (Met
 
 fun Array<Method>.findMethod(method: TestMethod): Method {
     val filteredByName =
-        this.toList().filterByCondition("The method ${method.prettyString()} is missed") { it.name == method.name }
+        this.toList().filterByCondition("The method ${method.prettyString()} is missed") {
+            if (method.hasGeneratedPartInName) {
+                method.name in it.name
+            } else {
+                it.name == method.name
+            }
+        }
     val returnTypeJava = method.returnTypeJava ?: method.returnType.type
     val filteredByType =
         filteredByName.filterByCondition("The method ${method.name} should have the return type ${method.returnType.getTypePrettyString()}") {

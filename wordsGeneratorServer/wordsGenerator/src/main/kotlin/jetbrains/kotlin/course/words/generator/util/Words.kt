@@ -45,4 +45,4 @@ val words = setOf(
     "honorificabilitudinitatibus",
     "antidisestablishmentarianism",
     "floccinaucinihilipilification",
-).toMutableList()
+).shuffled().toMutableList()

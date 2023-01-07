@@ -1,6 +1,6 @@
 import models.*
 
-internal val kotlinTypeWord= KotlinType("String", "jetbrains.kotlin.course.words.generator.word.Word")
+internal val kotlinTypeWord= KotlinType("String", params = listOf("jetbrains.kotlin.course.words.generator.word.Word"))
 
 internal val numberOfWordsTestVariable = Variable(
     name = "numberOfWords",
@@ -23,6 +23,7 @@ internal val generateNextWordMethod = TestMethod(
     name = "generateNextWord",
     returnType = kotlinTypeWord,
     returnTypeJava = "String",
+    hasGeneratedPartInName = true,
 )
 
 internal val isValidWordMethod = TestMethod(
@@ -65,7 +66,6 @@ internal val wordServiceTestClass = TestClass(
         previousWordsTestVariable,
     ),
     customMethods = listOf(
-        // TODO: why it does not work??
         generateNextWordMethod,
         isValidWordMethod,
         isNewWordMethod,

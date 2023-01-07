@@ -2,10 +2,25 @@ import commonTests.team.*
 import jetbrains.kotlin.course.words.generator.util.words
 import models.ConstructorGetter
 import models.TestMethodInvokeData
-import models.findMethod
+import models.findClass
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
 
 class Test {
+    companion object {
+        @JvmStatic
+        fun isValidWordMethodData() = listOf(
+            // keyWord, newWord, isValid
+            Arguments.of("photomechanochemistry", "", false),
+            Arguments.of("photomechanochemistry", "lalala", false),
+            Arguments.of("photomechanochemistry", "photo", true),
+            Arguments.of("photomechanochemistry", "photoooooooo", false),
+            Arguments.of("photomechanochemistry", "photophoto", false),
+        )
+    }
+
     @Test
     fun teamClassTest() {
         val clazz = teamClass.checkBaseDefinition()
@@ -19,6 +34,7 @@ class Test {
             )
         )
 
+        resetIdCounter(clazz)
         // Check the name and id fields value
         checkNameAndIdFieldsValue(
             clazz,
@@ -26,6 +42,13 @@ class Test {
             getNameFromTeamMethod,
             getIdFromTeamMethod
         ) { constructor.newInstance() }
+    }
+
+    private fun resetIdCounter(teamsClazz: Class<*>) {
+        val idCounterField = teamsClazz.declaredFields.find { it.name == idCounterVariable.name }
+            ?: error("Can not find the field ${idCounterVariable.name}")
+        idCounterField.isAccessible = true
+        idCounterField.set(teamsClazz, 0)
     }
 
     @Test
@@ -44,6 +67,8 @@ class Test {
 
     @Test
     fun generateTeamsForOneRoundMethodTest() {
+        val clazz = teamClass.findClass()
+        resetIdCounter(clazz)
         generateTeamsForOneRoundMethodTest(
             teamServiceTestClass,
             generateTeamsForOneRoundMethod,
@@ -54,24 +79,121 @@ class Test {
     @Test
     fun wordServiceTest() {
         val clazz = wordServiceTestClass.checkBaseDefinition()
-//        wordServiceCompanionTestClass.checkBaseDefinition()
-//
-//        wordServiceTestClass.checkFieldsDefinition(clazz, false)
-//        wordServiceTestClass.checkConstructors(
-//            clazz,
-//            listOf(
-//                ConstructorGetter(),
-//            )
-//        )
-//
-//        // Check numberOfWords value
-//        val instance = clazz.getConstructor().newInstance()
-//        val field = clazz.declaredFields.find { it.name == numberOfWordsTestVariable.name }
-//            ?: error("Can not find the field ${numberOfWordsTestVariable.name}")
-//        field.isAccessible = true
-//        val wordsInCardVariable = field.get(instance)
-//        assert(words.size == wordsInCardVariable as Int) { "The value of the field ${numberOfWordsTestVariable.name} must be ${words.size}." }
+        wordServiceCompanionTestClass.checkBaseDefinition()
+
+        wordServiceTestClass.checkFieldsDefinition(clazz, false)
+        wordServiceTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(),
+            )
+        )
+
+        // Check numberOfWords value
+        val instance = clazz.getConstructor().newInstance()
+        val field = clazz.declaredFields.find { it.name == numberOfWordsTestVariable.name }
+            ?: error("Can not find the field ${numberOfWordsTestVariable.name}")
+        field.isAccessible = true
+        val wordsInCardVariable = field.get(instance)
+        assert(words.size == wordsInCardVariable as Int) { "The value of the field ${numberOfWordsTestVariable.name} must be ${words.size}." }
 
         wordServiceTestClass.checkDeclaredMethods(clazz)
+    }
+
+    @Test
+    fun generateNextWordMethodTest() {
+        val invokeData = TestMethodInvokeData(wordServiceTestClass, generateNextWordMethod)
+        val generatedWords = mutableListOf<String>()
+        var currentWordsSize = words.size
+        repeat(words.size) {
+            (wordServiceTestClass.invokeMethodWithoutArgs(
+                invokeData,
+            ) as? String)?.let { word ->
+                val errorMessage = "The method ${generateNextWordMethod.prettyString()} must generate new word each time and remove the generated word from the words list"
+                assert(word !in generatedWords) { errorMessage }
+                currentWordsSize--
+                assert(words.size == currentWordsSize) { errorMessage }
+            } ?: assert(false) { "The method ${generateNextWordMethod.prettyString()} must return a new Word" }
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("isValidWordMethodData")
+    fun isValidWordMethodTest(keyWord: String, newWord: String, isValid: Boolean) {
+        val invokeData = TestMethodInvokeData(wordServiceTestClass, isValidWordMethod)
+        (wordServiceTestClass.invokeMethodWithArgs(
+            args = arrayOf(keyWord, newWord),
+            invokeData = invokeData,
+        ) as? Boolean)?.let {
+            assert(isValid == it) { "For the keyWord $keyWord and newWord $newWord the method ${isValidWordMethod.name} must return $isValid." }
+        } ?: assert(false) { "The method ${isValidWordMethod.prettyString()} failed with keyWord $keyWord and newWord $newWord, but must return $isValid" }
+    }
+
+    @Test
+    fun isNewWordMethodTest() {
+        val invokeData = TestMethodInvokeData(wordServiceTestClass, isNewWordMethod)
+        val previousWordsField = invokeData.clazz.declaredFields.find { it.name == previousWordsTestVariable.name }
+            ?: error("Can not find the field ${previousWordsTestVariable.name}")
+        previousWordsField.isAccessible = true
+        val emptyResults = previousWordsField.get(invokeData.instance) as Map<*, *>
+        assert(emptyResults.isEmpty()) { "After initialization of the class ${wordServiceTestClass.name} the field ${previousWordsTestVariable.name} must store an empty map." }
+
+        val keyWord = "photomechanochemistry"
+        val newWord = "photo"
+        invokeData.invokeIsNewWordMethod(keyWord, newWord, true, "a new word")
+        invokeData.invokeIsNewWordMethod(keyWord, newWord, false, "an existing word")
+        invokeData.invokeIsNewWordMethod(keyWord, newWord, false, "an existing word")
+        invokeData.invokeIsNewWordMethod(keyWord, "$newWord$newWord", true, "a new word")
+    }
+
+    private fun TestMethodInvokeData.invokeIsNewWordMethod(
+        keyWord: String,
+        newWord: String,
+        expected: Boolean,
+        errorMessageClarification: String
+    ) {
+        (wordServiceTestClass.invokeMethodWithArgs(
+            args = arrayOf(keyWord, newWord),
+            invokeData = this,
+        ) as? Boolean)?.let {
+            assert(expected == it) { "Try to call the ${isNewWordMethod.name} with the keyWord $keyWord and $errorMessageClarification in the map, it must return $expected" }
+        } ?: assert(false) { "Try to call the ${isNewWordMethod.name} with the keyWord $keyWord and $errorMessageClarification, it must return $expected, but an unexpected error was occurred" }
+    }
+
+    @Test
+    fun gameResultsServiceTest() {
+        val clazz = gameResultsServiceTestClass.checkBaseDefinition()
+        gameResultsServiceCompanionTestClass.checkBaseDefinition()
+        gameResultsServiceTestClass.checkFieldsDefinition(clazz, false)
+        gameResultsServiceTestClass.checkConstructors(
+            clazz,
+            listOf(
+                ConstructorGetter(),
+            )
+        )
+        gameResultsServiceTestClass.checkDeclaredMethods(clazz)
+    }
+
+    @Test
+    fun saveGameResultsMethodTest() {
+        commonTests.results.saveGameResultsMethodTest(
+            teamServiceTestClass,
+            generateTeamsForOneRoundMethod,
+            gameResultsServiceTestClass,
+            saveGameResultsMethod,
+            gameHistoryVariable,
+        )
+    }
+
+    @Test
+    fun getAllGameResultsMethodTest() {
+        commonTests.results.getAllGameResultsMethodTest(
+            gameResultsServiceTestClass,
+            getAllGameResultsMethod,
+            gameHistoryVariable,
+            teamServiceTestClass,
+            generateTeamsForOneRoundMethod,
+            saveGameResultsMethod,
+        )
     }
 }
