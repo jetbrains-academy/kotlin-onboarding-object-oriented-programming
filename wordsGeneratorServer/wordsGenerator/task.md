@@ -1,6 +1,6 @@
-Hello! This lesson focuses on the topics that you covered in the previous lesson.
-The main difference is that the final project will not be divided into intermediate stages with theory part
-and you can try to implement it yourself from scratch.
+Hello! This lesson focuses on the topics covered in the previous lesson.
+The main difference is that this lesson does not contain the theory part,
+you just need to implement the project from scratch by yourself.
 We have no doubt that you will succeed!
 
 ----
@@ -106,14 +106,14 @@ ___
 
 The **goal** of this step is to implement the `TeamService` class. 
 This class is _almost_ the same with the `TeamService` from the alias game, 
-so you can practice again or get your implementation from the previous project and fix it a little.
+so you can practice again or get your implementation from the previous project and adjust it.
 
 The package `jetbrains.kotlin.course.words.generator.team` already has the regular class `TeamService`.
 It is responsible for the game logic for the teams. In this task you need to implement several things to make the game alive:
 
-- add a companion object into the `TeamService` class and declare the `teamsStorage` variable to store all previous teams.
-  The type of the storage should be the `MutableMap` of `Identifier` to `Team`. Don't forget to init it via an empty map.
-- implement the `generateTeamsForOneRound` method.
+- Add a companion object into the `TeamService` class and declare the `teamsStorage` variable to store all previous teams.
+  The type of the storage should be the `MutableMap` from `Identifier` to `Team`. Don't forget to init it via an empty map.
+- Implement the `generateTeamsForOneRound` method.
   The method must generate the teams list and also store all of them into the `teamsStorage` map.
   To create a new instance of the `Team` class, please use default values for the properties: `Team()`.
   We need it to save the games results for the leaderboard.
@@ -134,7 +134,7 @@ As was mentioned in the first module, you can generate a new list with `N` eleme
 
 <div class="hint" title="putIfAbsent built-in function">
 
-If you work with a `map`, you can use `putIfAbsent` built-in function to put a new value if it absent in the `map`:
+If you work with a `map`, you can use `putIfAbsent` built-in function to put a new value if it is absent in the `map`:
   ```kotlin
   val myMap = mutableMapOf<Int, String>()
   if (1 !in myMap.keys) {
@@ -176,9 +176,9 @@ The **goal** of this step is to implement the `Word` and `WordServices` classes.
 First of all, create a value class `Word` with one `String` `word` property to store a word in the `jetbrains.kotlin.course.words.generator.word` package.
 
 Next, find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
-- add a companion object into the `WordServices` class and declare the `numberOfWords` variable to store the number
+- Add a companion object into the `WordServices` class and declare the `numberOfWords` variable to store the number
   of words in the game. Initialize this variable as the _size_ of the predefined list of words `words`.
-- implement `generateNextWord` function: if the `words` list _is empty_, throw an error, 
+- Implement `generateNextWord` function: if the `words` list _is empty_, throw an error, 
 else get the first element from the `words` list and remove it from the list, create a new `Word` and return it.
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -252,23 +252,24 @@ ___
 
 The **goal** of this step is to add validators into the `WordServices` class. 
 
-Find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
+Find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it.
 
-- implement the `isValidWord` function: 
+- Implement the `isValidWord` function. 
   
-  - if `newWord` (the word was input by the user) _is empty_, return `false` 
-  - if `newWord` contains symbols not from `keyWord`, , return `false`. Note, `newWord` must contain each symbol not more than this symbol occurs in `keyWord`:
+  - If `newWord` (the word was input by the user) _is empty_, return `false` 
+  - If `newWord` contains symbols not from `keyWord`, return `false`. 
+    Note, the number of times some symbol occurs in `newWord` cannot be grater
+    than this the number of times this symbol occurs in `keyWord`
   ```kotlin
   val a = service.isValidWord("photothermoelasticity", "") // false
   val b = service.isValidWord("photothermoelasticity", "dog") // false
   val c = service.isValidWord("photothermoelasticity", "photo") // true
   val c = service.isValidWord("photothermoelasticity", "photooooo") // false, because the initial word contains <o> two times
   ```
-  
 
-- add an internal variable `previousWords` into companion object in this class with the type `mutableMapOf<String, MutableList<String>>` 
-that maps for each game word the list of already guessed words. Don't forget to init this map with an empty map.
-- implement the `isNewWord` function:
+- Add an internal variable `previousWords` into companion object in this class with the type `mutableMapOf<String, MutableList<Word>>` 
+that maps each game word to the list of already guessed words. Don't forget to init this map with an empty map.
+- Implement the `isNewWord` function:
 
   - if `previousWords` does not contain `keyWord` yet, return `true`
   - else if the list of words `previousWords[keyWord]` contains `newWord` return `false`, else return `true`
@@ -291,7 +292,6 @@ If you have any difficulties, **hints will help you solve this task**.
     println("cat".isEmpty()) // false
   }
   ```
-  Hint text
 </div>
 
 <div class="hint" title="The aggregation built-in functions">
@@ -363,16 +363,16 @@ Congratulations! Your game is almost ready, it remains only to add the display o
 and the for the previous rounds.
 
 In this task implement several things in the already defined class `GameResultsService` in
-the `jetbrains.kotlin.course.words.generator.results` package. Note, this class is the same with `GameResultsService` from the alias game, so you can practice again or just copy the previous solution:
+the `jetbrains.kotlin.course.words.generator.results` package. Note, this class is the same as `GameResultsService` from the alias game, so you can practice again or just copy the previous solution.
 
-- add a type alias `GameResult` to `List<Team>` into `jetbrains.kotlin.course.alias.results` package;
-- add a companion object into the `GameResultsService`
+- Add a type alias `GameResult` to `List<Team>` into `jetbrains.kotlin.course.alias.results` package.
+- Add a companion object into the `GameResultsService`
   and declare the `gameHistory` variable to store the list of game results (`MutableList<GameResult>`).
   By default, it must be initialized via an empty list.
-- implement the `saveGameResults` method that adds the `result` into the `gameHistory`.
+- Implement the `saveGameResults` method that adds the `result` into the `gameHistory`.
   Before adding the `result` you need to check two requirements and throw an error if they are broken: 1) `result` must
-  be not empty; 2) all teams ids from the `result` must be in the `TeamService.teamsStorage`.
-- implement the `getAllGameResults` method that returns the reversed `gameHistory` list.
+  not be empty; 2) all teams ids from the `result` must be in the `TeamService.teamsStorage`.
+- Implement the `getAllGameResults` method that returns the reversed `gameHistory` list.
 
 If you have any difficulties, **hints will help you solve this task**.
 
