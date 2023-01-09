@@ -4,23 +4,18 @@ in the context of the Kotlin language.
 We assume that you have completed the first part of the course 
 or are familiar with the Kotlin constructions it covers.
 
-Note that Kotlin combines several concepts, for example, 
-it actively uses functional programming practices. 
-Therefore, we will consider only several concepts and do not 
-call for the use of Kotlin only as an OOP language.
-
 All topics will be accompanied by links to [the official Kotlin documentation](https://kotlinlang.org/docs/home.html),
 which you can read later.
 
 Each lesson of the course is built in the form of a project:
 step by step, by completing different small tasks,
-you will get a finished small project in the end.
-At the end of each lesson, an additional similar project will be offered:
-it includes all the topics of the lesson but is not contains any theory materials.
+you will get a complete project in the end.
+At the end of each lesson, an additional project will be offered:
+it includes all the topics of the lesson but does not contain any theory materials.
 The topic of this module is board games. 
-It means, in each lesson you will create one on the popular games as a web application.
+It means, in each lesson you will create one of the popular games as a web application.
 Note, part of the code will be pre-written by the course author 
-to avoid deep into web programming in this course.
+to avoid going deep into web programming in this course.
 
 ### Project description
 
@@ -71,7 +66,7 @@ You can then use the [`import`](https://kotlinlang.org/docs/packages.html#import
   
   Consider one small example. Let's say we have two functions with the same name `foo` in two different Kotlin files - `file1.kt` and `file2.kt`.
   Next, we create a new file with the name `file3.kt` and need to call the `foo` function from the `file1.kt`.
-  We can do this if the original two files `file1.kt` and `file2.kt` have different packages, and we import this function from the desired package:
+  We can do this if the original two files `file1.kt` and `file2.kt` belong to different packages, and we import this function from the desired package:
 
   ```kotlin
     // file1.kt
@@ -105,8 +100,8 @@ for example, two identical functions with exactly the same signatures (name, arg
 ### Type aliases
 
 A [type alias](https://kotlinlang.org/docs/type-aliases.html) allows you to define an alternative name for an existing type.
-The most common use of type aliases is too long type names. 
-In this case you can use a different shorter name and use the new one instead:
+The most common use of type aliases is shortening long type names. 
+In this case you can use a different shorter name:
 
 ```kotlin
 typealias Words = List<String>
@@ -120,19 +115,28 @@ fun foo(): Words = TODO() // must return List<String>
 
 #### General definition
 
-During developing software process, it is often impossible to implement the whole functionality only be separated functions. 
-Of course, if we mean the principles of object-oriented, not functional programming.
+During software development process, it is often impractical to implement the whole application 
+using only functions as building blocks.
+If you are designing large complex system and use the principles of object-oriented programming
+you can divide the application into several entities with each
+entity responsible for its own functionality.
 
-Consider an example. If you are designing some kind of large and complex system, 
-and in our case a board game, you can divide it into several entities and each 
-entity will be able to do some things, but outside of this entity such a function is useless.
-
+Consider a board game as an example. 
 Let's say we have a `GameCard` entity and a function to generate a list of words inside it. 
 Of course, we can implement a function that will return some list of words separately 
-and don't link to `GameCard`, but it will be inconvenient to work with such a list, 
-because the `GameCard` may have some _attributes_, for example, capacity. 
-In this case the returning all attributes from the function 
-and passing them later can be inconvenient.
+and don't link to `GameCard` entity.
+However, the `GameCard` entity may have some _properties_, for example, its capacity.
+In this case you will need to pass all properties of a `GameCard` entity to the function manually,
+and keep track of them later.
+It is inconvinient and error-prone.
+
+[//]: # (However, it might be inconvenient to work with such function. )
+
+[//]: # (because the `GameCard` may have some _property_, for example, capacity. )
+
+[//]: # (In this case the returning all properties from the function )
+
+[//]: # (and passing them later can be inconvenient.)
 
 #### Kotlin definition
 
@@ -145,7 +149,7 @@ class GameCard
 
 #### Properties
 
-Next you can set up all _attributes_ (properties) in the [_primary constructor_](https://kotlinlang.org/docs/classes.html#constructors), 
+Next you can set up all _properties_ in the [_primary constructor_](https://kotlinlang.org/docs/classes.html#constructors), 
 that should store each _instance_ in this class:
 
 ```kotlin
@@ -173,6 +177,25 @@ class GameCard(val capacity: Int = 5)
 fun foo(card: GameCard): Unit = TODO("Not implemented yet")
 ```
 
+<div class="hint" title="An example with several properties in the class">
+  
+  In classes you can add several properties:
+  ```kotlin
+  class GameCard(
+    val capacity: Int = 5,
+    val contentType: String,
+  )
+  
+  // Next we can create a new instance
+  fun main() {
+    val card1 = GameCard(contentType = "word") // a new card with capacity 5 and contentType "word"
+  
+    val card2 = GameCard(4, "word") // a new card with capacity 4 and contentType "word"
+  }
+  ```
+</div>
+
+
 #### Methods
 
 In addition, each class can have a set of _methods_. 
@@ -188,7 +211,9 @@ class GameCard(val capacity: Int = 5) {
 }
 ```
 
-Next, you can just call this function:
+**TODO: for the redactor - should we reformulate <specify the name of the method after name of the entity through dot>?**
+
+Next, you can call this method specify the name of the method after name of the entity through dot:
 
 ```kotlin
 fun main() {
@@ -252,7 +277,29 @@ fun main() {
 </div>
 
 If you are designing a large or complex application, 
-remember to use various access modifiers such as `private`
+remember to use various access modifiers such as `private`.
+
+<div class="hint" title="Examples of usage different access modifiers">
+  
+  The `private` modifier usually is used for internal functionality in the class, e.g. 
+  if you create a helper function to avoid code duplication in the original one:
+  
+  ```kotlin
+  class GameCard(val capacity: Int = 5) {
+    fun generateNewWords(language: String = "en") : List<String> {
+      val words: List<String> = TODO("Not implemented yet")
+      return words.filter { isValidWord(it) }
+    }
+  
+    private fun isValidWord(str: String): Boolean  = str.all { it.isLetter() }
+  }
+  ```
+
+  In the example above we created a private function `isValidWord` to keep only valid words for the card.
+  However, it is _internal_ functionality for this class and reflects the internal logic for the words' generation. 
+  By this case we should mark it as a `private` function.
+</div>
+
 
 ___
 
@@ -297,7 +344,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
   It is better to set the value `0` as the default valur for the property `counter`.
   This makes it easier to create an instance of this class, 
-  since you can not write a start value each time:
+  since you do not have to write a start value each time:
 
   ```kotlin
   val id = IdentifierFactory(0)
@@ -342,7 +389,7 @@ ___
 
 It is not unusual to create classes whose main purpose is to hold data. 
 In such classes, some standard functionality and some utility functions 
-are often mechanically derivable from the data, for example, 
+are often automatically derivable from the data, for example, 
 how the string representation of an instance of this class will look like. 
 In Kotlin, these are called data classes and are marked with the [`data`](https://kotlinlang.org/docs/data-classes.html) keyword:
 Such classes must have at least one property:
@@ -462,7 +509,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
   Class `Team` is responsible to store some information about teams in the game. 
   It is convenient to use data classes in all cases, 
-  when we need just store something and have automatically implemented methods like `toString` method.
+  when we need just store something and have automatically implemented methods like `toString`.
 </div>
 
 <div class="hint" title="Why are we using name outside of the constructor?">
@@ -528,19 +575,19 @@ fun main() {
 
 You are already familiar with [`List`](https://kotlinlang.org/docs/collections-overview.html#list) a little, which stores a list of objects of the same type, 
 such as `List<Int>`. The second popular collection is [`Map`](https://kotlinlang.org/docs/collections-overview.html#map). 
-It stores key and values, where all keys are different, but values can be the same.
+It stores key-value pairs, such that all keys are different, but values can be the same.
 `Map` is very similar to an address book, where you can find the corresponding address for each person. 
 Accordingly, the same address can occur several times, but each person will be in the book only once.
 
 In Kotlin, if you want to create a _mutable_ `Map`, then you need to say so _explicitly_, 
-because by default, an _immutable_ collection is created, 
+because by default, an _read-only_ collection is created, 
 to which it will not be possible to add new elements later.
 
-To create a new map you can use `mapOf` for the _immutable_ collection or `mutableMapOf` for _mutable_ one:
+To create a new map you can use `mapOf` for the _read-only_ collection or `mutableMapOf` for _mutable_ one:
 
 ```kotlin
-val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
-immutableMap.put(3 to "three") // ERROR
+val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
+readOnlyMap.put(3 to "three") // ERROR
 
 val mutableMap =  mutableMapOf<Int, String>(1 to "one", 2 to "two")
 mutableMap.put(3 to "three") // OK
@@ -553,10 +600,10 @@ Let's consider several basic ones that can help you to solve this task:
 
 <div class="hint" title="The `keys` built-in property">
   
-  If you need to get all _keys_ from an immutable or mutable map, you can use the [_keys_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
+  If you need to get all _keys_ from a read-only or mutable map, you can use the [_keys_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
   ```kotlin
-  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
-  for (key in immutableMap.keys) {
+  val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  for (key in readOnlyMap.keys) {
       println(key) // Will print 1 and 2
   }
   ```
@@ -564,7 +611,7 @@ Let's consider several basic ones that can help you to solve this task:
 
 <div class="hint" title="The `values` built-in property">
 
-If you need to get all _values_ from an immutable or mutable map, you can use the [_values_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
+If you need to get all _values_ from a read-only or mutable map, you can use the [_values_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
   ```kotlin
   val mutableMap = mutableMapOf<Int, String>(1 to "one", 2 to "two")
   for (value in mutableMap.values) {
@@ -577,25 +624,25 @@ If you need to get all _values_ from an immutable or mutable map, you can use th
 
   If you need to get a value by the key, you can use the [following construction](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values):
   ```kotlin
-  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
-  println(immutableMap[1]) // one
+  val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  println(readOnlyMap[1]) // one
   ```
   
-  But it can return `null` if the key is not exist:
+  But it can return `null` if the key does not exist:
   ```kotlin
-  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
-  println(immutableMap[3]) // null
+  val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
+  println(readOnlyMap[3]) // null
   ```
   In this case you can use the [null-safety](https://kotlinlang.org/docs/null-safety.html) mechanism from the previous module to handle such situations:
 
   ```kotlin
-  val immutableMap = mapOf<Int, String>(1 to "one", 2 to "two")
-  immutableMap[3]?.let {
-      println(it) // Nothing to print because immutableMap[3] is null
+  val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
+readOnlyMap[3]?.let {
+      println(it) // Nothing to print because readOnlyMap[3] is null
   }
 
-  println(immutableMap[3] ?: "Incorrect key") // "Incorrect key", because immutableMap[3] is null
-  println(immutableMap[2] ?: "Incorrect key") // "two", because immutableMap[2] is not null
+  println(readOnlyMap[3] ?: "Incorrect key") // "Incorrect key", because readOnlyMap[3] is null
+  println(readOnlyMap[2] ?: "Incorrect key") // "two", because readOnlyMap[2] is not null
   ```
 
 </div>
@@ -718,9 +765,29 @@ fun main() {
 }
 ```
 
-Do not confuse inline classes with type aliases.
-Type aliases _only refer_ to an already existing type, 
-while inline classes create a _new_ one for convenient use in your program without performance degradation.
+Do not confuse value classes with type aliases.
+The crucial difference is that type aliases are _assignment-compatible_ with their 
+underlying type (and with other type aliases with the same underlying type), while value classes are not.
+In other words, value classes introduce a truly new type, contrary to type aliases which only introduce an alternative name (alias) for an existing type:
+
+```kotlin
+typealias Word = String
+
+fun generateWord(): Word { 
+    return "cat" // OK
+}
+```
+
+**vs.**
+
+```kotlin
+@JvmInline
+value class Word(val w: String)
+
+fun generateWord(): Word {
+  return "cat" // ERROR, only Word("cat") is correct
+}
+```
 
 ----
 
@@ -827,17 +894,33 @@ Also, if you define a new extension function _inside_ a class, it will not be av
 
 ```kotlin
 class Example {
-    fun String.getAmountOfLetter(letter: Char) = this.count { it == letter }
+    fun String.countLetter(letter: Char) = this.count { it == letter }
     
     fun foo(string: String) {
-        string.getAmountOfLetter('a') // OK
+        string.countLetter('a') // OK
     }
 }
 
 fun main() {
-    println("photothermoelasticity".getAmountOfLetter()) // ERROR
+    println("photothermoelasticity".countLetter()) // ERROR
 }
 ```
+
+<div class="hint" title="Several `this` inside one class">
+
+  When you add a new extension function _inside_ a class, you have several _contexts_ for `this` keyword.
+  You can specify which context you need to use in the current case:
+
+  ```kotlin
+  class Example(private val toDrop: Int) {
+    fun String.countLetter(letter: Char) = this.count { it == letter } // this == String
+  
+    fun String.dropAndCountLetter(letter: Char) = 
+        this.drop(this@Example.toDrop).count { it == letter } // this == String, this@Example == Example
+  }
+  ```
+</div>
+
 
 ___
 
@@ -958,7 +1041,7 @@ If you have any difficulties, **hints will help you solve this task**.
   } // [1, 4, 9, 16, 25, 36]
   ```
 
-  In the last case the initial list `[1, 2, 3, 4]` will be printed, and next each nu,ber in this list will be squared.
+  In the last case the initial list `[1, 2, 3, 4]` will be printed, and next each number in this list will be squared.
   The result of the last action in the curly brackets will be in the final list.
 
   You also can combine map with other function:
@@ -987,17 +1070,17 @@ ___
 ### Mutable list
 
 You already familiar with the `List` and with the `Map`.
-Just like the `Map`, a `List` can be _mutable_ or _immutable_ and it must be reported directly.
+Just like the `Map`, a `List` can be _mutable_ or _read-only_ and it must be reported directly.
 
 In Kotlin, if you want to create a _mutable_ `List`, then you need to say so _explicitly_,
-because by default, an _immutable_ collection is created,
+because by default, an _read-only_ collection is created,
 to which it will not be possible to add new elements later.
 
-To create a new list you can use `listOf` for the _immutable_ collection or `mutableListOf` for _mutable_ one:
+To create a new list you can use `listOf` for the _read-only_ collection or `mutableListOf` for _mutable_ one:
 
 ```kotlin
-val immutableList = listOf<Int>(1, 2, 3)
-immutableList.add(4) // ERROR
+val readOnlyList = listOf<Int>(1, 2, 3)
+readOnlyList.add(4) // ERROR
 
 val mutableList =  mutableListOf<Int>(1, 2, 3)
 mutableList.add(4) // OK
@@ -1085,7 +1168,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="The `all` built-in function">
 
-  If you need verification that if **all** elements match the given predicate, you can use the [`all`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) built-in function.
+  If you need to check that **all** elements match the given predicate, you can use the [`all`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) built-in function.
   The predicate you need to put into the curly brackets:
 
   ```kotlin
