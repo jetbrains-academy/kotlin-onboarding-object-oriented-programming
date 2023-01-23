@@ -8,14 +8,14 @@ fun properties(key: String) = project.findProperty(key).toString()
 @Suppress("DSL_SCOPE_VIOLATION") // "libs" produces a false-positive warning, see https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     java
-    val kotlinVersion = libs.versions.kotlin.get()
-    id(libs.plugins.kotlin.jvm.get().pluginId) version kotlinVersion apply false
-    id(libs.plugins.kotlin.multiplatform.get().pluginId) version kotlinVersion apply false
-    id("org.springframework.boot") version libs.versions.springframework.get() apply false
-    id("io.spring.dependency-management") version libs.versions.spring.dependency.management.get() apply false
-    id("org.jetbrains.kotlin.plugin.spring") version libs.versions.spring.plugin.get() apply false
+    val kotlinVersion = "1.7.10"
+    id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
+    id("org.jetbrains.kotlin.multiplatform") version kotlinVersion apply false
+    id("org.springframework.boot") version "2.7.3" apply false
+    id("io.spring.dependency-management") version "1.0.13.RELEASE" apply false
+    id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion apply false
 
-    id("org.siouan.frontend-jdk11") version libs.versions.frontend.jdk11.get()
+    id("org.siouan.frontend-jdk11") version "6.0.0"
 }
 
 fun printOutput(output: Any): Task {
@@ -33,11 +33,6 @@ allprojects {
         mavenCentral()
     }
 }
-
-// TODO:
-// вынести в отдельные модули общий код
-// добавить конфигурации
-// добавить промежутчоные шаги с запуском проекта
 
 tasks {
     wrapper {
@@ -113,14 +108,15 @@ configure(subprojects.filter { server in it.name }) {
         implementation(project(":common"))
         implementation(project(":utils"))
 
-        implementation(rootProject.libs.spring.boot.starter.web)
-        implementation(rootProject.libs.kotlin.reflect)
-        implementation(rootProject.libs.jackson.module.kotlin)
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
 
-        testImplementation(rootProject.libs.junit.jupiter.api)
-        testRuntimeOnly(rootProject.libs.junit.jupiter.engine)
-        testImplementation(rootProject.libs.junit.jupiter.params)
-        testRuntimeOnly(rootProject.libs.junit.platform.console)
+        val junitJupiterVersion = "5.9.0"
+        testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+        testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+        testRuntimeOnly("org.junit.platform:junit-platform-console:1.9.0")
     }
 
     tasks.named("processResources") {
@@ -149,10 +145,10 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
 
     frontend {
         nodeDistributionProvided.set(false)
-        nodeVersion.set(rootProject.libs.versions.node.get())
+        nodeVersion.set("16.17.1")
 
         yarnEnabled.set(true)
-        yarnVersion.set(rootProject.libs.versions.yarn.get())
+        yarnVersion.set("3.0.0")
 
         installScript.set("install")
         // TODO: throws a stack overflow error

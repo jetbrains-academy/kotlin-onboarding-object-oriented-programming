@@ -3,9 +3,9 @@ version = rootProject.version
 
 plugins {
     java
-    id(libs.plugins.kotlin.jvm.get().pluginId)
+    id("org.jetbrains.kotlin.jvm")
 }
 
 dependencies {
-    implementation(libs.kotlin.reflect)
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
 }
