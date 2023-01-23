@@ -1,0 +1,37 @@
+type: edu
+custom_name: Alias Project - Card Service
+files:
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Utils.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Words.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
+  visible: false
+- name: test/IdentifierFactoryTestClass.kt
+  visible: false
+- name: test/TeamTestClass.kt
+  visible: false
+- name: test/Tests.kt
+  visible: false
+- name: test/TeamServiceTestClass.kt
+  visible: false
+- name: test/CardServiceTestClass.kt
+  visible: false
