@@ -45,13 +45,13 @@ tasks {
     }
 }
 
-val alias = "alias"
+val alias = "aliasServerUtils"
 val codenames = "codenames"
 val wordsGenerator = "wordsGenerator"
-val frontend = "Frontend"
+val frontendSuffix = "Frontend"
 val server = "Server"
 
-val ignored = listOf("common", "$alias$frontend", "$codenames$frontend", "$wordsGenerator$frontend")
+val ignored = listOf("common", "$alias$frontendSuffix", "$codenames$frontendSuffix", "$wordsGenerator$frontendSuffix")
 configure(subprojects.filter { it.name !in ignored }) {
     val jvmVersion = "11"
 
@@ -95,13 +95,11 @@ configure(subprojects.filter { it.name !in ignored }) {
     }
 }
 
-val servers = mapOf(
-    "$alias$server" to alias,
-    "$codenames$server" to codenames,
-    "$wordsGenerator$server" to wordsGenerator
-)
-configure(subprojects.filter { it.name in servers.keys }) {
+fun String.getGameName(suffix: String) = substring(0 until indexOf(suffix))
+
+configure(subprojects.filter { server in it.name }) {
     val projectName = this.name
+    val gameName = projectName.getGameName(server)
 
     apply {
         plugin("java")
@@ -126,23 +124,24 @@ configure(subprojects.filter { it.name in servers.keys }) {
     }
 
     tasks.named("processResources") {
-        dependsOn(":${servers[projectName]!!}Frontend:build")
+        dependsOn(":$gameName$frontendSuffix:build")
     }
 
     sourceSets {
-        getByName("main").java.srcDirs("${servers[projectName]!!}/src/main/kotlin")
-        getByName("main").resources.srcDirs("${servers[projectName]!!}/src/main/resources")
-        getByName("test").java.srcDirs("${servers[projectName]!!}/test")
+        getByName("main").java.srcDirs("$gameName/src/main/kotlin")
+        getByName("main").resources.srcDirs("$gameName/src/main/resources")
+        getByName("test").java.srcDirs("test")
     }
 }
 
 val clients = mapOf(
-    "$alias$frontend" to alias,
-    "$codenames$frontend" to codenames,
-    "$wordsGenerator$frontend" to wordsGenerator
+    "$alias$frontendSuffix" to alias,
+    "$codenames$frontendSuffix" to codenames,
+    "$wordsGenerator$frontendSuffix" to wordsGenerator
 )
-configure(subprojects.filter { it.name in clients.keys }) {
+configure(subprojects.filter { frontendSuffix in it.name }) {
     val projectName = this.name
+    val gameName = projectName.getGameName(frontendSuffix)
 
     apply {
         plugin("org.siouan.frontend-jdk11")
@@ -173,7 +172,7 @@ configure(subprojects.filter { it.name in clients.keys }) {
             doLast {
                 copy {
                     from("$buildDir")
-                    into("$rootDir/${clients[projectName]!!}$server/${clients[projectName]!!}/src/main/resources/static/")
+                    into("$rootDir/$gameName$server/$gameName/src/main/resources/static/")
                 }
             }
         }
