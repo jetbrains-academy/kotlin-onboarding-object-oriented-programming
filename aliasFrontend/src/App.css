@@ -1,14 +1,16 @@
 .font-link-base {
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: black;
 }
 
 .font-link-bold {
-  font-family: 'Gotham Black', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
 }
 
 .font-link-light {
-  font-family: 'Gotham XLight', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
 }
 
 .App-cards {
@@ -24,7 +26,7 @@
 
 .App-small-name {
   font-size: 4vmin;
-  margin-top: 4vmin;
+  margin-top: 0;
   margin-bottom: 2vmin;
   color: white;
 }
@@ -39,7 +41,9 @@
   font-size: 2vmin;
   padding-left: 1.5vmin;
   padding-right: 1.5vmin;
-  padding-top: 1.2vmin;
+  padding-top: 0;
+  margin-top: 1.5vmin;
+  margin-bottom: 1.5vmin;
 }
 
 .App-teams-p-number-border {
@@ -117,7 +121,7 @@
 
 .App-game-p {
   color: black;
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 3vmin;
 }
 
@@ -136,7 +140,7 @@
   cursor:pointer;
   color: white;
   font-size: 100%;
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .App-button-start {
@@ -187,7 +191,7 @@
 .App-word-container {
   border: none;
   background-position: center;
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Inter', sans-serif;
   height: 5vmin;
   font-size: 2.2vmin;
   margin-left: -1.5vmin;
@@ -204,7 +208,7 @@
   color: black;
   font-size: 3vmin;
   margin-top: 0;
-  margin-bottom: 5vmin;
+  margin-bottom: 2vmin;
 }
 
 .App-word-container-cards {
@@ -216,9 +220,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 35vmin;
+  height: 30vmin;
   width: 30vmin;
-  margin-top: 5vmin;
+  margin-top: 0;
   margin-bottom: 2vmin;
 }
 

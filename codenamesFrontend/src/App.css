@@ -1,14 +1,16 @@
 .font-link-base {
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: black;
 }
 
 .font-link-bold {
-  font-family: 'Gotham Black', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
 }
 
 .font-link-light {
-  font-family: 'Gotham XLight', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
 }
 
 .App-header-base {
@@ -39,7 +41,7 @@
 
 .App-small-name {
   font-size: 4vmin;
-  margin-top: 4vmin;
+  margin-top: 0;
   margin-bottom: 2vmin;
   color: white;
 }

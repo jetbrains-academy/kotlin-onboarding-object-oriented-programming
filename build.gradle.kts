@@ -5,6 +5,7 @@ version = "0.0.1-SNAPSHOT"
 
 fun properties(key: String) = project.findProperty(key).toString()
 
+@Suppress("DSL_SCOPE_VIOLATION") // "libs" produces a false-positive warning, see https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     java
     val kotlinVersion = libs.versions.kotlin.get()
@@ -32,6 +33,11 @@ allprojects {
         mavenCentral()
     }
 }
+
+// TODO:
+// вынести в отдельные модули общий код
+// добавить конфигурации
+// добавить промежутчоные шаги с запуском проекта
 
 tasks {
     wrapper {
@@ -89,15 +95,6 @@ configure(subprojects.filter { it.name !in ignored }) {
     }
 }
 
-// TODO: move inside configure block
-val jupiterApi = libs.junit.jupiter.api
-val jupiterEngine = libs.junit.jupiter.engine
-val jupiterParams = libs.junit.jupiter.params
-val jupiterConsole = libs.junit.platform.console
-val reflect = libs.kotlin.reflect
-val springBootStarterWeb = libs.spring.boot.starter.web
-val jackson = libs.jackson.module.kotlin
-
 val servers = mapOf(
     "$alias$server" to alias,
     "$codenames$server" to codenames,
@@ -118,14 +115,14 @@ configure(subprojects.filter { it.name in servers.keys }) {
         implementation(project(":common"))
         implementation(project(":utils"))
 
-        implementation(springBootStarterWeb)
-        implementation(reflect)
-        implementation(jackson)
+        implementation(rootProject.libs.spring.boot.starter.web)
+        implementation(rootProject.libs.kotlin.reflect)
+        implementation(rootProject.libs.jackson.module.kotlin)
 
-        testImplementation(jupiterApi)
-        testRuntimeOnly(jupiterEngine)
-        testImplementation(jupiterParams)
-        testRuntimeOnly(jupiterConsole)
+        testImplementation(rootProject.libs.junit.jupiter.api)
+        testRuntimeOnly(rootProject.libs.junit.jupiter.engine)
+        testImplementation(rootProject.libs.junit.jupiter.params)
+        testRuntimeOnly(rootProject.libs.junit.platform.console)
     }
 
     tasks.named("processResources") {
@@ -138,10 +135,6 @@ configure(subprojects.filter { it.name in servers.keys }) {
         getByName("test").java.srcDirs("${servers[projectName]!!}/test")
     }
 }
-
-// TODO: move inside configure block
-val nodeVersion = libs.versions.node.get()
-val yarnVersion = libs.versions.yarn.get()
 
 val clients = mapOf(
     "$alias$frontend" to alias,
@@ -157,10 +150,10 @@ configure(subprojects.filter { it.name in clients.keys }) {
 
     frontend {
         nodeDistributionProvided.set(false)
-        nodeVersion.set(nodeVersion)
+        nodeVersion.set(rootProject.libs.versions.node.get())
 
         yarnEnabled.set(true)
-        yarnVersion.set(yarnVersion)
+        yarnVersion.set(rootProject.libs.versions.yarn.get())
 
         installScript.set("install")
         // TODO: throws a stack overflow error
