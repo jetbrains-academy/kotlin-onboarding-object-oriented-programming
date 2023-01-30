@@ -1,13 +1,13 @@
 ### Mutable list
 
-You already familiar with the `List` and with the `Map`.
-Just like the `Map`, a `List` can be _mutable_ or _read-only_ and it must be reported directly.
+You are already familiar with the `List` and `Map` collections.
+Just like `Map`, `List` can be _mutable_ or _read-only_, which must be specified directly.
 
-In Kotlin, if you want to create a _mutable_ `List`, then you need to say so _explicitly_,
-because by default, an _read-only_ collection is created,
+In Kotlin, if you want to create a _mutable_ `List`, you need to indicate it _explicitly_
+because by default, a _read-only_ collection is created,
 to which it will not be possible to add new elements later.
 
-To create a new list you can use `listOf` for the _read-only_ collection or `mutableListOf` for _mutable_ one:
+To create a new list, you can use `listOf` for a _read-only_ collection or `mutableListOf` for a _mutable_ one:
 
 ```kotlin
 val readOnlyList = listOf<Int>(1, 2, 3)
@@ -19,11 +19,11 @@ mutableList.add(4) // OK
 
 ### Checking some conditions
 
-When developing applications, some invariants can often be true for values.
+When developing applications, we often need to keep some invariant values true.
 For example, if we are working with game cards and we know the maximum number of the cards,
-the list of cards can not have cards more than the maximum value.
+the list of cards can not exceed the maximum value.
 
-To handle these case you can use the [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) built-in function, that throws an IllegalArgumentException if the value is false:
+To handle such a case, you can use the [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) built-in function, which throws an IllegalArgumentException if the value is false:
 
 ```kotlin
 class GameCard(private val capacity: Int = 5) {
