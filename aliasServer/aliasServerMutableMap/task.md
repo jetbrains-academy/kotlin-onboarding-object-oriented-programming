@@ -1,16 +1,16 @@
 ### Definition
 
-You are already familiar with [`List`](https://kotlinlang.org/docs/collections-overview.html#list) a little, which stores a list of objects of the same type,
-such as `List<Int>`. The second popular collection is [`Map`](https://kotlinlang.org/docs/collections-overview.html#map).
-It stores key-value pairs, such that all keys are different, but values can be the same.
+You are already briefly familiar with [`List`](https://kotlinlang.org/docs/collections-overview.html#list), which stores a list of objects of the same type,
+such as `List<Int>`. The second popular collection type is [`Map`](https://kotlinlang.org/docs/collections-overview.html#map).
+It stores key-value pairs such that all keys are different but values can be the same.
 `Map` is very similar to an address book, where you can find the corresponding address for each person.
-Accordingly, the same address can occur several times, but each person will be in the book only once.
+Accordingly, the same address can occur several times, but each person will appear in the book only once.
 
-In Kotlin, if you want to create a _mutable_ `Map`, then you need to say so _explicitly_,
-because by default, an _read-only_ collection is created,
+In Kotlin, if you want to create a _mutable_ `Map`, then you need to indicate it _explicitly_
+because by default, a _read-only_ collection is created,
 to which it will not be possible to add new elements later.
 
-To create a new map you can use `mapOf` for the _read-only_ collection or `mutableMapOf` for _mutable_ one:
+To create a new map, you can use `mapOf` for a _read-only_ collection or `mutableMapOf` for a _mutable_ one:
 
 ```kotlin
 val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
@@ -23,7 +23,7 @@ mutableMap.put(3 to "three") // OK
 #### Built-in functions
 
 You can find a lot of useful built-in functions to work with maps in the [official Kotlin documentation](https://kotlinlang.org/docs/map-operations.html).
-Let's consider several basic ones that can help you to solve this task:
+Let's consider several basic ones, which can help you to solve this task.
 
 <div class="hint" title="The `keys` built-in property">
 
@@ -47,20 +47,20 @@ If you need to get all _values_ from a read-only or mutable map, you can use the
   ```
 </div>
 
-<div class="hint" title="Get a value by the key">
+<div class="hint" title="Get a value by key">
 
-If you need to get a value by the key, you can use the [following construction](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values):
+If you need to get a value by key, you can use the [following construction](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values):
   ```kotlin
   val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
   println(readOnlyMap[1]) // one
   ```
 
-But it can return `null` if the key does not exist:
+However, it can return `null` if the key does not exist:
   ```kotlin
   val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
   println(readOnlyMap[3]) // null
   ```
-In this case you can use the [null-safety](https://kotlinlang.org/docs/null-safety.html) mechanism from the previous module to handle such situations:
+In such a case, you can use the [null-safety](https://kotlinlang.org/docs/null-safety.html) mechanism discussed in the previous module to handle the situation:
 
   ```kotlin
   val readOnlyMap = mapOf<Int, String>(1 to "one", 2 to "two")
@@ -68,8 +68,8 @@ readOnlyMap[3]?.let {
       println(it) // Nothing to print because readOnlyMap[3] is null
   }
 
-  println(readOnlyMap[3] ?: "Incorrect key") // "Incorrect key", because readOnlyMap[3] is null
-  println(readOnlyMap[2] ?: "Incorrect key") // "two", because readOnlyMap[2] is not null
+  println(readOnlyMap[3] ?: "Incorrect key") // "Incorrect key" because readOnlyMap[3] is null
+  println(readOnlyMap[2] ?: "Incorrect key") // "two" because readOnlyMap[2] is not null
   ```
 
 </div>
