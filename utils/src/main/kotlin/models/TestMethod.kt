@@ -83,6 +83,7 @@ fun Method.invokeWithArgs(
     return obj?.let { invoke(it, *args) } ?: invoke(clazz, *args)
 }
 
+@Suppress("SpreadOperator")
 data class TestMethodInvokeData(
     val testClass: TestClass,
     val testMethod: TestMethod,

@@ -6,6 +6,7 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class WordsGeneratorApplication
 
+@Suppress("SpreadOperator")
 fun main(args: Array<String>) {
     runApplication<WordsGeneratorApplication>(*args)
 }

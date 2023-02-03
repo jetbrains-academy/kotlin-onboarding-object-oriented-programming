@@ -15,3 +15,4 @@ class CardResource(val service: CardService) {
     @GetMapping("/amount")
     fun getCardsAmount(): Int = TODO("Not implemented yet")
 }
+
