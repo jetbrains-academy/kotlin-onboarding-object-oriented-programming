@@ -40,8 +40,8 @@ export default function TeamsScreen({gameStateSetter, gameTeamsSetter}: TeamsScr
                     <p className="App-teams-p-number font-link-base">Four</p></p>
             </div>
             <div className="App-buttons-container App-teams-buttons-container">
-                <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={() => gameStateSetter(GameState.START)}></button>
-                <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={() => startGame(teamsNumber)}></button>
+                <button className="App-button-base App-teams-button-base App-teams-button-back App-margin-right" onClick={() => gameStateSetter(GameState.START)}></button>
+                <button className="App-button-base App-teams-button-base App-teams-button-next App-margin-left" onClick={() => startGame(teamsNumber)}></button>
             </div>
         </div>
     );
