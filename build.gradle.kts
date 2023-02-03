@@ -130,11 +130,6 @@ configure(subprojects.filter { server in it.name }) {
     }
 }
 
-val clients = mapOf(
-    "$alias$frontendSuffix" to alias,
-    "$codenames$frontendSuffix" to codenames,
-    "$wordsGenerator$frontendSuffix" to wordsGenerator
-)
 configure(subprojects.filter { frontendSuffix in it.name }) {
     val projectName = this.name
     val gameName = projectName.getGameName(frontendSuffix)
