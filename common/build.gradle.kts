@@ -29,7 +29,7 @@ tasks {
             }
         }
 
-        val frontEndModules = listOf("aliasFrontend", "codenamesFrontend")
+        val frontEndModules = listOf("aliasFrontend", "codenamesFrontend", "wordsGeneratorFrontend")
         finalizedBy(frontEndModules.map { ":$it:addCommonTypes" })
     }
 }
