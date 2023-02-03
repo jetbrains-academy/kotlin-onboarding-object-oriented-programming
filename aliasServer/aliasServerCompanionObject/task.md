@@ -1,8 +1,8 @@
 #### Definition
 
 Classes can contain variables or functions that are specific to
-that class, but do not require the use of a concrete instance state of this class,
-but rather can be applied generally.
+that class but do not require the use of a concrete instance state of the class
+and can be applied generally.
 
 For example, we have a `GameCard` class and would like to store the maximum number
 of cards that can be generated. Such a variable can be placed in a [`companion object`](https://kotlinlang.org/docs/object-declarations.html#companion-objects) within that class
@@ -24,7 +24,7 @@ fun main() {
 #### Access modifiers
 
 If you use the `private` access modifier **inside** the companion object,
-it will be available **inside** the external class, but **not outside**:
+it will be available **inside** the external class, but **not outside** of it:
 
 ```kotlin
 class GameCard(private val capacity: Int = 5) {
