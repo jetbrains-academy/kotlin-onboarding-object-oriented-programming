@@ -42,10 +42,10 @@ function PreviousGames({gameResults, index, currentIndexSetter}: PreviousGamesPr
             <Leaderboard teams={gameResults[index]} />
             <div className="App-buttons-container">
                 <div className="App-buttons-container App-teams-buttons-container">
-                    <button className="App-button-base App-teams-button-base App-teams-button-back" onClick={
+                    <button className="App-button-base App-teams-button-base App-teams-button-back App-margin-right" onClick={
                         () => getResults(index - 1)
                     }></button>
-                    <button className="App-button-base App-teams-button-base App-teams-button-next" onClick={
+                    <button className="App-button-base App-teams-button-base App-teams-button-next App-margin-left" onClick={
                         () => getResults(index + 1)
                     }></button>
                 </div>

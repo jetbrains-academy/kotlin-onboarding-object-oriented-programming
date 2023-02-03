@@ -45,7 +45,6 @@ function App() {
         initGame(keyCardSetter, gameCardsSetter)
     }, []);
 
-
     switch (gameState) {
         case GameState.START: {
             return (<div className="App">

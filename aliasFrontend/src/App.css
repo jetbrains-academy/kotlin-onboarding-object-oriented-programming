@@ -36,6 +36,14 @@
   font-size: 5vmin;
 }
 
+.App-cursor-none {
+  cursor: default !important;
+}
+
+.App-cursor-pointer {
+  cursor: pointer !important;
+}
+
 .App-teams-p-number {
   color: black;
   font-size: 2vmin;
@@ -129,6 +137,14 @@
   display: flex;
 }
 
+.App-margin-left {
+  margin-left: 1vmin;
+}
+
+.App-margin-right {
+  margin-right: 1vmin;
+}
+
 .App-button-base {
   height: 10vmin;
   margin-top: 5vmin;
@@ -148,6 +164,7 @@
   width: 30vmin;
   height: 6vmin;
   margin-top: 4vmin;
+  background-size: contain;
 }
 
 .App-stat-button {
@@ -214,7 +231,6 @@
 .App-word-container-cards {
   background-image: url('assets/Kotlin_Alias_cards.svg');
   background-repeat: no-repeat;
-  background-size: auto;
   pointer-events: none;
   display: flex;
   flex-direction: column;
@@ -224,6 +240,7 @@
   width: 30vmin;
   margin-top: 0;
   margin-bottom: 2vmin;
+  background-size: contain;
 }
 
 .App-teams-button-base {
@@ -234,10 +251,12 @@
 
 .App-teams-button-back {
   background-image: url('assets/back_button.svg');
+  background-size: contain;
 }
 
 .App-teams-button-next {
   background-image: url('assets/next_button.svg');
+  background-size: contain;
 }
 
 .App-game-button-base {
@@ -249,11 +268,13 @@
 .App-game-button-base-skip {
   margin-right: 0.5vmin;
   background-image: url('assets/skip_button.svg');
+  background-size: contain;
 }
 
 .App-game-button-base-next {
   margin-left: 0.5vmin;
   background-image: url('assets/new_card_button.svg');
+  background-size: contain;
 }
 
 .App-game-button-bottom-base {
@@ -264,8 +285,10 @@
 
 .App-game-button-bottom-next-round {
   background-image: url('assets/new_round_button.svg');
+  background-size: contain;
 }
 
 .App-game-button-bottom-finish {
   background-image: url('assets/finish_game_button.svg');
+  background-size: contain;
 }

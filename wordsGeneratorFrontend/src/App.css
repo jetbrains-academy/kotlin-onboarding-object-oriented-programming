@@ -142,6 +142,8 @@
   width: 30vmin;
   height: 6vmin;
   margin-top: 4vmin;
+  background-size: contain;
+  margin-bottom: 1vmin;
 }
 
 .App-stat-button {
@@ -152,6 +154,14 @@
 
 .App-stat-button-p {
   font-size: 1.5vmin;
+}
+
+.App-margin-left {
+  margin-left: 1vmin;
+}
+
+.App-margin-right {
+  margin-right: 1vmin;
 }
 
 .App-no-margin {
@@ -192,10 +202,12 @@
 
 .App-teams-button-back {
   background-image: url('assets/back_button.svg');
+  background-size: contain;
 }
 
 .App-teams-button-next {
   background-image: url('assets/next_button.svg');
+  background-size: contain;
 }
 
 .App-game-button-base {
@@ -214,21 +226,27 @@
 .App-game-next-team-button {
   width: 20vmin;
   background-image: url('assets/next_team_button.svg');
+  background-size: contain;
 }
 
 .App-game-new-round-button {
   width: 20vmin;
   background-image: url('assets/new_round_button.svg');
+  background-size: contain;
+  margin-left: 1vmin;
+  margin-right: 1vmin;
 }
 
 .App-game-stat-button {
   width: 25vmin;
   background-image: url('assets/stats_button.svg');
+  background-size: contain;
 }
 
 .App-game-finish-button {
   width: 18vmin;
   background-image: url('assets/finish_game_button.svg');
+  background-size: contain;
 }
 
 .App-input-container {
@@ -254,7 +272,7 @@
 .App-input-hint {
   color: #949292;
   font-size: 2vmin;
-  margin-top: 2.5vmin;
+  margin-top: 1vmin;
   margin-bottom: 0;
 }
 
@@ -264,13 +282,13 @@
   height: 2vmin;
   width: 2vmin;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   background-color: transparent;
   border: none;
   background-position: center;
   position: absolute;
   box-sizing: border-box;
-  top: 55%;
+  top: 56%;
   transform: translateY(-1.8vmin) translateX(43vmin);
 }
 
@@ -279,7 +297,7 @@
 }
 
 .App-game-current-team {
-  margin-bottom: 0vmin;
+  margin-bottom: 0;
 }
 
 .App-game-button-bottom-base {
@@ -290,6 +308,7 @@
 
 .App-game-button-bottom-finish {
   background-image: url('assets/finish_game_button.svg');
+  background-size: contain;
 }
 
 .App-container {

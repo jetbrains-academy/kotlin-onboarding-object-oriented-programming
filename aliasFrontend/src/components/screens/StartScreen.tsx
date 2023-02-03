@@ -13,7 +13,7 @@ export default function StartScreen({gameStateSetter}: StartScreenProps) {
             <p className="App-small-name font-link-base">by Kotlin Course</p>
             <div className="App-buttons-container App-display-flex">
                 <button className="App-button-base App-button-start" onClick={() => gameStateSetter(GameState.TEAMS)} ></button>
-                <button className="App-button-base App-stat-button" onClick={() => gameStateSetter(GameState.STAT)} ><p className="font-link-light App-no-margin App-stat-button-p">Previous games results</p></button>
+                <button className="App-button-base App-stat-button App-cursor-none"><p className="font-link-light App-no-margin App-stat-button-p App-cursor-pointer" onClick={() => gameStateSetter(GameState.STAT)} >Previous games results</p></button>
             </div>
         </div>
     );
