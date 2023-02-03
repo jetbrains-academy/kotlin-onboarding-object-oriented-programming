@@ -181,12 +181,13 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
     tasks {
         "build" {
             dependsOn(":common:build")
-            doLast {
-                copy {
-                    from("$buildDir")
-                    into("$rootDir/$gameName$server/$gameName/src/main/resources/static/")
-                }
-            }
+            // TODO: copy to all servers??
+//            doLast {
+//                copy {
+//                    from("$buildDir")
+//                    into("$rootDir/$gameName$server/$gameName/src/main/resources/static/")
+//                }
+//            }
         }
     }
 }
