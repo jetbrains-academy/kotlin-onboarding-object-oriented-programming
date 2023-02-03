@@ -1,3 +1,5 @@
+@file:Suppress("SwallowedException")
+
 package models
 
 import throwInternalCourseError
@@ -7,22 +9,18 @@ import java.lang.reflect.Modifier
 import kotlin.jvm.internal.DefaultConstructorMarker
 
 enum class ClassType(val key: String) {
-    CLASS("class"),
-    INTERFACE("interface"),
-    SAM_INTERFACE("fun interface"),
-    ENUM("enum class"),
-    OBJECT("object"),
+    CLASS("class"), INTERFACE("interface"), SAM_INTERFACE("fun interface"), ENUM("enum class"), OBJECT("object"),
 //    COMPANION_OBJECT
     ;
 }
 
 data class ConstructorGetter(
-    val parameterTypes: List<Class<*>> = emptyList(),
-    val defaultParameterTypes: List<Class<*>> = emptyList()
+    val parameterTypes: List<Class<*>> = emptyList(), val defaultParameterTypes: List<Class<*>> = emptyList()
 ) {
+    @Suppress("SpreadOperator")
     fun getConstructorWithDefaultArguments(clazz: Class<*>) = try {
-        val parameters = (parameterTypes + defaultParameterTypes.map { listOf(it, Int::class.java) }
-            .flatten()).toMutableList()
+        val parameters =
+            (parameterTypes + defaultParameterTypes.map { listOf(it, Int::class.java) }.flatten()).toMutableList()
         if (defaultParameterTypes.isNotEmpty()) {
             parameters.add(DefaultConstructorMarker::class.java)
         }
@@ -32,6 +30,7 @@ data class ConstructorGetter(
     }
 }
 
+@Suppress("TooManyFunctions")
 data class TestClass(
     val name: String = "MainKt",
     val classPackage: String? = null,
@@ -130,7 +129,12 @@ data class TestClass(
                 constructors.add(constructor)
             }
         }
-        assert(constructors.isNotEmpty()) { "You don't have any constructors with ${arguments.first().size} arguments in the class $name. Please, check the arguments, probably you need to add the default values." }
+        assert(constructors.isNotEmpty()) {
+            """
+                You don't have any constructors with ${arguments.first().size} arguments in the class $name. 
+                Please, check the arguments, probably you need to add the default values.
+            """
+        }
         return constructors.first()
     }
 
@@ -174,13 +178,8 @@ data class TestClass(
         )
 
     fun <T> invokeMethodWithArgs(
-        vararg args: Any,
-        clazz: Class<*>,
-        instance: T,
-        javaMethod: Method,
-        isPrivate: Boolean = false
-    ) =
-        javaMethod.invokeWithArgs(*args, clazz = clazz, obj = instance, isPrivate = isPrivate)
+        vararg args: Any, clazz: Class<*>, instance: T, javaMethod: Method, isPrivate: Boolean = false
+    ) = javaMethod.invokeWithArgs(*args, clazz = clazz, obj = instance, isPrivate = isPrivate)
 }
 
 fun TestClass.findClass(): Class<*> = Class.forName(this.getFullName())
@@ -193,6 +192,7 @@ fun TestClass.findClassSafe() = try {
 
 private fun Class<*>.getVisibility() = this.modifiers.getVisibility()
 
+@Suppress("ReturnCount", "ForbiddenComment")
 private fun Class<*>.getClassType(): ClassType {
     if (this.isInterface) {
         if (this.isSamInterface()) {
@@ -219,8 +219,7 @@ private fun Class<*>.isSamInterface(): Boolean {
 
 private fun Class<*>.getInstanceFiled() = this.fields.find { it.name == "INSTANCE" }
 
-private fun Class<*>.isObject() =
-    this.fields.all { Modifier.isStatic(it.modifiers) } && this.getInstanceFiled() != null
+private fun Class<*>.isObject() = this.fields.all { Modifier.isStatic(it.modifiers) } && this.getInstanceFiled() != null
 
 private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
     val methods = this.methods
@@ -244,11 +243,9 @@ private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
     }
 }
 
-private fun Class<*>.hasSameVisibilityWith(testClass: TestClass) =
-    this.getVisibility() == testClass.visibility
+private fun Class<*>.hasSameVisibilityWith(testClass: TestClass) = this.getVisibility() == testClass.visibility
 
-private fun Class<*>.hasSameClassTypeWith(testClass: TestClass) =
-    this.getClassType() == testClass.classType
+private fun Class<*>.hasSameClassTypeWith(testClass: TestClass) = this.getClassType() == testClass.classType
 
 fun Class<*>.isSameWith(testClass: TestClass) =
     this.hasSameVisibilityWith(testClass) && this.hasSameClassTypeWith(testClass)

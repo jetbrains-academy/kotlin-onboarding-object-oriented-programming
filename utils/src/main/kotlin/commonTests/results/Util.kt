@@ -6,11 +6,11 @@ import models.TestMethod
 import models.TestMethodInvokeData
 import models.Variable
 
+@Suppress("SpreadOperator", "ForbiddenComment")
 fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData, gameHistoryVariable: Variable): String {
     val field = invokeData.clazz.declaredFields.find { it.name == gameHistoryVariable.name }
         ?: error("Can not find the field ${gameHistoryVariable.name}")
     field.isAccessible = true
-
     // TODO: why gameResultsServiceTestClass.invokeMethodWithArgs does not work?
     invokeData.method.invoke(invokeData.instance, *arrayOf(teams))
     return field.get(invokeData.instance).toString()
@@ -35,6 +35,7 @@ fun saveGameResultsMethodTest(
     ) { "Try to save the game results for the teams: $teams, but they are not in the ${gameHistoryVariable.name} field." }
 }
 
+@Suppress("LongParameterList", "MaxLineLength")
 fun getAllGameResultsMethodTest(
     gameResultsServiceTestClass: TestClass,
     getAllGameResultsMethod: TestMethod,

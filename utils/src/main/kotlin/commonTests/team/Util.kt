@@ -1,3 +1,5 @@
+@file:Suppress("TooGenericExceptionCaught", "SwallowedException")
+
 package commonTests.team
 
 import models.TestClass

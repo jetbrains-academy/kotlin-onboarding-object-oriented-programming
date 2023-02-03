@@ -150,6 +150,7 @@ fun Variable.isVariableExist(fileContent: String): Boolean {
     return true
 }
 
+@Suppress("ForbiddenComment")
 fun checkListOfVariables(sourceCodeFile: File, variables: List<Variable>) {
     if (sourceCodeFile.exists()) {
         val content = sourceCodeFile.readText()
