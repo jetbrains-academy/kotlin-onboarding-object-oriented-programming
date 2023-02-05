@@ -1,0 +1,29 @@
+type: edu
+custom_name: Words Generator Project - Teams
+files:
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Converters.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Words.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsResource.kt
+  visible: false
+- name: test/Tests.kt
+  visible: false
+- name: test/TeamTestClass.kt
+  visible: false

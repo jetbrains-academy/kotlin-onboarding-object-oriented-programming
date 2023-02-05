@@ -1,0 +1,81 @@
+The **goal** of this step is to implement the `Team` class.
+
+First of all, create a type alias `Identifier` in the `jetbrains.kotlin.course.words.generator.team` package:
+
+- type alias `Identifier` need to be the alias to the `Int` type. If you change the type in the future, e.g. create a new class,
+  it will be changes automatically in all places.
+
+
+Next, create a data class `Team` in the `jetbrains.kotlin.course.words.generator.team` package to store the information about teams:
+- it must have two properties in the primary constructor: `id` with `Identifier` type to identify each team and `points` with `Int` type
+  to store the number of points in the game.
+- is must have an additional property `name`, that initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.
+
+Next, add a companion object into the `Team` class with an internal mutable variable `idCounter` with `Identifier`
+type and the initial value `0` to help generate new ids for the teams.
+After that, put the default values into the primary constructor into the `Team` class:
+- use an incremented `idCounter` value for `id`.
+- use `0` for `points`.
+
+If you have any difficulties, **hints will help you solve this task**.
+
+----
+
+### Hints
+
+<div class="hint" title="Type aliases usage">
+
+Sometimes type aliases are used in cases where there is no certainty that
+the type used will not be replaced in the future.
+
+For example, right now we use the `Int` type as the `Identifier`,
+but in the future we can create our own class, for example.
+Using a type alias in this case will help make this change as painless as possible in the future.
+</div>
+
+<div class="hint" title="Why do we use the data class?">
+
+Class `Team` is responsible to store some information about teams in the game.
+It is convenient to use data classes in all cases,
+when we need just store something and have automatically implemented methods like `toString` method.
+</div>
+
+<div class="hint" title="Why are we using name outside of the constructor?">
+  In this game, the team is determined only by its `id` (as well as the number of points), 
+  and we need a `name` only for a pretty display on the screen. 
+  This is the main reason why we don't need `name` to be used in automatically defined functions like `toString` function.
+</div>
+
+<div class="hint" title="Access modifiers">
+
+The variable `idCounter` stores some internal information about the last value for id.
+So, the best way to mark it as a private property to forbid access outside the class.
+
+A simple example of why it is bad to use the `public` modifier here is that in this
+case the user will be able to change the value of the `idCounter` property on his own,
+and we cannot guarantee uniqueness of teams ids.
+</div>
+
+<div class="hint" title="Short notation for increment">
+
+In Kotlin you can use `++` to return the old value and next increment it:
+
+```kotlin
+var a = 0
+println(a) // 0
+val b = a
+a += 1
+println(b) // 0
+println(a) // 1
+```
+
+is the **same** with
+
+```kotlin
+var a = 0 
+println(a) // 0
+val b = a++
+println(b) // 0
+println(a) // 1
+```
+</div>
