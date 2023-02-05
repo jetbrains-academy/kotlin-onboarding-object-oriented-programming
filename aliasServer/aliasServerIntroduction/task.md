@@ -1,4 +1,4 @@
-Hello! Welcome to the second module of the Kotlin course.
+Hello! Welcome to the second module of the Kotlin onboarding course.
 This module will introduce you to the concepts of **object-oriented programming** (OOP)
 in the context of the Kotlin language.
 We assume that you have completed the first part of the course

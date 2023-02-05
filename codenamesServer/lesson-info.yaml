@@ -1,3 +1,9 @@
+type: framework
 custom_name: Codenames
 content:
-  - codenames
+- codenamesServerIntroduction
+- codenamesServerObject
+- codenamesServerInit
+- codenamesServerUtils
+- codenames
+is_template_based: false

@@ -30,15 +30,7 @@ without a link to the `GameCard` entity.
 However, the `GameCard` entity may have some _properties_, for example, its capacity.
 In this case, you will need to pass all the properties of the `GameCard` entity to the function manually
 and keep track of them later.
-It is inconvinient and error-prone.
-
-[//]: # (However, it might be inconvenient to work with such function. )
-
-[//]: # (because the `GameCard` may have some _property_, for example, capacity. )
-
-[//]: # (In this case the returning all properties from the function )
-
-[//]: # (and passing them later can be inconvenient.)
+It is inconvenient and error-prone.
 
 #### Kotlin definition
 
