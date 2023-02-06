@@ -231,7 +231,7 @@ private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
         "toString",
     )
     dataClassMethods.forEach {
-        assert(it in methodsNames) { "${testClass.getFullName()} must be a data class and must have the $it method" }
+        assert(it in methodsNames) { "${testClass.getFullName()} must be a data class" }
     }
     val (primary, _) = testClass.declaredFields.partition { it.isInPrimaryConstructor }
     val componentNFunctions = methodsNames.filter { "component" in it }
