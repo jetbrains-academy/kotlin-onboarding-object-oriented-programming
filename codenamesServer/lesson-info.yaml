@@ -11,5 +11,8 @@ content:
 - codenamesServerKeyCardGenerator
 - codenamesServerUtilsPartTwo
 - codenamesServerKeyCardService
-- codenames
+- codenamesServerInterfaces
+- codenamesServerCardData
+- codenamesServerCard
+- codenamesServerCardService
 is_template_based: false
