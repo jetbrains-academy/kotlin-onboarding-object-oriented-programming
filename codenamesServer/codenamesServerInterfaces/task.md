@@ -25,13 +25,13 @@ Kotlin uses the keyword [`interface`](https://kotlinlang.org/docs/interfaces.htm
 interface CardData
 ```
 
-Next, you can implement a new class that inheritances (implements) this interface:
+Next, you can implement a new class that inherits (implements) this interface:
 
 ```kotlin
 class WordCardData : CardData
 ```
 
-You also can add new properties ot functions:
+You also can add new properties or methods:
 
 ```kotlin
 class WordCardData(val word: String) : CardData {

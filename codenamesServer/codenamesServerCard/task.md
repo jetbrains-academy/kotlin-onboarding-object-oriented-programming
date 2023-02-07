@@ -1,7 +1,7 @@
 Next we need to create a special class to store the card information. 
 Firstly, we need to create a new enum class to store a state for the cards.
 Create an enum class `CardState` in the package `jetbrains.kotlin.course.codenames.card`. 
-This class must store two values: `Data`, and `Back`.
+This class must store two values: `Data` and `Back`.
 
 Secondly, create a class `Card` in the same package with two immutable fields in the 
 primary constructor: `data: CardData` and `state: CardState`.

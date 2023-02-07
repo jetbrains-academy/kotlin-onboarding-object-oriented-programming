@@ -3,7 +3,7 @@
 You already familiar with [`companion objects`]((https://kotlinlang.org/docs/object-declarations.html#companion-objects)).
 
 Kotlin has also [`objects`](https://kotlinlang.org/docs/object-declarations.html#object-declarations-overview).
-To understand better what is it you need to be familiar with the [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern.
+To understand better what it is you need to be familiar with the [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern.
 
 In simple words, `objects` allows you to create a class that will always have exactly one instance.
 Consider a board game as an example.
@@ -23,9 +23,9 @@ In Kotlin, you need to use the [`object`](https://kotlinlang.org/docs/object-dec
 object Settings
 ```
 
-#### Properties and functions
+#### Properties and methods
 
-Like classes, you can define properties or functions within objects, 
+Like classes, you can define properties or methods within objects, 
 however, to use them, you don't need to create a new class instance by calling its constructor. 
 This is related to the definition of objects - there can be only one instance:
 

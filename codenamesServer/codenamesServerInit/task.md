@@ -25,7 +25,7 @@ In this case if the condition is `False`, the error will be thrown.
 
 <div class="hint" title="The order of initialization Java classes">
 
-Actually, the following code will not throw any errors:
+Actually, the following code will not throw the errors on JVM target:
 ```kotlin
 fun main() {
     println(Settings.MAX_NUMBER_OF_ROUNDS)
@@ -37,7 +37,7 @@ and in order to access static fields (namely, we have static fields for objects)
 you do not need to create an instance of the class itself. 
 Since Kotlin is fully compatible with Java, this behavior is natural.
 
-But the following code will already cause the expected error:
+But the following code will cause the expected error:
 ```kotlin
 fun main() {
     println(Settings)

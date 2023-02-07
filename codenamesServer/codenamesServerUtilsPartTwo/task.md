@@ -108,7 +108,7 @@ fun main() {
 
 <div class="hint" title="How to flat a list of lists into one list?">
 
-Consider a situation where we have a list of lists, for example List<KeyCardType>> 
+Consider a situation where we have a list of lists, for example `List<List<KeyCardType>>` 
 and we need to get a list consisting of all elements of all lists of the original list:
 ```kotlin
 // [[Pink, Pink], [Violet, Violet], [Gray], [Black]] -> [Pink, Pink, Violet, Violet, Gray, Black]
