@@ -5,7 +5,9 @@ In this task, you will create some utility to store the base game settings!
 
 Create an object `Utils` in the `jetbrains.kotlin.course.codenames.utils` package to store the general game settings:
 
-- add several consts into the `Utils` object to store the common constants: 
+**TODO: change name for N**
+
+- add several consts into the `Utils` object to store the common constants:
   - `N = 5`, 
   - `TOTAL_AMOUNT = N * N`, 
   - `PINK_CARDS_NUMBER = 8`, 
@@ -14,7 +16,7 @@ Create an object `Utils` in the `jetbrains.kotlin.course.codenames.utils` packag
   - `BLACK_CARDS_NUMBER = 1`.
   
   The `N` variable will be used only inside the `Utils` object.
-- add the `init` block the `Utils` object to check the sum of `PINK_CARDS_NUMBER`, `VIOLET_CARDS_NUMBER`, `GRAY_CARDS_NUMBER`, and `BLACK_CARDS_NUMBER` is exactly `TOTAL_AMOUNT`.
+- add the `init` block to the `Utils` object to check the sum of `PINK_CARDS_NUMBER`, `VIOLET_CARDS_NUMBER`, `GRAY_CARDS_NUMBER`, and `BLACK_CARDS_NUMBER` is exactly `TOTAL_AMOUNT`.
   If the conditions is false, you need to throw an `IllegalArgumentException` error.
 
 If you have any difficulties, **hints will help you solve this task**.

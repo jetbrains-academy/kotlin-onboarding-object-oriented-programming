@@ -1,14 +1,17 @@
 #### General definition
 
-[Functional (SAM) interfaces](https://kotlinlang.org/docs/fun-interfaces.html) are needed if you have any entity type with just one function. 
-Consider an example in a board game.
+**TODO: SAM == Single Abstract Method**
+
+[Functional (SAM) interfaces](https://kotlinlang.org/docs/fun-interfaces.html) 
+are applicable to a situation when there is an entity type with just one method. 
+Consider an example in the board game.
 Our game has a KeyCard, which stores the playing field for the two leaders. 
 But how should the KeyCard be generated? 
 Should KeyCards be unique or can they be repeated? 
 Can we have multiple game modes with different KeyCard generation strategies? 
 All these questions are united by the following conclusion - any strategy needs its own generator, 
 which can generate a KeyCard according to certain rules. 
-This describes the definition of a SAM interface well.
+The strategy generator is a good candidate for being declared as SAM interface.
 
 #### Kotlin definition
 
@@ -26,7 +29,11 @@ Next, we can implement different generators, for example a generator, that uses 
 ```kotlin
 class OnlyLettersGenerator: StringGenerator {
     override fun generate(alphabet: List<Char>): String {
-        return alphabet.filter { it.isLetter() }.shuffled().take(3).joinToString("")
+        return alphabet
+            .filter { it.isLetter() }
+            .shuffled()
+            .take(3)
+            .joinToString("")
     }
 }
 ```
@@ -46,19 +53,23 @@ fun main() {
 #### Function definition
 
 If you only need to define a class that implements the SAM interface _once_,
-and you don't need to call this class by the name in the future, for example,  
-save a new class into a variable ot a property, then you can use just the SAM interface name 
+and you don't need to refer to this class by its name in the future, for example, 
+save a new instance of class into a variable or a property, then you can use just the SAM interface name 
 and next to implement the function inside the curly brackets:
 
 ```kotlin
 object Settings {
     val onlyLettersGenerator = StringGenerator {
-            alphabet -> alphabet.filter { it.isLetter() }.shuffled().take(3).joinToString("")
+            alphabet -> alphabet
+                .filter { it.isLetter() }
+                .shuffled()
+                .take(3)
+                .joinToString("")
     }
 }
 ```
 
-and next use like in the previous example:
+and next use it same as in the previous example:
 ```kotlin
 fun main() {
     println(Settings.onlyLettersGenerator.generate(listOf('a', 'b', 'c', 'd', '5'))) // some string that consists of 3 different english letters

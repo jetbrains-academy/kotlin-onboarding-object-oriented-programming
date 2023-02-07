@@ -4,11 +4,12 @@ Imagine a situation where you may have multiple states and should handle those s
 For example, in our game we have several types of cards - first team cards (Pink), 
 second team cards (Violet), neutral cards (Gray) and a killer card (Black). 
 We can, for example, create a class for each card type, or simply use a string value for the property type. 
-However, this is inconvenient and can lead to many errors, in which case [`enum classes`](https://kotlinlang.org/docs/enum-classes.html) will help.
+However, this is inconvenient and can lead to many errors.
+Idiomatic approach would be to use [`enum classes`](https://kotlinlang.org/docs/enum-classes.html).
 
 #### Kotlin definition
 
-Enum classes in Kotlin are marked with a special keyword 'enum':
+Enum classes in Kotlin are marked with a special keyword `enum`:
 
 ```kotlin
 enum class CardType
@@ -63,4 +64,6 @@ fun addPoints(cardType: CardType) {
 }
 ```
 
-Note that since the Kotlin compiler knows _all possible_ enum values of the class, you can omit the `else` branch inside `when`.
+Note that since the Kotlin compiler knows _all possible_ enum values of the class, 
+it can check exhaustiveness of the `when` and thus
+you can omit the `else` branch inside `when`.

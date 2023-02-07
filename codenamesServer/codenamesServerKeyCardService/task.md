@@ -2,7 +2,7 @@ The package `jetbrains.kotlin.course.codenames.keyCard` already has the regular 
 It is responsible for the game logic for the key card. 
 In this task you need to implement the `generateKeyCard` function to make the game alive:
 
-- implement the `generateKeyCard` function, that just returns a new instance of the `KeyCard` class
+- implement the `generateKeyCard` function, that returns a new instance of the `KeyCard` class
 
 If you have any difficulties, **hints will help you solve this task**.
 
@@ -13,5 +13,6 @@ If you have any difficulties, **hints will help you solve this task**.
 <div class="hint" title="New instance of a class creation">
 
 You just need to create a new instance of the `KeyCard` class: `KeyCard()`. 
-Since it already has a default value for the `cells` filed, you can transfer nothing as arguments.
+Since it already has a default value for the `cells` filed, 
+you can omit the arguments.
 </div>

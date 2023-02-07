@@ -1,7 +1,7 @@
 Let's switch to the card model. Add a new interface `CardData` into the `jetbrains.kotlin.course.codenames.card` package.
 
 Next, create a new class `WordCardData` in the same package to store words for this game.
-The  `WordCardData` class should inheritance the `CardData` interface 
+The  `WordCardData` class should inherit from the `CardData` interface 
 and have only one immutable field: `word: String`.
 
 If you have any difficulties, **hints will help you solve this task**.
