@@ -4,7 +4,7 @@ interface CardData
 data class WordCardData(val word: String): CardData
 
 enum class CardState {
-    Data,
+    Front,
     Back,
 }
 

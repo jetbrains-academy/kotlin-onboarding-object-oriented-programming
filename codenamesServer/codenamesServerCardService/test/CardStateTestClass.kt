@@ -9,7 +9,7 @@ internal val cardStateTestClass = TestClass(
     classType = ClassType.ENUM,
     declaredEnumEntries = listOf(
         Variable(
-            name = "Data",
+            name = "Front",
             javaType = "CardState",
             visibility = Visibility.PUBLIC,
         ),
