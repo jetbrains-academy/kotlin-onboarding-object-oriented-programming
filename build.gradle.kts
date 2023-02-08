@@ -171,17 +171,20 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
 //        assembleScript.set("build")
     }
 
-    tasks.register<Exec>("addCommonTypes") {
+    val addCommonTypesTask = tasks.register<Exec>("addCommonTypes") {
         outputs.upToDateWhen { false }
         workingDir = projectDir
         commandLine("yarn", "remove", "common-types")
         commandLine("yarn", "add", "common-types@file:$rootDir/common/build/libs/common-types")
     }
+    addCommonTypesTask {
+        mustRunAfter(":common:build")
+    }
 
     tasks {
         "build" {
             dependsOn(":common:build")
-            // TODO: copy to all servers??
+            // TODO: copy to all servers?? + spring server static resources
 //            doLast {
 //                copy {
 //                    from("$buildDir")
