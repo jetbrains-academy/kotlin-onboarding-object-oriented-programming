@@ -1,12 +1,12 @@
 The **goal** of this step is to implement the `Word` and `WordServices` classes.
 
-First of all, create a value class `Word` with one `String` `word` property to store a word in the `jetbrains.kotlin.course.words.generator.word` package.
+First of all, create a value class `Word` with one `String` property `word` to store a word in the `jetbrains.kotlin.course.words.generator.word` package.
 
 Next, find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
-- Add a companion object into the `WordServices` class and declare the `numberOfWords` variable to store the number
+- Add a companion object to the `WordServices` class and declare the `numberOfWords` variable to store the number
   of words in the game. Initialize this variable as the _size_ of the predefined list of words `words`.
-- Implement `generateNextWord` function: if the `words` list _is empty_, throw an error,
-  else get the first element from the `words` list and remove it from the list, create a new `Word` and return it.
+- Implement the `generateNextWord` function: if the `words` list _is empty_, throw an error;
+  else, get the first element from the `words` list and remove it from the list, then create a new `Word` and return it.
 
 If you have any difficulties, **hints will help you solve this task**.
 
@@ -17,20 +17,20 @@ If you have any difficulties, **hints will help you solve this task**.
 <div class="hint" title="Why do we use the value class?">
 
 Of course, we can just use the `String` type or create a type alias for the `String` type.
-All of these options will undoubtedly be true in our case.
+All of these options will undoubtedly work in our case.
 However, the _purpose_ of this course is to show you the power of Kotlin so that you can
-choose the one you like best in the future.
+choose the option you like best in the future.
 </div>
 
 <div class="hint" title="Why does numberOfWords not a const value?">
 
-We can not mark the `numberOfWords` variable with the `const` keyword since we use `words.size` of a mutable list `words`,
-that potentially can be changed.
+We can not mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` of a mutable list `words`,
+which potentially can be changed.
 </div>
 
 <div class="hint" title="The `isEmpty` built-in function">
 
-If you need to check if a list is empty you can check its size ot use the [isEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html) built-in function:
+If you need to check whether a list is empty or not, you can check its size or use the built-in [isEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html) function:
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
@@ -38,7 +38,7 @@ If you need to check if a list is empty you can check its size ot use the [isEmp
       TODO()
   }
   ```
-is the **same** with
+It is the **same** as
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
