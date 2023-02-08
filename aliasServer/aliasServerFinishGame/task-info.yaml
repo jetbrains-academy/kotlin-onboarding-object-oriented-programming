@@ -1,5 +1,5 @@
 type: edu
-custom_name: Alias Project - Finish The Game
+custom_name: Alias Project - Finish the Game
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
   visible: false

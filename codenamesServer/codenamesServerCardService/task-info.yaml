@@ -1,5 +1,5 @@
 type: edu
-custom_name: Codenames Project - Finish The Game
+custom_name: Codenames Project - Finish the Game
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/codenames/CodenamesApplication.kt
   visible: false
