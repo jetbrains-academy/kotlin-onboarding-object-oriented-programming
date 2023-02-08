@@ -15,7 +15,7 @@ class CardService {
         val cards = shuffledWords.take(Utils.TOTAL_AMOUNT).map {
             Card(
                 WordCardData(it),
-                CardState.Data,
+                CardState.Front,
             )
         }
         words = shuffledWords.drop(Utils.TOTAL_AMOUNT)
