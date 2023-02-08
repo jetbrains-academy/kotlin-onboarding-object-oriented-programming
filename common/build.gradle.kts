@@ -28,8 +28,5 @@ tasks {
                 rename { name -> name.replace("${rootProject.name}-common", "index") }
             }
         }
-
-        val frontEndModules = listOf("aliasFrontend", "codenamesFrontend", "wordsGeneratorFrontend")
-        finalizedBy(frontEndModules.map { ":$it:addCommonTypes" })
     }
 }
