@@ -37,7 +37,13 @@ You can create a [course preview](https://plugins.jetbrains.com/plugin/10081-edu
 git clone https://github.com/jetbrains-academy/kotlin-onboarding-part2.git
 ```
 
-2. Build the project:
+2. Install [npm](https://www.npmjs.com/) and [yarn](https://yarnpkg.com/) to your laptop
+
+TODO: absolute paths to models
+
+3. Run yarn install in each module woth frontend
+
+4. Build the project:
 ```text
 ./gradlew build
 ```
