@@ -1,5 +1,5 @@
 type: edu
-custom_name: Words Generator Project - Team Service
+custom_name: Word Generator Project - Team Service
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
   visible: false

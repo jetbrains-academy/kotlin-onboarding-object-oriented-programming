@@ -1,5 +1,5 @@
 type: theory
-custom_name: Words Generator Project - Introduction
+custom_name: Word Generator Project - Introduction
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
   visible: false

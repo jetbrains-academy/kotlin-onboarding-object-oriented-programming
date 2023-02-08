@@ -1,5 +1,5 @@
 type: theory
-custom_name: Codenames Project - Interfaces And Inheritance
+custom_name: Codenames Project - Interfaces and Inheritance
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/codenames/CodenamesApplication.kt
   visible: false

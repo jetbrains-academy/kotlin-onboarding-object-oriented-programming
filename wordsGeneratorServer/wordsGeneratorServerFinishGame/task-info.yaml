@@ -1,5 +1,5 @@
 type: edu
-custom_name: Words Generator Project - Finish The Game
+custom_name: Word Generator Project - Finish the Game
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
   visible: false
