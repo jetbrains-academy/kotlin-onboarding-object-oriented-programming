@@ -1,19 +1,5 @@
 type: framework
 custom_name: Brave new world
 content:
-- aliasServerIntroduction
-- aliasServerPackages
-- aliasServerClasses
-- aliasServerUtil
-- aliasServerDataClasses
-- aliasServerTeams
-- aliasServerCompanionObject
-- aliasServerMutableMap
-- aliasServerTeamService
-- aliasServerAnnotationsValueClasses
-- aliasServerCard
-- aliasServerConstantsExtensionFunctions
-- aliasServerCardService
-- aliasServerMutableList
 - aliasServerFinishGame
 is_template_based: false

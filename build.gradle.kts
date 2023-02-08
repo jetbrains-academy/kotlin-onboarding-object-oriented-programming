@@ -51,7 +51,7 @@ val wordsGenerator = "wordsGenerator"
 val frontendSuffix = "Frontend"
 val server = "Server"
 
-val ignored = listOf("common", "$alias$frontendSuffix", "$codenames$frontendSuffix", "$wordsGenerator$frontendSuffix")
+val ignored = listOf("common", "$alias$frontendSuffix")
 configure(subprojects.filter { it.name !in ignored }) {
     apply<io.gitlab.arturbosch.detekt.DetektPlugin>()
 
