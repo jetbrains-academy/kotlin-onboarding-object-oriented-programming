@@ -108,7 +108,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: solid #bababa;
+  border: solid #bababa 2px;
   border-radius: 10vmin;
   margin-top: 5vmin;
   margin-bottom: 4vmin;

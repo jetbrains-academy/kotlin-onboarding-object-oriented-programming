@@ -83,6 +83,7 @@
   width: 30vmin;
   height: 6vmin;
   margin-top: 4vmin;
+  background-size: contain;
 }
 
 .App-card-container-base {
