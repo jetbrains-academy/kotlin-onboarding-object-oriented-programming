@@ -181,24 +181,32 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
         mustRunAfter(":common:build")
     }
 
+    val yarnRunBuildTask = tasks.register<Exec>("yarnRunBuildTask") {
+        commandLine("yarn", "run", "build")
+    }
+
     // TODO: add a special suffix to server names which of them require resources
     fun String.requiresResources() = "FinishGame" in this
 
-    tasks {
-        "build" {
-            dependsOn(":common:build")
-            val serverResources = rootProject.subprojects
-                .filter { gameName in it.name && server in it.name && it.name.requiresResources() }
-                // the project name looks like: gameName-moduleName
-                .map { "$rootDir/$gameName$server/${it.name.split('-').last()}/src/main/resources/static/" }
-            doLast {
-                serverResources.forEach { resourcesPath ->
-                    copy {
-                        from("$buildDir")
-                        into(resourcesPath)
-                    }
+    val serveResourcesTask = tasks.register("serveResources") {
+        dependsOn(yarnRunBuildTask)
+        val serverResources = rootProject.subprojects
+            .filter { gameName in it.name && server in it.name && it.name.requiresResources() }
+            // the project name looks like: gameName-moduleName
+            .map { "$rootDir/$gameName$server/${it.name.split('-').last()}/src/main/resources/static/" }
+        val staticFolder = "$rootDir/$gameName$frontendSuffix/build"
+        doLast {
+            serverResources.forEach { resourcesPath ->
+                rootProject.delete(resourcesPath)
+                copy {
+                    from(staticFolder)
+                    into(resourcesPath)
                 }
             }
         }
+    }
+
+    serveResourcesTask {
+        mustRunAfter(":$gameName$frontendSuffix:${yarnRunBuildTask.name}")
     }
 }
