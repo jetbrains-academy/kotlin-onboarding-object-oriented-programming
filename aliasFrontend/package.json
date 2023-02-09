@@ -1,5 +1,5 @@
 {
-  "name": "ktor-ts-test",
+  "name": "alias-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,6 +29,12 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080",
+      "ws": true
+    }
   },
   "browserslist": {
     "production": [
