@@ -181,16 +181,24 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
         mustRunAfter(":common:build")
     }
 
+    // TODO: add a special suffix to server names which of them require resources
+    fun String.requiresResources() = "FinishGame" in this
+
     tasks {
         "build" {
             dependsOn(":common:build")
-            // TODO: copy to all servers?? + spring server static resources
-//            doLast {
-//                copy {
-//                    from("$buildDir")
-//                    into("$rootDir/$gameName$server/$gameName/src/main/resources/static/")
-//                }
-//            }
+            val serverResources = rootProject.subprojects
+                .filter { gameName in it.name && server in it.name && it.name.requiresResources() }
+                // the project name looks like: gameName-moduleName
+                .map { "$rootDir/$gameName$server/${it.name.split('-').last()}/src/main/resources/static/" }
+            doLast {
+                serverResources.forEach { resourcesPath ->
+                    copy {
+                        from("$buildDir")
+                        into(resourcesPath)
+                    }
+                }
+            }
         }
     }
 }
