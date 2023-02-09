@@ -1,5 +1,5 @@
 {
-  "name": "ktor-ts-test",
+  "name": "alias-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
