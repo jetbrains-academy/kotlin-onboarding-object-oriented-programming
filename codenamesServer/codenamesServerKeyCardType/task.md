@@ -5,7 +5,7 @@ In this step, create an enum class `KeyCardType` function
 in the `jetbrains.kotlin.course.codenames.keyCard` package:
 
 - the enum class `KeyCardType` must store four values: `Pink`, `Violet`, `Gray`, and `Black`.
-  Each value must store an `Int` called `amount` to initialize the number of times you need to use the consts from the `Utils` object.
+  Each value must store an `Int` called `number` to initialize the number of times you need to use the consts from the `Utils` object.
 
 If you have any difficulties, **hints will help you solve this task**.
 

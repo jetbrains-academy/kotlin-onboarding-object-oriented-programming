@@ -33,10 +33,10 @@ class Test {
 
         val utilObjectClazz = utilObjectTestClass.checkBaseDefinition()
         val utilObjectInstance = utilObjectTestClass.getObjectInstance(utilObjectClazz)
-        val totalAmountField = utilObjectClazz.declaredFields.find { it.name == "TOTAL_AMOUNT" }
+        val totalNumberField = utilObjectClazz.declaredFields.find { it.name == "TOTAL_AMOUNT" }
             ?: error("Can not find the field TOTAL_AMOUNT")
-        val totalAmountValue = totalAmountField.get(utilObjectInstance) as Int
-        val attempts = words.size / totalAmountValue
+        val totalNumberValue = totalNumberField.get(utilObjectInstance) as Int
+        val attempts = words.size / totalNumberValue
 
         repeat(attempts) {
             val cards = generateWordsCards(clazz, cardServiceInstance, method, previousCards)
@@ -171,8 +171,8 @@ class Test {
                 "Black" to expectedVariablesValues["BLACK_CARDS_NUMBER"],
                 "Gray" to expectedVariablesValues["GRAY_CARDS_NUMBER"],
             )
-            cells.forEach { (type, amount) ->
-                assert(keyCard.countMatches("KeyCardCell(type=$type)") == amount) { "The generated key card must have $amount with the $type type" }
+            cells.forEach { (type, number) ->
+                assert(keyCard.countMatches("KeyCardCell(type=$type)") == number) { "The generated key card must have $number with the $type type" }
             }
             previousCards.add(keyCard)
         }

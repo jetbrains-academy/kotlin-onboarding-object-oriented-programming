@@ -42,7 +42,7 @@ object Utils {
     init {
       val sum = ...
       if (sum != TOTAL_AMOUNT) {
-          throw IllegalArgumentException("The total amount in the game must be: $TOTAL_AMOUNT")
+          throw IllegalArgumentException("The total number in the game must be: $TOTAL_AMOUNT")
       }
     }
 }
@@ -55,7 +55,7 @@ object Utils {
     ...
   
     init {
-      require(sum == TOTAL_AMOUNT) { "The total amount in the game must be: $TOTAL_AMOUNT" }
+      require(sum == TOTAL_AMOUNT) { "The total number in the game must be: $TOTAL_AMOUNT" }
     }
 }
 ```
