@@ -9,14 +9,14 @@ Create an object `Utils` in the `jetbrains.kotlin.course.codenames.utils` packag
 
 - add several consts into the `Utils` object to store the common constants:
   - `N = 5`, 
-  - `TOTAL_AMOUNT = N * N`, 
+  - `TOTAL_NUMBER = N * N`, 
   - `PINK_CARDS_NUMBER = 8`, 
   - `VIOLET_CARDS_NUMBER = 9`, 
   - `GRAY_CARDS_NUMBER = 7`, 
   - `BLACK_CARDS_NUMBER = 1`.
   
   The `N` variable will be used only inside the `Utils` object.
-- add the `init` block to the `Utils` object to check the sum of `PINK_CARDS_NUMBER`, `VIOLET_CARDS_NUMBER`, `GRAY_CARDS_NUMBER`, and `BLACK_CARDS_NUMBER` is exactly `TOTAL_AMOUNT`.
+- add the `init` block to the `Utils` object to check the sum of `PINK_CARDS_NUMBER`, `VIOLET_CARDS_NUMBER`, `GRAY_CARDS_NUMBER`, and `BLACK_CARDS_NUMBER` is exactly `TOTAL_NUMBER`.
   If the conditions is false, you need to throw an `IllegalArgumentException` error.
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -41,8 +41,8 @@ object Utils {
   
     init {
       val sum = ...
-      if (sum != TOTAL_AMOUNT) {
-          throw IllegalArgumentException("The total amount in the game must be: $TOTAL_AMOUNT")
+      if (sum != TOTAL_NUMBER) {
+          throw IllegalArgumentException("The total amount in the game must be: $TOTAL_NUMBER")
       }
     }
 }
@@ -55,7 +55,7 @@ object Utils {
     ...
   
     init {
-      require(sum == TOTAL_AMOUNT) { "The total amount in the game must be: $TOTAL_AMOUNT" }
+      require(sum == TOTAL_NUMBER) { "The total amount in the game must be: $TOTAL_NUMBER" }
     }
 }
 ```
