@@ -1,11 +1,11 @@
 #### General definition
 
-Imagine a situation where you may have multiple states and should handle those states. 
-For example, in our game we have several types of cards - first team cards (Pink), 
+Imagine a situation where you may have multiple states you need to handle. 
+For example, in our game, we have several types of cards - first team cards (Pink), 
 second team cards (Violet), neutral cards (Gray) and a killer card (Black). 
-We can, for example, create a class for each card type, or simply use a string value for the property type. 
+We can, for example, create a class for each card type or simply use a string value for the property type. 
 However, this is inconvenient and can lead to many errors.
-Idiomatic approach would be to use [`enum classes`](https://kotlinlang.org/docs/enum-classes.html).
+An idiomatic approach would be to use [`enum classes`](https://kotlinlang.org/docs/enum-classes.html).
 
 #### Kotlin definition
 
@@ -15,7 +15,7 @@ Enum classes in Kotlin are marked with a special keyword `enum`:
 enum class CardType
 ```
 
-Then you can list all required states in the curly brackets:
+Then you can list all the required states in curly brackets:
 
 ```kotlin
 enum class CardType {
@@ -26,7 +26,7 @@ enum class CardType {
 }
 ```
 
-And then you can add any _properties_ (multiple are also allowed) for each value, such as a text representation:
+And then, you can add any _properties_ (multiple ones are also allowed) for each value, such as a text representation:
 
 ```kotlin
 enum class CardType(val strRepr: String) {
@@ -39,7 +39,7 @@ enum class CardType(val strRepr: String) {
 
 #### Usage
 
-You can use enum classes for example to handle different events:
+You can use enum classes to handle, for example, different events:
 
 ```kotlin
 fun addPoints(cardType: CardType) {
@@ -65,5 +65,5 @@ fun addPoints(cardType: CardType) {
 ```
 
 Note that since the Kotlin compiler knows _all possible_ enum values of the class, 
-it can check exhaustiveness of the `when` and thus
+it can check for exhaustiveness of `when`, and thus,
 you can omit the `else` branch inside `when`.
