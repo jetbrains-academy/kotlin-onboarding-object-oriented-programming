@@ -157,6 +157,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 
 .App-game-show-key-card {
@@ -205,7 +206,7 @@
 .App-back-button {
   height: 5vmin;
   width: 23vmin;
-  /*background-image: url('assets/back.svg');*/
+  background-image: url('assets/back.svg');
   background-size: contain;
 }
 
@@ -239,4 +240,51 @@
 .App-card-pre {
   text-align: center;
   color: white;
+}
+
+.App-game-stat-column {
+  margin-left: 5vmin;
+  margin-right: 5vmin;
+  max-height: 65vmin;
+  max-width: 36vmin;
+}
+
+.App-game-stat-column-p {
+  color: black;
+  text-align: center;
+  font-size: 4vmin;
+}
+
+.App-game-stat-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-game-stat-row-item {
+  width: 12vmin;
+  height: 12vmin;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('assets/small-card.svg');
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  padding: 1vmin;
+  align-items: center;
+  display: flex;
+  margin-bottom: 2vmin;
+  justify-content: center;
+}
+
+.App-game-stat-row-item-p {
+  color: white;
+  font-size: 2.2vmin;
+}
+
+.App-game-stat-column-p-small {
+  font-size: 3vmin;
+  margin-top: 1vmin;
+  margin-bottom: 1vmin;
+  padding-left: 2vmin;
 }

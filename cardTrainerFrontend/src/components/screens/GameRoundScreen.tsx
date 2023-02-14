@@ -1,16 +1,31 @@
 import {GameState} from "../GameScreen";
-import {useState} from "react";
 import {card} from "common-types";
 import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {initGame, newCard} from "../../App";
 
 type GameRoundScreenProps = {
-    gameStateSetter: (gs: GameState) => void
+    gameStateSetter: (gs: GameState) => void,
+    cardSetter: (card: JsCardTrainerModel) => void,
+    currentCard: JsCardTrainerModel,
+    wordSetter: (card: String) => void,
+    currentWord: String,
+    known: String[],
+    knownSetter: (known: String[]) => void,
+    unknown: String[],
+    unknownSetter: (known: String[]) => void,
 }
 
-export default function GameRoundScreen({gameStateSetter}: GameRoundScreenProps) {
-    let [currentCard, cardSetter] = useState<JsCardTrainerModel>(new JsCardTrainerModel(-1, "London", "United\nKingdom"))
-    let [currentWord, wordSetter] = useState<String>(currentCard.back)
-
+export default function GameRoundScreen({
+                                            gameStateSetter,
+                                            cardSetter,
+                                            currentCard,
+                                            wordSetter,
+                                            currentWord,
+                                            known,
+                                            knownSetter,
+                                            unknown,
+                                            unknownSetter
+                                        }: GameRoundScreenProps) {
     return (
         <div className="App-cards-container App-min-height">
             <div className="App-card" onClick={() => {
@@ -20,25 +35,31 @@ export default function GameRoundScreen({gameStateSetter}: GameRoundScreenProps)
                     wordSetter(currentCard.back)
                 }
             }}>
-                <p className="App-card-p font-link-base"><pre className="font-link-base App-card-pre">{currentWord}</pre></p>
+                <p className="App-card-p font-link-base">
+                    <pre className="font-link-base App-card-pre">{currentWord}</pre>
+                </p>
             </div>
             <div className="App-buttons-container">
                 <button className="App-button-base App-game-dont-know" onClick={() => {
-                    // gameStateSetter(GameState.GAME_STAT)
+                    unknown.push(currentCard.back)
+                    unknownSetter(unknown)
+                    newCard(cardSetter, wordSetter)
                 }}>
                 </button>
                 <button className="App-button-base App-game-know" onClick={() => {
-                    // initGame(keyCardSetter, gameCardsSetter)
+                    known.push(currentCard.back)
+                    knownSetter(known)
+                    newCard(cardSetter, wordSetter)
                 }}>
                 </button>
             </div>
             <div className="App-buttons-container">
                 <button className="App-button-base App-game-stats" onClick={() => {
-                    // gameStateSetter(GameState.GAME_STAT)
+                    gameStateSetter(GameState.GAME_STAT)
                 }}>
                 </button>
                 <button className="App-button-base App-game-finish-game" onClick={() => {
-                    // initGame(keyCardSetter, gameCardsSetter)
+                    initGame(knownSetter, unknownSetter, cardSetter, wordSetter)
                     gameStateSetter(GameState.START)
                 }}>
                 </button>

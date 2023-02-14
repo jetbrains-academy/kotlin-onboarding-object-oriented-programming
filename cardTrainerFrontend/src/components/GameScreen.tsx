@@ -1,21 +1,40 @@
 import StartScreen from "./screens/StartScreen";
 import GameRoundScreen from "./screens/GameRoundScreen";
+import React from "react";
+import GameStatisticsScreen from "./screens/GameStatisticsScreen";
+import {card} from "common-types";
+import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
 
 export enum GameState {
     START,
     GAME,
-    // KEY_CARD,
-    // GAME_STAT,
+    GAME_STAT,
 }
 
 export type GameScreenProps = {
     state: GameState,
     gameStateSetter: (gs: GameState) => void,
+    cardSetter: (card: JsCardTrainerModel) => void,
+    currentCard: JsCardTrainerModel,
+    wordSetter: (card: String) => void,
+    currentWord: String,
+    known: String[],
+    knownSetter: (known:  String[]) => void,
+    unknown: String[],
+    unknownSetter: (known:  String[]) => void,
 }
 
 export default function GameScreen({
                                        state,
                                        gameStateSetter,
+                                       cardSetter,
+                                       currentCard,
+                                       wordSetter,
+                                       currentWord,
+                                       known,
+                                       knownSetter,
+                                       unknown,
+                                       unknownSetter
                                    }: GameScreenProps) {
     switch (state) {
         case GameState.START: {
@@ -24,13 +43,22 @@ export default function GameScreen({
         case GameState.GAME: {
             return <GameRoundScreen
                 gameStateSetter={gameStateSetter}
+                cardSetter={cardSetter}
+                currentCard={currentCard}
+                wordSetter={wordSetter}
+                currentWord={currentWord}
+                known={known}
+                knownSetter={knownSetter}
+                unknown={unknown}
+                unknownSetter={unknownSetter}
             />
         }
-        // case GameState.KEY_CARD: {
-        //     return <KeyCardScreen gameStateSetter={gameStateSetter} keyCard={keyCard} N={N}/>
-        // }
-        // case GameState.GAME_STAT: {
-        //     return <GameStatisticsScreen gameStateSetter={gameStateSetter} gameCards={gameCards}/>
-        // }
+        case GameState.GAME_STAT: {
+            return <GameStatisticsScreen
+                gameStateSetter={gameStateSetter}
+                known={known}
+                unknown={unknown}
+            />
+        }
     }
 }
