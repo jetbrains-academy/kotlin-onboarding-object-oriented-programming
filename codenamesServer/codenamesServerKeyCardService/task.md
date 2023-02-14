@@ -1,8 +1,8 @@
 The package `jetbrains.kotlin.course.codenames.keyCard` already has the regular class `KeyCardService`.
 It is responsible for the game logic for the key card. 
-In this task you need to implement the `generateKeyCard` function to make the game alive:
+In this task, you need to implement the `generateKeyCard` function to make the game alive:
 
-- implement the `generateKeyCard` function, that returns a new instance of the `KeyCard` class
+- implement the `generateKeyCard` function, which returns a new instance of the `KeyCard` class
 
 If you have any difficulties, **hints will help you solve this task**.
 

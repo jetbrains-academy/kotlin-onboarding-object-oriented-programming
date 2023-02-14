@@ -33,8 +33,8 @@ class Test {
 
         val utilObjectClazz = utilObjectTestClass.checkBaseDefinition()
         val utilObjectInstance = utilObjectTestClass.getObjectInstance(utilObjectClazz)
-        val totalNumberField = utilObjectClazz.declaredFields.find { it.name == "TOTAL_AMOUNT" }
-            ?: error("Can not find the field TOTAL_AMOUNT")
+        val totalNumberField = utilObjectClazz.declaredFields.find { it.name == "TOTAL_NUMBER" }
+            ?: error("Can not find the field TOTAL_NUMBER")
         val totalNumberValue = totalNumberField.get(utilObjectInstance) as Int
         val attempts = words.size / totalNumberValue
 
@@ -45,7 +45,7 @@ class Test {
             previousWords.addAll(wordsFromCards)
         }
 
-        assertThrows<InvocationTargetException>("The method ${generateWordsCardsMethod.name} must throw the an exception if words.size < TOTAL_AMOUNT") {
+        assertThrows<InvocationTargetException>("The method ${generateWordsCardsMethod.name} must throw the an exception if words.size < TOTAL_NUMBER") {
             generateWordsCards(clazz, cardServiceInstance, method, previousCards)
         }
     }
