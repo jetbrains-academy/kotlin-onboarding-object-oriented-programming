@@ -7,7 +7,7 @@ and init this field via an empty mutable list. We will store the previous genera
 
 Implement the `generateData` function for the `uniqueKeyCardGenerator` field in the `Utils` object.
 The behaviour of the `generateData` function must be the following:
-1) Generate a new `List<KeyCardCell>`: put the `amount` of each `KeyCardType` into this list and shuffle it.
+1) Generate a new `List<KeyCardCell>`: put the `number` of each `KeyCardType` into this list and shuffle it.
 2) Next, check if this combination of `List<KeyCardCell>` was not used before (it is not in the `previousAttempts`) and return this list.
 3) If the generated list was used before, repeat generation while a new list (that is not in the `previousAttempts`) will not be generated.
 
@@ -49,7 +49,7 @@ To get _all_ values from an enum class you can use the built-in function [values
 Consider an example:
 
 ```kotlin
-enum class KeyCardType(val amount: Int) {
+enum class KeyCardType(val number: Int) {
     Pink(Utils.PINK_CARDS_NUMBER),
     Violet(Utils.VIOLET_CARDS_NUMBER),
     ...
@@ -77,7 +77,7 @@ fun main() {
     val modifiedList = mutableListOf<List<KeyCardType>>()
 
     for (key in initialList) {
-        modifiedList.add(List(key.amount) { key })
+        modifiedList.add(List(key.number) { key })
     }
 
     println(modifiedList) // [[Pink, Pink, Pink, Pink, Pink, Pink, Pink, Pink], [Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet], [Gray, Gray, Gray, Gray, Gray, Gray, Gray], [Black]]
@@ -89,7 +89,7 @@ is the same with:
 ```kotlin
 fun main() {
     val initialList = KeyCardType.values()
-    val modifiedList = initialList.map { key -> List(key.amount) { key } }
+    val modifiedList = initialList.map { key -> List(key.number) { key } }
     
     println(modifiedList) // [[Pink, Pink, Pink, Pink, Pink, Pink, Pink, Pink], [Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet], [Gray, Gray, Gray, Gray, Gray, Gray, Gray], [Black]]
 }
@@ -99,7 +99,7 @@ You also can omit `key` and use the default name `it`:
 ```kotlin
 fun main() {
     val initialList = KeyCardType.values()
-    val modifiedList = initialList.map { List(it.amount) { it } }
+    val modifiedList = initialList.map { List(it.number) { it } }
     
     println(modifiedList) // [[Pink, Pink, Pink, Pink, Pink, Pink, Pink, Pink], [Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet], [Gray, Gray, Gray, Gray, Gray, Gray, Gray], [Black]]
 }

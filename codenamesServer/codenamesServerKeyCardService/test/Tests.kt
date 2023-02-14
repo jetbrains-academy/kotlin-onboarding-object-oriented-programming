@@ -67,8 +67,8 @@ class Test {
                 "Black" to expectedVariablesValues["BLACK_CARDS_NUMBER"],
                 "Gray" to expectedVariablesValues["GRAY_CARDS_NUMBER"],
             )
-            cells.forEach { (type, amount) ->
-                assert(keyCard.countMatches("KeyCardCell(type=$type)") == amount) { "The generated key card must have $amount with the $type type" }
+            cells.forEach { (type, number) ->
+                assert(keyCard.countMatches("KeyCardCell(type=$type)") == number) { "The generated key card must have $number with the $type type" }
             }
             previousCards.add(keyCard)
         }

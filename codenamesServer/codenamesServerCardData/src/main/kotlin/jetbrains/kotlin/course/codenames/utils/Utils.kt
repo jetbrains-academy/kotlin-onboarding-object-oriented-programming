@@ -22,7 +22,7 @@ object Utils {
         var currentAttempt: List<KeyCardCell>
         do {
             currentAttempt = KeyCardType.values().map { type ->
-                List(type.amount) { KeyCardCell(type) }
+                List(type.number) { KeyCardCell(type) }
             }.flatten().shuffled()
             inPreviousAttempts = currentAttempt in previousAttempts
         } while (inPreviousAttempts)
