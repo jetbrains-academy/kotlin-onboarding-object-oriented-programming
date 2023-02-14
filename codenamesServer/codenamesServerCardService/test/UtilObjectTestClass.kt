@@ -2,7 +2,7 @@ import models.*
 
 internal val expectedVariablesValues = mapOf(
     "N" to 5,
-    "TOTAL_AMOUNT" to 5 * 5,
+    "TOTAL_NUMBER" to 5 * 5,
     "PINK_CARDS_NUMBER" to 8,
     "VIOLET_CARDS_NUMBER" to 9,
     "GRAY_CARDS_NUMBER" to 7,
@@ -23,7 +23,7 @@ internal val utilObjectTestClass = TestClass(
             mutability = VariableMutability.VAL,
         ),
         Variable(
-            name = "TOTAL_AMOUNT",
+            name = "TOTAL_NUMBER",
             javaType = "Int",
             isStatic = true,
             isConst = true,

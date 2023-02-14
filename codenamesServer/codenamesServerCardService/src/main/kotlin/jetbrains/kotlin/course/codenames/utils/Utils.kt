@@ -9,7 +9,7 @@ fun interface KeyCardGenerator {
 
 object Utils {
     private const val N = 5
-    const val TOTAL_AMOUNT = N * N
+    const val TOTAL_NUMBER = N * N
     const val PINK_CARDS_NUMBER = 8
     const val VIOLET_CARDS_NUMBER = 9
     const val GRAY_CARDS_NUMBER = 7
@@ -22,7 +22,7 @@ object Utils {
         var currentAttempt: List<KeyCardCell>
         do {
             currentAttempt = KeyCardType.values().map { type ->
-                List(type.amount) { KeyCardCell(type) }
+                List(type.number) { KeyCardCell(type) }
             }.flatten().shuffled()
             inPreviousAttempts = currentAttempt in previousAttempts
         } while (inPreviousAttempts)
@@ -30,6 +30,6 @@ object Utils {
     }
 
     init {
-        require(PINK_CARDS_NUMBER + VIOLET_CARDS_NUMBER + GRAY_CARDS_NUMBER + BLACK_CARDS_NUMBER == TOTAL_AMOUNT) { "The total amount in the game must be: $TOTAL_AMOUNT" }
+        require(PINK_CARDS_NUMBER + VIOLET_CARDS_NUMBER + GRAY_CARDS_NUMBER + BLACK_CARDS_NUMBER == TOTAL_NUMBER) { "The total amount in the game must be: $TOTAL_NUMBER" }
     }
 }

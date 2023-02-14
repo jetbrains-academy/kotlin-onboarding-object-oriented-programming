@@ -6,7 +6,7 @@ internal val keyCardTypeTestClass = TestClass(
     classType = ClassType.ENUM,
     declaredFields = listOf(
         Variable(
-            name = "amount",
+            name = "number",
             javaType = "Int",
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
