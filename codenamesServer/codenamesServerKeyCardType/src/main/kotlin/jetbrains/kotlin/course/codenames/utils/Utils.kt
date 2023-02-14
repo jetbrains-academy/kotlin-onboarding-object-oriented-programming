@@ -9,6 +9,6 @@ object Utils {
     const val BLACK_CARDS_NUMBER = 1
 
     init {
-        require(PINK_CARDS_NUMBER + VIOLET_CARDS_NUMBER + GRAY_CARDS_NUMBER + BLACK_CARDS_NUMBER == TOTAL_NUMBER) { "The total amount in the game must be: $TOTAL_NUMBER" }
+        require(PINK_CARDS_NUMBER + VIOLET_CARDS_NUMBER + GRAY_CARDS_NUMBER + BLACK_CARDS_NUMBER == TOTAL_NUMBER) { "The total number in the game must be: $TOTAL_NUMBER" }
     }
 }
