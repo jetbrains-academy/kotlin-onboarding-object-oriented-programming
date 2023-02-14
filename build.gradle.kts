@@ -45,14 +45,13 @@ tasks {
     }
 }
 
-val alias = "aliasServerUtils"
+val alias = "alias"
 val codenames = "codenames"
 val wordsGenerator = "wordsGenerator"
 val frontendSuffix = "Frontend"
 val server = "Server"
 
-val ignored = listOf("common", "$alias$frontendSuffix", "$codenames$frontendSuffix", "$wordsGenerator$frontendSuffix")
-configure(subprojects.filter { it.name !in ignored }) {
+configure(subprojects.filter { it.name == "common" || frontendSuffix in it.name }) {
     apply<io.gitlab.arturbosch.detekt.DetektPlugin>()
 
     configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {
