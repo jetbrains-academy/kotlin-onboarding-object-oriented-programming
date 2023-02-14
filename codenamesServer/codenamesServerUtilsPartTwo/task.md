@@ -1,18 +1,18 @@
-In this version of the game we will generate only unique key cards.
+In this version of the game, we will generate only unique key cards.
 Improve the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package:
 
-- add a `previousAttempts` field with the type `MutableList<List<KeyCardCell>>` 
-and init this field via an empty mutable list. We will store the previous generated key cards to avoid duplicates.
-- add a `uniqueKeyCardGenerator` field into the `Utils` object with the type `KeyCardGenerator`.
+- Add a `previousAttempts` field with the type `MutableList<List<KeyCardCell>>` 
+and init this field via an empty mutable list. We will store the previously generated key cards to avoid duplicates.
+- Add a `uniqueKeyCardGenerator` field to the `Utils` object with the type `KeyCardGenerator`.
 
 Implement the `generateData` function for the `uniqueKeyCardGenerator` field in the `Utils` object.
-The behaviour of the `generateData` function must be the following:
+The behavior of the `generateData` function must be the following:
 1) Generate a new `List<KeyCardCell>`: put the `amount` of each `KeyCardType` into this list and shuffle it.
-2) Next, check if this combination of `List<KeyCardCell>` was not used before (it is not in the `previousAttempts`) and return this list.
-3) If the generated list was used before, repeat generation while a new list (that is not in the `previousAttempts`) will not be generated.
+2) Next, check if this combination of `List<KeyCardCell>` has not been used before (it is not in `previousAttempts`) and return this list.
+3) If the generated list has been used before, repeat generation till a new list (that is not in `previousAttempts`) is generated.
 
-Finally, add a new class `KeyCard` into the `jetbrains.kotlin.course.codenames.keyCard` package to store the key class.
-Add one immutable field into the primary constructor: `cells: List<KeyCardCell>` and init through `Utils.uniqueKeyCardGenerator.generateData()` by default.
+Finally, add a new class `KeyCard` to the `jetbrains.kotlin.course.codenames.keyCard` package to store the key class.
+Add one immutable field to the primary constructor: `cells: List<KeyCardCell>` and init it through `Utils.uniqueKeyCardGenerator.generateData()` by default.
 
 If you have any difficulties, **hints will help you solve this task**.
 
@@ -22,7 +22,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="Empty mutable list initialization">
 
-To initialize the `previousAttempts` field you need to create a new empty mutable list:
+To initialize the `previousAttempts` field, you need to create a new empty mutable list:
 ```kotlin
 object Utils {
     ...
@@ -34,7 +34,7 @@ object Utils {
 
 <div class="hint" title="Function definition of the SAM interfaces">
 
-It is better to use the function definition for SAM interfaces:
+It is better to use a function definition for SAM interfaces:
 ```kotlin
 val uniqueKeyCardGenerator = KeyCardGenerator {
     // The generateData function implementation
@@ -45,7 +45,7 @@ val uniqueKeyCardGenerator = KeyCardGenerator {
 
 <div class="hint" title="How to get all values from an enum class?">
 
-To get _all_ values from an enum class you can use the built-in function [values](https://kotlinlang.org/docs/enum-classes.html#working-with-enum-constants).
+To get _all_ values from an enum class, you can use the built-in function [values](https://kotlinlang.org/docs/enum-classes.html#working-with-enum-constants).
 Consider an example:
 
 ```kotlin
@@ -66,7 +66,7 @@ fun main() {
 <div class="hint" title="The map built-in function">
 
 You are already familiar with several built-in functions for lists. 
-It's time to get acquainted with the [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) built-in function.
+It's time to get acquainted with the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) function.
 
 This function allows you to apply some kind of _transformation_ to each element of the list and return a new, modified list. 
 It is equivalent to using a loop and creating a new list from the original one. Consider an example:
@@ -84,7 +84,7 @@ fun main() {
 }
 ```
 
-is the same with:
+It is the same as:
 
 ```kotlin
 fun main() {
@@ -95,7 +95,7 @@ fun main() {
 }
 ```
 
-You also can omit `key` and use the default name `it`:
+You can also omit `key` and use the default name `it`:
 ```kotlin
 fun main() {
     val initialList = KeyCardType.values()
@@ -108,13 +108,13 @@ fun main() {
 
 <div class="hint" title="How to flat a list of lists into one list?">
 
-Consider a situation where we have a list of lists, for example `List<List<KeyCardType>>` 
-and we need to get a list consisting of all elements of all lists of the original list:
+Consider a situation where we have a list of lists, for example, `List<List<KeyCardType>>`, 
+and we need to get a list consisting of all the elements of all lists of the original list:
 ```kotlin
 // [[Pink, Pink], [Violet, Violet], [Gray], [Black]] -> [Pink, Pink, Violet, Violet, Gray, Black]
 ```
 
-We can do this with loops:
+We can do that with loops:
 ```kotlin
 fun main() {
     val initialList = listOf(
@@ -155,7 +155,7 @@ fun main() {
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
-To do this, you can generate different word positions from the original list and build a new one,
+To do that, you can either generate different word positions from the original list and build a new one
 or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html):
 
   ```kotlin
@@ -180,8 +180,8 @@ fun main() {
 }
 ```
 
-It can also be applied to lists of lists, in which case the function will return `true` if the original list contains 
-exactly the _same_ list - has the same size and contains elements in the same order:
+The same can also be applied to a list of lists, in which case the function will return `true` if the original list contains 
+exactly the _same_ list - the one that has the same size and contains the elements in the same order:
 
 ```kotlin
 fun main() {
@@ -191,7 +191,7 @@ fun main() {
     )
 
     println(listOf(KeyCardType.Pink, KeyCardType.Pink, KeyCardType.Black) in initialList) // true
-    println(listOf(KeyCardType.Pink, KeyCardType.Black, KeyCardType.Pink) in initialList) // false, because of the different order
+    println(listOf(KeyCardType.Pink, KeyCardType.Black, KeyCardType.Pink) in initialList) // false because of the different order
     println(listOf(KeyCardType.Pink, KeyCardType.Pink) in initialList) // false
 }
 ```
