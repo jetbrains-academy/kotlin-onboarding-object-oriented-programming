@@ -1,9 +1,9 @@
-Wow! You almost finish the project! It is the last step.
+Wow! You've almost finished the project! This is the last step.
 
-The package `jetbrains.kotlin.course.codenames.card` already has the regular class `CardService`. In this task you need to implement the `generateWordsCards` function with the following behaviour:
-- if `words.size < TOTAL_AMOUNT`, you need to throw an error. The `words` is already defined variable with `List<String>`, that contains all possible words for the game. The `TOTAL_AMOUNT` you already declared in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
-- next, you need to _shuffle_ `words` and create `TOTAL_AMOUNT` cards by _taking_ them from the shuffled words list and creating new instances of the `Card` class.
-- don't forget to _drop_ all words from the `words` list that were used for the generated cards.
+The package `jetbrains.kotlin.course.codenames.card` already has the regular class `CardService`. In this task, you need to implement the `generateWordsCards` function with the following behavior:
+- If `words.size < TOTAL_AMOUNT`, you need to throw an error. `words` is an already defined variable with `List<String>`, which contains all possible words for the game. `TOTAL_AMOUNT` you already declared in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
+- Next, you need to _shuffle_ `words` and create `TOTAL_AMOUNT` cards by _taking_ them from the shuffled word list and creating new instances of the `Card` class.
+- Don't forget to _drop_ all words from the `words` list that were used for the generated cards.
 
 Good luck!
 
@@ -15,7 +15,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="The require built-in function">
 
-To check some condition and throw an IllegalArgumentException error you can use the [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) built-in function:
+To check some condition and throw an IllegalArgumentException error, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
 
 ```kotlin
 fun foo(a: int) {
@@ -25,7 +25,7 @@ fun foo(a: int) {
 }
 ```
 
-is the same with
+It is the same as
 
 ```kotlin
 fun foo(a: int) {
@@ -39,7 +39,7 @@ Note, you need to use an _opposite_ condition!
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
-To do this, you can generate different word positions from the original list and build a new one,
+To do that, you can either generate different word positions from the original list and build a new one
 or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html):
 
   ```kotlin
@@ -50,7 +50,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
 
 <div class="hint" title="How to take first N elements from a list?">
 
-To take first `N` elements from a list you can use the [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) built-in function:
+To take first `N` elements from a list, you can use the built-in [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) function:
 ```kotlin
 fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
@@ -62,7 +62,7 @@ fun main() {
 
 <div class="hint" title="How to drop first N elements from a list?">
 
-To drop first `N` elements from a list you can use the [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) built-in function:
+To drop first `N` elements from a list, you can use the built-in [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) function:
 ```kotlin
 fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
