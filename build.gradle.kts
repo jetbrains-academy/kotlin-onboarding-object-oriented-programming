@@ -45,9 +45,6 @@ tasks {
     }
 }
 
-val alias = "alias"
-val codenames = "codenames"
-val wordsGenerator = "wordsGenerator"
 val frontendSuffix = "Frontend"
 val server = "Server"
 
