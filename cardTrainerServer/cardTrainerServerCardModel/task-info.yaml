@@ -1,0 +1,25 @@
+type: edu
+custom_name: Card Trainer Project - Card Model
+files:
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatModel.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatResource.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatService.kt
+  visible: true
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Converters.kt
+  visible: false
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
+  visible: false
+- name: test/Tests.kt
+  visible: false
+- name: test/CardTestClass.kt
+  visible: false

@@ -1,5 +1,10 @@
 type: framework
 custom_name: Card Trainer Project - Finish the Game
 content:
+- cardTrainerServerIntroduction
+- cardTrainerServerHowToRun
+- cardTrainerServerCardModel
+- cardTrainerServerCardSequenceGenerator
+- cardTrainerServerCardService
 - cardTrainerServerFinishGame
 is_template_based: false
