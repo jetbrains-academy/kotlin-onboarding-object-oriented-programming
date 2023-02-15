@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run_cardtrainer_app" type="CompoundRunConfigurationType">
+    <toRun name="run_cardtrainer_client" type="js.build_tools.npm" />
+    <toRun name="run_cardtrainer_server" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
