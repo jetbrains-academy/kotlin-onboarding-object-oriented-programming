@@ -1,5 +1,5 @@
 type: edu
-custom_name: Card Trainer Project - Card Model
+custom_name: Card Trainer Project - Card Sequence Generator
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt
   visible: true
@@ -19,7 +19,9 @@ files:
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
   visible: false
+- name: test/Tests.kt
+  visible: false
 - name: test/CardTestClass.kt
   visible: false
-- name: test/Tests.kt
+- name: test/CardSequenceGeneratorTestClass.kt
   visible: false

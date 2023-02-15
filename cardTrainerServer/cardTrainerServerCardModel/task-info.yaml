@@ -1,5 +1,5 @@
-type: theory
-custom_name: Card Trainer Project - How to Run
+type: edu
+custom_name: Card Trainer Project - Card Model
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt
   visible: true
@@ -18,4 +18,8 @@ files:
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Converters.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
+  visible: false
+- name: test/Tests.kt
+  visible: false
+- name: test/CardTestClass.kt
   visible: false

@@ -3,6 +3,7 @@ custom_name: Card Trainer Project - Finish the Game
 content:
 - cardTrainerServerIntroduction
 - cardTrainerServerHowToRun
-- cardTrainerCardModel
+- cardTrainerServerCardModel
+- cardTrainerServerCardSequenceGenerator
 - cardTrainerServerFinishGame
 is_template_based: false
