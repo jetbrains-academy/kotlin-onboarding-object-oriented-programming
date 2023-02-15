@@ -36,6 +36,7 @@ private fun KType.getAbbreviation(): String? {
     }
 }
 
+@Suppress("ForbiddenComment")
 private fun KType.checkAbbreviation(abbreviation: String, errorMessagePrefix: String) {
     val abr = this.getAbbreviation()
     // TODO: can we do it better?

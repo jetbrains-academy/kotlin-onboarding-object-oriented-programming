@@ -13,7 +13,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The require built-in function">
+<div class="hint" title="The `require` built-in function">
 
 To check some condition and throw an IllegalArgumentException error, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
 
