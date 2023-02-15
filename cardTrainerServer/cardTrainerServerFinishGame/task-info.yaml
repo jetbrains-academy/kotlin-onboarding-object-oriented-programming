@@ -1,0 +1,23 @@
+type: edu
+custom_name: Card Trainer Project - Finish the Game
+files:
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Converters.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Utils.kt
+    visible: true

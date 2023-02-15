@@ -11,8 +11,9 @@ value class Back(val country: String)
 data class Card(
     val front: Front,
     val back: Back,
-    val id: Int = idFactory.uniqueIdentifier(),
 ) {
+    val id: Int = idFactory.uniqueIdentifier()
+
     companion object {
         private val idFactory = IdentifierFactory()
     }
