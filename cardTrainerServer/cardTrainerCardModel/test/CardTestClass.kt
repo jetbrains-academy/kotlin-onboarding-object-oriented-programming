@@ -31,25 +31,5 @@ internal val cardTestClass = TestClass(
             mutability = VariableMutability.VAL,
             isInPrimaryConstructor = true,
         ),
-        Variable(
-            name = "id",
-            javaType = "Int",
-            kotlinType = kotlinTypeIdentifier,
-            visibility = Visibility.PUBLIC,
-            mutability = VariableMutability.VAL,
-        ),
-        Variable(
-            name = "idFactory",
-            javaType = "jetbrains.kotlin.course.card.trainer.util.IdentifierFactory",
-            // Because it is inside companion object
-            visibility = Visibility.PRIVATE,
-            mutability = VariableMutability.VAL,
-            isStatic = true,
-        ),
     ),
-)
-
-internal val cardCompanionTestClass = TestClass(
-    "Card\$Companion",
-    "jetbrains.kotlin.course.card.trainer.card",
 )

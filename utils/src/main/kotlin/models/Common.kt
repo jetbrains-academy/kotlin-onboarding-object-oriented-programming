@@ -38,7 +38,11 @@ private fun KType.getAbbreviation(): String? {
 
 private fun KType.checkAbbreviation(abbreviation: String, errorMessagePrefix: String) {
     val abr = this.getAbbreviation()
-    assert(abr != null) { "You need to create a value class or a type aliasServerUtils $abbreviation and use it as the return type for $errorMessagePrefix" }
+    // TODO: can we do it better?
+    if (abr == null && this.toString() == abbreviation) {
+        return
+    }
+    assert(abr != null) { "You need to create a value class or a type alias $abbreviation and use it as the return type for $errorMessagePrefix" }
     assert(abr!! == abbreviation) { "The return type for $errorMessagePrefix must contain $abbreviation" }
 }
 

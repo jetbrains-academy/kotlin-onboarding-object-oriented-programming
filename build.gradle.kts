@@ -48,7 +48,7 @@ tasks {
 val frontendSuffix = "Frontend"
 val server = "Server"
 
-configure(subprojects.filter { it.name == "common" || frontendSuffix in it.name }) {
+configure(subprojects.filter { it.name != "common" && frontendSuffix !in it.name }) {
     apply<io.gitlab.arturbosch.detekt.DetektPlugin>()
 
     configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {

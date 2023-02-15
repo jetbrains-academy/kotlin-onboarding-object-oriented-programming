@@ -15,13 +15,15 @@ enum class ClassType(val key: String) {
 }
 
 data class ConstructorGetter(
-    val parameterTypes: List<Class<*>> = emptyList(), val defaultParameterTypes: List<Class<*>> = emptyList()
+    val parameterTypes: List<Class<*>> = emptyList(),
+    val defaultParameterTypes: List<Class<*>> = emptyList(),
+    val toAddDefaultConstructorMarker: Boolean = false
 ) {
     @Suppress("SpreadOperator")
     fun getConstructorWithDefaultArguments(clazz: Class<*>) = try {
         val parameters =
             (parameterTypes + defaultParameterTypes.map { listOf(it, Int::class.java) }.flatten()).toMutableList()
-        if (defaultParameterTypes.isNotEmpty()) {
+        if (defaultParameterTypes.isNotEmpty() || toAddDefaultConstructorMarker) {
             parameters.add(DefaultConstructorMarker::class.java)
         }
         clazz.getConstructor(*parameters.toTypedArray())
@@ -230,8 +232,8 @@ private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
         "hashCode",
         "toString",
     )
-    dataClassMethods.forEach {
-        assert(it in methodsNames) { "${testClass.getFullName()} must be a data class" }
+    dataClassMethods.forEach { dataClassMethod ->
+        assert(dataClassMethod in methodsNames || methodsNames.any{ dataClassMethod in it }) { "${testClass.getFullName()} must be a data class" }
     }
     val (primary, _) = testClass.declaredFields.partition { it.isInPrimaryConstructor }
     val componentNFunctions = methodsNames.filter { "component" in it }
@@ -239,7 +241,8 @@ private fun Class<*>.checkIfIsDataClass(testClass: TestClass) {
         "You must put only ${primary.size} fields into the primary constructor: ${primary.joinToString(", ") { it.name }}."
     assert(componentNFunctions.size == primary.size) { componentNErrorMessage }
     primary.forEachIndexed { index, _ ->
-        assert("component${index + 1}" in methodsNames) { componentNErrorMessage }
+        val name = "component${index + 1}"
+        assert(name in methodsNames || methodsNames.any { name in it }) { componentNErrorMessage }
     }
 }
 
