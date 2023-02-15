@@ -16,12 +16,12 @@ export type GameScreenProps = {
     gameStateSetter: (gs: GameState) => void,
     cardSetter: (card: JsCardTrainerModel) => void,
     currentCard: JsCardTrainerModel,
-    wordSetter: (card: String) => void,
-    currentWord: String,
-    known: String[],
-    knownSetter: (known:  String[]) => void,
-    unknown: String[],
-    unknownSetter: (known:  String[]) => void,
+    wordSetter: (card: string) => void,
+    currentWord: string,
+    known: string[],
+    knownSetter: (known:  string[]) => void,
+    unknown: string[],
+    unknownSetter: (known:  string[]) => void,
 }
 
 export default function GameScreen({

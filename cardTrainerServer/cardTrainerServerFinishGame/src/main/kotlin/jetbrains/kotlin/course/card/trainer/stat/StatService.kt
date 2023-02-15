@@ -1,7 +1,6 @@
 package jetbrains.kotlin.course.card.trainer.stat
 
 import jetbrains.kotlin.course.card.trainer.card.Back
-import jetbrains.kotlin.course.card.trainer.card.Front
 import org.springframework.stereotype.Service
 
 @Service

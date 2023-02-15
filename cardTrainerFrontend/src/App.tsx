@@ -8,7 +8,7 @@ import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
 
 export function newCard(
     cardSetter: (card: JsCardTrainerModel) => void,
-    wordSetter: (card: String) => void,
+    wordSetter: (card: string) => void,
     path: string = "/cards/next"
 ) {
     axios.get(path).then((response) => {
@@ -19,10 +19,10 @@ export function newCard(
 }
 
 export function initGame(
-    knownSetter: (known:  String[]) => void,
-    unknownSetter: (unknown:  String[]) => void,
+    knownSetter: (known:  string[]) => void,
+    unknownSetter: (unknown:  string[]) => void,
     cardSetter: (card: JsCardTrainerModel) => void,
-    wordSetter: (card: String) => void
+    wordSetter: (card: string) => void
 ) {
     knownSetter([])
     unknownSetter([])
@@ -32,10 +32,10 @@ export function initGame(
 function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
     let [currentCard, cardSetter] = useState<JsCardTrainerModel>(new JsCardTrainerModel(-1, "", ""))
-    let [currentWord, wordSetter] = useState<String>(currentCard.back)
+    let [currentWord, wordSetter] = useState<string>(currentCard.back)
 
-    let [known, knownSetter] = useState<String[]>([])
-    let [unknown, unknownSetter] = useState<String[]>([])
+    let [known, knownSetter] = useState<string[]>([])
+    let [unknown, unknownSetter] = useState<string[]>([])
 
     // Load initial data
     useEffect(() => {

@@ -10,7 +10,12 @@ You can read the detailed rules in [Wikipedia](https://en.wikipedia.org/wiki/Cod
 
 ### Lesson topics
 
-**TODO**
+- objects;
+- initializer blocks;
+- enum classes;
+- functional interfaces (Single Abstract Method, SAM);
+- interfaces and inheritance;
+- some built-in functions to handle errors and work with collections.
 
 ### Project example
 

@@ -2,17 +2,19 @@ import {GameState} from "../GameScreen";
 import {card} from "common-types";
 import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
 import {initGame, newCard} from "../../App";
+import Card from "../Card";
+import axios from "axios";
 
 type GameRoundScreenProps = {
     gameStateSetter: (gs: GameState) => void,
     cardSetter: (card: JsCardTrainerModel) => void,
     currentCard: JsCardTrainerModel,
-    wordSetter: (card: String) => void,
-    currentWord: String,
-    known: String[],
-    knownSetter: (known: String[]) => void,
-    unknown: String[],
-    unknownSetter: (known: String[]) => void,
+    wordSetter: (card: string) => void,
+    currentWord: string,
+    known: string[],
+    knownSetter: (known: string[]) => void,
+    unknown: string[],
+    unknownSetter: (known: string[]) => void,
 }
 
 export default function GameRoundScreen({
@@ -26,19 +28,26 @@ export default function GameRoundScreen({
                                             unknown,
                                             unknownSetter
                                         }: GameRoundScreenProps) {
+    function saveResults() {
+        let body = {
+            known: known,
+            unknown: unknown,
+        }
+        axios.post("/stat/save", body).then((response) => {
+            console.log("Stat was saved!")
+            console.log(response)
+            initGame(knownSetter, unknownSetter, cardSetter, wordSetter)
+            gameStateSetter(GameState.START)
+        })
+    }
+
     return (
         <div className="App-cards-container App-min-height">
-            <div className="App-card" onClick={() => {
-                if (currentCard.back === currentWord) {
-                    wordSetter(currentCard.front)
-                } else if (currentCard.front === currentWord) {
-                    wordSetter(currentCard.back)
-                }
-            }}>
-                <p className="App-card-p font-link-base">
-                    <pre className="font-link-base App-card-pre">{currentWord}</pre>
-                </p>
-            </div>
+            <Card
+                currentCard={currentCard}
+                wordSetter={wordSetter}
+                currentWord={currentWord}
+            />
             <div className="App-buttons-container">
                 <button className="App-button-base App-game-dont-know" onClick={() => {
                     unknown.push(currentCard.back)
@@ -59,8 +68,7 @@ export default function GameRoundScreen({
                 }}>
                 </button>
                 <button className="App-button-base App-game-finish-game" onClick={() => {
-                    initGame(knownSetter, unknownSetter, cardSetter, wordSetter)
-                    gameStateSetter(GameState.START)
+                    saveResults()
                 }}>
                 </button>
             </div>

@@ -231,6 +231,10 @@
   cursor: pointer;
 }
 
+.App-card-front {
+  background-image: url('assets/big_card_front.svg');
+}
+
 .App-card-p {
   margin-left: -3vmin;
   color: white;
