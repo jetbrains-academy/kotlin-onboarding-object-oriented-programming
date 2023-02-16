@@ -12,6 +12,29 @@ internal val startNewGameMethod = TestMethod(
     returnTypeJava = "Card",
 )
 
+internal val generateNewCardsSequenceMethod = TestMethod(
+    name = "generateNewCardsSequence",
+    returnType = KotlinType(
+        "List",
+        params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
+    ),
+    returnTypeJava = "List",
+    visibility = Visibility.PRIVATE
+)
+
+internal val cardsVariable = Variable(
+    name = "cards",
+    javaType = "List",
+    kotlinType = KotlinType(
+        "MutableList",
+        params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
+    ),
+    // Because it is inside companion object
+    visibility = Visibility.PRIVATE,
+    mutability = VariableMutability.VAR,
+    isStatic = true,
+)
+
 internal val cardServiceTestClass = TestClass(
     "CardService",
     "jetbrains.kotlin.course.card.trainer.card",
@@ -27,19 +50,7 @@ internal val cardServiceTestClass = TestClass(
             mutability = VariableMutability.VAL,
             isStatic = true,
         ),
-
-        Variable(
-            name = "cards",
-            javaType = "List",
-            kotlinType = KotlinType(
-                "MutableList",
-                params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
-            ),
-            // Because it is inside companion object
-            visibility = Visibility.PRIVATE,
-            mutability = VariableMutability.VAR,
-            isStatic = true,
-        ),
+        cardsVariable
     ),
     customMethods = listOf(
         getNextCardMethod,
@@ -50,4 +61,7 @@ internal val cardServiceTestClass = TestClass(
 internal val cardServiceCompanionTestClass = TestClass(
     "CardService\$Companion",
     "jetbrains.kotlin.course.card.trainer.card",
+    customMethods = listOf(
+        generateNewCardsSequenceMethod
+    )
 )
