@@ -27,3 +27,13 @@ files:
   visible: false
 - name: test/CardServiceTestClass.kt
   visible: false
+- name: test/StatTestClass.kt
+  visible: false
+- name: test/StatServiceTestClass.kt
+  visible: false
+- name: src/main/resources/static/static/js/main.d2e844a0.js.map
+  visible: true
+- name: src/main/resources/static/static/js/main.d2e844a0.js
+  visible: true
+- name: src/main/resources/static/static/js/main.d2e844a0.js.LICENSE.txt
+  visible: true

@@ -38,7 +38,14 @@ export default function GameScreen({
                                    }: GameScreenProps) {
     switch (state) {
         case GameState.START: {
-            return <StartScreen gameStateSetter={gameStateSetter}/>
+            return <StartScreen
+                gameStateSetter={gameStateSetter}
+                cardSetter={cardSetter}
+                wordSetter={wordSetter}
+                knownSetter={knownSetter}
+                unknownSetter={unknownSetter}
+                currentWord={currentWord}
+            />
         }
         case GameState.GAME: {
             return <GameRoundScreen
