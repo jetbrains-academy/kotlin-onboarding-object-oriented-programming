@@ -181,13 +181,10 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
         commandLine("yarn", "run", "build")
     }
 
-    // TODO: add a special suffix to server names which of them require resources
-    fun String.requiresResources() = "FinishGame" in this
-
     val serveResourcesTask = tasks.register("serveResources") {
         dependsOn(yarnRunBuildTask)
         val serverResources = rootProject.subprojects
-            .filter { gameName in it.name && server in it.name && it.name.requiresResources() }
+            .filter { gameName in it.name && server in it.name }
             // the project name looks like: gameName-moduleName
             .map { "$rootDir/$gameName$server/${it.name.split('-').last()}/src/main/resources/static/" }
         val staticFolder = "$rootDir/$gameName$frontendSuffix/build"

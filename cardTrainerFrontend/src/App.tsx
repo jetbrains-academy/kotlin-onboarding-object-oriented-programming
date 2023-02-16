@@ -22,7 +22,7 @@ export function initGame(
     knownSetter: (known:  string[]) => void,
     unknownSetter: (unknown:  string[]) => void,
     cardSetter: (card: JsCardTrainerModel) => void,
-    wordSetter: (card: string) => void
+    wordSetter: (card: string) => void,
 ) {
     knownSetter([])
     unknownSetter([])
@@ -36,11 +36,6 @@ function App() {
 
     let [known, knownSetter] = useState<string[]>([])
     let [unknown, unknownSetter] = useState<string[]>([])
-
-    // Load initial data
-    useEffect(() => {
-        initGame(knownSetter, unknownSetter, cardSetter, wordSetter)
-    }, []);
 
     switch (gameState) {
         case GameState.START: {
