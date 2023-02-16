@@ -20,6 +20,10 @@ You just need to add several properties and implement several methods:
 - implement the `getCardByIndex` method, which accepts `index` (an integer number) and the `Card` at this index.
   If the card does not exist, throw an error.
 
+After finishing this task you will be able to play on the game:
+
+![The current state of the game](../../utils/src/main/resources/images/states/alias/state1.gif)
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

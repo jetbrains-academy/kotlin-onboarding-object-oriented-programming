@@ -9,4 +9,4 @@ fun Card.toJsCard(): JsCard = TODO("Not implemented yet")
 
 fun Team.toJsTeam(): JsTeam = JsTeam(this.id, this.points, this.name)
 
-fun List<Team>.toArrayJsTeams() = this.map { it.toJsTeam() }.toTypedArray()
+fun List<Team>.toArrayJsTeams(): List<JsTeam> = TODO("Not implemented yet")

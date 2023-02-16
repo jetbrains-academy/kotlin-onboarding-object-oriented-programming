@@ -14,7 +14,7 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 - Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list.
 
 
-Hooray! After finishing this step the application will work well:
+Hooray! After finishing this step the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)
 
