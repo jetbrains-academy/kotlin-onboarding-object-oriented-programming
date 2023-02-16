@@ -13,6 +13,11 @@ in the package `jetbrains.kotlin.course.card.trainer.card`:
 - implement the method `save` that `adds` new `Stat` into `history`;
 - implement the method `getHistory` that returns _reversed_ `history`.
 
+
+Hooray! After finishing this step the application will work well:
+
+![The current state of the application](../../utils/src/main/resources/images/states/cardTrainer/state2.gif)
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

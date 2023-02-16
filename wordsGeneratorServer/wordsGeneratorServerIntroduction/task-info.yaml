@@ -2,7 +2,7 @@ type: theory
 custom_name: Word Generator Project - Introduction
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
-  visible: false
+  visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Converters.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Words.kt

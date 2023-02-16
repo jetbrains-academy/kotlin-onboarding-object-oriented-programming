@@ -22,6 +22,11 @@ Find the already added `WordServices` class in the `jetbrains.kotlin.course.word
   - If `previousWords` does not contain `keyWord` yet, return `true`.
   - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`, else return `true`.
 
+
+After solving this step the game will be almost done:
+
+![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state1.gif)
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

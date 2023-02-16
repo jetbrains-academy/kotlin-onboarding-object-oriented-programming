@@ -5,8 +5,6 @@ In this task, you will create a utility to store the basic game settings!
 
 Create an object `Utils` in the `jetbrains.kotlin.course.codenames.utils` package to store the general game settings:
 
-**TODO: change name for N**
-
 - add several consts to the `Utils` object to store the common constants:
   - `N = 5`, 
   - `TOTAL_NUMBER = N * N`, 

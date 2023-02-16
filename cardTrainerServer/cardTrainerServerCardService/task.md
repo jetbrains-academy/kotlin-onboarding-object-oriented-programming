@@ -20,6 +20,10 @@ removes the first element from this list and returns it.
 - `startNewGame` that just put a new sequence of cards into the variable `cards` - you 
 can use the `generateNewCardsSequence` function. And next returns the first card - you can call the `getNextCard` function.
 
+After solving this task you can try to play into the game, but the `Finish game` button will not work:
+
+![The current state of the application](../../utils/src/main/resources/images/states/cardTrainer/state1.gif)
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----
