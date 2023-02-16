@@ -8,31 +8,113 @@ import kotlin.jvm.internal.DefaultConstructorMarker
 
 class Test {
     @Test
+    fun statTestClassTest() {
+        val clazz = statTestClass.checkBaseDefinition()
+        statTestClass.checkFieldsDefinition(clazz)
+
+        statTestClass.checkConstructors(
+            clazz, listOf(
+                ConstructorGetter(
+                    parameterTypes = listOf(List::class.java, List::class.java),
+                ),
+            )
+        )
+    }
+
+    @Test
+    fun statServiceTestClassTest() {
+        val clazz = statServiceTestClass.checkBaseDefinition()
+        statServiceCompanionTestClass.checkBaseDefinition()
+        statServiceTestClass.checkFieldsDefinition(clazz, false)
+        statServiceTestClass.checkConstructors(
+            clazz, listOf(
+                ConstructorGetter(),
+            )
+        )
+        statServiceTestClass.checkDeclaredMethods(clazz)
+    }
+
+    @Test
+    fun saveMethodTest() {
+        val invokeData = TestMethodInvokeData(statServiceTestClass, saveMethod)
+        val historyField = getField(invokeData, historyVariable.name)
+
+        val n = 100
+        repeat(n) {
+            val (known, unknown) = invokeSaveMethod(invokeData)
+            val historyRes = historyField.get(invokeData.instance).toString()
+            val knownFields = known.convertToBack()
+            assert(knownFields.all { it in historyRes }) { "Try to call ${saveMethod.name} method with input data: known = $known and unknown = $unknown. All countries should be in ${historyVariable.name} after this call, but they were not" }
+            val unknownFields = unknown.convertToBack()
+            assert(unknownFields.all { it in historyRes }) { "Try to call ${saveMethod.name} method with input data: known = $known and unknown = $unknown. All countries should be in ${historyVariable.name} after this call, but they were not" }
+            val stat = convertToStat(known, unknown)
+            assert(stat in historyRes) { { "Try to call ${saveMethod.name} method with input data: known = $known and unknown = $unknown. The stat $stat should be in ${historyVariable.name} after this call, but it was not" } }
+        }
+    }
+
+    private fun List<String>.convertToBack() = map { "Back(country=$it)" }
+
+    private fun convertToStat(known: List<String>, unknown: List<String>) =
+        "Stat(knownBacks=[${known.convertToBack().joinToString(", ")}], unknownBacks=[${
+            unknown.convertToBack().joinToString(", ")
+        }])"
+
+
+    private fun invokeSaveMethod(invokeData: TestMethodInvokeData): Pair<List<String>, List<String>> {
+        val shuffled = countries.values.shuffled()
+        val known = shuffled.take(5)
+        val unknown = shuffled.takeLast(5)
+        invokeData.method.invoke(invokeData.instance, known, unknown)
+        return Pair(known, unknown)
+    }
+
+    @Test
+    fun getHistoryMethodTest() {
+        val saveInvokeData = TestMethodInvokeData(statServiceTestClass, saveMethod)
+
+        val invokeData = TestMethodInvokeData(statServiceTestClass, getHistoryMethod)
+        var history = invokeData.method.invoke(invokeData.instance).toString()
+        assert(history == "[]") { "For empty ${historyVariable.name} ${getHistoryMethod.name} method should return an empty list" }
+
+        val n = 100
+        val actualHistory = mutableListOf<String>()
+        repeat(n) {
+            val (known, unknown) = invokeSaveMethod(saveInvokeData)
+            val stat = convertToStat(known, unknown)
+            actualHistory.add(stat)
+
+            history = invokeData.method.invoke(invokeData.instance).toString()
+            assert(
+                actualHistory.reversed().toString() == history
+            ) { "${getHistoryMethod.name} method should return a reversed list of ${historyVariable.name}" }
+        }
+    }
+
+    @Test
     fun cardServiceTest() {
         val clazz = cardServiceTestClass.checkBaseDefinition()
         val companion = cardServiceCompanionTestClass.checkBaseDefinition()
         cardServiceCompanionTestClass.checkDeclaredMethods(companion)
         cardServiceTestClass.checkFieldsDefinition(clazz, false)
         cardServiceTestClass.checkConstructors(
-            clazz,
-            listOf(
+            clazz, listOf(
                 ConstructorGetter(),
             )
         )
         cardServiceTestClass.checkDeclaredMethods(clazz)
     }
 
-    private fun getCardsField(invokeData: TestMethodInvokeData): Field {
-        val cardsField = invokeData.clazz.declaredFields.find { it.name == cardsVariable.name }
-        assert(cardsField != null) { "Can not find field ${cardsVariable.name}" }
-        cardsField!!.isAccessible = true
-        return cardsField
+    private fun getField(invokeData: TestMethodInvokeData, name: String): Field {
+        val field = invokeData.clazz.declaredFields.find { it.name == name }
+        assert(field != null) { "Can not find field ${cardsVariable.name}" }
+        field!!.isAccessible = true
+        return field
     }
 
     @Test
     fun getNextCardMethodTest() {
         val invokeData = TestMethodInvokeData(cardServiceTestClass, getNextCardMethod)
-        val cardsField = getCardsField(invokeData)
+        val cardsField = getField(invokeData, cardsVariable.name)
 
         val n = countries.size
         val previousCards = mutableListOf<String>()
@@ -97,7 +179,7 @@ class Test {
     @Test
     fun startNewGameMethodTest() {
         val invokeData = TestMethodInvokeData(cardServiceTestClass, startNewGameMethod)
-        val cardsField = getCardsField(invokeData)
+        val cardsField = getField(invokeData, cardsVariable.name)
 
         val previousSequences = mutableListOf<String>()
         val n = 100
@@ -129,8 +211,7 @@ class Test {
         cardTestClass.checkFieldsDefinition(clazz)
 
         cardTestClass.checkConstructors(
-            clazz,
-            listOf(
+            clazz, listOf(
                 ConstructorGetter(
                     parameterTypes = listOf(String::class.java, String::class.java),
                     toAddDefaultConstructorMarker = true

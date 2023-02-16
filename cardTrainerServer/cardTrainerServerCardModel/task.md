@@ -8,7 +8,7 @@ Finally, create a class `Card` in the `jetbrains.kotlin.course.card.trainer.card
 
 - it must have two properties in the primary constructor:
     - `front` with `Front` type to store capitals;
-    - `back` with `Back` type to store countries;
+    - `back` with `Back` type to store countries.
 
 If you have any difficulties, **hints will help you solve this task**.
 
