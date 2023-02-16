@@ -13,6 +13,11 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
   not be empty; 2) all team ids in `result` must be present in `TeamService.teamsStorage`.
 - Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list.
 
+
+Hooray! After finishing this step the game will work well:
+
+![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

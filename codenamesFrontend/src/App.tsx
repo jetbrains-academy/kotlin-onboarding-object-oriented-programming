@@ -39,12 +39,7 @@ function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
     let [keyCard, keyCardSetter] = useState<KeyCardModel | null>(null)
     let [gameCards, gameCardsSetter] = useState<Array<GameCardModel>>([])
-
-    // Load initial data
-    useEffect(() => {
-        initGame(keyCardSetter, gameCardsSetter)
-    }, []);
-
+    
     switch (gameState) {
         case GameState.START: {
             return (<div className="App">

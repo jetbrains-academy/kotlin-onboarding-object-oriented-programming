@@ -19,4 +19,6 @@ You can read the detailed rules in [Wikipedia](https://en.wikipedia.org/wiki/Cod
 
 ### Project example
 
-**TODO**
+In the end of this task you will create this game:
+
+![An example of the application](../../utils/src/main/resources/images/states/codenames/state2.gif)

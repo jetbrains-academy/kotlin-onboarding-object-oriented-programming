@@ -2,6 +2,7 @@ type: framework
 custom_name: Brave new world
 content:
 - aliasServerIntroduction
+- aliasServerHowToRun
 - aliasServerPackages
 - aliasServerClasses
 - aliasServerUtil

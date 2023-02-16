@@ -2,6 +2,7 @@ type: framework
 custom_name: Codenames
 content:
 - codenamesServerIntroduction
+- codenamesServerHowToRun
 - codenamesServerObject
 - codenamesServerInit
 - codenamesServerUtils

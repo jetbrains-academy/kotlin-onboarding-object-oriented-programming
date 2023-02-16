@@ -2,7 +2,7 @@ type: edu
 custom_name: Codenames Project - Key Card Generator
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/codenames/CodenamesApplication.kt
-  visible: false
+  visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Converters.kt
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/IdentifierFactory.kt

@@ -36,4 +36,6 @@ card as possible in a limited time.
 
 ### Project example
 
-**TODO**
+In the end of this task you will create this game:
+
+![An example of the application](../../utils/src/main/resources/images/states/alias/state2.gif)

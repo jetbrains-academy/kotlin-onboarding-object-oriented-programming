@@ -14,6 +14,8 @@ If you have any difficulties, **hints will help you solve this task**.
 ### Hints
 
 <div class="hint" title="What does the KeyCard look like in the game?">
-  
-**TODO**
+
+Each square corresponds to a card on the field:
+
+![KeyCard example](../../utils/src/main/resources/images/states/codenames/keycardSmall.png)
 </div>

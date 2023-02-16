@@ -5,7 +5,9 @@ The package `jetbrains.kotlin.course.codenames.card` already has the regular cla
 - Next, you need to _shuffle_ `words` and create `TOTAL_NUMBER` cards by _taking_ them from the shuffled word list and creating new instances of the `Card` class.
 - Don't forget to _drop_ all words from the `words` list that were used for the generated cards.
 
-Good luck!
+Good luck! After finishing this step the application will work well:
+
+![The current state of the game](../../utils/src/main/resources/images/states/codenames/state2.gif)
 
 If you have any difficulties, **hints will help you solve this task**.
 

@@ -2,7 +2,7 @@ type: theory
 custom_name: Alias Project - Introduction
 files:
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
-  visible: false
+  visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardModel.kt
   visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardResource.kt

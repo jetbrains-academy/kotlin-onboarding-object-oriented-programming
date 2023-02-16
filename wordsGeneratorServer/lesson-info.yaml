@@ -2,6 +2,7 @@ type: framework
 custom_name: Words Generator
 content:
 - wordsGeneratorServerIntroduction
+- wordsGeneratorServerHowToRun
 - wordsGeneratorServerTeams
 - wordsGeneratorServerTeamService
 - wordsGeneratorServerWord
