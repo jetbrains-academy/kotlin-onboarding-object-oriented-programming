@@ -19,3 +19,15 @@ files:
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
   visible: false
+- name: test/Tests.kt
+  visible: false
+- name: test/CardTestClass.kt
+  visible: false
+- name: test/CardSequenceGeneratorTestClass.kt
+  visible: false
+- name: test/CardServiceTestClass.kt
+  visible: false
+- name: test/StatTestClass.kt
+  visible: false
+- name: test/StatServiceTestClass.kt
+  visible: false
