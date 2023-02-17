@@ -12,6 +12,6 @@ This application will allow you to train your memory and memorize countries and 
 
 ### Project example
 
-In the end of this task you will create this application:
+At the end of this task, you will create the following application:
 
 ![An example of the application](../../utils/src/main/resources/images/states/cardTrainer/state2.gif)
