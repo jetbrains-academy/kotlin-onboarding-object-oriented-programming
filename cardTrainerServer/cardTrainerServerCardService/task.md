@@ -2,25 +2,25 @@ The package `jetbrains.kotlin.course.card.trainer.card` already has the regular 
 It is responsible for the game logic for the cards.
 In this task, you need to implement this service to make the game alive.
 
-First of all, add a simple random generator into the companion object to generate a random sequences of the cards:
+First of all, add a simple random generator to the companion object to generate random sequences of the cards:
 - add the variable `randomCardGenerator` with the type `CardSequenceGenerator` and implement the `generateCards` function. 
-This function should use the pre-defined map `countries` that stores pairs: capital to county. 
-You need to convert all pairs into `Card`, next _shuffle_ this list and return from the function.
+This function should use the pre-defined map `countries`, which stores pairs: capital to country. 
+You need to convert all pairs into `Card`, then _shuffle_ this list and return it from the function.
 
-Next add a new function `generateNewCardsSequence` into the companion object, that just uses the `randomCardGenerator`, 
-calls the function `generateCards` and converts the result into a _mutable_ list.
+Next, add a new function `generateNewCardsSequence` to the companion object, which uses `randomCardGenerator`, 
+calls the function `generateCards`, and converts the result into a _mutable_ list.
 
-Next, add a new mutable variable `cards` into the companion object to store the current list of cards and 
-initialize with calling the `generateNewCardsSequence` function.
+Next, add a new mutable variable `cards` to the companion object to store the current list of cards and 
+initialize it by calling the `generateNewCardsSequence` function.
 
 Finally, implement two functions:
 
-- `getNextCard` that checks list from the variable `cards` that it is not empty and next 
+- `getNextCard`, which checks the list from the variable `cards` to make sure it is not empty, next 
 removes the first element from this list and returns it.
-- `startNewGame` that just put a new sequence of cards into the variable `cards` - you 
-can use the `generateNewCardsSequence` function. And next returns the first card - you can call the `getNextCard` function.
+- `startNewGame`, which just puts a new sequence of cards into the variable `cards` - you 
+can use the `generateNewCardsSequence` function. Next it returns the first card - you can call the `getNextCard` function.
 
-After solving this task you can try to play into the game, but the `Finish game` button will not work:
+After solving this task, you can try playing the game, but the `Finish game` button will not work:
 
 ![The current state of the application](../../utils/src/main/resources/images/states/cardTrainer/state1.gif)
 
@@ -42,7 +42,7 @@ val randomCardGenerator = CardSequenceGenerator {
 
 <div class="hint" title="The `map`built-in function">
 
-You can use the `map` built-in function to change each pair inside a map collection:
+You can use the built-in `map` function to change each pair inside a map collection:
 
   ```kotlin
   val numbers = mapOf("one" to 1,"two" to 2, "three" to 3)
@@ -56,7 +56,7 @@ You can use the `map` built-in function to change each pair inside a map collect
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the cards in the original list.
-To do this, you can generate different cards positions from the original list and build a new one,
+To do that, you can either generate different card positions from the original list and build a new list
 or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html):
 
   ```kotlin
@@ -67,10 +67,10 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
 
 <div class="hint" title="The main difference between mutable and readonly lists">
 
-We'll get into the details of collections in the next module, for now it is enough to know some basics facts:
-1) We can create readonly and mutable lists. 
-You can initialize a readonly list and next only read the elements. 
-If you create a mutable list, you can change the elements after list's initialization:
+We'll go into the details of collections in the next module; for now, it is enough to know some basics facts:
+1) We can create read-only and mutable lists. 
+If you initialize a read-only list, you can only read its elements. 
+If you create a mutable list, you can change the elements after list initialization:
 
 ```kotlin
 val readOnlyNumbers = listOf(1, 2, 3, 4, 5, 6)
@@ -82,7 +82,7 @@ readOnlyNumbers.add(7) // OK
 println(readOnlyNumbers[2]) // OK
 ```
 
-2) You can convert a readonly list into a mutable one:
+2) You can convert a read-only list into a mutable one:
 ```kotlin
 val readOnlyNumbers = listOf(1, 2, 3, 4, 5, 6)
 val mutableNumbers = readOnlyNumbers.toMutableList()
@@ -93,7 +93,7 @@ println(readOnlyNumbers[2]) // OK
 
 <div class="hint" title="The `isNotEmpty` built-in function">
 
-If you need to check if a list is not empty you can check its size ot use the [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) built-in function:
+In case you need to check if a list is not empty, you can check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
@@ -101,7 +101,7 @@ If you need to check if a list is not empty you can check its size ot use the [i
       TODO()
   }
   ```
-is the **same** with
+It is the **same** as
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
@@ -135,7 +135,7 @@ Note, you need to use an _opposite_ condition!
 
 <div class="hint" title="The `removeFirst` built-in function">
 
-If you need to get the first element from a mutable list and next remove it, you can use the [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) built-in function:
+If you need to get the first element from a mutable list and next remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 
 ```kotlin
 fun main() {
@@ -146,7 +146,7 @@ fun main() {
     println(numbers) // [3, 4, 5]
 }
 ```
-is the **same** with
+It is the **same** as
 
 ```kotlin
 fun main() {
