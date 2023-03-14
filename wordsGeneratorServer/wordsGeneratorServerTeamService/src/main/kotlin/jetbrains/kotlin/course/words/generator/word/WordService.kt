@@ -2,8 +2,6 @@ package jetbrains.kotlin.course.words.generator.word
 
 import org.springframework.stereotype.Service
 
-typealias Word = String
-
 @Service
 class WordService {
     fun generateNextWord(): Word = TODO("Not implemented yet")
