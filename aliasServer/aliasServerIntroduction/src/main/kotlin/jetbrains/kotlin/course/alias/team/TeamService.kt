@@ -2,8 +2,6 @@ package jetbrains.kotlin.course.alias.team
 
 import org.springframework.stereotype.Service
 
-typealias Team = String
-
 @Service
 class TeamService {
 
