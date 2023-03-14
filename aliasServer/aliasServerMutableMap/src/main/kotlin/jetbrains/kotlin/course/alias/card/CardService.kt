@@ -2,9 +2,6 @@ package jetbrains.kotlin.course.alias.card
 
 import org.springframework.stereotype.Service
 
-typealias Card = String
-typealias Word = String
-
 @Service
 class CardService {
     private fun generateCards(): List<Card> = TODO("Not implemented yet")

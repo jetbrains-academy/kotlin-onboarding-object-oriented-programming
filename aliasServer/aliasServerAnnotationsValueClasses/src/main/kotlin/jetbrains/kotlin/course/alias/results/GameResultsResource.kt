@@ -3,6 +3,8 @@ package jetbrains.kotlin.course.alias.results
 import alias.JsTeam
 import org.springframework.web.bind.annotation.*
 
+typealias GameResult = String
+
 // We can not use a typealias here because the Spring framework can not parse it
 class GameJsResult : ArrayList<JsTeam>()
 
