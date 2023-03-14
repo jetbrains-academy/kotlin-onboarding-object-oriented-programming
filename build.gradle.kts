@@ -145,6 +145,10 @@ configure(subprojects.filter { server in it.name }) {
         getByName("main").resources.srcDirs("$gameName/src/main/resources")
         getByName("test").java.srcDirs("test")
     }
+
+    tasks.register<Exec>("run") {
+        // Just do nothing to avoid the edu plugin errors
+    }
 }
 
 configure(subprojects.filter { frontendSuffix in it.name }) {
