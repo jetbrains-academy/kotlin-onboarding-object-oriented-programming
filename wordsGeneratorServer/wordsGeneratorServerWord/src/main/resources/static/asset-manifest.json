@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e831fed1.css",
+    "main.js": "/static/js/main.4e86eb2f.js",
+    "static/js/787.96c202b3.chunk.js": "/static/js/787.96c202b3.chunk.js",
+    "static/media/stats_button.svg": "/static/media/stats_button.02922c6aba32559dee33.svg",
+    "static/media/finish_game_button.svg": "/static/media/finish_game_button.35abf842e12f7d7a4c8e.svg",
+    "static/media/play_button.svg": "/static/media/play_button.aad770749eabbe8ac9b1.svg",
+    "static/media/next_team_button.svg": "/static/media/next_team_button.44e46e26f6c9a1811241.svg",
+    "static/media/new_round_button.svg": "/static/media/new_round_button.2ec595b063128ba70a1f.svg",
+    "static/media/back_button.svg": "/static/media/back_button.578d2b1544fe8bc2e2ec.svg",
+    "static/media/logo.svg": "/static/media/logo.0692f83b779df962bc620de99e407f23.svg",
+    "static/media/next_button.svg": "/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg",
+    "index.html": "/index.html",
+    "static/media/bg.svg": "/static/media/bg.36ac84bcfc4b1fa64b64.svg",
+    "static/media/bg_white.svg": "/static/media/bg_white.00acddcc6609eb49c481.svg",
+    "static/media/arrow.svg": "/static/media/arrow.03ce2a8b89368995030f.svg",
+    "main.e831fed1.css.map": "/static/css/main.e831fed1.css.map",
+    "main.4e86eb2f.js.map": "/static/js/main.4e86eb2f.js.map",
+    "787.96c202b3.chunk.js.map": "/static/js/787.96c202b3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e831fed1.css",
+    "static/js/main.4e86eb2f.js"
+  ]
+}
