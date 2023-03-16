@@ -14,6 +14,12 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 - Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list.
 
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the type alia `GameResult`, but it does not exist.
+</div>
+
+
 Hooray! After finishing this step the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)

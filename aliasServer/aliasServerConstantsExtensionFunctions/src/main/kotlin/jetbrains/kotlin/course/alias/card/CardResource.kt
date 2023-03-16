@@ -1,7 +1,6 @@
 package jetbrains.kotlin.course.alias.card
 
 import alias.JsCard
-import jetbrains.kotlin.course.alias.util.toJsCard
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 class CardResource(val service: CardService) {
     @CrossOrigin
     @GetMapping("/card")
-    fun getCardByIndex(@RequestParam index: Int): JsCard = service.getCardByIndex(index).toJsCard()
+    fun getCardByIndex(@RequestParam index: Int): JsCard = TODO("Not implemented yet")
 
     @CrossOrigin
     @GetMapping("/amount")

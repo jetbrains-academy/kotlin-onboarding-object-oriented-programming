@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.alias.team
 
-import jetbrains.kotlin.course.alias.util.toArrayJsTeams
+import alias.JsTeam
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -8,6 +8,5 @@ import org.springframework.web.bind.annotation.*
 class TeamResource(val service: TeamService) {
     @CrossOrigin
     @PostMapping("/generate")
-    fun generateTeamsForOneRound(@RequestBody number: Int) =
-        service.generateTeamsForOneRound(number).toArrayJsTeams()
+    fun generateTeamsForOneRound(@RequestBody number: Int): List<JsTeam> = TODO("Not implemented yet")
 }

@@ -5,6 +5,12 @@ Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package t
   to store the number of points in the game. For `points` set the default value `0`.
 - it must have an additional property `name`, which initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the class `Team`, but it does not exist.
+</div>
+
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

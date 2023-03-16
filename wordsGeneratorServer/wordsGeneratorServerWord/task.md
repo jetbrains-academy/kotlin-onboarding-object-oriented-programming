@@ -8,6 +8,11 @@ Next, find the already added `WordServices` class in the `jetbrains.kotlin.cours
 - Implement the `generateNextWord` function: if the `words` list _is empty_, throw an error;
   else, get the first element from the `words` list and remove it from the list, then create a new `Word` and return it.
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the class `Word`, but it does not exist.
+</div>
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

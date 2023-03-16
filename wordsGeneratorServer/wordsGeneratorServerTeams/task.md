@@ -17,6 +17,11 @@ After that, put the default values into the primary constructor into the `Team` 
 - use an incremented `idCounter` value for `id`;
 - use `0` for `points`.
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the class `Team`, but it does not exist.
+</div>
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

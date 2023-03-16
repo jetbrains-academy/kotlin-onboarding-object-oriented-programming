@@ -1,7 +1,5 @@
 package jetbrains.kotlin.course.codenames.utils
 
-import codenames.JsCodeNamesCard
-import jetbrains.kotlin.course.codenames.card.Card
 import jetbrains.kotlin.course.codenames.keyCard.KeyCard
 import jetbrains.kotlin.course.codenames.keyCard.KeyCardCell
 import jetbrains.kotlin.course.codenames.keyCard.KeyCardType
@@ -18,5 +16,3 @@ private fun KeyCardCell.toJsKeyCardType() = when (this.type) {
 object ConvertersUtils {
     val cardsFactory = IdentifierFactory()
 }
-
-fun List<Card>.toJsCards(): List<JsCodeNamesCard> = TODO("Not implemented yet")
