@@ -2,7 +2,6 @@ package jetbrains.kotlin.course.words.generator.results
 
 import alias.JsTeam
 import jetbrains.kotlin.course.words.generator.team.Team
-import jetbrains.kotlin.course.words.generator.util.toGameResult
 import org.springframework.web.bind.annotation.*
 
 typealias GameResult = List<Team>
@@ -15,7 +14,7 @@ class GameJsResult : ArrayList<JsTeam>()
 class GameResultsResource(val service: GameResultsService) {
     @CrossOrigin
     @PostMapping("/save")
-    fun saveGameResults(@RequestBody result: GameJsResult) = service.saveGameResults(result.toGameResult())
+    fun saveGameResults(@RequestBody result: GameJsResult): Unit = TODO("Not implemented yet")
 
     @CrossOrigin
     @GetMapping("/all")
