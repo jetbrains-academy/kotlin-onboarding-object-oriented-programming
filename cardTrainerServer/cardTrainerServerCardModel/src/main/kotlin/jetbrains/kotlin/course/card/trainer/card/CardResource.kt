@@ -1,7 +1,6 @@
 package jetbrains.kotlin.course.card.trainer.card
 
 import card.trainer.JsCardTrainerModel
-import jetbrains.kotlin.course.card.trainer.util.toJsCard
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -9,9 +8,9 @@ import org.springframework.web.bind.annotation.*
 class CardResource(val service: CardService) {
     @CrossOrigin
     @GetMapping("/next")
-    fun getNextCard(): JsCardTrainerModel = service.getNextCard().toJsCard()
+    fun getNextCard(): JsCardTrainerModel = TODO("Not implemented yet")
 
     @CrossOrigin
     @GetMapping("/newGame")
-    fun startNewGame(): JsCardTrainerModel = service.startNewGame().toJsCard()
+    fun startNewGame(): JsCardTrainerModel = TODO("Not implemented yet")
 }
