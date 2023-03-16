@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.codenames.card
 
-import jetbrains.kotlin.course.codenames.utils.toJsCards
+import codenames.JsCodeNamesCard
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -13,5 +13,5 @@ typealias Card = String
 class CardResource(val service: CardService) {
     @CrossOrigin
     @GetMapping("/generate")
-    fun generateWordsCards() = service.generateWordsCards().toJsCards()
+    fun generateWordsCards(): List<JsCodeNamesCard> = TODO("Not implemented yet")
 }

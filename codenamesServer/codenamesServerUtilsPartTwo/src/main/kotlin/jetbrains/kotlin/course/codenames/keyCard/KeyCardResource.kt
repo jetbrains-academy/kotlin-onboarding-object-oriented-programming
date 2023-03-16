@@ -1,6 +1,5 @@
 package jetbrains.kotlin.course.codenames.keyCard
 
-import jetbrains.kotlin.course.codenames.utils.toJsKeyCard
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -8,5 +7,5 @@ import org.springframework.web.bind.annotation.*
 class KeyCardResource(val service: KeyCardService) {
     @CrossOrigin
     @GetMapping("/new")
-    fun generateNewKeyCard() = service.generateKeyCard().toJsKeyCard()
+    fun generateNewKeyCard(): List<Int> = TODO("Not implemented yet")
 }
