@@ -101,3 +101,5 @@ files:
   visible: false
 - name: src/main/resources/static/asset-manifest.json
   visible: false
+- name: test/KeyCardServiceTestClass.kt
+  visible: false

@@ -10,6 +10,11 @@ Finally, create a class `Card` in the `jetbrains.kotlin.course.card.trainer.card
     - `front` with `Front` type to store capitals;
     - `back` with `Back` type to store countries.
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the class `Card`, but it does not exist.
+</div>
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----

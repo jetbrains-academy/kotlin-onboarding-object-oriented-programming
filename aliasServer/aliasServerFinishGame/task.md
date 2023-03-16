@@ -12,6 +12,11 @@ the `jetbrains.kotlin.course.alias.results` package:
   be not empty; 2) all teams ids from the `result` must be in the `TeamService.teamsStorage`.
 - implement the `getAllGameResults` method that returns the reversed `gameHistory` list.
 
+<div class="hint" title="I press Check and see a compilation error">
+  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior since the code requires the type alias `GameResult`, but it does not exist.
+</div>
+
 Hooray! After finishing this step the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/alias/state2.gif)
