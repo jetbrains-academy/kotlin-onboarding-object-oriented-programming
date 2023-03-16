@@ -35,6 +35,8 @@ files:
   visible: false
 - name: test/CardServiceTestClass.kt
   visible: false
+- name: test/CardTestClass.kt
+  visible: false
 - name: src/main/resources/static/static/js/main.6f70c592.js
   visible: false
 - name: src/main/resources/static/static/js/main.6f70c592.js.map
@@ -80,6 +82,4 @@ files:
 - name: src/main/resources/static/manifest.json
   visible: false
 - name: src/main/resources/static/asset-manifest.json
-  visible: false
-- name: test/CardTestClass.kt
   visible: false
