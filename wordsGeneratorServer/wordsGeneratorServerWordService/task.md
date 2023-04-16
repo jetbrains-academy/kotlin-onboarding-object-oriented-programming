@@ -19,7 +19,7 @@ Find the already added `WordServices` class in the `jetbrains.kotlin.course.word
   which maps each game word to the list of already guessed words. Don't forget to init this map as an empty map.
 - Implement the `isNewWord` function:
 
-  - If `previousWords` does not contain `keyWord` yet, return `true`.
+  - If `previousWords` does not contain `keyWord` yet, put the `keyWord` into the `previousWords` map together with `newWord` and return `true`.
   - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`, else return `true`.
 
 
