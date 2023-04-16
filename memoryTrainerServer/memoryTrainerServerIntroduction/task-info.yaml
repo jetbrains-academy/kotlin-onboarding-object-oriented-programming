@@ -1,7 +1,7 @@
 type: theory
-custom_name: Card Trainer Project - Introduction
+custom_name: Memory Trainer Project - Introduction
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt
+- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/MemoryTrainerApplication.kt
   visible: true
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardModel.kt
   visible: true
@@ -19,15 +19,17 @@ files:
   visible: false
 - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
   visible: false
-- name: src/main/resources/static/static/js/main.d2e844a0.js
+- name: src/main/resources/application.properties
   visible: false
-- name: src/main/resources/static/static/js/main.d2e844a0.js.map
+- name: src/main/resources/static/static/js/main.97a7b88b.js
+  visible: false
+- name: src/main/resources/static/static/js/main.97a7b88b.js.map
   visible: false
 - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js
   visible: false
 - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js.map
   visible: false
-- name: src/main/resources/static/static/js/main.d2e844a0.js.LICENSE.txt
+- name: src/main/resources/static/static/js/main.97a7b88b.js.LICENSE.txt
   visible: false
 - name: src/main/resources/static/static/css/main.b4de2bbf.css
   visible: false
@@ -66,6 +68,4 @@ files:
 - name: src/main/resources/static/manifest.json
   visible: false
 - name: src/main/resources/static/asset-manifest.json
-  visible: false
-- name: src/main/resources/application.properties
   visible: false

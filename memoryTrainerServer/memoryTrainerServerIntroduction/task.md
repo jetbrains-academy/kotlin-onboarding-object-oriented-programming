@@ -7,11 +7,11 @@ We have no doubt that you will succeed!
 
 ### Project description
 
-The project of this lesson is **Card Trainer**.
+The project of this lesson is **Memory Trainer**.
 This application will allow you to train your memory and memorize countries and their capitals.
 
 ### Project example
 
 At the end of this task, you will create the following application:
 
-![An example of the application](../../utils/src/main/resources/images/states/cardTrainer/state2.gif)
+![An example of the application](../../utils/src/main/resources/images/states/memoryTrainer/state2.gif)

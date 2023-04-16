@@ -31,7 +31,7 @@ export function initGame(
 
 function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
-    let [currentCard, cardSetter] = useState<JsCardTrainerModel>(new JsCardTrainerModel(-1, "", ""))
+    let [currentCard, cardSetter] = useState<JsCardTrainerModel>(new JsCardTrainerModel("", ""))
     let [currentWord, wordSetter] = useState<string>(currentCard.back)
 
     let [known, knownSetter] = useState<string[]>([])

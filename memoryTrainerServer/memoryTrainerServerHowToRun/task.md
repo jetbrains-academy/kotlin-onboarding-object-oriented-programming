@@ -3,18 +3,18 @@ However, if some functionality has not been implemented yet,
 some buttons may not work and some information may not be displayed.
 
 To run the application, you need to run the `main` function inside 
-the [CardTrainerApplication.kt](./src/main/kotlin/jetbrains/kotlin/course/card/trainer/CardTrainerApplication.kt) file:
+the [MemoryTrainerApplication.kt](./src/main/kotlin/jetbrains/kotlin/course/card/trainer/MemoryTrainerApplication.kt) file:
 
-![How to run the application](../../utils/src/main/resources/images/run/card_trainer_run.png)
+![How to run the application](../../utils/src/main/resources/images/run/memory_trainer_run.png)
 
 Please don't forget to _stop all other runs_ by pressing the square red button:
 
-![How to stop the application](../../utils/src/main/resources/images/stop/card_trainer_stop.png)
+![How to stop the application](../../utils/src/main/resources/images/stop/memory_trainer_stop.png)
 
 Next, you need to open any browser (we recommend using [Google Chrome](https://www.google.com/chrome/) to display the elements as in the examples) 
 and open http://localhost:8080/. You will see the main page of the application:
 
-![The main page of the application](../../utils/src/main/resources/images/main/card_trainer.png)
+![The main page of the application](../../utils/src/main/resources/images/main/memory_trainer.png)
 
 <div class="hint" title="The game from the last launch is displayed">
 

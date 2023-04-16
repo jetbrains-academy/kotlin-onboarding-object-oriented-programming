@@ -22,7 +22,7 @@ can use the `generateNewCardsSequence` function. Next it returns the first card 
 
 After solving this task, you can try playing the game, but the `Finish game` button will not work:
 
-![The current state of the application](../../utils/src/main/resources/images/states/cardTrainer/state1.gif)
+![The current state of the application](../../utils/src/main/resources/images/states/memoryTrainer/state1.gif)
 
 If you have any difficulties, **hints will help you solve this task**.
 
