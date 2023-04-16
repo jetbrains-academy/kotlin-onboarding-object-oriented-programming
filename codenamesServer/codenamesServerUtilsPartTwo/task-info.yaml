@@ -91,3 +91,5 @@ files:
   visible: false
 - name: src/main/resources/static/asset-manifest.json
   visible: false
+- name: src/main/resources/application.properties
+  visible: false
