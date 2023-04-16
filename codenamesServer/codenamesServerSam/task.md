@@ -1,9 +1,7 @@
 #### General definition
 
-**TODO: SAM == Single Abstract Method**
-
-[Functional (SAM) interfaces](https://kotlinlang.org/docs/fun-interfaces.html) 
-are applicable to a situation whre there is an entity type with just one method. 
+[Functional (SAM, Single Abstract Method) interfaces](https://kotlinlang.org/docs/fun-interfaces.html) 
+are applicable to a situation where there is an entity type with just one method. 
 Consider a board game example.
 Our game has a KeyCard, which stores the playing field for the two leaders. 
 But how should the KeyCard be generated? 
