@@ -58,6 +58,7 @@ class Test {
             gameResultsServiceTestClass,
             saveGameResultsMethod,
             gameHistoryVariable,
+            teamClassTestClass = teamClass
         )
     }
 

@@ -79,3 +79,5 @@ files:
   visible: false
 - name: test/GameResultsServiceTestClass.kt
   visible: false
+- name: src/main/resources/application.properties
+  visible: false
