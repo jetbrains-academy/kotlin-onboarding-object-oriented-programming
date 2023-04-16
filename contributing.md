@@ -31,7 +31,8 @@ which will help keep your pull request simple and easy to apply.
 
 ## Search and fix formatting issues
 
-**TODO**
+We use the Detekt tool as the main static analysis tool. 
+To build the projects with Detekt you need to run the build task with `-PrunDetekt` property.
 
 ## Checklist
 

@@ -176,8 +176,6 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
         yarnVersion.set("3.0.0")
 
         installScript.set("install")
-        // TODO: throws a stack overflow error
-//        assembleScript.set("build")
     }
 
     val addCommonTypesTask = tasks.register<Exec>("addCommonTypes") {
