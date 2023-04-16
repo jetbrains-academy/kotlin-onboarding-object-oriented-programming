@@ -15,6 +15,7 @@ fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData, game
     return field.get(invokeData.instance).toString()
 }
 
+@Suppress("LongParameterList")
 fun saveGameResultsMethodTest(
     teamServiceTestClass: TestClass,
     generateTeamsForOneRoundMethod: TestMethod,
