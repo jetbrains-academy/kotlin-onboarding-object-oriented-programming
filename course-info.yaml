@@ -1,7 +1,52 @@
 type: marketplace
-title: CSC Kotlin Course
+title: "Kotlin Onboarding: Object-Oriented programming"
 language: English
-summary: TODO
+vendor:
+  name: JetBrains
+  email: support@jetbrains.com
+  url: https://www.jetbrains.com/
+summary: "
+<p>This course is designed for novices in Kotlin and focuses on the object-oriented (OOP) concepts of the Kotlin language.
+It is the second module of this course, the first module can be found on the <a href=\"https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding--introduction\">marketplace</a>.
+This module assumes that you are familiar with all the constructs from the first part.</p>
+
+<p>Each lesson of the course is built in the form of a web project: step by step, by completing different small tasks,
+you will get a finished small project in the end. At the end of each lesson, an additional similar project
+will be offered: it includes all the topics of the lesson but does not contain the theory part.</p>
+
+<p><i>Note, this course does not provide a detailed explanation of the OOP concepts, 
+it just shows how to use them in Kotlin and can briefly remind you of the definitions.</i></p>
+
+<p>All topics will be accompanied by links to <a href=\"https://kotlinlang.org/docs/home.html\">the official Kotlin documentation</a>, 
+which you can read later. Some of the topics covered in the course are listed below:</p>
+<ul>
+  <li>packages;</li>
+  <li>classes, properties, and member functions;</li>
+  <li>type aliases;</li>
+  <li>value and data classes;</li>
+  <li>companion objects;</li>
+  <li>extension functions;</li>
+  <li>objects;</li>
+  <li>initializer blocks;</li>
+  <li>enum classes;</li>
+  <li>functional interfaces (Single Abstract Method, SAM);</li>
+  <li>interfaces and inheritance;</li>
+  <li>some built-in functions to handle errors and work with collections.</li>
+</ul>
+
+<p><i>After this course, you will be ready to write basic Kotlin applications.</i></p>
+
+<p><b>Before starting this course, check the following requirements:</b></p>
+<ol>
+  <li> Your computer needs to have a stable internet connection.</li>
+  <li> Git version control system needs to be installed on your computer (link to <a href=\"https://git-scm.com/\">the git site</a>).</li>
+  <li> Make sure that the path to the root folder of the course does not contain spaces, special characters, or non-latin characters.</li>
+  <li> Make sure that you use the <a href=\"https://plugins.jetbrains.com/plugin/10081-edutools\">EduTools</a> plugin with version at least <em>2023.1</em>.</li>
+  <li> To be able to run web applications, you need to have a web browser. We recommend using <a href=\"https://www.google.com/chrome/\">Google Chrome</a>.</li>
+</ol>
+<p>The course is integrated into the <a href=\"https://www.jetbrains.com/idea/\">Intellij Idea IDE</a>, which has a community free license. 
+You may use this license to complete the course. If you have some troubles with the course installation, fell free to contact us by email <a href=\"mailto:education@jetbrains.com\">education@jetbrains.com</a>.</p>
+"
 programming_language: Kotlin
 content:
 - aliasServer

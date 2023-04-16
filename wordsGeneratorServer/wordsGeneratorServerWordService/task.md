@@ -31,8 +31,6 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ----
 
-**TODO: add hints about algorithms for both functions?**
-
 ### Hints
 
 <div class="hint" title="The `isEmpty` built-in function">
