@@ -109,6 +109,21 @@ configure(subprojects.filter { it.name != "common" && frontendSuffix !in it.name
 
 fun String.getGameName(suffix: String) = substring(0 until indexOf(suffix))
 
+configure(subprojects.filter { server in it.name || "utils" in it.name }) {
+    apply {
+        plugin("java")
+        plugin("kotlin")
+    }
+
+    dependencies {
+        val junitJupiterVersion = "5.9.0"
+        implementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+        testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+        testRuntimeOnly("org.junit.platform:junit-platform-console:1.9.0")
+    }
+}
+
 configure(subprojects.filter { server in it.name }) {
     val projectName = this.name
     val gameName = projectName.getGameName(server)
@@ -128,12 +143,6 @@ configure(subprojects.filter { server in it.name }) {
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
-
-        val junitJupiterVersion = "5.9.0"
-        testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
-        testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-        testRuntimeOnly("org.junit.platform:junit-platform-console:1.9.0")
     }
 
     tasks.named("processResources") {

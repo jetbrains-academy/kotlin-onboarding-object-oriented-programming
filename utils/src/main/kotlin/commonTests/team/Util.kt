@@ -2,10 +2,7 @@
 
 package commonTests.team
 
-import models.TestClass
-import models.TestMethod
-import models.TestMethodInvokeData
-import models.findMethod
+import models.*
 
 fun generateTeamsStringRepresentation(startId: Int, n: Int, toAddId: Boolean = false): List<String> {
     var id = startId
@@ -84,4 +81,11 @@ fun generateTeamsForOneRoundMethodTest(
         val expectedTeamsStorage = "{$teamsStorageSb}"
         assert(expectedTeamsStorage == teamsStorageRes) { "You need to save generated teams into the teamsStorage after each generation." }
     }
+}
+
+fun resetIdCounter(teamsClazz: Class<*>, idCounterVariable: Variable) {
+    val idCounterField = teamsClazz.declaredFields.find { it.name == idCounterVariable.name }
+        ?: error("Can not find the field ${idCounterVariable.name}")
+    idCounterField.isAccessible = true
+    idCounterField.set(teamsClazz, 0)
 }

@@ -1,10 +1,9 @@
 package commonTests.results
 
 import commonTests.team.callGenerateTeamsForOneRound
-import models.TestClass
-import models.TestMethod
-import models.TestMethodInvokeData
-import models.Variable
+import models.*
+import java.lang.reflect.InvocationTargetException
+import org.junit.jupiter.api.assertThrows
 
 @Suppress("SpreadOperator", "ForbiddenComment")
 fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData, gameHistoryVariable: Variable): String {
@@ -22,10 +21,39 @@ fun saveGameResultsMethodTest(
     gameResultsServiceTestClass: TestClass,
     saveGameResultsMethod: TestMethod,
     gameHistoryVariable: Variable,
+    teamClassTestClass: TestClass? = null,
 ) {
+    val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
+
+    // Check if the method throws an error with empty list with teams
+    assertThrows<InvocationTargetException>("The ${saveGameResultsMethod.name} must throw an error if the list with teams is empty") {
+        callSaveGameResultsMethod(emptyList<Any>(), gameResultsInvokeData, gameHistoryVariable)
+    }
+
+    // Check if the method throws an error with an unknown team
+    teamClassTestClass?.let {
+        val teamClazz = teamClassTestClass.findClass()
+        val constructor = teamClassTestClass.checkConstructors(
+            teamClazz,
+            listOf(
+                ConstructorGetter(
+                    parameterTypes = listOf(Int::class.java),
+                    defaultParameterTypes = listOf(Int::class.java),
+                )
+            )
+        )
+        val team = constructor.newInstance(-1, 0, 0, null)
+        assertThrows<InvocationTargetException>("The ${saveGameResultsMethod.name} must throw an error if you try to add a team which was not added into teamsStorage") {
+            callSaveGameResultsMethod(
+                listOf(team),
+                gameResultsInvokeData,
+                gameHistoryVariable,
+            )
+        }
+    }
+
     val teamInvokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
     val teams = teamServiceTestClass.callGenerateTeamsForOneRound(teamInvokeData, 4)
-    val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
     assert(
         "$teams" in callSaveGameResultsMethod(
             teams,

@@ -6,6 +6,12 @@ internal val getNameFromTeamMethod = TestMethod(
     returnTypeJava = "string",
 )
 
+internal val getPointsTeamMethod = TestMethod(
+    name = "getPoints",
+    returnType = KotlinType("Int"),
+    returnTypeJava = "int",
+)
+
 internal val teamClass = TestClass(
     "Team",
     "jetbrains.kotlin.course.alias.team",

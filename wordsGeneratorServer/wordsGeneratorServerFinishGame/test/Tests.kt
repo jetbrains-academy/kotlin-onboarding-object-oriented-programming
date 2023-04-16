@@ -42,6 +42,7 @@ class Test {
             gameResultsServiceTestClass,
             saveGameResultsMethod,
             gameHistoryVariable,
+            teamClassTestClass = teamClass
         )
     }
 
@@ -158,7 +159,7 @@ class Test {
     @Test
     fun generateTeamsForOneRoundMethodTest() {
         val clazz = teamClass.findClass()
-        resetIdCounter(clazz)
+        resetIdCounter(clazz, idCounterVariable)
         generateTeamsForOneRoundMethodTest(
             teamServiceTestClass,
             generateTeamsForOneRoundMethod,
@@ -179,7 +180,7 @@ class Test {
             )
         )
 
-        resetIdCounter(clazz)
+        resetIdCounter(clazz, idCounterVariable)
         // Check the name and id fields value
         checkNameAndIdFieldsValue(
             clazz,
@@ -187,12 +188,5 @@ class Test {
             getNameFromTeamMethod,
             getIdFromTeamMethod
         ) { constructor.newInstance() }
-    }
-
-    private fun resetIdCounter(teamsClazz: Class<*>) {
-        val idCounterField = teamsClazz.declaredFields.find { it.name == idCounterVariable.name }
-            ?: error("Can not find the field ${idCounterVariable.name}")
-        idCounterField.isAccessible = true
-        idCounterField.set(teamsClazz, 0)
     }
 }
