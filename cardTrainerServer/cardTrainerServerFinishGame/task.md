@@ -1,7 +1,7 @@
 Wow! You've almost finished the project! This is the last step.
 In this step, you need to add statistics to the game.
 
-First of all, you need to add a class `Stat` to the `jjetbrains.kotlin.course.card.trainer.stat` package to store statistics:
+First of all, you need to add a class `Stat` to the `jetbrains.kotlin.course.card.trainer.stat` package to store statistics:
 
 - it must have two properties in the primary constructor:
     - `knownBacks` with `List<Back>` type to store known countries;

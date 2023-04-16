@@ -16,3 +16,8 @@ and open http://localhost:8080/. You will see the main page of the application:
 
 ![The main page of the game](../../utils/src/main/resources/images/main/codenames.png)
 
+<div class="hint" title="The game from the last launch is displayed">
+
+If a game from a previous launch is displayed on the screen when starting the game, you need to reset the caches.
+This can usually be done with a keyboard shortcut: `ctrl` + `shift` + `R` (`command` + `shift` + `R` for macOS).
+</div>
