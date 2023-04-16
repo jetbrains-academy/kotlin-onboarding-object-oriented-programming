@@ -9,7 +9,8 @@ It is responsible for the game logic for the teams. In this task, you need to im
   The type of the storage should be `MutableMap`, which maps `Identifier` to `Team`. Don't forget to init it via an empty map.
 - implement the `generateTeamsForOneRound` method.
   The method must generate a list of teams and also store all of them into the `teamsStorage` map.
-  We need it to save game results for the leaderboard.
+  To create new teams you need to use `identifierFactory` from the `TeamService` class to generate a new id.
+  We need to create this method to save game results for the leaderboard.
 
 If you have any difficulties, **hints will help you solve this task**.
 
