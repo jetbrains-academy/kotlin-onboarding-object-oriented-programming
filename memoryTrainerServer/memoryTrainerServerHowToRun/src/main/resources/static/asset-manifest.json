@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b4de2bbf.css",
+    "main.js": "/static/js/main.97a7b88b.js",
+    "static/js/787.de30ccfb.chunk.js": "/static/js/787.de30ccfb.chunk.js",
+    "static/media/stats.svg": "/static/media/stats.127dcf3dc65bb4121d5a.svg",
+    "static/media/logo.svg": "/static/media/logo.167e6cdb952b1683e98c7820458359a8.svg",
+    "static/media/finish_game.svg": "/static/media/finish_game.2e4ab89d10148dcafb77.svg",
+    "static/media/play_button.svg": "/static/media/play_button.aad770749eabbe8ac9b1.svg",
+    "static/media/dontknow.svg": "/static/media/dontknow.67ebf471040d40c46b2a.svg",
+    "static/media/back.svg": "/static/media/back.578d2b1544fe8bc2e2ec.svg",
+    "static/media/know.svg": "/static/media/know.0fb122e6ade5c1b93f61.svg",
+    "index.html": "/index.html",
+    "static/media/Kotlin_bg.svg": "/static/media/Kotlin_bg.36ac84bcfc4b1fa64b64.svg",
+    "static/media/Kotlin_bg_white.svg": "/static/media/Kotlin_bg_white.00acddcc6609eb49c481.svg",
+    "static/media/big_card_front.svg": "/static/media/big_card_front.faa5775005a2e1fe4f63.svg",
+    "static/media/big_card.svg": "/static/media/big_card.b9fbc88cc98ea6fd7147.svg",
+    "static/media/small-card.svg": "/static/media/small-card.5b4cefb99fcb6a8cdacc.svg",
+    "main.b4de2bbf.css.map": "/static/css/main.b4de2bbf.css.map",
+    "main.97a7b88b.js.map": "/static/js/main.97a7b88b.js.map",
+    "787.de30ccfb.chunk.js.map": "/static/js/787.de30ccfb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4de2bbf.css",
+    "static/js/main.97a7b88b.js"
+  ]
+}
