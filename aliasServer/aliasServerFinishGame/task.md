@@ -3,7 +3,7 @@ and the for the previous rounds.
 In this task implement several things in the already defined class `GameResultsService` in
 the `jetbrains.kotlin.course.alias.results` package:
 
-- add a type alias `GameResult` to `List<Team>` into `jetbrains.kotlin.course.alias.results` package;
+- add a type alias `GameResult` to `List<Team>`;
 - add a companion object into the `GameResultsService`
   and declare the `gameHistory` variable to store the list of game results (`MutableList<GameResult>`).
   By default, it must be initialized via an empty list.

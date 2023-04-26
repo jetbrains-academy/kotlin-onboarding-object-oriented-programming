@@ -12,12 +12,12 @@ You just need to add several properties and implement several methods:
   You need to assign the value `4` to it. Also, declare `cardsAmount` here, which stores the possible number of
   cards: `words.size / WORDS_IN_CARD`.
   The project contains a predefined list of words `words`.
-- add the `toWords` function into the `CardService` class, which is an extension function for `List<String>`
+- implement the `toWords` function from the `CardService` class, which is an extension function for `List<String>`
   and converts each element from this list into `Word`.
 - implement the `generateCards` function, which shuffles the `words` list, splits it into chunks with `WORDS_IN_CARD` words
   each,
   takes `cardsAmount` chunks for `cardsAmount` cards, and finally creates a new `Card` for each chunk.
-- implement the `getCardByIndex` method, which accepts `index` (an integer number) and the `Card` at this index.
+- implement the `getCardByIndex` method, which accepts `index` (an integer number) and returns the `Card` at this index.
   If the card does not exist, throw an error.
 
 After finishing this task you will be able to play on the game:
@@ -29,6 +29,20 @@ If you have any difficulties, **hints will help you solve this task**.
 ----
 
 ### Hints
+
+<div class="hint" title="What does a list of words look like?">
+
+The project contains a predefined list of words `words`. It is just a set of possible words whicj are used for the game:
+```kotlin
+val words = setOf(
+    "cable",
+    "curve",
+    "substance",
+    ...
+)
+```
+</div>
+
 
 <div class="hint" title="The `shuffled` built-in function">
 
