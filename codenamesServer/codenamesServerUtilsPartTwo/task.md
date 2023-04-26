@@ -8,7 +8,7 @@ and init this field via an empty mutable list. We will store the previously gene
 Implement the `generateData` function for the `uniqueKeyCardGenerator` field in the `Utils` object.
 The behavior of the `generateData` function must be the following:
 1) Generate a new `List<KeyCardCell>`: put the `number` of each `KeyCardType` into this list and shuffle it.
-2) Next, check if this combination of `List<KeyCardCell>` has not been used before (it is not in `previousAttempts`) and return this list.
+2) Next, check if this combination of `List<KeyCardCell>` has not been used before (it is not in `previousAttempts`), add this list into `previousAttempts` and return this list.
 3) If the generated list has been used before, repeat generation till a new list (that is not in `previousAttempts`) is generated.
 
 Finally, add a new class `KeyCard` to the `jetbrains.kotlin.course.codenames.keyCard` package to store the key class.

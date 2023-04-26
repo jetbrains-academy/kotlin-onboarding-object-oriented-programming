@@ -8,6 +8,7 @@ in the `jetbrains.kotlin.course.codenames.keyCard` package:
   Each value must store an `Int` called `number` to initialize the number of times you need to use the consts from the `Utils` object.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the enum class `KeyCardType`, but it does not exist.
 </div>

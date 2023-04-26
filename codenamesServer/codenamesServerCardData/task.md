@@ -5,6 +5,7 @@ The  `WordCardData` class should inherit from the `CardData` interface
 and have only one immutable field: `word: String`.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the value class `WordCardData`, but it does not exist.
 </div>
