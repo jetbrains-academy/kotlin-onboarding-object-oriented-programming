@@ -11,11 +11,11 @@ class StatService {
 
     fun getHistory() = history.reversed()
 
-    fun save(known: List<String>, unknown: List<String>) {
+    fun save(knownBacks: List<String>, unknownBacks: List<String>) {
         history.add(
             Stat(
-                known.map { Back((it)) },
-                unknown.map { Back((it)) },
+                knownBacks.map { Back((it)) },
+                unknownBacks.map { Back((it)) },
             )
         )
     }

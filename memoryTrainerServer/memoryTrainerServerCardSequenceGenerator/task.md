@@ -4,7 +4,7 @@ for example, show the cards in a random order or show only those that the user h
 However, these sequences can all be combined in one interface.
 
 In this task, create an interface `CardSequenceGenerator` in the `jetbrains.kotlin.course.card.trainer.card` package with only 
-one function – `generateData`, which accepts nothing and returns `List<Card>`.
+one function – `generateCards`, which accepts nothing and returns `List<Card>`.
 
 If you have any difficulties, **hints will help you solve this task**.
 

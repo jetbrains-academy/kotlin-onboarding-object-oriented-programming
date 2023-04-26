@@ -10,7 +10,7 @@ First of all, you need to add a class `Stat` to the `jetbrains.kotlin.course.car
 Next, you need to implement several methods in the already defined class `StatService` 
 in the package `jetbrains.kotlin.course.card.trainer.card`:
 - add a `history` property to the companion object with type `MutableList<Stat>` and initialize it with an empty list;
-- implement the method `save`, which `adds` new `Stat` to `history`;
+- implement the method `save`, which adds new `Stat` to `history`;
 - implement the method `getHistory`, which returns _reversed_ `history`.
 
 
