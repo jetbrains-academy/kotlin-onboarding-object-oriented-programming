@@ -9,7 +9,7 @@ in the `jetbrains.kotlin.course.alias.util` package:
 - the type alias `Identifier` needs to be an alias for the `Int` type. If you change the type in the future, e.g., create a new class,
   it will be changed automatically in all places.
 - the `IdentifierFactory` class is a class to generate unique identifiers, e.g., identifiers for different game cards or teams.
-  It should have a special `counter` – an `Int` property to store the last unique number. By default, `counter` should be zero.
+  It should have a special `counter` – an `Identifier` property to store the last unique number. By default, `counter` should be zero.
 - the `uniqueIdentifier` function just returns a new unique identifier – increments the `counter` and returns it.
 
 If you have any difficulties, **hints will help you solve this task**.

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
+import java.lang.reflect.Field
 
 class Test {
     companion object {
@@ -20,6 +21,7 @@ class Test {
             Arguments.of("photomechanochemistry", "photophoto", false),
         )
     }
+
     @Test
     fun gameResultsServiceTest() {
         val clazz = gameResultsServiceTestClass.checkBaseDefinition()
@@ -67,7 +69,8 @@ class Test {
             invokeData = invokeData,
         ) as? Boolean)?.let {
             assert(isValid == it) { "For the keyWord $keyWord and newWord $newWord the method ${isValidWordMethod.name} must return $isValid." }
-        } ?: assert(false) { "The method ${isValidWordMethod.prettyString()} failed with keyWord $keyWord and newWord $newWord, but must return $isValid" }
+        }
+            ?: assert(false) { "The method ${isValidWordMethod.prettyString()} failed with keyWord $keyWord and newWord $newWord, but must return $isValid" }
     }
 
     @Test
@@ -82,9 +85,47 @@ class Test {
         val keyWord = "photomechanochemistry"
         val newWord = "photo"
         invokeData.invokeIsNewWordMethod(keyWord, newWord, true, "a new word")
+        previousWordsField.checkPreviousWordsMap(
+            invokeData,
+            keyWord,
+            1,
+            "Try to add a new word $newWord with key $keyWord that was not exist, the expected size of previousWords[$keyWord] must be 1, but was"
+        )
         invokeData.invokeIsNewWordMethod(keyWord, newWord, false, "an existing word")
+        previousWordsField.checkPreviousWordsMap(
+            invokeData,
+            keyWord,
+            1,
+            "Try to add a new word $newWord with key $keyWord that was exist, the expected size of previousWords[$keyWord] must be 1, but was"
+        )
         invokeData.invokeIsNewWordMethod(keyWord, newWord, false, "an existing word")
+        previousWordsField.checkPreviousWordsMap(
+            invokeData,
+            keyWord,
+            1,
+            "Try to add a new word $newWord with key $keyWord that was exist, the expected size of previousWords[$keyWord] must be 1, but was"
+        )
         invokeData.invokeIsNewWordMethod(keyWord, "$newWord$newWord", true, "a new word")
+        previousWordsField.checkPreviousWordsMap(
+            invokeData,
+            keyWord,
+            2,
+            "Try to add a new word $newWord with key $keyWord that was not exist and the list of words was not empty, the expected size of previousWords[$keyWord] must be 2, but was"
+        )
+    }
+
+    private fun Field.checkPreviousWordsMap(
+        invokeData: TestMethodInvokeData,
+        keyWord: String,
+        expectedSize: Int,
+        errorMessagePrefix: String
+    ) {
+        val previousWords = this.get(invokeData.instance)
+        (previousWords as? Map<String, List<*>>)?.let {
+            val actualSize = previousWords[keyWord]?.size ?: 0
+            assert(expectedSize == actualSize) { "$errorMessagePrefix $actualSize!" }
+        }
+            ?: assert(false) { "Try to get previousWords field, it must have MutableMap<String, MutableList<Word>> type, but it does not!" }
     }
 
     private fun TestMethodInvokeData.invokeIsNewWordMethod(
@@ -98,7 +139,8 @@ class Test {
             invokeData = this,
         ) as? Boolean)?.let {
             assert(expected == it) { "Try to call the ${isNewWordMethod.name} with the keyWord $keyWord and $errorMessageClarification in the map, it must return $expected" }
-        } ?: assert(false) { "Try to call the ${isNewWordMethod.name} with the keyWord $keyWord and $errorMessageClarification, it must return $expected, but an unexpected error was occurred" }
+        }
+            ?: assert(false) { "Try to call the ${isNewWordMethod.name} with the keyWord $keyWord and $errorMessageClarification, it must return $expected, but an unexpected error was occurred" }
     }
 
     @Test
@@ -134,7 +176,8 @@ class Test {
             (wordServiceTestClass.invokeMethodWithoutArgs(
                 invokeData,
             ) as? String)?.let { word ->
-                val errorMessage = "The method ${generateNextWordMethod.prettyString()} must generate new word each time and remove the generated word from the words list"
+                val errorMessage =
+                    "The method ${generateNextWordMethod.prettyString()} must generate new word each time and remove the generated word from the words list"
                 assert(word !in generatedWords) { errorMessage }
                 currentWordsSize--
                 assert(words.size == currentWordsSize) { errorMessage }

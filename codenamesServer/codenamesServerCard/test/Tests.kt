@@ -1,8 +1,10 @@
 import models.ConstructorGetter
 import models.TestClass
+import models.findClass
 import models.findMethod
 import org.junit.jupiter.api.Test
 import java.lang.reflect.Constructor
+import java.lang.reflect.Field
 import java.lang.reflect.Method
 
 class Test {

@@ -6,6 +6,7 @@ package with one field `type: KeyCardType`
 with the `generateData` function, which accepts nothing and returns `List<KeyCardCell>`
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the value class `KeyCardCell`, but it does not exist.
 </div>

@@ -26,7 +26,14 @@ class WordService {
     }
 
     fun isNewWord(keyWord: String, newWord: String) =
-        previousWords.putIfAbsent(keyWord, mutableListOf(Word(newWord)))?.let { Word(newWord) !in it } ?: true
+        previousWords.putIfAbsent(keyWord, mutableListOf(Word(newWord)))?.let { words ->
+            val word = Word(newWord)
+            (word !in words).also {
+                if (it)  {
+                    words.add(word)
+                }
+            }
+        } ?: true
 
     private fun String.groupByLetters() = this.groupingBy { it }.eachCount()
 }

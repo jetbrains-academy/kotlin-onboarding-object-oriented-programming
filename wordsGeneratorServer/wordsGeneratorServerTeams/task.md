@@ -18,6 +18,7 @@ After that, put the default values into the primary constructor into the `Team` 
 - use `0` for `points`.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the class `Team`, but it does not exist.
 </div>
@@ -46,6 +47,7 @@ when we need just to store something and have automatically implemented methods,
 </div>
 
 <div class="hint" title="Why are we using name outside of the constructor?">
+
   In this game, the team is defined only by its `id` (as well as the number of points), 
   and we need a `name` only for a pretty display on the screen. 
   This is the main reason why we don't need `name` to be used in automatically defined functions like the `toString` function.

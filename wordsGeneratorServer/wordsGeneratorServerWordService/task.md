@@ -1,12 +1,12 @@
-The **goal** of this step is to add validators to the `WordServices` class.
+The **goal** of this step is to add validators to the `WordService` class.
 
-Find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it.
+Find the already added `WordService` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it.
 
 - Implement the `isValidWord` function.
 
   - If `newWord` (the word inputted by the user) _is empty_, return `false`.
   - If `newWord` contains symbols not present in `keyWord`, return `false`.
-    Note, the number of times some symbol occurs in `newWord` cannot be grater
+  - Note, the number of times some symbol occurs in `newWord` cannot be grater
     than the the number of times this symbol occurs in `keyWord`.
   ```kotlin
   val a = service.isValidWord("photothermoelasticity", "") // false
@@ -15,12 +15,12 @@ Find the already added `WordServices` class in the `jetbrains.kotlin.course.word
   val c = service.isValidWord("photothermoelasticity", "photooooo") // false because the initial word contains <o> two times
   ```
 
-- Add an internal variable `previousWords` to the companion object in this class with the type `mutableMapOf<String, MutableList<Word>>`,
+- Add an internal variable `previousWords` to the companion object in this class with the type `MutableMap<String, MutableList<Word>>`,
   which maps each game word to the list of already guessed words. Don't forget to init this map as an empty map.
 - Implement the `isNewWord` function:
 
   - If `previousWords` does not contain `keyWord` yet, put the `keyWord` into the `previousWords` map together with `newWord` and return `true`.
-  - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`, else return `true`.
+  - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`, else add `newWord` into the map and return `true`.
 
 
 After solving this step the game will be almost done:

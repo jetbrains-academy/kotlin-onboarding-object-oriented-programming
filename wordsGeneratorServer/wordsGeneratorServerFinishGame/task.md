@@ -4,7 +4,7 @@ and the for the previous rounds.
 In this task, you need to implement several things in the already defined class `GameResultsService` in
 the `jetbrains.kotlin.course.words.generator.results` package. Note, this class is the same as `GameResultsService` from the Alias game, so you can either practice again or just copy the previous solution.
 
-- Add the type alias `GameResult` to `List<Team>` in the `jetbrains.kotlin.course.alias.results` package.
+- Add the type alias `GameResult` to `List<Team>`.
 - Add a companion object to `GameResultsService`
   and declare the `gameHistory` variable to store the list of game results (`MutableList<GameResult>`).
   By default, it must be initialized as an empty list.

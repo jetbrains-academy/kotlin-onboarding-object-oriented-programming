@@ -26,6 +26,7 @@ object Utils {
             }.flatten().shuffled()
             inPreviousAttempts = currentAttempt in previousAttempts
         } while (inPreviousAttempts)
+        previousAttempts.add(currentAttempt)
         currentAttempt
     }
 
