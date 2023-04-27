@@ -7,6 +7,7 @@ Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.
   These properties don't have default values and also must be defined in the primary constructor.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the classes `Word` and `Card`, but they do not exist.
 </div>
