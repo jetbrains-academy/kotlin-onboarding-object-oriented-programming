@@ -53,7 +53,10 @@ class Test {
 
         // Check WORDS_IN_CARD and cardsAmount values
         val instance = clazz.getConstructor().newInstance()
-        val getCardsAmountJavaMethod = clazz.methods.findMethod(getCardsAmountMethod)
+        val getCardsAmountJavaMethod = clazz.methods.findMethod(
+            getCardsAmountMethod,
+            customErrorMessage = "The `val cardsAmount = TODO(\"\")` was not added into `CardService` or was added with an incorrect type or with an incorrect access modifier!"
+        )
         val field = clazz.declaredFields.find { it.name == wordsInCardTestVariable.name }
             ?: error("Can not find the field ${wordsInCardTestVariable.name}")
         field.isAccessible = true
@@ -149,7 +152,8 @@ class Test {
         commonTests.team.generateTeamsForOneRoundMethodTest(
             teamServiceTestClass,
             generateTeamsForOneRoundMethod,
-            getTeamsStorageMethod
+            getTeamsStorageMethod,
+            customErrorMessage = "The `val teamsStorage = TODO(\"\")` was not added into `TeamService` or was added with an incorrect type or with an incorrect access modifier!"
         )
     }
 

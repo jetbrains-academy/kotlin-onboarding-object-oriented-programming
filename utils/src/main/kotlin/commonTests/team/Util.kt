@@ -60,10 +60,11 @@ fun generateTeamsForOneRoundMethodTest(
     teamServiceTestClass: TestClass,
     generateTeamsForOneRoundMethod: TestMethod,
     getTeamsStorageMethod: TestMethod,
+    customErrorMessage: String? = null
 ) {
     val invokeData = TestMethodInvokeData(teamServiceTestClass, generateTeamsForOneRoundMethod)
     val n = 5
-    val teamsStorageMethod = invokeData.clazz.methods.findMethod(getTeamsStorageMethod)
+    val teamsStorageMethod = invokeData.clazz.methods.findMethod(getTeamsStorageMethod, customErrorMessage)
     val teamsStorageSb = StringBuilder()
     repeat(n) {
         val teams = teamServiceTestClass.callGenerateTeamsForOneRound(invokeData, n)

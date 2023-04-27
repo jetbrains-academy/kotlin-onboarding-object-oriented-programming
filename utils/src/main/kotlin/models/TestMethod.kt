@@ -41,9 +41,9 @@ private fun List<Method>.filterByCondition(errorMessage: String, condition: (Met
     return filteredByCondition
 }
 
-fun Array<Method>.findMethod(method: TestMethod): Method {
+fun Array<Method>.findMethod(method: TestMethod, customErrorMessage: String? = null): Method {
     val filteredByName =
-        this.toList().filterByCondition("The method ${method.prettyString()} is missed") {
+        this.toList().filterByCondition(customErrorMessage ?: "The method ${method.prettyString()} is missed") {
             if (method.hasGeneratedPartInName) {
                 method.name in it.name
             } else {
@@ -52,16 +52,16 @@ fun Array<Method>.findMethod(method: TestMethod): Method {
         }
     val returnTypeJava = method.returnTypeJava ?: method.returnType.type
     val filteredByType =
-        filteredByName.filterByCondition("The method ${method.name} should have the return type ${method.returnType.getTypePrettyString()}") {
+        filteredByName.filterByCondition(customErrorMessage ?: "The method ${method.name} should have the return type ${method.returnType.getTypePrettyString()}") {
             it.returnType.name.getShortName().lowercase() == returnTypeJava.lowercase()
         }
     val filteredByArgumentsCount =
-        filteredByType.filterByCondition("The method ${method.name} should have ${method.arguments.size} arguments") { it.parameterCount == method.arguments.size }
-    require(filteredByArgumentsCount.size == 1) { "The method ${method.prettyString()} is missed" }
+        filteredByType.filterByCondition(customErrorMessage ?: "The method ${method.name} should have ${method.arguments.size} arguments") { it.parameterCount == method.arguments.size }
+    require(filteredByArgumentsCount.size == 1) { customErrorMessage ?: "The method ${method.prettyString()} is missed" }
     val m = filteredByArgumentsCount.first()
     val params = m.parameterTypes.map { it.name.getShortName().lowercase() }
     val args = method.arguments.map { it.javaType.lowercase() }
-    assert(params == args) { "The method ${method.name} should have ${method.arguments.size} arguments: $params. The full signature is: ${method.prettyString()}." }
+    assert(params == args) { customErrorMessage ?: "The method ${method.name} should have ${method.arguments.size} arguments: $params. The full signature is: ${method.prettyString()}." }
     return m
 }
 

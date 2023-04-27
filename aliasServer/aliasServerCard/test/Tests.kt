@@ -41,7 +41,8 @@ class Test {
         commonTests.team.generateTeamsForOneRoundMethodTest(
             teamServiceTestClass,
             generateTeamsForOneRoundMethod,
-            getTeamsStorageMethod
+            getTeamsStorageMethod,
+            customErrorMessage = "The `val teamsStorage = TODO(\"\")` was not added into `TeamService` or was added with an incorrect type or with an incorrect access modifier!"
         )
     }
 
