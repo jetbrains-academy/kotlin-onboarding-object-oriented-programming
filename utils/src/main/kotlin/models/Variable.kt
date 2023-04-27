@@ -102,7 +102,7 @@ data class Variable(
             )
         commonProp.checkProperties(this)
         if (isStatic) {
-            assert(Modifier.isStatic(field.modifiers)) { "The field $name must be defined into an object or a companion object." }
+            assert(Modifier.isStatic(field.modifiers)) { "The field $name must be defined in an object or a companion object." }
         }
         if (isConst) {
             val errorMessage = "The field $name must be a const value."

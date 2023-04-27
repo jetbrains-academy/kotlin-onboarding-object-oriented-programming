@@ -3,7 +3,7 @@ You can come up with different variations of the order in which the cards are di
 for example, show the cards in a random order or show only those that the user has not yet learned. 
 However, these sequences can all be combined in one interface.
 
-In this task, create an interface `CardSequenceGenerator` in the `jetbrains.kotlin.course.card.trainer.card` package with only 
+In this task, create an interface `CardSequenceGenerator` in the `jetbrains.kotlin.course.card.trainer.card` package in the `CardModel.kt` file with only 
 one function – `generateCards`, which accepts nothing and returns `List<Card>`.
 
 If you have any difficulties, **hints will help you solve this task**.

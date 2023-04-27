@@ -1,6 +1,6 @@
 The **goal** of this step is to implement the `Word` and `WordServices` classes.
 
-First of all, create a value class `Word` with one `String` property `word` to store a word in the `jetbrains.kotlin.course.words.generator.word` package.
+First of all, create a value class `Word` with one `String` property `word` to store a word in the `jetbrains.kotlin.course.words.generator.word` package in the `WordModel.kt` file.
 
 Next, find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
 - Add a companion object to the `WordServices` class and declare the `numberOfWords` variable to store the number
@@ -9,6 +9,7 @@ Next, find the already added `WordServices` class in the `jetbrains.kotlin.cours
   else, get the first element from the `words` list and remove it from the list, then create a new `Word` and return it.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the class `Word`, but it does not exist.
 </div>

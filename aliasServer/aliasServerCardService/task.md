@@ -18,7 +18,7 @@ You just need to add several properties and implement several methods:
   each,
   takes `cardsAmount` chunks for `cardsAmount` cards, and finally creates a new `Card` for each chunk.
 - implement the `getCardByIndex` method, which accepts `index` (an integer number) and returns the `Card` at this index.
-  If the card does not exist, throw an error.
+  It is better to throw an error if the card does not exist to explain to user what happened.
 
 After finishing this task you will be able to play on the game:
 

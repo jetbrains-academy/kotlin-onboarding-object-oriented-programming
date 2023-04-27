@@ -1,12 +1,12 @@
 The **goal** of this step is to implement the `Team` class.
 
-First of all, create a type alias `Identifier` in the `jetbrains.kotlin.course.words.generator.team` package:
+First of all, create a type alias `Identifier` in the `jetbrains.kotlin.course.words.generator.team` package in the `TeamModel.kt` file:
 
 - the type alias `Identifier` needs to be an alias of `Int` type. If you change the type in the future (e.g., create a new class),
   it will be changed automatically in all places.
 
 
-Next, create a data class `Team` in the `jetbrains.kotlin.course.words.generator.team` package to store the information about teams:
+Next, create a data class `Team` in the `jetbrains.kotlin.course.words.generator.team` package in the `TeamModel.kt` file to store the information about teams:
 - it must have two properties in the primary constructor: `id` with `Identifier` type to identify each team and `points` with `Int` type
   to store the number of points in the game.
 - is must have an additional property `name`, which initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.

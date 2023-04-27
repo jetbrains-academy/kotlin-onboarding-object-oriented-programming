@@ -1,7 +1,7 @@
 Create a SAM interface to generate key cards:
 
 - add a value class `KeyCardCell` to the `jetbrains.kotlin.course.codenames.keyCard` 
-package with one field `type: KeyCardType`
+package in the `KeyCardModel.kt` file with one field `type: KeyCardType`
 - add a SAM interface `KeyCardGenerator` to the `jetbrains.kotlin.course.codenames.utils` package 
 with the `generateData` function, which accepts nothing and returns `List<KeyCardCell>`
 

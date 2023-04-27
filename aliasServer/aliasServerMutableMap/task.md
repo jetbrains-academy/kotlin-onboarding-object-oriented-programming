@@ -20,6 +20,14 @@ val mutableMap =  mutableMapOf<Int, String>(1 to "one", 2 to "two")
 mutableMap.put(3 to "three") // OK
 ```
 
+To create an empty _mutable_ map you need to use `mutableMapOf` function instead of `emptyMap` for a _read-only_ one:
+
+```kotlin
+val emptyMutableMapError: MutableMap<Int, Int> = emptyMap() // ERROR
+
+val emptyMutableMapOk: MutableMap<Int, Int> =  mutableMapOf() // OK
+```
+
 #### Built-in functions
 
 You can find a lot of useful built-in functions to work with maps in the [official Kotlin documentation](https://kotlinlang.org/docs/map-operations.html).

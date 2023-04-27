@@ -1,12 +1,13 @@
 ### Task
 
-Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.card` package:
+Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.card` package in the `CardModel.kt` file:
 - a value class `Word` with one `String` `word` property to store a word;
 - a data class `Card` to store information for each card.
   Each card must store `id` with the `Identifier` type and a list of `words` (`List<Word>`).
   These properties don't have default values and also must be defined in the primary constructor.
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the classes `Word` and `Card`, but they do not exist.
 </div>

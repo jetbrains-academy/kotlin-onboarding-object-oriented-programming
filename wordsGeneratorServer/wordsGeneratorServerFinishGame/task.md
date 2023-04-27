@@ -15,6 +15,7 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 
 
 <div class="hint" title="I press Check and see a compilation error">
+
   If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior since the code requires the type alia `GameResult`, but it does not exist.
 </div>
