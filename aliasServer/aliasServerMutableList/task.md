@@ -17,6 +17,14 @@ val mutableList =  mutableListOf<Int>(1, 2, 3)
 mutableList.add(4) // OK
 ```
 
+To create an empty _mutable_ list you need to use `mutableListOf` function instead of `emptyList` for a _read-only_ one:
+
+```kotlin
+val emptyMutableListError: MutableList<Int> = emptyList() // ERROR
+
+val emptyMutableListOk: MutableList<Int> =  mutableListOf() // OK
+```
+
 ### Checking some conditions
 
 When developing applications, we often need to keep some invariant values true.
