@@ -1,11 +1,16 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val getCardByIndexMethod = TestMethod(
     name = "getCardByIndex",
-    returnType = KotlinType("Card"),
+    returnType = TestKotlinType("Card"),
     returnTypeJava = "Card",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "index",
             javaType = "int",
         )
@@ -14,10 +19,10 @@ internal val getCardByIndexMethod = TestMethod(
 
 internal val toWordsMethod = TestMethod(
     name = "toWords",
-    returnType = KotlinType("List", params = listOf("jetbrains.kotlin.course.alias.card.Word")),
+    returnType = TestKotlinType("List", params = listOf("jetbrains.kotlin.course.alias.card.Word")),
     returnTypeJava = "List",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "this",
             javaType = "List",
         ),
@@ -27,19 +32,19 @@ internal val toWordsMethod = TestMethod(
 
 internal val generateCardsMethod = TestMethod(
     name = "generateCards",
-    returnType = KotlinType("List", params = listOf("jetbrains.kotlin.course.alias.card.Card")),
+    returnType = TestKotlinType("List", params = listOf("jetbrains.kotlin.course.alias.card.Card")),
     returnTypeJava = "List",
     visibility = Visibility.PRIVATE,
 )
 
 internal val getCardsAmountMethod = TestMethod(
     name = "access\$getCardsAmount\$cp",
-    returnType = KotlinType("Int"),
+    returnType = TestKotlinType("Int"),
     returnTypeJava = "Int",
     visibility = Visibility.PRIVATE,
 )
 
-internal val wordsInCardTestVariable = Variable(
+internal val wordsInCardTestVariable = TestVariable(
     name = "WORDS_IN_CARD",
     javaType = "Int",
     visibility = Visibility.PRIVATE,
@@ -48,10 +53,10 @@ internal val wordsInCardTestVariable = Variable(
     isStatic = true,
 )
 
-internal val cardsVariable = Variable(
+internal val cardsVariable = TestVariable(
     name = "cards",
     javaType = "List",
-    kotlinType = KotlinType(
+    kotlinType = TestKotlinType(
         "List",
         abbreviation = "jetbrains.kotlin.course.alias.card.Card"
     ),
@@ -63,7 +68,7 @@ internal val cardServiceTestClass = TestClass(
     "CardService",
     "jetbrains.kotlin.course.alias.card",
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "identifierFactory",
             javaType = "IdentifierFactory",
             visibility = Visibility.PRIVATE,
@@ -71,7 +76,7 @@ internal val cardServiceTestClass = TestClass(
         ),
         cardsVariable,
         wordsInCardTestVariable,
-        Variable(
+        TestVariable(
             name = "cardsAmount",
             javaType = "Int",
             visibility = Visibility.PRIVATE,

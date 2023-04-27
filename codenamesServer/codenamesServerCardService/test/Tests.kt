@@ -1,8 +1,7 @@
 import jetbrains.kotlin.course.codenames.utils.words
-import models.ConstructorGetter
-import models.TestClass
-import models.findClass
-import models.findMethod
+import org.jetbrains.academy.test.system.findMethod
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.TestClass
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.lang.reflect.Constructor

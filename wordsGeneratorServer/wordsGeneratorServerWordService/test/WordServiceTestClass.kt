@@ -1,8 +1,13 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
-internal val kotlinTypeWord= KotlinType("String", params = listOf("jetbrains.kotlin.course.words.generator.word.Word"))
+internal val kotlinTypeWord = TestKotlinType("String", params = listOf("jetbrains.kotlin.course.words.generator.word.Word"))
 
-internal val numberOfWordsTestVariable = Variable(
+internal val numberOfWordsTestVariable = TestVariable(
     name = "numberOfWords",
     javaType = "Int",
     // Because it is inside companion object
@@ -11,7 +16,7 @@ internal val numberOfWordsTestVariable = Variable(
     isStatic = true,
 )
 
-internal val previousWordsTestVariable = Variable(
+internal val previousWordsTestVariable = TestVariable(
     name = "previousWords",
     javaType = "Map",
     visibility = Visibility.PRIVATE,
@@ -28,14 +33,14 @@ internal val generateNextWordMethod = TestMethod(
 
 internal val isValidWordMethod = TestMethod(
     name = "isValidWord",
-    returnType = KotlinType("Boolean"),
+    returnType = TestKotlinType("Boolean"),
     returnTypeJava = "Boolean",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "keyWord",
             javaType = "String",
         ),
-        Variable(
+        TestVariable(
             name = "newWord",
             javaType = "String",
         )
@@ -44,14 +49,14 @@ internal val isValidWordMethod = TestMethod(
 
 internal val isNewWordMethod = TestMethod(
     name = "isNewWord",
-    returnType = KotlinType("Boolean"),
+    returnType = TestKotlinType("Boolean"),
     returnTypeJava = "Boolean",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "keyWord",
             javaType = "String",
         ),
-        Variable(
+        TestVariable(
             name = "newWord",
             javaType = "String",
         )

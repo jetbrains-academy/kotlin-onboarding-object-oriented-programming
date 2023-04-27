@@ -1,4 +1,8 @@
-import models.*
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.ClassType
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val expectedVariablesValues = mapOf(
     "N" to 5,
@@ -14,7 +18,7 @@ internal val utilObjectTestClass = TestClass(
     "jetbrains.kotlin.course.codenames.utils",
     classType = ClassType.OBJECT,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "N",
             javaType = "Int",
             isStatic = true,
@@ -22,7 +26,7 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PRIVATE,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
+        TestVariable(
             name = "TOTAL_NUMBER",
             javaType = "Int",
             isStatic = true,
@@ -30,7 +34,7 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
+        TestVariable(
             name = "PINK_CARDS_NUMBER",
             javaType = "Int",
             isStatic = true,
@@ -38,7 +42,7 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
+        TestVariable(
             name = "VIOLET_CARDS_NUMBER",
             javaType = "Int",
             isStatic = true,
@@ -46,7 +50,7 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
+        TestVariable(
             name = "GRAY_CARDS_NUMBER",
             javaType = "Int",
             isStatic = true,
@@ -54,7 +58,7 @@ internal val utilObjectTestClass = TestClass(
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
         ),
-        Variable(
+        TestVariable(
             name = "BLACK_CARDS_NUMBER",
             javaType = "Int",
             isStatic = true,

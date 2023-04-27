@@ -1,6 +1,6 @@
 import commonTests.team.*
-import models.ConstructorGetter
-import models.findClass
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.findClass
 import org.junit.jupiter.api.Test
 
 class Test {

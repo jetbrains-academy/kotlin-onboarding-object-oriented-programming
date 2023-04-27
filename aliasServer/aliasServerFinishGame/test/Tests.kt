@@ -1,6 +1,8 @@
 import commonTests.team.checkNameAndIdFieldsValue
 import jetbrains.kotlin.course.alias.util.words
-import models.*
+import org.jetbrains.academy.test.system.findMethod
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest

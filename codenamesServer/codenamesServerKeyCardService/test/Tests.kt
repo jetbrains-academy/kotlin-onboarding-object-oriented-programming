@@ -1,6 +1,6 @@
-import models.ConstructorGetter
-import models.TestClass
-import models.findMethod
+import org.jetbrains.academy.test.system.findMethod
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.TestClass
 import org.junit.jupiter.api.Test
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method

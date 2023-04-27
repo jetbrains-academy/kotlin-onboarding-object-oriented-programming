@@ -1,5 +1,5 @@
-import models.ClassType
-import models.TestClass
+import org.jetbrains.academy.test.system.models.classes.ClassType
+import org.jetbrains.academy.test.system.models.classes.TestClass
 
 internal val cardDataInterfaceTestClass = TestClass(
     "CardData",

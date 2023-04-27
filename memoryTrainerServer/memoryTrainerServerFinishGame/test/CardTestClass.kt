@@ -1,11 +1,15 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
-internal val frontReturnKotlinType = KotlinType(
+internal val frontReturnKotlinType = TestKotlinType(
     "String",
     abbreviation = "jetbrains.kotlin.course.card.trainer.card.Front"
 )
 
-internal val backReturnKotlinType = KotlinType(
+internal val backReturnKotlinType = TestKotlinType(
     "String",
     abbreviation = "jetbrains.kotlin.course.card.trainer.card.Back"
 )
@@ -15,7 +19,7 @@ internal val cardTestClass = TestClass(
     "jetbrains.kotlin.course.card.trainer.card",
     isDataClass = true,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "front",
             javaType = "String",
             kotlinType = frontReturnKotlinType,
@@ -23,7 +27,7 @@ internal val cardTestClass = TestClass(
             mutability = VariableMutability.VAL,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "back",
             javaType = "String",
             kotlinType = backReturnKotlinType,

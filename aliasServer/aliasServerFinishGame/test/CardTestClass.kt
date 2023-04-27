@@ -1,11 +1,15 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val cardTestClass = TestClass(
     "Card",
     "jetbrains.kotlin.course.alias.card",
     isDataClass = true,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "id",
             javaType = "int",
             kotlinType = kotlinTypeIdentifier,
@@ -13,10 +17,10 @@ internal val cardTestClass = TestClass(
             mutability = VariableMutability.VAL,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "words",
             javaType = "List",
-            kotlinType = KotlinType(
+            kotlinType = TestKotlinType(
                 "List",
                 abbreviation = "jetbrains.kotlin.course.alias.card.Word",
                 params = listOf("String")

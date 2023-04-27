@@ -1,12 +1,17 @@
 package commonTests.results
 
 import commonTests.team.callGenerateTeamsForOneRound
-import models.*
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.classes.findClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
 import java.lang.reflect.InvocationTargetException
 import org.junit.jupiter.api.assertThrows
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
+import org.jetbrains.academy.test.system.models.variable.TestVariable
 
 @Suppress("SpreadOperator", "ForbiddenComment")
-fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData, gameHistoryVariable: Variable): String {
+fun callSaveGameResultsMethod(teams: Any, invokeData: TestMethodInvokeData, gameHistoryVariable: TestVariable): String {
     val field = invokeData.clazz.declaredFields.find { it.name == gameHistoryVariable.name }
         ?: error("Can not find the field ${gameHistoryVariable.name}")
     field.isAccessible = true
@@ -21,7 +26,7 @@ fun saveGameResultsMethodTest(
     generateTeamsForOneRoundMethod: TestMethod,
     gameResultsServiceTestClass: TestClass,
     saveGameResultsMethod: TestMethod,
-    gameHistoryVariable: Variable,
+    gameHistoryVariable: TestVariable,
     teamClassTestClass: TestClass? = null,
 ) {
     val gameResultsInvokeData = TestMethodInvokeData(gameResultsServiceTestClass, saveGameResultsMethod)
@@ -68,7 +73,7 @@ fun saveGameResultsMethodTest(
 fun getAllGameResultsMethodTest(
     gameResultsServiceTestClass: TestClass,
     getAllGameResultsMethod: TestMethod,
-    gameHistoryVariable: Variable,
+    gameHistoryVariable: TestVariable,
     teamServiceTestClass: TestClass,
     generateTeamsForOneRoundMethod: TestMethod,
     saveGameResultsMethod: TestMethod,

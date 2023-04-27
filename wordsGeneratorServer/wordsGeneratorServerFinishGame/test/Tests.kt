@@ -1,8 +1,8 @@
 import commonTests.team.*
 import jetbrains.kotlin.course.words.generator.util.words
-import models.ConstructorGetter
-import models.TestMethodInvokeData
-import models.findClass
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.findClass
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments

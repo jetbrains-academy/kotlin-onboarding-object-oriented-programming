@@ -1,5 +1,6 @@
 import commonTests.team.checkNameAndIdFieldsValue
-import models.*
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
 import org.junit.jupiter.api.Test
 
 class Test {

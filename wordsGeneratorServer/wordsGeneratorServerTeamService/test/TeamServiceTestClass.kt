@@ -1,11 +1,16 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val generateTeamsForOneRoundMethod = TestMethod(
     name = "generateTeamsForOneRound",
-    returnType = KotlinType("List", params = listOf(teamClass.getFullName())),
+    returnType = TestKotlinType("List", params = listOf(teamClass.getFullName())),
     returnTypeJava = "List",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "teamsNumber",
             javaType = "int",
         )
@@ -14,7 +19,7 @@ internal val generateTeamsForOneRoundMethod = TestMethod(
 
 internal val getTeamsStorageMethod = TestMethod(
     name = "access\$getTeamsStorage\$cp",
-    returnType = KotlinType("Map"),
+    returnType = TestKotlinType("Map"),
     returnTypeJava = "Map",
 )
 
@@ -22,7 +27,7 @@ internal val teamServiceTestClass = TestClass(
     "TeamService",
     "jetbrains.kotlin.course.words.generator.team",
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "teamsStorage",
             javaType = "Map",
             // Because it is inside companion object

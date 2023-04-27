@@ -1,20 +1,25 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val getNextCardMethod = TestMethod(
     name = "getNextCard",
-    returnType = KotlinType("jetbrains.kotlin.course.card.trainer.card.Card"),
+    returnType = TestKotlinType("jetbrains.kotlin.course.card.trainer.card.Card"),
     returnTypeJava = "Card",
 )
 
 internal val startNewGameMethod = TestMethod(
     name = "startNewGame",
-    returnType = KotlinType("jetbrains.kotlin.course.card.trainer.card.Card"),
+    returnType = TestKotlinType("jetbrains.kotlin.course.card.trainer.card.Card"),
     returnTypeJava = "Card",
 )
 
 internal val generateNewCardsSequenceMethod = TestMethod(
     name = "generateNewCardsSequence",
-    returnType = KotlinType(
+    returnType = TestKotlinType(
         "List",
         params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
     ),
@@ -22,10 +27,10 @@ internal val generateNewCardsSequenceMethod = TestMethod(
     visibility = Visibility.PRIVATE
 )
 
-internal val cardsVariable = Variable(
+internal val cardsVariable = TestVariable(
     name = "cards",
     javaType = "List",
-    kotlinType = KotlinType(
+    kotlinType = TestKotlinType(
         "MutableList",
         params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
     ),
@@ -39,10 +44,10 @@ internal val cardServiceTestClass = TestClass(
     "CardService",
     "jetbrains.kotlin.course.card.trainer.card",
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "randomCardGenerator",
             javaType = "CardSequenceGenerator",
-            kotlinType = KotlinType(
+            kotlinType = TestKotlinType(
                 "jetbrains.kotlin.course.card.trainer.card.CardSequenceGenerator",
             ),
             // Because it is inside companion object

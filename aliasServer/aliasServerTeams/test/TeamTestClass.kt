@@ -1,14 +1,19 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val getNameFromTeamMethod = TestMethod(
     name = "getName",
-    returnType = KotlinType("String"),
+    returnType = TestKotlinType("String"),
     returnTypeJava = "string",
 )
 
 internal val getPointsTeamMethod = TestMethod(
     name = "getPoints",
-    returnType = KotlinType("Int"),
+    returnType = TestKotlinType("Int"),
     returnTypeJava = "int",
 )
 
@@ -17,7 +22,7 @@ internal val teamClass = TestClass(
     "jetbrains.kotlin.course.alias.team",
     isDataClass = true,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "id",
             javaType = "int",
             kotlinType = kotlinTypeIdentifier,
@@ -25,14 +30,14 @@ internal val teamClass = TestClass(
             mutability = VariableMutability.VAL,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "points",
             javaType = "int",
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAR,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "name",
             javaType = "string",
             visibility = Visibility.PUBLIC,

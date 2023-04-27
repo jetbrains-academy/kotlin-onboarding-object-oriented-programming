@@ -1,6 +1,11 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
-internal val cellsReturnKotlinType = KotlinType(
+internal val cellsReturnKotlinType = TestKotlinType(
     "List",
     abbreviation = "jetbrains.kotlin.course.codenames.keyCard.KeyCardCell"
 )
@@ -16,7 +21,7 @@ internal val keyCardTestClass = TestClass(
     "jetbrains.kotlin.course.codenames.keyCard",
     isDataClass = true,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "cells",
             javaType = "List",
             kotlinType = cellsReturnKotlinType,
