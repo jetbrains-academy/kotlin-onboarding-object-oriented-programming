@@ -9,6 +9,35 @@ Good luck! After finishing this step the application will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/codenames/state2.gif)
 
+<div class="hint" title="Possible ways to extend the project">
+
+Congratulations! You did a great job and created a working application.
+We have put together a few ideas on how you can improve this project by yourself.
+These improvements will not be tested by tests within the course.
+Some improvements require changes to both the client (what is displayed in the browser)
+and the server (application logic).
+We don't cover client-server architecture in this course,
+so you can either explore them on your own or explore ideas that don't require investigating third-party code.
+
+**Server improvements:**
+
+- Add words that belong to more than one color, making it more challenging for the leaders to give clues.
+- Currently, the application throws an error if something went wrong,
+  for example, the application throws an error if the list with words for new rounds becomes empty.
+  As an improvement, you can add handling of this kind of error.
+- Jumble the letters of the words on the board and have the teams unscramble them to guess the words.
+- Currently, we lost the game progress if we turn off the server.
+  You can implement the ability to save the current state of the game in files
+  and when the server is starting you can extract this data.
+
+**Client improvements:**
+
+- To show multicolor words you need to change the client a little.
+- Error handling can be added not only on the server, but also on the client,
+  for example, you may show a dialog window with the error message.
+- Connect card state from the server with cars state from the client.
+</div>
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----
