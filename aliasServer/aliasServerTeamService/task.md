@@ -14,6 +14,23 @@ It is responsible for the game logic for the teams. In this task, you need to im
 
 If you have any difficulties, **hints will help you solve this task**.
 
+<div class="hint" title="generateTeamsForOneRound method implementation length">
+
+The `generateTeamsForOneRound` method can be implemented in one line or in several lines, 
+so feel free to replace 
+```kotlin
+fun generateTeamsForOneRound(teamsNumber: Int): List<Team> = TODO("Not implemented yet")
+``` 
+with 
+```kotlin
+fun generateTeamsForOneRound(teamsNumber: Int): List<Team> { 
+  TODO("Not implemented yet") 
+}
+```
+if it is necessary.
+</div>
+
+
 ----
 
 ### Hints
