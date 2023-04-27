@@ -1,6 +1,6 @@
 ### Task
 
-Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package to store the information about teams:
+Create a data class `Team` in the `jetbrains.kotlin.course.alias.team` package in the `TeamModel.kt` file to store the information about teams:
 - it must have two properties in the primary constructor: `id` of `Identifier` type to identify each team and `points` of `Int` type
   to store the number of points in the game. For `points` set the default value `0`.
 - it must have an additional property `name`, which initializes automatically as `"Team#${id + 1}"` and will be shown in the leaderboard.

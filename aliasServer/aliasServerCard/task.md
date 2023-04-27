@@ -1,6 +1,6 @@
 ### Task
 
-Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.card` package:
+Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.card` package in the `CardModel.kt` file:
 - a value class `Word` with one `String` `word` property to store a word;
 - a data class `Card` to store information for each card.
   Each card must store `id` with the `Identifier` type and a list of `words` (`List<Word>`).
