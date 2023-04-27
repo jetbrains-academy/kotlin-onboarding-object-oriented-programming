@@ -21,6 +21,39 @@ Hooray! After finishing this step the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/alias/state2.gif)
 
+<div class="hint" title="Possible ways to extend the project">
+
+Congratulations! You did a great job and created a working application. 
+We have put together a few ideas on how you can improve this project by yourself. 
+These improvements will not be tested by tests within the course. 
+Some improvements require changes to both the client (what is displayed in the browser) 
+and the server (application logic). 
+We don't cover client-server architecture in this course, 
+so you can either explore them on your own or explore ideas that don't require investigating third-party code.
+
+**Server improvements:**
+
+- Currently, the application throws an error if something went wrong,
+  for example, the application throws an error if the list with words for new cards becomes empty.
+  As an improvement, you can add handling of this kind of error.
+- You can add categories for the words on the card, such as animals, 
+  countries, or movies to make the game process more diverse. 
+  At the beginning of the game you can generate a random category as the default option.
+- Currently, we lost the game progress if we turn off the server.
+  You can implement the ability to save the current state of the game in files
+  and when the server is starting you can extract this data.
+
+**Client improvements:**
+
+- Error handling can be added not only on the server, but also on the client, 
+  for example, you may show a dialog window with the error message.
+- Words categories can be added not only on the server, but also on the client,
+  for example, you may add a new screen to choose the category.
+- You can add a list of forbidden words that cannot be used while describing the word on the card. 
+  On the client side for this improvement you need to show this list of words.
+</div>
+
+
 If you have any difficulties, **hints will help you solve this task**.
 
 ----
