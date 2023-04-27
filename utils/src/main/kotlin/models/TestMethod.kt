@@ -41,6 +41,7 @@ private fun List<Method>.filterByCondition(errorMessage: String, condition: (Met
     return filteredByCondition
 }
 
+@Suppress("MaxLineLength")
 fun Array<Method>.findMethod(method: TestMethod, customErrorMessage: String? = null): Method {
     val filteredByName =
         this.toList().filterByCondition(customErrorMessage ?: "The method ${method.prettyString()} is missed") {
