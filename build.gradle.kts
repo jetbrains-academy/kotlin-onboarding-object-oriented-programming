@@ -34,29 +34,11 @@ val detektReportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.Re
     output.set(rootProject.buildDir.resolve("reports/detekt/merge.sarif"))
 }
 
-fun getLocalProperty(key: String, file: String = "local.properties"): String? {
-    val properties = Properties()
-
-    File("local.properties")
-        .takeIf { it.isFile }
-        ?.let { properties.load(it.inputStream()) }
-        ?: println("File $file with properties not found")
-
-    return properties.getProperty(key, null)
-}
-
-val spaceUsername = getLocalProperty("spaceUsername")
-val spacePassword = getLocalProperty("spacePassword")
-
 allprojects {
     repositories {
         mavenCentral()
         maven {
             url = uri("https://packages.jetbrains.team/maven/p/kotlin-test-framework/kotlin-test-framework")
-            credentials {
-                username = spaceUsername
-                password = spacePassword
-            }
         }
     }
 }
