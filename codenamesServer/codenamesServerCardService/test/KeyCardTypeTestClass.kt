@@ -1,11 +1,15 @@
-import models.*
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.ClassType
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val keyCardTypeTestClass = TestClass(
     "KeyCardType",
     "jetbrains.kotlin.course.codenames.keyCard",
     classType = ClassType.ENUM,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "number",
             javaType = "Int",
             visibility = Visibility.PUBLIC,
@@ -13,22 +17,22 @@ internal val keyCardTypeTestClass = TestClass(
         )
     ),
     declaredEnumEntries = listOf(
-        Variable(
+        TestVariable(
             name = "Pink",
             javaType = "KeyCardType",
             visibility = Visibility.PUBLIC,
         ),
-        Variable(
+        TestVariable(
             name = "Violet",
             javaType = "KeyCardType",
             visibility = Visibility.PUBLIC,
         ),
-        Variable(
+        TestVariable(
             name = "Gray",
             javaType = "KeyCardType",
             visibility = Visibility.PUBLIC,
         ),
-        Variable(
+        TestVariable(
             name = "Black",
             javaType = "KeyCardType",
             visibility = Visibility.PUBLIC,

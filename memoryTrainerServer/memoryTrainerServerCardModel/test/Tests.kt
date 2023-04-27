@@ -1,4 +1,4 @@
-import models.ConstructorGetter
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
 import org.junit.jupiter.api.Test
 
 class Test {

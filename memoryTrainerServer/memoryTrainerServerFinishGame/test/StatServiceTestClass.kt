@@ -1,9 +1,14 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
-internal val historyVariable = Variable(
+internal val historyVariable = TestVariable(
     name = "history",
     javaType = "List",
-    kotlinType = KotlinType(
+    kotlinType = TestKotlinType(
         "MutableList",
         params = listOf("jetbrains.kotlin.course.card.trainer.stat.Stat")
     ),
@@ -15,7 +20,7 @@ internal val historyVariable = Variable(
 
 internal val getHistoryMethod = TestMethod(
     name = "getHistory",
-    returnType = KotlinType(
+    returnType = TestKotlinType(
         "List",
         params = listOf("jetbrains.kotlin.course.card.trainer.stat.Stat")
     ),
@@ -24,18 +29,18 @@ internal val getHistoryMethod = TestMethod(
 
 internal val saveMethod = TestMethod(
     name = "save",
-    returnType = KotlinType("Unit"),
+    returnType = TestKotlinType("Unit"),
     returnTypeJava = "void",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "known",
             javaType = "List",
-            kotlinType = KotlinType("List", params = listOf("kotlin.String")),
+            kotlinType = TestKotlinType("List", params = listOf("kotlin.String")),
         ),
-        Variable(
+        TestVariable(
             name = "unknown",
             javaType = "List",
-            kotlinType = KotlinType("List", params = listOf("kotlin.String")),
+            kotlinType = TestKotlinType("List", params = listOf("kotlin.String")),
         )
     )
 )

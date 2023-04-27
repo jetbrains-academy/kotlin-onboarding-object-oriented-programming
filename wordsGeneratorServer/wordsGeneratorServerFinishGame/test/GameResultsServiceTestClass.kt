@@ -1,8 +1,13 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
 internal val getAllGameResultsMethod = TestMethod(
     name = "getAllGameResults",
-    returnType = KotlinType(
+    returnType = TestKotlinType(
         "List",
         abbreviation = "kotlin.collections.List<jetbrains.kotlin.course.words.generator.results.GameResult>"
     ),
@@ -11,13 +16,13 @@ internal val getAllGameResultsMethod = TestMethod(
 
 internal val saveGameResultsMethod = TestMethod(
     name = "saveGameResults",
-    returnType = KotlinType("Unit"),
+    returnType = TestKotlinType("Unit"),
     returnTypeJava = "void",
     arguments = listOf(
-        Variable(
+        TestVariable(
             name = "result",
             javaType = "List",
-            kotlinType = KotlinType(
+            kotlinType = TestKotlinType(
                 "List",
                 params = listOf("jetbrains.kotlin.course.words.generator.results.GameResult")
             ),
@@ -25,10 +30,10 @@ internal val saveGameResultsMethod = TestMethod(
     ),
 )
 
-internal val gameHistoryVariable = Variable(
+internal val gameHistoryVariable = TestVariable(
     name = "gameHistory",
     javaType = "List",
-    kotlinType = KotlinType(
+    kotlinType = TestKotlinType(
         "List",
         params = listOf("jetbrains.kotlin.course.words.generator.results.GameResult")
     ),

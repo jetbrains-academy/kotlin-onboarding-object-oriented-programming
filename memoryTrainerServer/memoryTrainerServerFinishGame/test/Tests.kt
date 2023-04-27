@@ -1,6 +1,6 @@
 import jetbrains.kotlin.course.card.trainer.util.countries
-import models.ConstructorGetter
-import models.TestMethodInvokeData
+import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.lang.reflect.Field

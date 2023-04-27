@@ -2,7 +2,11 @@
 
 package commonTests.team
 
-import models.*
+import org.jetbrains.academy.test.system.findMethod
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
+import org.jetbrains.academy.test.system.models.variable.TestVariable
 
 fun generateTeamsStringRepresentation(startId: Int, n: Int, toAddId: Boolean = false): List<String> {
     var id = startId
@@ -84,7 +88,7 @@ fun generateTeamsForOneRoundMethodTest(
     }
 }
 
-fun resetIdCounter(teamsClazz: Class<*>, idCounterVariable: Variable) {
+fun resetIdCounter(teamsClazz: Class<*>, idCounterVariable: TestVariable) {
     val idCounterField = teamsClazz.declaredFields.find { it.name == idCounterVariable.name }
         ?: error("Can not find the field ${idCounterVariable.name}")
     idCounterField.isAccessible = true

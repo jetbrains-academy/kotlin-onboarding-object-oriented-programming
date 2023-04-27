@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.util.*
 
 group = "jetbrains.kotlin.course"
 version = "0.0.1-SNAPSHOT"
@@ -33,9 +34,30 @@ val detektReportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.Re
     output.set(rootProject.buildDir.resolve("reports/detekt/merge.sarif"))
 }
 
+fun getLocalProperty(key: String, file: String = "local.properties"): String? {
+    val properties = Properties()
+
+    File("local.properties")
+        .takeIf { it.isFile }
+        ?.let { properties.load(it.inputStream()) }
+        ?: println("File $file with properties not found")
+
+    return properties.getProperty(key, null)
+}
+
+val spaceUsername = getLocalProperty("spaceUsername")
+val spacePassword = getLocalProperty("spacePassword")
+
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            url = uri("https://packages.jetbrains.team/maven/p/kotlin-test-framework/kotlin-test-framework")
+            credentials {
+                username = spaceUsername
+                password = spacePassword
+            }
+        }
     }
 }
 
@@ -51,6 +73,11 @@ val server = "Server"
 configure(subprojects.filter { it.name != "common" && frontendSuffix !in it.name }) {
     apply<io.gitlab.arturbosch.detekt.DetektPlugin>()
 
+    apply {
+        plugin("java")
+        plugin("kotlin")
+    }
+
     configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {
         config = rootProject.files("detekt.yml")
         buildUponDefaultConfig = true
@@ -64,6 +91,10 @@ configure(subprojects.filter { it.name != "common" && frontendSuffix !in it.name
     }
 
     tasks.getByPath("detekt").onlyIf { project.hasProperty("runDetekt") }
+
+    dependencies {
+        implementation("org.jetbrains.academy.test.system:kotlin-test-system:1.0.3")
+    }
 
     val jvmVersion = "11"
 

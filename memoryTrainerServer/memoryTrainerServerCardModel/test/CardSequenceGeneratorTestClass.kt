@@ -1,7 +1,7 @@
-import models.ClassType
-import models.KotlinType
-import models.TestClass
-import models.TestMethod
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.classes.ClassType
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
 
 internal val cardSequenceGeneratorTestClass = TestClass(
     "CardSequenceGenerator",
@@ -10,7 +10,7 @@ internal val cardSequenceGeneratorTestClass = TestClass(
     customMethods = listOf(
         TestMethod(
             "generateCards",
-            KotlinType(
+            TestKotlinType(
                 "List",
                 params = listOf("jetbrains.kotlin.course.card.trainer.card.Card")
             ),

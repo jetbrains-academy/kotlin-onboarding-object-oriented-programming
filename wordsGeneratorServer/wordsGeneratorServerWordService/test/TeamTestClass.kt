@@ -1,10 +1,15 @@
-import models.*
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.Visibility
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
+import org.jetbrains.academy.test.system.models.variable.TestVariable
+import org.jetbrains.academy.test.system.models.variable.VariableMutability
 
-internal val kotlinTypeIdentifier = KotlinType("Int", "jetbrains.kotlin.course.words.generator.team.Identifier")
+internal val kotlinTypeIdentifier = TestKotlinType("Int", "jetbrains.kotlin.course.words.generator.team.Identifier")
 
 internal val getNameFromTeamMethod = TestMethod(
     name = "getName",
-    returnType = KotlinType("String"),
+    returnType = TestKotlinType("String"),
     returnTypeJava = "string",
 )
 
@@ -14,7 +19,7 @@ internal val getIdFromTeamMethod = TestMethod(
     returnTypeJava = "Int",
 )
 
-internal val idCounterVariable = Variable(
+internal val idCounterVariable = TestVariable(
     name = "idCounter",
     javaType = "Int",
     kotlinType = kotlinTypeIdentifier,
@@ -29,7 +34,7 @@ internal val teamClass = TestClass(
     "jetbrains.kotlin.course.words.generator.team",
     isDataClass = true,
     declaredFields = listOf(
-        Variable(
+        TestVariable(
             name = "id",
             javaType = "int",
             kotlinType = kotlinTypeIdentifier,
@@ -37,14 +42,14 @@ internal val teamClass = TestClass(
             mutability = VariableMutability.VAL,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "points",
             javaType = "int",
             visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAR,
             isInPrimaryConstructor = true,
         ),
-        Variable(
+        TestVariable(
             name = "name",
             javaType = "string",
             visibility = Visibility.PUBLIC,

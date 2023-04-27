@@ -1,7 +1,7 @@
-import models.ClassType
-import models.KotlinType
-import models.TestClass
-import models.TestMethod
+import org.jetbrains.academy.test.system.models.TestKotlinType
+import org.jetbrains.academy.test.system.models.classes.ClassType
+import org.jetbrains.academy.test.system.models.classes.TestClass
+import org.jetbrains.academy.test.system.models.method.TestMethod
 
 internal val keyCardGeneratorTestClass = TestClass(
     "KeyCardGenerator",
@@ -10,7 +10,7 @@ internal val keyCardGeneratorTestClass = TestClass(
     customMethods = listOf(
         TestMethod(
             "generateData",
-            KotlinType(
+            TestKotlinType(
                 "List",
                 abbreviation = "jetbrains.kotlin.course.codenames.keyCard.KeyCardCell"
             ),
