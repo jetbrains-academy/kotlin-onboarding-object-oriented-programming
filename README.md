@@ -42,8 +42,9 @@ Before starting this course, check the following requirements.
 1. Your computer needs to have a stable internet connection.
 2. Git version control system needs to be installed on your computer (link to the git site: https://git-scm.com/).
 3. Make sure that the path to the root folder of the course does not contain spaces, special characters, or non-latin characters.
-4. Make sure that you use the [EduTools](https://plugins.jetbrains.com/plugin/10081-edutools) plugin with version at least `2023.1`.
-5. To be able to run web applications, you need to have a web browser. We recommend using [Google Chrome](https://www.google.com/chrome/). 
+4. Make sure that you use the [Intellij IDEA](https://www.jetbrains.com/idea/download/?_ga=2.189310830.494255415.1682514714-1823138827.1669894241&_gac=1.83806948.1682684894.Cj0KCQjw3a2iBhCFARIsAD4jQB3QkDU43KtbIx2HzEz02KvcN7Ma3QGzkIbyX4KS3H4x8b2bl9p4EfYaAvWsEALw_wcB&_gl=1*1h13lr8*_ga*MTgyMzEzODgyNy4xNjY5ODk0MjQx*_ga_9J976DJZ68*MTY4MjY5NDIyMy4xMjUuMS4xNjgyNjk0MjM4LjQ1LjAuMA..#section=windows) with version at least `2023.1.1`.
+5. Make sure that you use the [EduTools](https://plugins.jetbrains.com/plugin/10081-edutools) plugin with version at least `2023.1`.
+6. To be able to run web applications, you need to have a web browser. We recommend using [Google Chrome](https://www.google.com/chrome/). 
 
 The course is integrated into the [Intellij Idea IDE](https://www.jetbrains.com/idea/), which has a community free license. 
 You may use this license to complete the course. 
@@ -53,7 +54,7 @@ If you have some troubles with the course installation, fell free to contact us 
 
 This module is dedicated to the creation of popular board games. During this module, you will create four games:
 
-1) Alias
+1) **Alias**. The goal of this game is to repeat the well-known alias game, where a card with words is generated for the player and other players should guess these words.
 
 <details>
 <summary>Game example</summary>
@@ -61,7 +62,8 @@ This module is dedicated to the creation of popular board games. During this mod
 ![An example of the Alias application](./utils/src/main/resources/images/states/alias/state2.gif)
 </details>
 
-2) Words generator
+2) **Words generator**. The goal of this game is to generate a card with a big word, 
+the task for teams is to come up with as many words as possible using the letters of the original (not necessarily of using all letters).
 
 <details>
 <summary>Game example</summary>
@@ -69,7 +71,9 @@ This module is dedicated to the creation of popular board games. During this mod
 ![An example of the Words generator application](./utils/src/main/resources/images/states/wordGenerator/state2.gif)
 </details>
 
-3) Codenames
+3) **Codenames**. The purpose of this project is to implement the popular board game codenames. 
+In this game, the players are split into two teams. 
+Each team chooses a leader and tries to guess all the words of its team color in fewer attempts than the other team.
 
 <details>
 <summary>Game example</summary>
@@ -77,7 +81,7 @@ This module is dedicated to the creation of popular board games. During this mod
 ![An example of the Codenames application](./utils/src/main/resources/images/states/codenames/state2.gif)
 </details>
 
-4) Memory trainer
+4) **Memory trainer**. This application will allow you to train your memory and memorize countries and their capitals.
 
 <details>
 <summary>Game example</summary>
