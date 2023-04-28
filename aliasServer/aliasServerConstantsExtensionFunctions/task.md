@@ -1,8 +1,8 @@
 ### Const variables
 
-To help the Kotlin compiler to optimize your code, you can use the `const` modifier for the variables that remain unchanged - the [compile-time constants](https://kotlinlang.org/docs/properties.html#compile-time-constants).
+To help the Kotlin compiler optimize your code, you can use the `const` modifier for the variables that remain unchanged – the [compile-time constants](https://kotlinlang.org/docs/properties.html#compile-time-constants).
 Constants can only have basic (primitive) types, such as `String`, `Int`, and so on.
-Also, they cannot be initialized by calling functions or anything like that.
+Also, they cannot be initialized by calling functions or in a similar way.
 Last but not least, you must only use constants inside `companion objects` (or just inside `objects`, which we will talk about later):
 
 ```kotlin
@@ -16,14 +16,14 @@ class GameCard(private val capacity: Int = 5) {
 }
 ```
 
-As you can see from the example, Kotlin has adopted a special style code for naming compile-time constants - all letters must be capitalized, words in the name are separated by an underscore.
+As you can see from the example, Kotlin has adopted a special style code for naming compile-time constants – all letters must be capitalized and words in the name separated by an underscore.
 
 ### Extension functions
 
 #### Definition
 
-In Kotlin, you can add new member function to the existing classes. This is done via special declarations called [extensions](https://kotlinlang.org/docs/extensions.html).
-It is useful if, for example, you don't have access to the original class but would like to add a new function.
+In Kotlin, you can add new member functions to the existing classes. This is done via special declarations called [extensions](https://kotlinlang.org/docs/extensions.html).
+It is useful if, for example, if you don't have access to the original class but would like to add a new function.
 Consider an example – let's say we need to count the number of letters in a string. We can do it in the following way:
 
 ```kotlin
@@ -44,7 +44,7 @@ fun main() {
 ```
 
 In this case, we have added a new function to the `String` class.
-The main difference in implementation is: 1) we use `this` instead of the passed string parameter; 2) we don't need to pass the string as an argument and we
+The main difference in implementation is the following: 1) we use `this` instead of the passed string parameter; 2) we don't need to pass the string as an argument, and we
 can call the function directly on the `String` type.
 
 #### Access
@@ -78,7 +78,7 @@ fun main() {
 
 <div class="hint" title="Several `this` inside one class">
 
-When you add a new extension function _inside_ a class, you have several _contexts_ for `this` keyword.
+When you add a new extension function _inside_ a class, you have several _contexts_ for the keyword `this`.
 You can specify which context you need to use in the current case:
 
   ```kotlin
