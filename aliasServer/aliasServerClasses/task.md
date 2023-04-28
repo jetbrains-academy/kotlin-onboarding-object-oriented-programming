@@ -50,7 +50,7 @@ which should store each _instance_ in this class:
 class GameCard(val capacity: Int = 5)
 ```
 In the example above, we specified that every card in the game has a capacity,
-and the default capacity is five:
+and the default capacity is five.
 
 ```kotlin
 class GameCard(val capacity: Int = 5)
@@ -93,7 +93,7 @@ In classes, you can add several properties:
 #### Methods
 
 In addition, each class can have a set of _methods_.
-Simply put, there are functions that can be called on any _instance_ of this class.
+Simply put, these are functions that can be called on any _instance_ of this class.
 Inside such functions, both the method's arguments and all _properties_ of the class are available:
 
 ```kotlin
@@ -105,9 +105,9 @@ class GameCard(val capacity: Int = 5) {
 }
 ```
 
-**TODO: for the redactor - should we reformulate <specify the name of the method after the name of the entity followed by a dot>?**
 
-Next, you can call this method, specifying the name of the method after the name of the entity followed by a dot:
+
+Next, you can call the method, specifying the method's name after the name of the entity followed by a dot:
 
 ```kotlin
 fun main() {
@@ -147,7 +147,7 @@ fun main() {
 }
 ```
 
-But we can change them to `private`:
+However, we can change them to `private`:
 
 ```kotlin
 class GameCard(private val capacity: Int = 5) {
@@ -171,7 +171,7 @@ fun main() {
 </div>
 
 If you are designing a large or complex application,
-remember to use various access modifiers, such as `private`.
+remember to use various access modifiers, including `private`.
 
 <div class="hint" title="Examples of usage different access modifiers">
 
@@ -191,5 +191,5 @@ if you create a helper function to avoid code duplication in the original one:
 
 In the example above, we created a private function `isValidWord` to keep only valid words for the card.
 However, it is _internal_ functionality for this class and reflects the internal logic of word generation.
-In this case, we should mark it as a `private` function.
+In such a case, we should mark it as a `private` function.
 </div>
