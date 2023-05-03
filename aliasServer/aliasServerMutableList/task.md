@@ -5,7 +5,7 @@ Just like `Map`, `List` can be _mutable_ or _read-only_, which must be specified
 
 In Kotlin, if you want to create a _mutable_ `List`, you need to indicate it _explicitly_
 because by default, a _read-only_ collection is created,
-to which it will not be possible to add new elements later.
+and it will not be possible to add new elements to it later.
 
 To create a new list, you can use `listOf` for a _read-only_ collection or `mutableListOf` for a _mutable_ one:
 
@@ -17,7 +17,7 @@ val mutableList =  mutableListOf<Int>(1, 2, 3)
 mutableList.add(4) // OK
 ```
 
-To create an empty _mutable_ list you need to use `mutableListOf` function instead of `emptyList` for a _read-only_ one:
+To create an empty _mutable_ list, you need to use the `mutableListOf` function rather than `emptyList` used for a _read-only_ list:
 
 ```kotlin
 val emptyMutableListError: MutableList<Int> = emptyList() // ERROR
@@ -29,9 +29,9 @@ val emptyMutableListOk: MutableList<Int> =  mutableListOf() // OK
 
 When developing applications, we often need to keep some invariant values true.
 For example, if we are working with game cards and we know the maximum number of the cards,
-the list of cards can not exceed the maximum value.
+the list of cards cannot exceed the maximum value.
 
-To handle such a case, you can use the [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) built-in function, which throws an IllegalArgumentException if the value is false:
+To handle such a case, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function, which throws an IllegalArgumentException if the value is false:
 
 ```kotlin
 class GameCard(private val capacity: Int = 5) {
