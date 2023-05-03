@@ -6,8 +6,8 @@ and have only one immutable field: `word: String`.
 
 <div class="hint" title="I press Check and see a compilation error">
 
-  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior since the code requires the value class `WordCardData`, but it does not exist.
+  If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior, since the code requires the value class `WordCardData`, but it does not exist.
 </div>
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -18,5 +18,5 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="The type of the WordCardData class">
   
-The `WordCardData` must be a [data class](https://kotlinlang.org/docs/data-classes.html) because it stores data for the word cards.
+`WordCardData` must be a [data class](https://kotlinlang.org/docs/data-classes.html) because it stores data for the word cards.
 </div>
