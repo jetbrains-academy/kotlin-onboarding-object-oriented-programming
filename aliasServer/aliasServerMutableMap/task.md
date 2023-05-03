@@ -2,13 +2,13 @@
 
 You are already briefly familiar with [`List`](https://kotlinlang.org/docs/collections-overview.html#list), which stores a list of objects of the same type,
 such as `List<Int>`. The second popular collection type is [`Map`](https://kotlinlang.org/docs/collections-overview.html#map).
-It stores key-value pairs such that all keys are different but values can be the same.
+It stores key-value pairs such that all keys are different but the values can be the same.
 `Map` is very similar to an address book, where you can find the corresponding address for each person.
 Accordingly, the same address can occur several times, but each person will appear in the book only once.
 
 In Kotlin, if you want to create a _mutable_ `Map`, then you need to indicate it _explicitly_
-because by default, a _read-only_ collection is created,
-to which it will not be possible to add new elements later.
+because by default, a _read-only_ collection is created
+and it will not be possible to add new elements to it later.
 
 To create a new map, you can use `mapOf` for a _read-only_ collection or `mutableMapOf` for a _mutable_ one:
 
@@ -20,7 +20,7 @@ val mutableMap =  mutableMapOf<Int, String>(1 to "one", 2 to "two")
 mutableMap.put(3 to "three") // OK
 ```
 
-To create an empty _mutable_ map you need to use `mutableMapOf` function instead of `emptyMap` for a _read-only_ one:
+To create an empty _mutable_ map, you need to use the `mutableMapOf` function rather than `emptyMap` used for a _read-only_ map:
 
 ```kotlin
 val emptyMutableMapError: MutableMap<Int, Int> = emptyMap() // ERROR
