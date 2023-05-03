@@ -1,14 +1,14 @@
 Create a SAM interface to generate key cards:
 
-- add a value class `KeyCardCell` to the `jetbrains.kotlin.course.codenames.keyCard` 
-package in the `KeyCardModel.kt` file with one field `type: KeyCardType`
-- add a SAM interface `KeyCardGenerator` to the `jetbrains.kotlin.course.codenames.utils` package 
-with the `generateData` function, which accepts nothing and returns `List<KeyCardCell>`
+- Add a value class `KeyCardCell` to the `jetbrains.kotlin.course.codenames.keyCard` 
+package in the `KeyCardModel.kt` file with one field `type: KeyCardType`.
+- Add a SAM interface `KeyCardGenerator` to the `jetbrains.kotlin.course.codenames.utils` package 
+with the `generateData` function, which accepts nothing and returns `List<KeyCardCell>`.
 
 <div class="hint" title="I press Check and see a compilation error">
 
-  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior since the code requires the value class `KeyCardCell`, but it does not exist.
+  If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior, since the code requires the value class `KeyCardCell`, but it does not exist.
 </div>
 
 If you have any difficulties, **hints will help you solve this task**.
