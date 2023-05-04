@@ -10,8 +10,8 @@ Next, find the already added `WordServices` class in the `jetbrains.kotlin.cours
 
 <div class="hint" title="I press Check and see a compilation error">
 
-  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior since the code requires the class `Word`, but it does not exist.
+  If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior, since the code requires the class `Word`, but it does not exist.
 </div>
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -30,7 +30,7 @@ choose the option you like best in the future.
 
 <div class="hint" title="Why does numberOfWords not a const value?">
 
-We can not mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` of a mutable list `words`,
+We cannot mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` of a mutable list `words`,
 which potentially can be changed.
 </div>
 
@@ -56,7 +56,7 @@ It is the **same** as
 
 <div class="hint" title="The `removeFirst` built-in function">
 
-If you need to get the first element from a mutable list and next remove it, you can use the [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) built-in function:
+If you need to get the first element from a mutable list and next remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 
 ```kotlin
 fun main() {
@@ -67,7 +67,7 @@ fun main() {
     println(numbers) // [3, 4, 5]
 }
 ```
-is the **same** with
+It is the **same** as
 
 ```kotlin
 fun main() {
