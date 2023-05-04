@@ -3,9 +3,9 @@ It is responsible for the game logic for the cards.
 In this task, you need to implement this service to make the game alive.
 
 First of all, add a simple random generator to the companion object to generate random sequences of the cards:
-- add the variable `randomCardGenerator` with the type `CardSequenceGenerator` and implement the `generateCards` function. 
+- Add the variable `randomCardGenerator` with the type `CardSequenceGenerator` and implement the `generateCards` function. 
 This function should use the pre-defined map `countries`, which stores pairs: capital to country. 
-You need to convert all pairs into `Card`, then _shuffle_ this list and return it from the function.
+You need to convert all pairs into `Card`, then _shuffle_ this list, and return it from the function.
 
 Next, add a new function `generateNewCardsSequence` to the companion object, which uses `randomCardGenerator`, 
 calls the function `generateCards`, and converts the result into a _mutable_ list.
@@ -17,8 +17,8 @@ Finally, implement two functions:
 
 - `getNextCard`, which checks the list from the variable `cards` to make sure it is not empty, next 
 removes the first element from this list and returns it.
-- `startNewGame`, which just puts a new sequence of cards into the variable `cards` - you 
-can use the `generateNewCardsSequence` function. Next it returns the first card - you can call the `getNextCard` function.
+- `startNewGame`, which just puts a new sequence of cards into the variable `cards` – you 
+can use the `generateNewCardsSequence` function. Next it returns the first card – you can call the `getNextCard` function.
 
 After solving this task, you can try playing the game, but the `Finish game` button will not work:
 
@@ -93,7 +93,7 @@ println(readOnlyNumbers[2]) // OK
 
 <div class="hint" title="The `isNotEmpty` built-in function">
 
-In case you need to check if a list is not empty, you can check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
+In case you need to check that a list is not empty, you can check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
