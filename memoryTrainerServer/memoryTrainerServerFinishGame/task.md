@@ -3,15 +3,15 @@ In this step, you need to add statistics to the game.
 
 First of all, you need to add a class `Stat` to the `jetbrains.kotlin.course.card.trainer.stat` package in the `StatModel.kt` file to store statistics:
 
-- it must have two properties in the primary constructor:
+- It must have two properties in the primary constructor:
     - `knownBacks` with `List<Back>` type to store known countries;
     - `unknownBacks` with `List<Back>` type to store unknown countries.
 
 Next, you need to implement several methods in the already defined class `StatService` 
 in the package `jetbrains.kotlin.course.card.trainer.card`:
-- add a `history` property to the companion object with type `MutableList<Stat>` and initialize it with an empty list;
-- implement the method `save`, which adds new `Stat` to `history`;
-- implement the method `getHistory`, which returns _reversed_ `history`.
+- Add a `history` property to the companion object with type `MutableList<Stat>` and initialize it with an empty list.
+- Implement the method `save`, which adds new `Stat` to `history`.
+- Implement the method `getHistory`, which returns _reversed_ `history`.
 
 
 Hooray! After finishing this step, the application will work well:
@@ -22,30 +22,30 @@ Hooray! After finishing this step, the application will work well:
 
 Congratulations! You did a great job and created a working application.
 We have put together a few ideas on how you can improve this project by yourself.
-These improvements will not be tested by tests within the course.
+These improvements will not be tested within the course.
 Some improvements require changes to both the client (what is displayed in the browser)
-and the server (application logic).
-We don't cover client-server architecture in this course,
-so you can either explore them on your own or explore ideas that don't require investigating third-party code.
+and the server (the application logic).
+We don't cover the client-server architecture in this course,
+so you can either explore that on your own or implement ideas that don't require investigating third-party code.
 
 **Server improvements:**
 
-- Add a multiplayer mode where players can compete with each other to match the countries 
+- Add a multiplayer mode, where players can compete with each other to match the countries 
   and their capitals in the fastest time.
 - Add levels that the player can unlock as they progress through the game.
-- Currently, the application throws an error if something went wrong,
+- Currently, the application throws an error if something goes wrong:
   for example, the application throws an error if the list with words becomes empty.
   As an improvement, you can add handling of this kind of error.
 - Add a time penalty for each incorrect match.
-- Currently, we lost the game progress if we turn off the server.
-  You can implement the ability to save the current state of the game in files
-  and when the server is starting you can extract this data.
+- Currently, we lose the game progress if we turn off the server.
+  You can implement the ability to save the current state of the game in files,
+  and when the server is starting, you can extract this data.
 
 **Client improvements:**
 
-- To support a multiplayer mode you need to add a new screen for each team.
+- To support a multiplayer mode, you need to add a new screen for each team.
 - Add a new screen with all possible levels for the game.
-- Error handling can be added not only on the server, but also on the client,
+- Error handling can be added not only on the server, but also on the client side:
   for example, you may show a dialog window with the error message.
 - Add sound effects for each correct and incorrect match.
 </div>
