@@ -1,5 +1,5 @@
 Congratulations! Your game is almost ready, what remains is only to add the display of the leaderboard for the current game
-and the for the previous rounds.
+and for the previous rounds.
 
 In this task, you need to implement several things in the already defined class `GameResultsService` in
 the `jetbrains.kotlin.course.words.generator.results` package. Note, this class is the same as `GameResultsService` from the Alias game, so you can either practice again or just copy the previous solution.
@@ -16,12 +16,12 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 
 <div class="hint" title="I press Check and see a compilation error">
 
-  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior since the code requires the type alia `GameResult`, but it does not exist.
+  If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior, since the code requires the type alia `GameResult`, but it does not exist.
 </div>
 
 
-Hooray! After finishing this step the game will work well:
+Hooray! After finishing this step, the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)
 
@@ -29,33 +29,33 @@ Hooray! After finishing this step the game will work well:
 
 Congratulations! You did a great job and created a working application.
 We have put together a few ideas on how you can improve this project by yourself.
-These improvements will not be tested by tests within the course.
+These improvements will not be tested within the course.
 Some improvements require changes to both the client (what is displayed in the browser)
-and the server (application logic).
-We don't cover client-server architecture in this course,
-so you can either explore them on your own or explore ideas that don't require investigating third-party code.
+and the server (the application logic).
+We don't cover the client-server architecture in this course,
+so you can either explore that on your own or implement ideas that don't require investigating third-party code.
 
 **Server improvements:**
 
-- Give bonus points to the teams that come up with words that are longer than a certain number of letters, 
+- Give bonus points to the teams that come up with words that are longer than a certain number of letters 
   or words that use all the letters of the original word. 
   Or you can just assign a point value to each word based on the number of letters in the word or the difficulty of the word.
-  Now points are calculated on the client-side, so to take into account bonus points
-  you need to implement not only the rules but also correctly store them after each round.
-- Choose a word from a foreign language, and have the teams come up with words in English that use the same letters.
-- Currently, the application throws an error if something went wrong,
+  Now points are calculated on the client side, so to take into account bonus points,
+  you need not only to implement the rules but also store the points correctly after each round.
+- Choose a word from a foreign language and have the teams come up with English words that use the same letters.
+- Currently, the application throws an error if something goes wrong:
   for example, the application throws an error if the list with words for new rounds becomes empty.
   As an improvement, you can add handling of this kind of error.
-- Limit the number of times a team can use each letter in the original word.
-- Currently, we lost the game progress if we turn off the server.
-  You can implement the ability to save the current state of the game in files
-  and when the server is starting you can extract this data.
+- Limit the number of times a team can use each letter of the original word.
+- Currently, we lose the game progress if we turn off the server.
+  You can implement the ability to save the current state of the game in files,
+  and when the server is starting, you can extract this data.
 
 **Client improvements:**
 
-- Show to user bonus points during a game round.
-- You can create a new screen to provide the user the ability to choose a language for words.
-- Error handling can be added not only on the server, but also on the client,
+- Show bonus points to the user during a game round.
+- You can create a new screen to provide the user with the option to choose the language for words.
+- Error handling can be added not only on the server but also on the client side:
   for example, you may show a dialog window with the error message.
 </div>
 
