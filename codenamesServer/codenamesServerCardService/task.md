@@ -1,41 +1,41 @@
 Wow! You've almost finished the project! This is the last step.
 
 The package `jetbrains.kotlin.course.codenames.card` already has the regular class `CardService`. In this task, you need to implement the `generateWordsCards` function with the following behavior:
-- If `words.size < TOTAL_NUMBER`, you need to throw an error. `words` is an already defined variable with `List<String>`, which contains all possible words for the game. `TOTAL_NUMBER` you already declared in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
+- If `words.size < TOTAL_NUMBER`, you need to throw an error. `words` is an already defined variable with `List<String>`, which contains all possible words for the game. You've already declared `TOTAL_NUMBER` in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
 - Next, you need to _shuffle_ `words` and create `TOTAL_NUMBER` cards by _taking_ them from the shuffled word list and creating new instances of the `Card` class (use `CardState.Front` as a state).
 - Don't forget to _drop_ all words from the `words` list that were used for the generated cards.
 
-Good luck! After finishing this step the application will work well:
+Good luck! After finishing this step, the application will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/codenames/state2.gif)
 
 <div class="hint" title="Possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application.
-We have put together a few ideas on how you can improve this project by yourself.
-These improvements will not be tested by tests within the course.
+We have put together a few ideas on how you can further improve this project by yourself.
+These improvements will not be tested within the course.
 Some improvements require changes to both the client (what is displayed in the browser)
 and the server (application logic).
-We don't cover client-server architecture in this course,
-so you can either explore them on your own or explore ideas that don't require investigating third-party code.
+We don't cover the client-server architecture in this course,
+so you can either explore that on your own or implement ideas that don't require investigating third-party code.
 
 **Server improvements:**
 
 - Add words that belong to more than one color, making it more challenging for the leaders to give clues.
-- Currently, the application throws an error if something went wrong,
+- Currently, the application throws an error if something goes wrong:
   for example, the application throws an error if the list with words for new rounds becomes empty.
   As an improvement, you can add handling of this kind of error.
 - Jumble the letters of the words on the board and have the teams unscramble them to guess the words.
-- Currently, we lost the game progress if we turn off the server.
-  You can implement the ability to save the current state of the game in files
-  and when the server is starting you can extract this data.
+- Currently, we lose the game progress if we turn off the server.
+  You can implement the ability to save the current state of the game in files,
+  and when the server is starting, you can extract this data.
 
 **Client improvements:**
 
-- To show multicolor words you need to change the client a little.
-- Error handling can be added not only on the server, but also on the client,
+- To show multicolor words, you need to change the client a little.
+- Error handling can be added not only on the server, but also on the client side:
   for example, you may show a dialog window with the error message.
-- Connect card state from the server with cars state from the client.
+- Connect the card state from the server with the card state from the client.
 </div>
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -81,7 +81,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
 
 <div class="hint" title="How to take first N elements from a list?">
 
-To take first `N` elements from a list, you can use the built-in [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) function:
+To take the first `N` elements from a list, you can use the built-in [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) function:
 ```kotlin
 fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
@@ -93,7 +93,7 @@ fun main() {
 
 <div class="hint" title="How to drop first N elements from a list?">
 
-To drop first `N` elements from a list, you can use the built-in [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) function:
+To drop the first `N` elements from a list, you can use the built-in [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) function:
 ```kotlin
 fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
