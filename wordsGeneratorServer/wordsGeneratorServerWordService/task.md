@@ -7,12 +7,12 @@ Find the already added `WordService` class in the `jetbrains.kotlin.course.words
   - If `newWord` (the word inputted by the user) _is empty_, return `false`.
   - If `newWord` contains symbols not present in `keyWord`, return `false`.
   - Note, the number of times some symbol occurs in `newWord` cannot be grater
-    than the the number of times this symbol occurs in `keyWord`.
+    than the number of times this symbol occurs in `keyWord`.
   ```kotlin
   val a = service.isValidWord("photothermoelasticity", "") // false
   val b = service.isValidWord("photothermoelasticity", "dog") // false
   val c = service.isValidWord("photothermoelasticity", "photo") // true
-  val c = service.isValidWord("photothermoelasticity", "photooooo") // false because the initial word contains <o> two times
+  val c = service.isValidWord("photothermoelasticity", "photooooo") // false because the initial word contains two <o> symbols
   ```
 
 - Add an internal variable `previousWords` to the companion object in this class with the type `MutableMap<String, MutableList<Word>>`,
@@ -20,10 +20,10 @@ Find the already added `WordService` class in the `jetbrains.kotlin.course.words
 - Implement the `isNewWord` function:
 
   - If `previousWords` does not contain `keyWord` yet, put the `keyWord` into the `previousWords` map together with `newWord` and return `true`.
-  - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`, else add `newWord` into the map and return `true`.
+  - If the list of words `previousWords[keyWord]` contains `newWord`, return `false`; else, add `newWord` into the map and return `true`.
 
 
-After solving this step the game will be almost done:
+After solving this step, the game will be almost done:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state1.gif)
 
@@ -47,7 +47,7 @@ You can also use the `isEmpty` function with strings, not only with lists:
 
 <div class="hint" title="The aggregation built-in functions">
 
-Kotlin has a lot of built-in functions for aggregation; consider several of those that can help solve this task.
+Kotlin has a lot of built-in functions for aggregation; consider several of those that can help you solve this task.
 You can use [`groupingBy`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html) to group the word by its letters
 and next [`eachCount`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html) to count the occurrences of each letter:
 
