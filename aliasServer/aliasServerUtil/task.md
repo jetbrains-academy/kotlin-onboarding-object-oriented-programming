@@ -6,11 +6,11 @@ In this task, you will create some utility entities that will help you build the
 Create a type alias `Identifier`, an `IdentifierFactory` class, and a `uniqueIdentifier` function
 in the `jetbrains.kotlin.course.alias.util` package:
 
-- the type alias `Identifier` needs to be an alias for the `Int` type. If you change the type in the future, e.g., create a new class,
+- The type alias `Identifier` needs to be an alias for the `Int` type. If you change the type in the future, e.g., create a new class,
   it will be changed automatically in all places.
-- the `IdentifierFactory` class is a class to generate unique identifiers, e.g., identifiers for different game cards or teams.
+- The `IdentifierFactory` class is a class to generate unique identifiers, e.g., identifiers for different game cards or teams.
   It should have a special `counter` – an `Identifier` property to store the last unique number. By default, `counter` should be zero.
-- the `uniqueIdentifier` function just returns a new unique identifier – increments the `counter` and returns it.
+- The `uniqueIdentifier` function just returns a new unique identifier – increments the `counter` and returns it.
 
 If you have any difficulties, **hints will help you solve this task**.
 
@@ -33,8 +33,8 @@ Using a type alias in this case will help us make this change as painless as pos
 The property `counter` stores some internal information about the current state of the class instance.
 So, the best way is to mark it as a private property to forbid access outside the class.
 
-A simple example of why it is bad to use a `public` modifier here is that in this
-case, the user will be able to change the value of the `counter` property on their own
+A simple example of why it is bad to use a `public` modifier here is that in such a
+case, the user would be able to change the value of the `counter` property on their own
 and we cannot guarantee its uniqueness.
 </div>
 
