@@ -3,13 +3,13 @@ This card is called `KeyCard`.
 
 In this step, create an enum class `KeyCardType` in the `jetbrains.kotlin.course.codenames.keyCard` package in the `KeyCardModel.kt` file:
 
-- the enum class `KeyCardType` must store four values: `Pink`, `Violet`, `Gray`, and `Black`.
+- The enum class `KeyCardType` must store four values: `Pink`, `Violet`, `Gray`, and `Black`.
   Each value must store an `Int` called `number` to initialize the number of times you need to use the consts from the `Utils` object.
 
 <div class="hint" title="I press Check and see a compilation error">
 
-  If you have a compilation error, and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior since the code requires the enum class `KeyCardType`, but it does not exist.
+  If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
+  It is expected behavior, since the code requires the enum class `KeyCardType`, but it does not exist.
 </div>
 
 If you have any difficulties, **hints will help you solve this task**.
@@ -20,7 +20,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="What does the KeyCard look like in the game?">
 
-Each square corresponds to a card on the field:
+Each square corresponds to a card in the field:
 
 ![KeyCard example](../../utils/src/main/resources/images/states/codenames/keycardSmall.png)
 </div>
