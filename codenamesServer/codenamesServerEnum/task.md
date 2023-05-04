@@ -1,8 +1,8 @@
 #### General definition
 
 Imagine a situation where you may have multiple states you need to handle. 
-For example, in our game, we have several types of cards - first team cards (Pink), 
-second team cards (Violet), neutral cards (Gray) and a killer card (Black). 
+For example, in our game, we have several types of cards – the first team cards (Pink), 
+the second team cards (Violet), neutral cards (Gray), and a killer card (Black). 
 We can, for example, create a class for each card type or simply use a string value for the property type. 
 However, this is inconvenient and can lead to many errors.
 An idiomatic approach would be to use [`enum classes`](https://kotlinlang.org/docs/enum-classes.html).
