@@ -5,13 +5,13 @@ a Kotlin project is structured into **packages**.
 A package contains one or more Kotlin files,
 with files linked to a package using a package header.
 A file may contain exactly one or zero package headers,
-meaning each file belongs to exactly one package.
+which means that each file belongs to exactly one package.
 
 In other words, packages allow you to specify the full
 address to some Kotlin objects, such as functions.
 This is similar to the full address in an apartment building –
 if you have several tenants with the same last name living in the building,
-then the full address including the street name, house number, and apartment number,
+then the full address including the street name, house number, and apartment number
 will help you find the right person.
 
 In code, the package is placed at the very top of the Kotlin file and starts with the [`package`](https://kotlinlang.org/docs/packages.html) keyword.
