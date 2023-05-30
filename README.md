@@ -91,8 +91,7 @@ Each team chooses a leader and tries to guess all the words of its team color in
 
 ## Getting started
 
-**TODO: add course link**
-This course is available on JetBrains Marketplace and can be installed from the 
+This course is [available](https://plugins.jetbrains.com/plugin/21913-kotlin-onboarding-object-oriented-programming) on JetBrains Marketplace and can be installed from the 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE directly, but you can also use it in 
 the Course Creator mode or create a course archive from the source code.
 
