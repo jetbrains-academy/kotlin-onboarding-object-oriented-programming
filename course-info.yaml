@@ -50,7 +50,8 @@ You can use this license to complete the course. If you have some troubles with 
 "
 programming_language: Kotlin
 content:
-- aliasServer
-- wordsGeneratorServer
-- codenamesServer
-- memoryTrainerServer
+  - aliasServer
+  - wordsGeneratorServer
+  - codenamesServer
+  - memoryTrainerServer
+  - FeedbackSurvey
