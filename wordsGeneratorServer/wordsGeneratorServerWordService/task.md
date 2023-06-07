@@ -2,7 +2,7 @@ The **goal** of this step is to add validators to the `WordService` class.
 
 Find the already added `WordService` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it.
 
-- Implement the `isValidWord` function.
+- Implement the `isValidWord` function, that checks if the received word can be built by the long word:
 
   - If `newWord` (the word inputted by the user) _is empty_, return `false`.
   - If `newWord` contains symbols not present in `keyWord`, return `false`.
@@ -12,7 +12,8 @@ Find the already added `WordService` class in the `jetbrains.kotlin.course.words
   val a = service.isValidWord("photothermoelasticity", "") // false
   val b = service.isValidWord("photothermoelasticity", "dog") // false
   val c = service.isValidWord("photothermoelasticity", "photo") // true
-  val c = service.isValidWord("photothermoelasticity", "photooooo") // false because the initial word contains two <o> symbols
+  val d = service.isValidWord("photothermoelasticity", "photooooo") // false because the initial word contains two <o> symbols
+  val e = service.isValidWord("photothermoelasticity", "pilot") // true
   ```
 
 - Add an internal variable `previousWords` to the companion object in this class with the type `MutableMap<String, MutableList<Word>>`,

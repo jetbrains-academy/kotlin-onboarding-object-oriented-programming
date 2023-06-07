@@ -67,7 +67,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="The `isNotEmpty` built-in function">
 
-If you need to check whether a list is empty or not, you can either check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
+If you need to check whether a list is empty or not, you can either check its size or use the built-in [`isNotEmpty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
