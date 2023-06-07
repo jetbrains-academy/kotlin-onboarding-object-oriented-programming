@@ -25,7 +25,7 @@ internal val idCounterVariable = TestVariable(
     kotlinType = kotlinTypeIdentifier,
     // Because it is inside companion object
     visibility = Visibility.PRIVATE,
-    mutability = VariableMutability.VAL,
+    mutability = VariableMutability.VAR,
     isStatic = true,
 )
 
