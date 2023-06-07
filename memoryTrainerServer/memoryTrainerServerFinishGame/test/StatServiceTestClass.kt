@@ -14,7 +14,7 @@ internal val historyVariable = TestVariable(
     ),
     // Because it is inside companion object
     visibility = Visibility.PRIVATE,
-    mutability = VariableMutability.VAR,
+    mutability = VariableMutability.VAL,
     isStatic = true,
 )
 

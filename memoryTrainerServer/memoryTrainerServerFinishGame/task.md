@@ -61,7 +61,8 @@ If you have any difficulties, **hints will help you solve this task**.
 To create a new _mutable_ list, you can use [`mutableListOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html):
 
 ```kotlin
-val mutableList =  mutableListOf<Int>(1, 2, 3)
+val mutableList =  mutableListOf<Int>(1, 2, 3) // Creates a new mutable list with three numbers
+val mutableList =  mutableListOf<Int>() // Creates a new empty mutable list
 ```
 </div>
 

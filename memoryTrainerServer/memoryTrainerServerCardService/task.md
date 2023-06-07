@@ -42,7 +42,7 @@ val randomCardGenerator = CardSequenceGenerator {
 
 <div class="hint" title="The `map`built-in function">
 
-You can use the built-in `map` function to change each pair inside a map collection:
+You can use the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) function to change each pair inside a map collection:
 
   ```kotlin
   val numbers = mapOf("one" to 1,"two" to 2, "three" to 3)
@@ -135,7 +135,7 @@ Note, you need to use an _opposite_ condition!
 
 <div class="hint" title="The `removeFirst` built-in function">
 
-If you need to get the first element from a mutable list and next remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
+If you need to get the first element from a mutable list and next remove it, you can use the built-in [`removeFirst`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 
 ```kotlin
 fun main() {
