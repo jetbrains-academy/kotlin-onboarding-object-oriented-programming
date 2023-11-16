@@ -18,9 +18,7 @@ will be offered: it includes all the topics of the lesson but does not contain t
 it just shows how to use them in Kotlin and can briefly remind you the definitions.</i></p>
 
 <p>All topics will be accompanied by links to <a href=\"https://kotlinlang.org/docs/home.html\">the official Kotlin documentation</a>, 
-which you can read later.</p>
-
-<p>After this course, you will be ready to write basic Kotlin applications.</p>
+which you can read later. After this course, you will be ready to write basic Kotlin applications.</p>
 "
 programming_language: Kotlin
 content:
