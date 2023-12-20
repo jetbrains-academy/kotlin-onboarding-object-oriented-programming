@@ -30,7 +30,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="What does a list of words look like?">
+<div class="hint" title="Click me to learn how a list of words look like">
 
 The project contains a predefined list of words `words`. It is just a set of possible words that are used in the game:
 ```kotlin
@@ -44,7 +44,7 @@ val words = setOf(
 </div>
 
 
-<div class="hint" title="The `shuffled` built-in function">
+<div class="hint" title="Click me to learn about the `shuffled` built-in function">
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
@@ -57,7 +57,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
   ```
 </div>
 
-<div class="hint" title="The `chunked` built-in function">
+<div class="hint" title="Click me to learn about the `chunked` built-in function">
 
 Sometimes, you need to split a list into `N` sublists of the same length:
 for example, when you want a large list of words split into sublists for each game card.
@@ -70,7 +70,7 @@ but you can also use the built-in function [`chunked`](https://kotlinlang.org/do
   ```
 </div>
 
-<div class="hint" title="The `take` built-in function">
+<div class="hint" title="Click me to learn about the `take` built-in function">
 
 Sometimes, you need to take the first `N` elements from a list;
 to do that, you can loop up to the `N`th element and make a new list
@@ -82,7 +82,7 @@ or use the built-in function [`take`](https://kotlinlang.org/api/latest/jvm/stdl
   ```
 </div>
 
-<div class="hint" title="Chaining multiple function calls">
+<div class="hint" title="Click me to learn how to chain multiple function calls">
 
 In Kotlin, you don't need to create a new variable for each function call
 if you work with collections, e.g., with a list.
@@ -102,7 +102,7 @@ It is the **same** as
   ```
 </div>
 
-<div class="hint" title="The `map` and `forEach` built-in functions">
+<div class="hint" title="Click me to learn about the `map` and `forEach` built-in functions">
 
 If you need to handle each element in a collection, for example, in a list or in a map,
 you can use the `forEach` or `map` built-in functions instead of the `for` loop.
@@ -143,7 +143,7 @@ You can also combine `map` with other functions:
   ```
 </div>
 
-<div class="hint" title="The `getOrNull` built-in function">
+<div class="hint" title="Click me to learn about the `getOrNull` built-in function">
 
 If you try to get an element from a list by the index and this index does not exist, you will get an error.
 To avoid that, you can use the built-in function [`getOrNull`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html), which returns the value or `null` if the index does not exist:

@@ -14,7 +14,7 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 - Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list.
 
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the type alia `GameResult`, but it does not exist.
@@ -25,7 +25,7 @@ Hooray! After finishing this step, the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)
 
-<div class="hint" title="Possible ways to extend the project">
+<div class="hint" title="Click me to learn about possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application.
 We have put together a few ideas on how you can improve this project by yourself.
@@ -65,7 +65,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The `isNotEmpty` built-in function">
+<div class="hint" title="Click me to learn about the `isNotEmpty` built-in function">
 
 If you need to check whether a list is empty or not, you can either check its size or use the built-in [`isNotEmpty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
@@ -85,7 +85,7 @@ It is the **same** as
   ```
 </div>
 
-<div class="hint" title="The `reversed` built-in function">
+<div class="hint" title="Click me to learn about the `reversed` built-in function">
 
 If you need to get a list in which the elements are in reverse order,
 you can either loop through the elements of the original list from the end to the beginning and

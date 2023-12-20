@@ -33,7 +33,7 @@ val emptyMutableMapOk: MutableMap<Int, Int> =  mutableMapOf() // OK
 You can find a lot of useful built-in functions to work with maps in the [official Kotlin documentation](https://kotlinlang.org/docs/map-operations.html).
 Let's consider several basic ones, which can help you to solve this task.
 
-<div class="hint" title="The `keys` built-in property">
+<div class="hint" title="Click me to learn about the `keys` built-in property">
 
 If you need to get all _keys_ from a read-only or mutable map, you can use the [_keys_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
   ```kotlin
@@ -44,7 +44,7 @@ If you need to get all _keys_ from a read-only or mutable map, you can use the [
   ```
 </div>
 
-<div class="hint" title="The `values` built-in property">
+<div class="hint" title="Click me to learn about the `values` built-in property">
 
 If you need to get all _values_ from a read-only or mutable map, you can use the [_values_](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values) property:
   ```kotlin
@@ -55,7 +55,7 @@ If you need to get all _values_ from a read-only or mutable map, you can use the
   ```
 </div>
 
-<div class="hint" title="Get a value by key">
+<div class="hint" title="Click me to learn how to get a value by key">
 
 If you need to get a value by key, you can use the [following construction](https://kotlinlang.org/docs/map-operations.html#retrieve-keys-and-values):
   ```kotlin

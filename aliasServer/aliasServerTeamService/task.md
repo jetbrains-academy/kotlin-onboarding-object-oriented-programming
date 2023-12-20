@@ -14,7 +14,7 @@ It is responsible for the game logic for the teams. In this task, you need to im
 
 If you have any difficulties, **hints will help you solve this task**.
 
-<div class="hint" title="generateTeamsForOneRound method implementation length">
+<div class="hint" title="Click me to learn how to change the generateTeamsForOneRound method from the expression form to the regular one">
 
 The `generateTeamsForOneRound` method can be implemented in one line or in several lines, 
 so feel free to replace 
@@ -35,7 +35,7 @@ if it is necessary.
 
 ### Hints
 
-<div class="hint" title="Import Identifier">
+<div class="hint" title="Click me to learn about importing Identifier">
 
 To use `Identifier` and `IdentifierFactory`, you need to import it at the top of the file with the `TeamService` class:
 
@@ -47,7 +47,7 @@ To use `Identifier` and `IdentifierFactory`, you need to import it at the top of
   ```
 </div>
 
-<div class="hint" title="Create IdentifierFactory class">
+<div class="hint" title="Click me to learn how to create IdentifierFactory class">
 
 Since the `IdentifierFactory` class has the default value for the `counter` property,
 you don't need to set it in the constructor:
@@ -57,7 +57,7 @@ you don't need to set it in the constructor:
   ```
 </div>
 
-<div class="hint" title="List with teams generation">
+<div class="hint" title="Click me to learn how to generate a list with teams">
 
 As we mentioned in the first module, you can generate a new list with `N` elements by the following construction:
   ```kotlin
@@ -65,7 +65,7 @@ As we mentioned in the first module, you can generate a new list with `N` elemen
   ```
 </div>
 
-<div class="hint" title="putIfAbsent built-in function">
+<div class="hint" title="Click me to learn about putIfAbsent built-in function">
 
 If you work with a `map`, you can use the built-in `putIfAbsent` function to insert a new value if it is absent in the `map`:
   ```kotlin
@@ -81,7 +81,7 @@ It is the same as:
   ```
 </div>
 
-<div class="hint" title="forEach built-in function">
+<div class="hint" title="Click me to learn about forEach built-in function">
 
 If you need to handle each element in a collection, for example, in a list or in a map,
 you can use the built-in `forEach` function instead of the `for` loop.

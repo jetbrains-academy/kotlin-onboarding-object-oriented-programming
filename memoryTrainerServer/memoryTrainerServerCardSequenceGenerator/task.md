@@ -12,7 +12,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Why are we creating a common interface?">
+<div class="hint" title="Click me to learn why we create a common interface">
 
 Since we can use different strategies for different application modes and complexity levels, 
 we can create a common interface and, for example, specify it as a data type in functions.

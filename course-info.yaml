@@ -22,10 +22,11 @@ which you can read later. After this course, you will be ready to write basic Ko
 "
 programming_language: Kotlin
 content:
+  - introduction
   - aliasServer
   - wordsGeneratorServer
   - codenamesServer
   - memoryTrainerServer
   - FeedbackSurvey
 tags:
-- Backend
+  - Backend

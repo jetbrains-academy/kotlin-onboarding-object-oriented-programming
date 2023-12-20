@@ -8,7 +8,7 @@ Next, find the already added `WordServices` class in the `jetbrains.kotlin.cours
 - Implement the `generateNextWord` function: if the `words` list _is empty_, throw an error;
   else, get the first element from the `words` list and remove it from the list, then create a new `Word` and return it.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the class `Word`, but it does not exist.
@@ -20,7 +20,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Why do we use the value class?">
+<div class="hint" title="Click me to learn why we use the value class">
 
 Of course, we can just use the `String` type or create a type alias for the `String` type.
 All of these options will undoubtedly work in our case.
@@ -28,13 +28,13 @@ However, the _purpose_ of this course is to show you the power of Kotlin so that
 choose the option you like best in the future.
 </div>
 
-<div class="hint" title="Why does numberOfWords not a const value?">
+<div class="hint" title="Click me to learn why numberOfWords is not a const value">
 
 We cannot mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` of a mutable list `words`,
 which potentially can be changed.
 </div>
 
-<div class="hint" title="The `isEmpty` built-in function">
+<div class="hint" title="Click me to learn about the `isEmpty` built-in function">
 
 If you need to check whether a list is empty or not, you can check its size or use the built-in [isEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html) function:
 
@@ -54,7 +54,7 @@ It is the **same** as
   ```
 </div>
 
-<div class="hint" title="The `removeFirst` built-in function">
+<div class="hint" title="Click me to learn about the `removeFirst` built-in function">
 
 If you need to get the first element from a mutable list and next remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 

@@ -12,11 +12,15 @@ Please don't forget to _stop all other runs_ by pressing the square red button:
 ![How to stop the application](../../utils/src/main/resources/images/stop/memory_trainer_stop.png)
 
 Next, you need to open any browser (we recommend using [Google Chrome](https://www.google.com/chrome/) to display the elements as in the examples) 
-and open http://localhost:8080/. You will see the main page of the application:
+and open http://localhost:8080/. You will see the main page of the application.
+
+<div class="hint" title="Click me to view what the main page of the application looks like">
 
 ![The main page of the application](../../utils/src/main/resources/images/main/memory_trainer.png)
 
-<div class="hint" title="The game from the last launch is displayed">
+</div>
+
+<div class="hint" title="Click me if the application from the last launch is displayed">
 
 If a game from a previous launch is displayed on the screen when starting the game, you need to reset the caches.
 This can usually be done with a keyboard shortcut: `ctrl` + `shift` + `R` (`command` + `shift` + `R` for macOS).

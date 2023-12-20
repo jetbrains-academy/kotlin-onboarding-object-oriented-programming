@@ -34,7 +34,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The `isEmpty` built-in function">
+<div class="hint" title="Click me to learn about the `isEmpty` built-in function">
 
 You can also use the `isEmpty` function with strings, not only with lists:
 
@@ -46,7 +46,7 @@ You can also use the `isEmpty` function with strings, not only with lists:
   ```
 </div>
 
-<div class="hint" title="The aggregation built-in functions">
+<div class="hint" title="Click me to learn about the aggregation built-in functions">
 
 Kotlin has a lot of built-in functions for aggregation; consider several of those that can help you solve this task.
 You can use [`groupingBy`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html) to group the word by its letters
@@ -63,7 +63,7 @@ and next [`eachCount`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.colle
 These functions work with a special [Grouping](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-grouping/) representation, which we will consider in detail in the third module of this course.
 </div>
 
-<div class="hint" title="The `all` built-in function">
+<div class="hint" title="Click me to learn about the `all` built-in function">
 
 If you need a verification that **all** elements match the given predicate, you can use the built-in [`all`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) function.
 You need to enclose the predicate in curly brackets:
@@ -75,7 +75,7 @@ You need to enclose the predicate in curly brackets:
   ```
 </div>
 
-<div class="hint" title="putIfAbsent built-in function">
+<div class="hint" title="Click me to learn about the putIfAbsent built-in function">
 
 If you work with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is absent in the `map`:
   ```kotlin
@@ -91,7 +91,7 @@ It is the **same** as:
   ```
 </div>
 
-<div class="hint" title="`contains` and `in`">
+<div class="hint" title="Click me to learn about `contains` and `in`">
 
 In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted several functions to make code shorter.
 For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains some element:
