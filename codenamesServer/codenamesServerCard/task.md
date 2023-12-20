@@ -12,7 +12,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The type of the Card class">
+<div class="hint" title="Click me to learn about the type of the Card class">
 
 The `Card` must be a [data class](https://kotlinlang.org/docs/data-classes.html) because it stores data for the cards.
 </div>

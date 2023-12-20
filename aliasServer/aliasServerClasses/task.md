@@ -71,7 +71,7 @@ class GameCard(val capacity: Int = 5)
 fun foo(card: GameCard): Unit = TODO("Not implemented yet")
 ```
 
-<div class="hint" title="An example with several properties in the class">
+<div class="hint" title="Click me to see an example with several properties in the class">
 
 In classes, you can add several properties:
   ```kotlin
@@ -124,7 +124,7 @@ By default, all properties and methods have the `public` access modifier, which 
 However, if you specify the `private` modifier, then they can only be used inside the class.
 There are also other modifiers, and we will look at them later.
 
-<div class="hint" title="Example of access modifiers">
+<div class="hint" title="Click me to see example of access modifiers">
 
 By default, all modifiers are `public`:
 
@@ -173,7 +173,7 @@ fun main() {
 If you are designing a large or complex application,
 remember to use various access modifiers, including `private`.
 
-<div class="hint" title="Examples of usage different access modifiers">
+<div class="hint" title="Click me to see examples of usage different access modifiers">
 
 The `private` modifier is commonly used for internal functionality in the class, e.g.,
 if you create a helper function to avoid code duplication in the original one:

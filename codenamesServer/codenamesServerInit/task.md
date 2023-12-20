@@ -23,7 +23,7 @@ object Settings {
 
 In this case, if the condition is `False`, an error will be thrown.
 
-<div class="hint" title="The order of initialization Java classes">
+<div class="hint" title="Click me to learn about the order of initialization Java classes">
 
 Actually, the following code will not throw errors on the JVM target:
 ```kotlin

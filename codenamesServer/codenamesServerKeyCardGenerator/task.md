@@ -5,7 +5,7 @@ package in the `KeyCardModel.kt` file with one field `type: KeyCardType`.
 - Add a SAM interface `KeyCardGenerator` to the `jetbrains.kotlin.course.codenames.utils` package 
 with the `generateData` function, which accepts nothing and returns `List<KeyCardCell>`.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the value class `KeyCardCell`, but it does not exist.
@@ -17,7 +17,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The JvmInline annotation for value classes">
+<div class="hint" title="Click me to learn about the JvmInline annotation for value classes">
 
 Don't forget to use the `JvmInline` annotation with the `KeyCardCell` value class:
 ```kotlin
@@ -26,7 +26,7 @@ value class KeyCardCell(...)
 ```
 </div>
 
-<div class="hint" title="Import classes from another package">
+<div class="hint" title="Click me to learn about importing classes from another package">
 
 The `KeyCardCell` class is defined in the `jetbrains.kotlin.course.codenames.keyCard` package, 
 but `KeyCardGenerator` must be defined in `jetbrains.kotlin.course.codenames.utils`.

@@ -20,7 +20,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Empty mutable list initialization">
+<div class="hint" title="Click me to learn about empty mutable list initialization">
 
 To initialize the `previousAttempts` field, you need to create a new empty mutable list:
 ```kotlin
@@ -32,7 +32,7 @@ object Utils {
 ```
 </div>
 
-<div class="hint" title="Function definition of the SAM interfaces">
+<div class="hint" title="Click me to learn about function definition of the SAM interfaces">
 
 It is better to use a function definition for SAM interfaces:
 ```kotlin
@@ -43,7 +43,7 @@ val uniqueKeyCardGenerator = KeyCardGenerator {
 </div>
 
 
-<div class="hint" title="How to get all values from an enum class?">
+<div class="hint" title="Click me to learn how to get all values from an enum class">
 
 To get _all_ values from an enum class, you can use the built-in function [values](https://kotlinlang.org/docs/enum-classes.html#working-with-enum-constants).
 Consider an example:
@@ -63,7 +63,7 @@ fun main() {
 ```
 </div>
 
-<div class="hint" title="The map built-in function">
+<div class="hint" title="Click me to learn about the map built-in function">
 
 You are already familiar with several built-in functions for lists. 
 It's time to get acquainted with the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) function.
@@ -106,7 +106,7 @@ fun main() {
 ```
 </div>
 
-<div class="hint" title="How to flat a list of lists into one list?">
+<div class="hint" title="Click me to learn how to flat a list of lists into one list">
 
 Consider a situation where we have a list of lists, for example, `List<List<KeyCardType>>`, 
 and we need to get a list consisting of all the elements of all lists of the original list:
@@ -151,7 +151,7 @@ fun main() {
 ```
 </div>
 
-<div class="hint" title="The `shuffled` built-in function">
+<div class="hint" title="Click me to learn about the `shuffled` built-in function">
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
@@ -164,7 +164,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
   ```
 </div>
 
-<div class="hint" title="How to check if an element is in a list?">
+<div class="hint" title="Click me to learn how to check if an element is in a list">
 
 To check if an element is in a list, you can use the `in` operator:
 ```kotlin

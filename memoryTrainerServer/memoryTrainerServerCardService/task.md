@@ -30,7 +30,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Function definition of the SAM interfaces">
+<div class="hint" title="Click me to learn about function definition of the SAM interfaces">
 
 It is better to use a function definition for SAM interfaces:
 ```kotlin
@@ -40,7 +40,7 @@ val randomCardGenerator = CardSequenceGenerator {
 ```
 </div>
 
-<div class="hint" title="The `map`built-in function">
+<div class="hint" title="Click me to learn about the `map`built-in function">
 
 You can use the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) function to change each pair inside a map collection:
 
@@ -52,7 +52,7 @@ You can use the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/ko
   ```
 </div>
 
-<div class="hint" title="The `shuffled` built-in function">
+<div class="hint" title="Click me to learn about the `shuffled` built-in function">
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the cards in the original list.
@@ -65,7 +65,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
   ```
 </div>
 
-<div class="hint" title="The main difference between mutable and readonly lists">
+<div class="hint" title="Click me to learn about the main difference between mutable and readonly lists">
 
 We'll go into the details of collections in the next module; for now, it is enough to know some basics facts:
 1) We can create read-only and mutable lists. 
@@ -91,7 +91,7 @@ println(readOnlyNumbers[2]) // OK
 ```
 </div>
 
-<div class="hint" title="The `isNotEmpty` built-in function">
+<div class="hint" title="Click me to learn about the `isNotEmpty` built-in function">
 
 In case you need to check that a list is not empty, you can check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
@@ -111,7 +111,7 @@ It is the **same** as
   ```
 </div>
 
-<div class="hint" title="The `require` built-in function">
+<div class="hint" title="Click me to learn about the `require` built-in function">
 
 To check some condition and throw an `IllegalArgumentException` error, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
 
@@ -133,7 +133,7 @@ fun foo(a: int) {
 Note, you need to use an _opposite_ condition!
 </div>
 
-<div class="hint" title="The `removeFirst` built-in function">
+<div class="hint" title="Click me to learn about the `removeFirst` built-in function">
 
 If you need to get the first element from a mutable list and next remove it, you can use the built-in [`removeFirst`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 

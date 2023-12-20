@@ -18,7 +18,7 @@ Hooray! After finishing this step, the application will work well:
 
 ![The current state of the application](../../utils/src/main/resources/images/states/memoryTrainer/state2.gif)
 
-<div class="hint" title="Possible ways to extend the project">
+<div class="hint" title="Click me to learn about possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application.
 We have put together a few ideas on how you can improve this project by yourself.
@@ -56,7 +56,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="How to create an empty mutable list">
+<div class="hint" title="Click me to learn how to create an empty mutable list">
 
 To create a new _mutable_ list, you can use [`mutableListOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html):
 
@@ -66,7 +66,7 @@ val mutableList =  mutableListOf<Int>() // Creates a new empty mutable list
 ```
 </div>
 
-<div class="hint" title="The `reversed` built-in function">
+<div class="hint" title="Click me to learn the `reversed` built-in function">
 
 If you need to get a list in which the elements are in reverse order,
 you can either loop through the elements of the original list from the end to the beginning and

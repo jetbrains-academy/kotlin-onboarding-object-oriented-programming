@@ -6,7 +6,7 @@ Create two classes to work with the cards in the `jetbrains.kotlin.course.alias.
   Each card must store `id` with the `Identifier` type and a list of `words` (`List<Word>`).
   These properties don't have default values and must be defined in the primary constructor.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the classes `Word` and `Card`, but they do not exist.
@@ -18,7 +18,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Import Identifier">
+<div class="hint" title="Click me to learn about importing Identifier">
 
 To use `Identifier`, you need to import it at the top of the file with the `Word` and `Card`  classes:
 
@@ -29,7 +29,7 @@ To use `Identifier`, you need to import it at the top of the file with the `Word
   ```
 </div>
 
-<div class="hint" title="Why do we use the value class?">
+<div class="hint" title="Click me to learn why we use the value class">
 
 Of course, we can just use the `String` type or create a type alias for the `String` type.
 All of these options will undoubtedly work in our case.

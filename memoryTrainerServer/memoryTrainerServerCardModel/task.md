@@ -10,7 +10,7 @@ Finally, create a class `Card` in the same package in the same file to store the
     - `front` with `Front` type to store capitals;
     - `back` with `Back` type to store countries.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the class `Card`, but it does not exist.
@@ -22,7 +22,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The JvmInline annotation for value classes">
+<div class="hint" title="Click me to learn about the JvmInline annotation for value classes">
 
 Don't forget to use the `JvmInline` annotation with the `Front` and `Back` value classes:
 ```kotlin

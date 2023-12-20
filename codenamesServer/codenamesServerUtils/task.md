@@ -23,13 +23,13 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Access modifiers">
+<div class="hint" title="Click me to learn about access modifiers">
   
   Only the `N` const variable must be `private` because we will use other variables in the future tasks: 
   e.g., for building the key card in the game.
 </div>
 
-<div class="hint" title="The require built-in function">
+<div class="hint" title="Click me to learn about the require built-in function">
   
 Don't forget about the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function, which helps to check some conditions and throws an `IllegalArgumentException` error:
 

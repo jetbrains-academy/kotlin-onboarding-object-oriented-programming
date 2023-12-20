@@ -18,7 +18,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Type aliases usage">
+<div class="hint" title="Click me to learn about type aliases usage">
 
 Sometimes, type aliases are used in cases where there is no certainty that
 the type used will not be replaced in the future.
@@ -28,7 +28,7 @@ but in the future, we can create our own class.
 Using a type alias in this case will help us make this change as painless as possible in the future.
 </div>
 
-<div class="hint" title="Access modifiers">
+<div class="hint" title="Click me to learn more about access modifiers">
 
 The property `counter` stores some internal information about the current state of the class instance.
 So, the best way is to mark it as a private property to forbid access outside the class.
@@ -38,7 +38,7 @@ case, the user would be able to change the value of the `counter` property on th
 and we cannot guarantee its uniqueness.
 </div>
 
-<div class="hint" title="Default values">
+<div class="hint" title="Click me to learn about default values">
 
 It is better to set the value `0` as the default value for the property `counter`.
 This makes it easier to create an instance of the class,
@@ -57,7 +57,7 @@ Compare with:
 
 </div>
 
-<div class="hint" title="Short notation for functions">
+<div class="hint" title="Click me to learn about short notation for functions">
 
 Since the `uniqueIdentifier` function is so short, we can use the short notation:
 

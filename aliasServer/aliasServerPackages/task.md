@@ -18,7 +18,7 @@ In code, the package is placed at the very top of the Kotlin file and starts wit
 Further, separated by a dot, all sub-folders leading to this file are listed.
 With the [`import`](https://kotlinlang.org/docs/packages.html#imports) keyword, you can use the required entity in another Kotlin file.
 
-<div class="hint" title="package and import example">
+<div class="hint" title="Click me to see package and import examples">
 
 Consider one small example. Let's say we have two functions with the same name `foo` in two different Kotlin files – `file1.kt` and `file2.kt`.
 Next, we create a new file with the name `file3.kt`, and in it, we need to call the `foo` function from `file1.kt`.

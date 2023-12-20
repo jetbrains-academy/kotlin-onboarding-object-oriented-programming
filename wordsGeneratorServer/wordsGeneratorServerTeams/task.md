@@ -17,7 +17,7 @@ After that, put the default values into the primary constructor into the `Team` 
 - use an incremented `idCounter` value for `id`;
 - use `0` for `points`.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the class `Team`, but it does not exist.
@@ -29,7 +29,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Type aliases usage">
+<div class="hint" title="Click me to learn about type aliases usage">
 
 Sometimes, type aliases are used in cases where there is no certainty that
 the type used will not be replaced in the future.
@@ -39,21 +39,21 @@ but in the future, we can create our own class.
 Using a type alias in this case will help us make this change as painless as possible in the future.
 </div>
 
-<div class="hint" title="Why do we use the data class?">
+<div class="hint" title="Click me to learn why we use the data class">
 
 The class `Team` is responsible for storing information about teams in the game.
 It is convenient to use data classes in all cases
 when we need just to store something and have automatically implemented methods, like the `toString` method.
 </div>
 
-<div class="hint" title="Why are we using name outside of the constructor?">
+<div class="hint" title="Click me to learn why we use name outside of the constructor">
 
   In this game, the team is defined only by its `id` (as well as the number of points), 
   and we need a `name` only for a pretty display on the screen. 
   This is the main reason why we don't need `name` to be used in automatically defined functions like the `toString` function.
 </div>
 
-<div class="hint" title="Access modifiers">
+<div class="hint" title="Click me to learn about access modifiers">
 
 The variable `idCounter` stores some internal information about the last value for an id.
 So, the best way is to mark it as a private property to forbid access outside the class.
@@ -63,7 +63,7 @@ case, the user would be able to change the value of the `idCounter` property on 
 and we cannot guarantee the uniqueness of team ids.
 </div>
 
-<div class="hint" title="Short notation for increment">
+<div class="hint" title="Click me to learn about short notation for increment">
 
 In Kotlin, you can use `++` to return the old value and then increment it:
 

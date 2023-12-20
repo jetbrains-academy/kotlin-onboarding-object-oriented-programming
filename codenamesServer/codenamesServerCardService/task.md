@@ -9,7 +9,7 @@ Good luck! After finishing this step, the application will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/codenames/state2.gif)
 
-<div class="hint" title="Possible ways to extend the project">
+<div class="hint" title="Click me to learn about possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application.
 We have put together a few ideas on how you can further improve this project by yourself.
@@ -44,7 +44,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The `require` built-in function">
+<div class="hint" title="Click me to learn about the `require` built-in function">
 
 To check some condition and throw an IllegalArgumentException error, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
 
@@ -66,7 +66,7 @@ fun foo(a: int) {
 Note, you need to use an _opposite_ condition!
 </div>
 
-<div class="hint" title="The `shuffled` built-in function">
+<div class="hint" title="Click me to learn about the `shuffled` built-in function">
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
@@ -79,7 +79,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
   ```
 </div>
 
-<div class="hint" title="How to take first N elements from a list?">
+<div class="hint" title="Click me to learn how to take first N elements from a list">
 
 To take the first `N` elements from a list, you can use the built-in [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) function:
 ```kotlin
@@ -91,7 +91,7 @@ fun main() {
 </div>
 
 
-<div class="hint" title="How to drop first N elements from a list?">
+<div class="hint" title="Click me to learn how to drop first N elements from a list">
 
 To drop the first `N` elements from a list, you can use the built-in [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) function:
 ```kotlin

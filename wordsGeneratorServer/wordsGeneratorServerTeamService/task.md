@@ -18,7 +18,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="List with teams generation">
+<div class="hint" title="Click me to learn how to generate a list with teams">
 
 As was mentioned in the first module, you can generate a new list with `N` elements by the following construction:
   ```kotlin
@@ -26,7 +26,7 @@ As was mentioned in the first module, you can generate a new list with `N` eleme
   ```
 </div>
 
-<div class="hint" title="putIfAbsent built-in function">
+<div class="hint" title="Click me to learn about the putIfAbsent built-in function">
 
 If you work with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is absent in the `map`:
   ```kotlin
@@ -43,7 +43,7 @@ It is the same as:
 </div>
 
 
-<div class="hint" title="forEach built-in function">
+<div class="hint" title="Click me to learn about the forEach built-in function">
 
 If you need to handle each element in a collection, for example, in a list or in a map,
 you can use the built-in `forEach` function instead of a `for` loop.

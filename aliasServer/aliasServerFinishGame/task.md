@@ -12,7 +12,7 @@ the `jetbrains.kotlin.course.alias.results` package:
   be not empty; 2) all team ids from the `result` must be present in the `TeamService.teamsStorage`.
 - implement the `getAllGameResults` method that returns the reversed `gameHistory` list.
 
-<div class="hint" title="I press Check and see a compilation error">
+<div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
   It is expected behavior, since the code requires the type alias `GameResult`, but it does not exist.
@@ -22,7 +22,7 @@ Hooray! After finishing this step, the game will work well:
 
 ![The current state of the game](../../utils/src/main/resources/images/states/alias/state2.gif)
 
-<div class="hint" title="Possible ways to extend the project">
+<div class="hint" title="Click me to learn about possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application. 
 We have put together a few ideas on how you can further improve this project by yourself. 
@@ -61,7 +61,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="The `isNotEmpty` built-in function">
+<div class="hint" title="Click me to learn about the `isNotEmpty` built-in function">
 
 If you need to check that a list is not empty, you can check its size or use the built-in [isNotEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) function:
 
@@ -81,7 +81,7 @@ It is the **same** as
   ```
 </div>
 
-<div class="hint" title="`contains` and `in`">
+<div class="hint" title="Click me to learn about `contains` and `in`">
 
 In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted of several functions to make code shorter.
 For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains some element:
@@ -98,7 +98,7 @@ It is the **same** as
 </div>
 
 
-<div class="hint" title="The `all` built-in function">
+<div class="hint" title="Click me to learn about the `all` built-in function">
 
 If you need to check that **all** elements match the given predicate, you can use the built-in [`all`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) function.
 You need to put the predicate in curly brackets:
@@ -110,7 +110,7 @@ You need to put the predicate in curly brackets:
   ```
 </div>
 
-<div class="hint" title="The `reversed` built-in function">
+<div class="hint" title="Click me to learn about the `reversed` built-in function">
 
 If you need to get a list in which the elements are in reverse order,
 you can loop through the elements of the original list from the end to the beginning and
