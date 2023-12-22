@@ -25,9 +25,9 @@ Hooray! After finishing this step, the game will work well:
 <div class="hint" title="Click me to learn about possible ways to extend the project">
 
 Congratulations! You did a great job and created a working application. 
-We have put together a few ideas on how you can further improve this project by yourself. 
+We have put together a few ideas on how you can further improve this project on your own. 
 These improvements will not be tested within the course. 
-Some improvements require changes to both the client (what is displayed in the browser) 
+Some enhancements require changes to both the client (what is displayed in the browser) 
 and the server (the application logic). 
 We don't cover the client-server architecture in this course, 
 so you can either explore that on your own or implement ideas that don't require investigating third-party code.
@@ -51,7 +51,7 @@ so you can either explore that on your own or implement ideas that don't require
 - Word categories can be added not only on the server, but also on the client side:
   for example, you may add a new screen to choose the category.
 - You can add a list of forbidden words, which cannot be used while describing the word on the card. 
-  On the client side, for this improvement you need to show such a list of words.
+  For this improvement on the client side, you need to display such a list of words.
 </div>
 
 
@@ -84,7 +84,7 @@ It is the **same** as
 <div class="hint" title="Click me to learn about `contains` and `in`">
 
 In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted of several functions to make code shorter.
-For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains some element:
+For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains a certain element:
 
   ```kotlin
   val numbers = listOf(1, 2, 3, 4)
@@ -113,7 +113,7 @@ You need to put the predicate in curly brackets:
 <div class="hint" title="Click me to learn about the `reversed` built-in function">
 
 If you need to get a list in which the elements are in reverse order,
-you can loop through the elements of the original list from the end to the beginning and
+you can either loop through the elements of the original list from the end to the beginning and
 return a new list or use the built-in [`reversed`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function:
 
   ```kotlin
