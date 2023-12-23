@@ -20,7 +20,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="Click me to learn how to generate a list with teams">
 
-As was mentioned in the first module, you can generate a new list with `N` elements by the following construction:
+As was mentioned in the first module, you can generate a new list with `N` elements using the following construct:
   ```kotlin
   List(N) { Team() }
   ```
@@ -28,7 +28,7 @@ As was mentioned in the first module, you can generate a new list with `N` eleme
 
 <div class="hint" title="Click me to learn about the putIfAbsent built-in function">
 
-If you work with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is absent in the `map`:
+When working with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is not present in the `map`:
   ```kotlin
   val myMap = mutableMapOf<Int, String>()
   if (1 !in myMap.keys) {
