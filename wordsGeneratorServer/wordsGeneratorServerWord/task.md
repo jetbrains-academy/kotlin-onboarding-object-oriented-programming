@@ -30,13 +30,13 @@ choose the option you like best in the future.
 
 <div class="hint" title="Click me to learn why numberOfWords is not a const value">
 
-We cannot mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` of a mutable list `words`,
-which potentially can be changed.
+We cannot mark the `numberOfWords` variable with the `const` keyword, since we use `words.size` from the mutable list `words`,
+which can potentially be altered.
 </div>
 
 <div class="hint" title="Click me to learn about the `isEmpty` built-in function">
 
-If you need to check whether a list is empty or not, you can check its size or use the built-in [isEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html) function:
+If you need to check whether a list is empty or not, you can either check its size or use the built-in [isEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html) function:
 
   ```kotlin
   val numbers = listOf(1, 2, 3)
@@ -56,7 +56,7 @@ It is the **same** as
 
 <div class="hint" title="Click me to learn about the `removeFirst` built-in function">
 
-If you need to get the first element from a mutable list and next remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
+If you need to get the first element from a mutable list and then remove it, you can use the built-in [removeFirst](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove-first.html) function:
 
 ```kotlin
 fun main() {
