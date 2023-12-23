@@ -20,7 +20,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Click me to learn about empty mutable list initialization">
+<div class="hint" title="Click me to learn about initializing an empty mutable list">
 
 To initialize the `previousAttempts` field, you need to create a new empty mutable list:
 ```kotlin
@@ -32,7 +32,7 @@ object Utils {
 ```
 </div>
 
-<div class="hint" title="Click me to learn about function definition of the SAM interfaces">
+<div class="hint" title="Click me to learn about defining a function for SAM interfaces">
 
 It is better to use a function definition for SAM interfaces:
 ```kotlin
@@ -63,7 +63,7 @@ fun main() {
 ```
 </div>
 
-<div class="hint" title="Click me to learn about the map built-in function">
+<div class="hint" title="Click me to learn about the `map` built-in function">
 
 You are already familiar with several built-in functions for lists. 
 It's time to get acquainted with the built-in [`map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) function.
@@ -106,7 +106,7 @@ fun main() {
 ```
 </div>
 
-<div class="hint" title="Click me to learn how to flat a list of lists into one list">
+<div class="hint" title="Click me to learn how to flatten a list of lists into a single list">
 
 Consider a situation where we have a list of lists, for example, `List<List<KeyCardType>>`, 
 and we need to get a list consisting of all the elements of all lists of the original list:
@@ -135,7 +135,7 @@ fun main() {
 }
 ```
 
-But Kotlin has a built-in function [`flatten`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flatten.html) to do the same:
+However, Kotlin has a built-in function [`flatten`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flatten.html) to do the same:
 ```kotlin
 fun main() {
     val initialList = listOf(
