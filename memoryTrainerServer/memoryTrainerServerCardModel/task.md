@@ -24,7 +24,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="Click me to learn about the JvmInline annotation for value classes">
 
-Don't forget to use the `JvmInline` annotation with the `Front` and `Back` value classes:
+Remember to use the `JvmInline` annotation with the `Front` and `Back` value classes:
 ```kotlin
 @JvmInline
 value class Front(...)
