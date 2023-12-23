@@ -20,7 +20,7 @@ and open http://localhost:8080/. You will see the main page of the application.
 
 </div>
 
-<div class="hint" title="Click me if the application from the last launch is displayed">
+<div class="hint" title="Click me if the game from the previous launch is displayed">
 
 If a game from a previous launch is displayed on the screen when starting the game, you need to reset the caches.
 This can usually be done with a keyboard shortcut: `ctrl` + `shift` + `R` (`command` + `shift` + `R` for macOS).
