@@ -18,7 +18,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Click me to learn how the KeyCard looks like in the game">
+<div class="hint" title="Click me to learn what the KeyCard looks like in the game">
 
 Each square corresponds to a card in the field:
 
