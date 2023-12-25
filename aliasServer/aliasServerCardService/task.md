@@ -30,7 +30,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Click me to learn how a list of words look like">
+<div class="hint" title="Click me to learn what a list of words looks like">
 
 The project contains a predefined list of words `words`. It is just a set of possible words that are used in the game:
 ```kotlin
@@ -48,7 +48,7 @@ val words = setOf(
 
 Sometimes, you need to randomly shuffle the contents of a list: for example,
 to change the order of the words in the original list.
-To do this, you can generate different word positions from the original list and build a new one
+To do this, you can either generate different word positions from the original list and build a new list
 or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html):
 
   ```kotlin
@@ -72,8 +72,8 @@ but you can also use the built-in function [`chunked`](https://kotlinlang.org/do
 
 <div class="hint" title="Click me to learn about the `take` built-in function">
 
-Sometimes, you need to take the first `N` elements from a list;
-to do that, you can loop up to the `N`th element and make a new list
+Sometimes, you need to take the first `N` elements from a list.
+To do that, you can either loop up to the `N`th element and make a new list
 or use the built-in function [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html).
 
   ```kotlin
@@ -85,7 +85,7 @@ or use the built-in function [`take`](https://kotlinlang.org/api/latest/jvm/stdl
 <div class="hint" title="Click me to learn how to chain multiple function calls">
 
 In Kotlin, you don't need to create a new variable for each function call
-if you work with collections, e.g., with a list.
+if you're working with collections, such as a list.
 You can call them sequentially, thus creating a chain of calls:
 
   ```kotlin
@@ -104,12 +104,12 @@ It is the **same** as
 
 <div class="hint" title="Click me to learn about the `map` and `forEach` built-in functions">
 
-If you need to handle each element in a collection, for example, in a list or in a map,
-you can use the `forEach` or `map` built-in functions instead of the `for` loop.
+If you need to handle each element in a collection, such as a list or a map,
+you can use the built-in `forEach` or `map` functions instead of the `for` loop.
 In this case, you need to write the action inside curly brackets.
 
 The main difference between `forEach` and `map` is the return value.
-If you use the `map` function, you **will get** a new collection, e.g., a list with transformed values, and you can continue the sequence of the calls.
+If you use the `map` function, you **will get** a new collection, e.g., a list with transformed values, and you can continue the sequence of calls.
 If you use the `forEach` function, you **will not get** a new collection:
 
   ```kotlin
@@ -124,7 +124,7 @@ It is the **same** as:
   numbers.forEach { println(it) }
   ```
 
-However, if you use the `map` function, behaviour will be different:
+However, if you use the `map` function, the behaviour will be different:
   ```kotlin
   val numbers = listOf(1, 2, 3, 4, 5, 6)
   val squared = numbers.map { 
@@ -134,7 +134,7 @@ However, if you use the `map` function, behaviour will be different:
   ```
 
 In the latter case, the initial list `[1, 2, 3, 4]` will be printed, and next, each number in this list will be squared.
-The result of the last action in the curly brackets will be in the final list.
+The result of the last action inside the curly brackets will appear in the final list.
 
 You can also combine `map` with other functions:
   ```kotlin
@@ -145,13 +145,13 @@ You can also combine `map` with other functions:
 
 <div class="hint" title="Click me to learn about the `getOrNull` built-in function">
 
-If you try to get an element from a list by the index and this index does not exist, you will get an error.
+If you try to get an element from a list by an index that does not exist, you will get an error.
 To avoid that, you can use the built-in function [`getOrNull`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html), which returns the value or `null` if the index does not exist:
 
   ```kotlin
   val numbers = listOf(1, 2, 3, 4)
   println(numbers[10]) // Throws the index out of bounds error
 
-  println(numbers.getOrNull(10) ?: error("You use incorrect index 10 for the list")) // Is better because the error message will inform the user about the error in detail
+  println(numbers.getOrNull(10) ?: error("You use incorrect index 10 for the list")) // This is better because the error message will provide the user with detailed information about the error
   ```
 </div>
