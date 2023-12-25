@@ -76,7 +76,7 @@ fun main() {
 }
 ```
 
-<div class="hint" title="Click me to learn about cases with several `this` inside one class">
+<div class="hint" title="Click me to learn about cases with several `this` keywords inside one class">
 
 When you add a new extension function _inside_ a class, you have several _contexts_ for the keyword `this`.
 You can specify which context you need to use in the current case:
