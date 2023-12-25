@@ -66,7 +66,7 @@ val mutableList =  mutableListOf<Int>() // Creates a new empty mutable list
 ```
 </div>
 
-<div class="hint" title="Click me to learn the `reversed` built-in function">
+<div class="hint" title="Click me to learn about the `reversed` built-in function">
 
 If you need to get a list in which the elements are in reverse order,
 you can either loop through the elements of the original list from the end to the beginning and
