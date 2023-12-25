@@ -29,14 +29,14 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Click me to learn about type aliases usage">
+<div class="hint" title="Click me to learn about the usage of type aliases">
 
-Sometimes, type aliases are used in cases where there is no certainty that
-the type used will not be replaced in the future.
+Sometimes, type aliases are used in cases where there uncertainty whether
+the type being used will be replaced in the future.
 
-For example, right now, we use the `Int` type as the `Identifier`,
-but in the future, we can create our own class.
-Using a type alias in this case will help us make this change as painless as possible in the future.
+For example, right now, we're using the `Int` type as the `Identifier`,
+but in the future, we may create our own class.
+Using a type alias in this case will help us make such a transition as seamless as possible.
 </div>
 
 <div class="hint" title="Click me to learn why we use the data class">
@@ -46,7 +46,7 @@ It is convenient to use data classes in all cases
 when we need just to store something and have automatically implemented methods, like the `toString` method.
 </div>
 
-<div class="hint" title="Click me to learn why we use name outside of the constructor">
+<div class="hint" title="Click me to learn why we use `name` outside of the constructor">
 
   In this game, the team is defined only by its `id` (as well as the number of points), 
   and we need a `name` only for a pretty display on the screen. 
@@ -55,17 +55,17 @@ when we need just to store something and have automatically implemented methods,
 
 <div class="hint" title="Click me to learn about access modifiers">
 
-The variable `idCounter` stores some internal information about the last value for an id.
-So, the best way is to mark it as a private property to forbid access outside the class.
+The variable `idCounter` stores internal information about the last value for an id.
+Therefore, the best approach is to mark it as a private property to restrict access from outside the class.
 
 A simple example of why it is bad to use the `public` modifier here is that in such a
 case, the user would be able to change the value of the `idCounter` property on their own
-and we cannot guarantee the uniqueness of team ids.
+and we would not be able to ensure the uniqueness of team ids.
 </div>
 
-<div class="hint" title="Click me to learn about short notation for increment">
+<div class="hint" title="Click me to learn about the short notation used for incrementing">
 
-In Kotlin, you can use `++` to return the old value and then increment it:
+In Kotlin, you can use `++` to increment a value, where it first returns the old value before incrementing:
 
 ```kotlin
 var a = 0
