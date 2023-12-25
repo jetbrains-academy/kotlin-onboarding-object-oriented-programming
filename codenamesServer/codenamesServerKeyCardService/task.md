@@ -15,7 +15,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 ### Hints
 
-<div class="hint" title="Click me to learn about new instance of a class creation">
+<div class="hint" title="Click me to learn about creating a new instance of a class">
 
 You just need to create a new instance of the `KeyCard` class: `KeyCard()`. 
 Since it already has a default value for the `cells` field, 
