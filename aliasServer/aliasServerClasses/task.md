@@ -173,10 +173,10 @@ fun main() {
 If you are designing a large or complex application,
 remember to use various access modifiers, including `private`.
 
-<div class="hint" title="Click me to see examples of usage different access modifiers">
+<div class="hint" title="Click me to see examples of using different access modifiers">
 
-The `private` modifier is commonly used for internal functionality in the class, e.g.,
-if you create a helper function to avoid code duplication in the original one:
+The `private` modifier is commonly used for internal functionality within a class, e.g.,
+if you're creating a helper function to avoid code duplication in the original function:
 
   ```kotlin
   class GameCard(val capacity: Int = 5) {
@@ -189,7 +189,7 @@ if you create a helper function to avoid code duplication in the original one:
   }
   ```
 
-In the example above, we created a private function `isValidWord` to keep only valid words for the card.
-However, it is _internal_ functionality for this class and reflects the internal logic of word generation.
+In the above example, we created a private function `isValidWord` to keep only valid words for the card.
+However, this is an _internal_ function specific to this class, reflecting the internal logic of word generation.
 In such a case, we should mark it as a `private` function.
 </div>
