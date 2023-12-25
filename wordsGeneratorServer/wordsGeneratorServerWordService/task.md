@@ -46,11 +46,11 @@ You can also use the `isEmpty` function with strings, not only with lists:
   ```
 </div>
 
-<div class="hint" title="Click me to learn about the aggregation built-in functions">
+<div class="hint" title="Click me to learn about the built-in aggregation functions">
 
 Kotlin has a lot of built-in functions for aggregation; consider several of those that can help you solve this task.
 You can use [`groupingBy`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html) to group the word by its letters
-and next [`eachCount`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html) to count the occurrences of each letter:
+and then use [`eachCount`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html) to count the occurrences of each letter:
 
   ```kotlin
   fun main() {
@@ -77,7 +77,7 @@ You need to enclose the predicate in curly brackets:
 
 <div class="hint" title="Click me to learn about the putIfAbsent built-in function">
 
-If you work with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is absent in the `map`:
+When working with a `map`, you can use the built-in `putIfAbsent` function to add a new value if it is not present in the `map`:
   ```kotlin
   val myMap = mutableMapOf<Int, String>()
   if (1 !in myMap.keys) {
@@ -93,8 +93,8 @@ It is the **same** as:
 
 <div class="hint" title="Click me to learn about `contains` and `in`">
 
-In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted several functions to make code shorter.
-For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains some element:
+In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted of certain functions to make code shorter.
+For example, instead of using the `contains` function, you can use the `in` operator to check if a collection contains a specific element:
 
   ```kotlin
   val numbers = listOf(1, 2, 3, 4)
