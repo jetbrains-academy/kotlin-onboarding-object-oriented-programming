@@ -14,10 +14,10 @@ It is responsible for the game logic for the teams. In this task, you need to im
 
 If you have any difficulties, **hints will help you solve this task**.
 
-<div class="hint" title="Click me to learn how to change the generateTeamsForOneRound method from the expression form to the regular one">
+<div class="hint" title="Click me to learn how to convert the generateTeamsForOneRound method from expression form to regular form">
 
-The `generateTeamsForOneRound` method can be implemented in one line or in several lines, 
-so feel free to replace 
+The `generateTeamsForOneRound` method can be implemented either in one line or in several lines, 
+so feel free, if necessary, to replace 
 ```kotlin
 fun generateTeamsForOneRound(teamsNumber: Int): List<Team> = TODO("Not implemented yet")
 ``` 
@@ -27,7 +27,7 @@ fun generateTeamsForOneRound(teamsNumber: Int): List<Team> {
   TODO("Not implemented yet") 
 }
 ```
-if it is necessary.
+
 </div>
 
 
@@ -37,7 +37,7 @@ if it is necessary.
 
 <div class="hint" title="Click me to learn about importing Identifier">
 
-To use `Identifier` and `IdentifierFactory`, you need to import it at the top of the file with the `TeamService` class:
+To use `Identifier` and `IdentifierFactory`, you need to import them at the top of the file with the `TeamService` class:
 
   ```kotlin
   package jetbrains.kotlin.course.alias.team
@@ -47,9 +47,9 @@ To use `Identifier` and `IdentifierFactory`, you need to import it at the top of
   ```
 </div>
 
-<div class="hint" title="Click me to learn how to create IdentifierFactory class">
+<div class="hint" title="Click me to learn how to create the IdentifierFactory class">
 
-Since the `IdentifierFactory` class has the default value for the `counter` property,
+Since the `IdentifierFactory` class has a default value for the `counter` property,
 you don't need to set it in the constructor:
 
   ```kotlin
@@ -59,15 +59,15 @@ you don't need to set it in the constructor:
 
 <div class="hint" title="Click me to learn how to generate a list with teams">
 
-As we mentioned in the first module, you can generate a new list with `N` elements by the following construction:
+As we mentioned in the first module, you can generate a new list with `N` elements using the following construct:
   ```kotlin
   List(N) { Team(...) }
   ```
 </div>
 
-<div class="hint" title="Click me to learn about putIfAbsent built-in function">
+<div class="hint" title="Click me to learn about the putIfAbsent built-in function">
 
-If you work with a `map`, you can use the built-in `putIfAbsent` function to insert a new value if it is absent in the `map`:
+When working with a `map`, you can use the built-in `putIfAbsent` function to insert a new value if it is not already present in the `map`:
   ```kotlin
   val myMap = mutableMapOf<Int, String>()
   if (1 !in myMap.keys) {
@@ -81,7 +81,7 @@ It is the same as:
   ```
 </div>
 
-<div class="hint" title="Click me to learn about forEach built-in function">
+<div class="hint" title="Click me to learn about the forEach built-in function">
 
 If you need to handle each element in a collection, for example, in a list or in a map,
 you can use the built-in `forEach` function instead of the `for` loop.
