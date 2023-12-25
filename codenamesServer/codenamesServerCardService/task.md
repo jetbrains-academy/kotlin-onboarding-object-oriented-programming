@@ -46,7 +46,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="Click me to learn about the `require` built-in function">
 
-To check some condition and throw an IllegalArgumentException error, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
+To check a condition and throw an IllegalArgumentException error if necessary, you can use the built-in [`require`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function:
 
 ```kotlin
 fun foo(a: int) {
@@ -63,7 +63,7 @@ fun foo(a: int) {
     require (a >= 5) { "Some error message" }
 }
 ```
-Note, you need to use an _opposite_ condition!
+Note that you need to use an _opposite_ condition!
 </div>
 
 <div class="hint" title="Click me to learn about the `shuffled` built-in function">
@@ -79,7 +79,7 @@ or use the built-in function [`shuffled`](https://kotlinlang.org/api/latest/jvm/
   ```
 </div>
 
-<div class="hint" title="Click me to learn how to take first N elements from a list">
+<div class="hint" title="Click me to learn how to take the first N elements from a list">
 
 To take the first `N` elements from a list, you can use the built-in [`take`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) function:
 ```kotlin
@@ -91,7 +91,7 @@ fun main() {
 </div>
 
 
-<div class="hint" title="Click me to learn how to drop first N elements from a list">
+<div class="hint" title="Click me to learn how to drop the first N elements from a list">
 
 To drop the first `N` elements from a list, you can use the built-in [`drop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html) function:
 ```kotlin
