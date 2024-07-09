@@ -85,7 +85,7 @@ class Test {
 
             history = invokeData.method.invoke(invokeData.instance).toString()
             if ("jetbrains.kotlin.course.card.trainer.stat.Stat" in history) {
-                assert(false) { "The ${statServiceTestClass.name} should be a data class!" }
+                assert(false) { "The ${statTestClass.name} should be a data class!" }
             }
             assert(
                 actualHistory.reversed().toString() == history
