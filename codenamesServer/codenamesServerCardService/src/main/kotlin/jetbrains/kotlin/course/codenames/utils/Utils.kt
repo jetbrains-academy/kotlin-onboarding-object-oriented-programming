@@ -21,7 +21,7 @@ object Utils {
         var inPreviousAttempts: Boolean
         var currentAttempt: List<KeyCardCell>
         do {
-            currentAttempt = KeyCardType.values().map { type ->
+            currentAttempt = KeyCardType.entries.map { type ->
                 List(type.number) { KeyCardCell(type) }
             }.flatten().shuffled()
             inPreviousAttempts = currentAttempt in previousAttempts

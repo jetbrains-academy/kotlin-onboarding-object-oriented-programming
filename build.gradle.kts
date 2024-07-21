@@ -1,5 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.util.*
 
 group = "jetbrains.kotlin.course"
 version = "0.0.1-SNAPSHOT"
@@ -9,7 +9,7 @@ fun properties(key: String) = project.findProperty(key).toString()
 @Suppress("DSL_SCOPE_VIOLATION") // "libs" produces a false-positive warning, see https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     java
-    val kotlinVersion = "1.7.10"
+    val kotlinVersion = "2.0.0"
     id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
     id("org.jetbrains.kotlin.multiplatform") version kotlinVersion apply false
     id("org.springframework.boot") version "2.7.3" apply false
@@ -78,19 +78,20 @@ configure(subprojects.filter { it.name != "common" && frontendSuffix !in it.name
         implementation("org.jetbrains.academy.test.system:kotlin-test-system:1.0.9")
     }
 
-    val jvmVersion = "11"
+    val jvmVersion = JvmTarget.JVM_11
+    val jvmVersionNumber = jvmVersion.toString().takeLastWhile { it.isDigit() }
 
     tasks {
         withType<KotlinCompile> {
-            kotlinOptions {
-                freeCompilerArgs = listOf("-Xjsr305=strict")
-                jvmTarget = jvmVersion
+            compilerOptions {
+                freeCompilerArgs.add("-Xjsr305=strict")
+                jvmTarget.set(jvmVersion)
             }
         }
 
         withType<JavaCompile> {
-            sourceCompatibility = jvmVersion
-            targetCompatibility = jvmVersion
+            sourceCompatibility = jvmVersionNumber
+            targetCompatibility = jvmVersionNumber
         }
 
         withType<Test> {
