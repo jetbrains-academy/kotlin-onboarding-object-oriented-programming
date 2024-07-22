@@ -9,7 +9,7 @@ typealias GameResult = List<Team>
 @Service
 class GameResultsService {
     companion object {
-        val gameHistory = mutableListOf<GameResult>()
+        val gameHistory: MutableList<GameResult> = mutableListOf()
     }
 
     fun saveGameResults(result: GameResult) {
@@ -18,5 +18,6 @@ class GameResultsService {
         gameHistory.add(result)
     }
 
-    fun getAllGameResults() = gameHistory.reversed()
+    // It's necessary to specify return type explicitly, so kotlin-reflect gets it right
+    fun getAllGameResults(): List<GameResult> = gameHistory.reversed()
 }
