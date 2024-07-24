@@ -1,6 +1,5 @@
 package jetbrains.kotlin.course.alias.team
 
-import alias.JsTeam
 import org.springframework.web.bind.annotation.*
 
 typealias Team = String

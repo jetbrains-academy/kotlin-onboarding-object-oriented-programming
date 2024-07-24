@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.words.generator.team
 
-import alias.JsTeam
+import jetbrains.kotlin.course.words.generator.team.JsTeam
 import org.springframework.web.bind.annotation.*
 
 @RestController

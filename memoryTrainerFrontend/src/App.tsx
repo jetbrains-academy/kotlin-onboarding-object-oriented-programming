@@ -3,16 +3,15 @@ import './util/util'
 import {useEffect, useState} from "react";
 import GameScreen, {GameState} from "./components/GameScreen";
 import axios from "axios";
-import {card} from "common-types";
-import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {CardTrainerModel} from 'models/CardTrainer';
 
 export function newCard(
-    cardSetter: (card: JsCardTrainerModel) => void,
+    cardSetter: (card: CardTrainerModel) => void,
     wordSetter: (card: string) => void,
     path: string = "/cards/next"
 ) {
     axios.get(path).then((response) => {
-        let newCard = response.data as JsCardTrainerModel
+        let newCard = response.data as CardTrainerModel
         cardSetter(newCard)
         wordSetter(newCard.back)
     })
@@ -21,7 +20,7 @@ export function newCard(
 export function initGame(
     knownSetter: (known:  string[]) => void,
     unknownSetter: (unknown:  string[]) => void,
-    cardSetter: (card: JsCardTrainerModel) => void,
+    cardSetter: (card: CardTrainerModel) => void,
     wordSetter: (card: string) => void,
 ) {
     knownSetter([])
@@ -31,7 +30,7 @@ export function initGame(
 
 function App() {
     let [gameState, gameStateSetter] = useState(GameState.START)
-    let [currentCard, cardSetter] = useState<JsCardTrainerModel>(new JsCardTrainerModel("", ""))
+    let [currentCard, cardSetter] = useState<CardTrainerModel>(new CardTrainerModel("", ""))
     let [currentWord, wordSetter] = useState<string>(currentCard.back)
 
     let [known, knownSetter] = useState<string[]>([])

@@ -1,8 +1,8 @@
 package jetbrains.kotlin.course.words.generator.results
 
-import alias.JsTeam
 import jetbrains.kotlin.course.words.generator.util.toGameResult
 import org.springframework.web.bind.annotation.*
+import jetbrains.kotlin.course.words.generator.team.JsTeam
 
 // We can not use a typealias here because the Spring framework can not parse it
 class GameJsResult : ArrayList<JsTeam>()
