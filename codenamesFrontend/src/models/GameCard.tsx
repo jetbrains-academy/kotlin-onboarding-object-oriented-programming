@@ -1,5 +1,4 @@
-import {codenames} from "common-types";
-import JsCodeNamesCard = codenames.JsCodeNamesCard;
+import {CodeNamesCard} from "./CodeNamesCard";
 import {KeyCardType} from "./KeyCard";
 
 export enum CardState {
@@ -8,11 +7,11 @@ export enum CardState {
 }
 
 export class GameCardModel {
-    card: JsCodeNamesCard
+    card: CodeNamesCard
     state: CardState
     type: KeyCardType
 
-    constructor(card: JsCodeNamesCard, type: KeyCardType, state: CardState) {
+    constructor(card: CodeNamesCard, type: KeyCardType, state: CardState) {
         this.card = card
         this.state = state
         this.type = type

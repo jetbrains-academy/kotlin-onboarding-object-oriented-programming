@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.alias.results
 
-import alias.JsTeam
+import jetbrains.kotlin.course.alias.team.JsTeam
 import jetbrains.kotlin.course.alias.util.toGameResult
 import org.springframework.web.bind.annotation.*
 

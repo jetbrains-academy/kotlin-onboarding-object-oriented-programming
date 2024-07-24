@@ -1,10 +1,10 @@
 package jetbrains.kotlin.course.alias.util
 
-import alias.JsCard
-import alias.JsTeam
 import jetbrains.kotlin.course.alias.card.Card
+import jetbrains.kotlin.course.alias.card.JsCard
 import jetbrains.kotlin.course.alias.results.GameJsResult
 import jetbrains.kotlin.course.alias.results.GameResult
+import jetbrains.kotlin.course.alias.team.JsTeam
 import jetbrains.kotlin.course.alias.team.Team
 import jetbrains.kotlin.course.alias.team.TeamService
 

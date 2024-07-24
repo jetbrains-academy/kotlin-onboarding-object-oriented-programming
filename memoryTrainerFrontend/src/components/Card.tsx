@@ -1,8 +1,7 @@
-import {card} from "common-types";
-import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {CardTrainerModel} from '../models/CardTrainer';
 
 type CardProps = {
-    currentCard: JsCardTrainerModel,
+    currentCard: CardTrainerModel,
     wordSetter: (card: string) => void,
     currentWord: string,
 }
