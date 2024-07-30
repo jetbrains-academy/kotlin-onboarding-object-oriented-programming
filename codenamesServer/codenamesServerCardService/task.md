@@ -1,7 +1,7 @@
 Wow! You've almost finished the project! This is the last step.
 
 The package `jetbrains.kotlin.course.codenames.card` already has the regular class `CardService`. In this task, you need to implement the `generateWordsCards` function with the following behavior:
-- If `words.size < TOTAL_NUMBER`, you need to throw an error. `words` is an already defined variable with `List<String>`, which contains all possible words for the game. You've already declared `TOTAL_NUMBER` in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
+- If `words.size < TOTAL_NUMBER`, you need to throw an error. `words` is a variable of type `List<String>` and is already defined in the `Words.kt` file of the `jetbrains.kotlin.course.codenames.utils` package. It contains all possible words for the game. You've already declared `TOTAL_NUMBER` in the `Utils` object in the `jetbrains.kotlin.course.codenames.utils` package.
 - Next, you need to _shuffle_ `words` and create `TOTAL_NUMBER` cards by _taking_ them from the shuffled word list and creating new instances of the `Card` class (use `CardState.Front` as a state).
 - Don't forget to _drop_ all words from the `words` list that were used for the generated cards.
 

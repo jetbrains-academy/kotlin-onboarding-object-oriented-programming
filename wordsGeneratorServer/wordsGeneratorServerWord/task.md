@@ -1,10 +1,10 @@
-The **goal** of this step is to implement the `Word` and `WordServices` classes.
+The **goal** of this step is to implement the `Word` and `WordService` classes.
 
 First of all, create a value class `Word` with one `String` property `word` to store a word in the `jetbrains.kotlin.course.words.generator.word` package in the `WordModel.kt` file.
 
-Next, find the already added `WordServices` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
-- Add a companion object to the `WordServices` class and declare the `numberOfWords` variable to store the number
-  of words in the game. Initialize this variable as the _size_ of the predefined list of words `words`.
+Next, find the already added `WordService` class in the `jetbrains.kotlin.course.words.generator.word` package and modify it:
+- Add a companion object to the `WordService` class and declare the `numberOfWords` variable to store the number
+  of words in the game. Initialize this variable as the _size_ of the predefined list of words `words` (which is defined in the `Words.kt` file of the `jetbrains.kotlin.course.words.generator.util` package).
 - Implement the `generateNextWord` function: if the `words` list _is empty_, throw an error;
   else, get the first element from the `words` list and remove it from the list, then create a new `Word` and return it.
 
