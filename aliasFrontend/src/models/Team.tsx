@@ -1,5 +1,8 @@
-import {alias} from "common-types";
-import Team = alias.JsTeam;
+export class Team {
+    id: number
+    points: number = 0
+    name: string
+}
 
 export class GameTeams {
     teams: Array<Team>

@@ -1,6 +1,6 @@
 package jetbrains.kotlin.course.codenames.card
 
-import codenames.JsCodeNamesCard
+import jetbrains.kotlin.course.codenames.utils.JsCodeNamesCard
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

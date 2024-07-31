@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {alias} from "common-types";
-import Card = alias.JsCard;
+import {Card} from '../../models/Card';
 import {GameState} from "../GameScreen";
 import {GameTeams} from "../../models/Team";
 import AliasCard from "../AliasCard";

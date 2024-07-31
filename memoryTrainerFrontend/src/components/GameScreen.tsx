@@ -2,8 +2,7 @@ import StartScreen from "./screens/StartScreen";
 import GameRoundScreen from "./screens/GameRoundScreen";
 import React from "react";
 import GameStatisticsScreen from "./screens/GameStatisticsScreen";
-import {card} from "common-types";
-import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {CardTrainerModel} from '../models/CardTrainer';
 
 export enum GameState {
     START,
@@ -14,8 +13,8 @@ export enum GameState {
 export type GameScreenProps = {
     state: GameState,
     gameStateSetter: (gs: GameState) => void,
-    cardSetter: (card: JsCardTrainerModel) => void,
-    currentCard: JsCardTrainerModel,
+    cardSetter: (card: CardTrainerModel) => void,
+    currentCard: CardTrainerModel,
     wordSetter: (card: string) => void,
     currentWord: string,
     known: string[],

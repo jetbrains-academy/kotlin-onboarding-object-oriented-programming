@@ -1,6 +1,7 @@
 name: Gradle Build With Detekt
 
-on: [push, pull_request]
+# Detekt doesn't work with Kotlin 2.0 for now, so it's disabled by default
+on: [workflow_dispatch]
 
 jobs:
   build:

@@ -1,6 +1,5 @@
 package jetbrains.kotlin.course.alias.card
 
-import alias.JsCard
 import jetbrains.kotlin.course.alias.util.toJsCard
 import org.springframework.web.bind.annotation.*
 

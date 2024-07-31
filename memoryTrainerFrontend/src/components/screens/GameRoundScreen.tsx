@@ -1,14 +1,13 @@
 import {GameState} from "../GameScreen";
-import {card} from "common-types";
-import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {CardTrainerModel} from '../../models/CardTrainer';
 import {initGame, newCard} from "../../App";
 import Card from "../Card";
 import axios from "axios";
 
 type GameRoundScreenProps = {
     gameStateSetter: (gs: GameState) => void,
-    cardSetter: (card: JsCardTrainerModel) => void,
-    currentCard: JsCardTrainerModel,
+    cardSetter: (card: CardTrainerModel) => void,
+    currentCard: CardTrainerModel,
     wordSetter: (card: string) => void,
     currentWord: string,
     known: string[],

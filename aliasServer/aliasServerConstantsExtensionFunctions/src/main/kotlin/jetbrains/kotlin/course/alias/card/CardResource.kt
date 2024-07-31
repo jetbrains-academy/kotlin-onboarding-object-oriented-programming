@@ -1,6 +1,5 @@
 package jetbrains.kotlin.course.alias.card
 
-import alias.JsCard
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -14,3 +13,4 @@ class CardResource(val service: CardService) {
     @GetMapping("/amount")
     fun getCardsAmount(): Int = TODO("Not implemented yet")
 }
+

@@ -1,6 +1,5 @@
 package jetbrains.kotlin.course.codenames.utils
 
-import codenames.JsCodeNamesCard
 import jetbrains.kotlin.course.codenames.card.Card
 import jetbrains.kotlin.course.codenames.card.WordCardData
 import jetbrains.kotlin.course.codenames.keyCard.KeyCard
