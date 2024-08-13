@@ -1,7 +1,6 @@
 import {GameState} from "../GameScreen";
 import {useEffect, useState} from "react";
-import {alias} from "common-types";
-import Team = alias.JsTeam;
+import {Team} from '../../models/Team'
 import Leaderboard from "../Leaderboard";
 import axios from "axios";
 

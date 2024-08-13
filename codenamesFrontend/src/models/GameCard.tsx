@@ -1,5 +1,6 @@
 import {CodeNamesCard} from "./CodeNamesCard";
 import {KeyCardType} from "./KeyCard";
+export {CodeNamesCard} from "./CodeNamesCard";
 
 export enum CardState {
     WORD,

@@ -1,5 +1,4 @@
-import {alias} from "common-types";
-import Team = alias.JsTeam;
+import {Team} from '../models/Team'
 
 type LeaderboardProps = {
     teams: Array<Team>

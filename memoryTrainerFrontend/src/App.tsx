@@ -3,7 +3,7 @@ import './util/util'
 import {useEffect, useState} from "react";
 import GameScreen, {GameState} from "./components/GameScreen";
 import axios from "axios";
-import {CardTrainerModel} from 'models/CardTrainer';
+import {CardTrainerModel} from './models/CardTrainer';
 
 export function newCard(
     cardSetter: (card: CardTrainerModel) => void,

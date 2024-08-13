@@ -2,6 +2,12 @@ export class Team {
     id: number
     points: number = 0
     name: string
+
+    constructor(id: number, points: number, name: string) {
+        this.id = id
+        this.points = points
+        this.name = name
+    }
 }
 
 export class GameTeams {
