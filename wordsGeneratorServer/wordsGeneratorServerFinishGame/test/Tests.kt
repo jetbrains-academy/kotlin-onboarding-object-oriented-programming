@@ -1,13 +1,16 @@
 import commonTests.team.*
 import jetbrains.kotlin.course.words.generator.util.words
+import org.jetbrains.academy.test.system.findMethod
 import org.jetbrains.academy.test.system.models.classes.ConstructorGetter
 import org.jetbrains.academy.test.system.models.classes.findClass
 import org.jetbrains.academy.test.system.models.method.TestMethodInvokeData
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.lang.reflect.Field
+import kotlin.reflect.jvm.kotlinFunction
 
 class Test {
     companion object {
@@ -33,6 +36,14 @@ class Test {
                 ConstructorGetter(),
             )
         )
+
+        val methodKFunction = clazz.methods.findMethod(getAllGameResultsMethod).kotlinFunction
+        val methodReturnType = (methodKFunction ?: error("Method getAllGameResults doesn't exist")).returnType
+        Assertions.assertTrue(methodReturnType.arguments.size == 1,
+            "Return type of method getAllGameResults should have 1 type argument")
+        Assertions.assertTrue((methodReturnType.arguments.first().type?.toString() ?: "").contains("GameResult"),
+            "Return type of method getAllGameResults should be specified explicitly as List<GameResult>")
+
         gameResultsServiceTestClass.checkDeclaredMethods(clazz)
     }
 

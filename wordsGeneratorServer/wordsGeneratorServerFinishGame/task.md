@@ -11,13 +11,13 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 - Implement the `saveGameResults` method, which adds `result` to `gameHistory`.
   Before adding `result`, you need to check for two requirements and throw an error if they are broken: 1) `result` must
   not be empty; 2) all team ids in `result` must be present in `TeamService.teamsStorage`.
-- Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list.
+- Implement the `getAllGameResults` method, which returns the reversed `gameHistory` list. Its return type should be specified explicitly.
 
 
 <div class="hint" title="Click me if you pressed Check and found a compilation error">
 
   If you have a compilation error and you have not solved this step yet, please solve the task and try again. 
-  It is expected behavior, since the code requires the type alia `GameResult`, but it does not exist.
+  It is expected behavior, since the code requires the type alias `GameResult`, but it does not exist.
 </div>
 
 
