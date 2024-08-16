@@ -1,5 +1,4 @@
-import {alias} from "common-types";
-import Card = alias.JsCard;
+import {Card} from '../models/Card';
 
 type AliasCardProps = {
     card: Card | null

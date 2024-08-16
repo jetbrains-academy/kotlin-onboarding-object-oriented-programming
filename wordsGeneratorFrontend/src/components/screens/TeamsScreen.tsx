@@ -1,8 +1,7 @@
 import {GameState} from "../GameScreen";
 import {useState} from "react";
 import axios from "axios";
-import {alias} from "common-types";
-import Team = alias.JsTeam;
+import {Team} from '../../models/Team'
 import {GameTeams} from "../../models/Team";
 
 type TeamsScreenProps = {

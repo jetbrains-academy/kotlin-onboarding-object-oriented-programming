@@ -1,14 +1,13 @@
 import logo from "../../assets/logo.svg";
 import {GameState} from "../GameScreen";
 import {initGame} from "../../App";
-import {card} from "common-types";
-import JsCardTrainerModel = card.trainer.JsCardTrainerModel;
+import {CardTrainerModel} from '../../models/CardTrainer';
 
 type StartScreenProps = {
     gameStateSetter: (gs: GameState) => void,
     knownSetter: (known: string[]) => void,
     unknownSetter: (known: string[]) => void,
-    cardSetter: (card: JsCardTrainerModel) => void,
+    cardSetter: (card: CardTrainerModel) => void,
     wordSetter: (card: string) => void,
     currentWord: string,
 }

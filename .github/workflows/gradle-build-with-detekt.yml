@@ -1,6 +1,6 @@
 name: Gradle Build With Detekt
 
-on: [push, pull_request]
+on: [workflow_dispatch]
 
 jobs:
   build:

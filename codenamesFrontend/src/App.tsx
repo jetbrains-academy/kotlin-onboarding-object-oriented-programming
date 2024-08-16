@@ -3,14 +3,12 @@ import './util/util'
 import {useEffect, useState} from "react";
 import GameScreen, {GameState} from "./components/GameScreen";
 import {KeyCardModel} from "./models/KeyCard";
-import {codenames} from "common-types";
-import {CardState, GameCardModel} from "./models/GameCard";
-import JsCodeNamesCard = codenames.JsCodeNamesCard;
+import {CardState, GameCardModel, CodeNamesCard} from "./models/GameCard";
 import axios from "axios";
 
 const N = 5
 
-export function convertCards(cards: Array<JsCodeNamesCard>, keyCard: KeyCardModel | null) {
+export function convertCards(cards: Array<CodeNamesCard>, keyCard: KeyCardModel | null) {
     return cards.map((card, index) => {
         return new GameCardModel(card, keyCard?.cards[index]!!, CardState.WORD)
         }
@@ -19,7 +17,7 @@ export function convertCards(cards: Array<JsCodeNamesCard>, keyCard: KeyCardMode
 
 export async function generateCards() {
     return axios.get("/cards/generate").then((response) => {
-        return response.data as Array<JsCodeNamesCard>
+        return response.data as Array<CodeNamesCard>
     })
 }
 

@@ -58,7 +58,7 @@ enum class KeyCardType(val number: Int) {
 fun main() {
     val enumValuesBase = listOf(KeyCardType.Pink, KeyCardType.Violet, ...)
     // is the same with
-    val enumValuesSmart = KeyCardType.values()
+    val enumValuesSmart = KeyCardType.entries
 }
 ```
 </div>
@@ -73,7 +73,7 @@ It is equivalent to using a loop and creating a new list from the original one. 
 
 ```kotlin
 fun main() {
-    val initialList = KeyCardType.values()
+    val initialList = KeyCardType.entries
     val modifiedList = mutableListOf<List<KeyCardType>>()
 
     for (key in initialList) {
@@ -88,7 +88,7 @@ It is the same as:
 
 ```kotlin
 fun main() {
-    val initialList = KeyCardType.values()
+    val initialList = KeyCardType.entries
     val modifiedList = initialList.map { key -> List(key.number) { key } }
     
     println(modifiedList) // [[Pink, Pink, Pink, Pink, Pink, Pink, Pink, Pink], [Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet], [Gray, Gray, Gray, Gray, Gray, Gray, Gray], [Black]]
@@ -98,7 +98,7 @@ fun main() {
 You can also omit `key` and use the default name `it`:
 ```kotlin
 fun main() {
-    val initialList = KeyCardType.values()
+    val initialList = KeyCardType.entries
     val modifiedList = initialList.map { List(it.number) { it } }
     
     println(modifiedList) // [[Pink, Pink, Pink, Pink, Pink, Pink, Pink, Pink], [Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet, Violet], [Gray, Gray, Gray, Gray, Gray, Gray, Gray], [Black]]

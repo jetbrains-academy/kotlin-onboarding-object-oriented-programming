@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.9629e922.css",
-    "main.js": "/static/js/main.6f70c592.js",
-    "static/js/787.281e1195.chunk.js": "/static/js/787.281e1195.chunk.js",
+    "main.css": "/static/css/main.242c9780.css",
+    "main.js": "/static/js/main.d5fc3866.js",
+    "static/js/453.6846c50c.chunk.js": "/static/js/453.6846c50c.chunk.js",
     "static/media/Kotlin_Alias_cover.svg": "/static/media/Kotlin_Alias_cover.4088f27960b405fba209d6531940b03e.svg",
     "static/media/finish_game_button.svg": "/static/media/finish_game_button.5802af17c68793ad5611.svg",
     "static/media/play_button.svg": "/static/media/play_button.aad770749eabbe8ac9b1.svg",
@@ -15,12 +15,12 @@
     "index.html": "/index.html",
     "static/media/Kotlin_Alias_bg.svg": "/static/media/Kotlin_Alias_bg.36ac84bcfc4b1fa64b64.svg",
     "static/media/Kotlin_Alias_bg_white.svg": "/static/media/Kotlin_Alias_bg_white.00acddcc6609eb49c481.svg",
-    "main.9629e922.css.map": "/static/css/main.9629e922.css.map",
-    "main.6f70c592.js.map": "/static/js/main.6f70c592.js.map",
-    "787.281e1195.chunk.js.map": "/static/js/787.281e1195.chunk.js.map"
+    "main.242c9780.css.map": "/static/css/main.242c9780.css.map",
+    "main.d5fc3866.js.map": "/static/js/main.d5fc3866.js.map",
+    "453.6846c50c.chunk.js.map": "/static/js/453.6846c50c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9629e922.css",
-    "static/js/main.6f70c592.js"
+    "static/css/main.242c9780.css",
+    "static/js/main.d5fc3866.js"
   ]
 }
