@@ -1,97 +1,109 @@
 type: edu
 custom_name: Codenames Project - Key Card Service
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/CodenamesApplication.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Converters.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/IdentifierFactory.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Utils.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Words.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardResource.kt
-  visible: false
-- name: test/Tests.kt
-  visible: false
-- name: test/UtilObjectTestClass.kt
-  visible: false
-- name: test/KeyCardTypeTestClass.kt
-  visible: false
-- name: test/KeyCardGeneratorTestClass.kt
-  visible: false
-- name: test/KeyCardTestClass.kt
-  visible: false
-- name: src/main/resources/static/static/js/main.f19b7724.js
-  visible: false
-- name: src/main/resources/static/static/js/main.f19b7724.js.map
-  visible: false
-- name: src/main/resources/static/static/js/787.d00c2049.chunk.js
-  visible: false
-- name: src/main/resources/static/static/js/787.d00c2049.chunk.js.map
-  visible: false
-- name: src/main/resources/static/static/js/main.f19b7724.js.LICENSE.txt
-  visible: false
-- name: src/main/resources/static/static/css/main.ee32ae68.css
-  visible: false
-- name: src/main/resources/static/static/css/main.ee32ae68.css.map
-  visible: false
-- name: src/main/resources/static/static/media/back.578d2b1544fe8bc2e2ec.svg
-  visible: false
-- name: src/main/resources/static/static/media/gray.0d4a93b3549eb4ae6142.svg
-  visible: false
-- name: src/main/resources/static/static/media/gray.2675b4f65419f2a431b3.svg
-  visible: false
-- name: src/main/resources/static/static/media/pink.05dc35eb996dbda8d2ff.svg
-  visible: false
-- name: src/main/resources/static/static/media/pink.c58892da1c6c992e6e9b.svg
-  visible: false
-- name: src/main/resources/static/static/media/black.1faa748132e623a12b29.svg
-  visible: false
-- name: src/main/resources/static/static/media/black.5f22b9a6a1643a9d6af3.svg
-  visible: false
-- name: src/main/resources/static/static/media/empty.ca29d3bfa2580d1d0b93.svg
-  visible: false
-- name: src/main/resources/static/static/media/stats.262ba79228b0886181b8.svg
-  visible: false
-- name: src/main/resources/static/static/media/violet.4e8438e3fe844a6bd629.svg
-  visible: false
-- name: src/main/resources/static/static/media/violet.e33e7e5369b3e21a5c97.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_bg.36ac84bcfc4b1fa64b64.svg
-  visible: false
-- name: src/main/resources/static/static/media/show_card.e3e581464342c4202316.svg
-  visible: false
-- name: src/main/resources/static/static/media/finish_game.bc0f2425d3a829a0d6ae.svg
-  visible: false
-- name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_bg_white.00acddcc6609eb49c481.svg
-  visible: false
-- name: src/main/resources/static/static/media/logo.1199d0fc0d35e55150bbe7886129c334.svg
-  visible: false
-- name: src/main/resources/static/index.html
-  visible: false
-- name: src/main/resources/static/robots.txt
-  visible: false
-- name: src/main/resources/static/favicon.ico
-  visible: false
-- name: src/main/resources/static/manifest.json
-  visible: false
-- name: src/main/resources/static/asset-manifest.json
-  visible: false
-- name: test/KeyCardServiceTestClass.kt
-  visible: false
-- name: src/main/resources/application.properties
-  visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/CodenamesApplication.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Converters.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/IdentifierFactory.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Utils.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/Words.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/keyCard/KeyCardResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardResource.kt
+    visible: false
+  - name: test/Tests.kt
+    visible: false
+  - name: test/UtilObjectTestClass.kt
+    visible: false
+  - name: test/KeyCardTypeTestClass.kt
+    visible: false
+  - name: test/KeyCardGeneratorTestClass.kt
+    visible: false
+  - name: test/KeyCardTestClass.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.f19b7724.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.f19b7724.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.f19b7724.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.ee32ae68.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.ee32ae68.css.map
+    visible: false
+  - name: src/main/resources/static/static/media/back.578d2b1544fe8bc2e2ec.svg
+    visible: false
+  - name: src/main/resources/static/static/media/gray.0d4a93b3549eb4ae6142.svg
+    visible: false
+  - name: src/main/resources/static/static/media/gray.2675b4f65419f2a431b3.svg
+    visible: false
+  - name: src/main/resources/static/static/media/pink.05dc35eb996dbda8d2ff.svg
+    visible: false
+  - name: src/main/resources/static/static/media/pink.c58892da1c6c992e6e9b.svg
+    visible: false
+  - name: src/main/resources/static/static/media/black.1faa748132e623a12b29.svg
+    visible: false
+  - name: src/main/resources/static/static/media/black.5f22b9a6a1643a9d6af3.svg
+    visible: false
+  - name: src/main/resources/static/static/media/empty.ca29d3bfa2580d1d0b93.svg
+    visible: false
+  - name: src/main/resources/static/static/media/stats.262ba79228b0886181b8.svg
+    visible: false
+  - name: src/main/resources/static/static/media/violet.4e8438e3fe844a6bd629.svg
+    visible: false
+  - name: src/main/resources/static/static/media/violet.e33e7e5369b3e21a5c97.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_bg.36ac84bcfc4b1fa64b64.svg
+    visible: false
+  - name: src/main/resources/static/static/media/show_card.e3e581464342c4202316.svg
+    visible: false
+  - name: src/main/resources/static/static/media/finish_game.bc0f2425d3a829a0d6ae.svg
+    visible: false
+  - name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_bg_white.00acddcc6609eb49c481.svg
+    visible: false
+  - name: src/main/resources/static/static/media/logo.1199d0fc0d35e55150bbe7886129c334.svg
+    visible: false
+  - name: src/main/resources/static/index.html
+    visible: false
+  - name: src/main/resources/static/robots.txt
+    visible: false
+  - name: src/main/resources/static/favicon.ico
+    visible: false
+  - name: src/main/resources/static/manifest.json
+    visible: false
+  - name: src/main/resources/static/asset-manifest.json
+    visible: false
+  - name: test/KeyCardServiceTestClass.kt
+    visible: false
+  - name: src/main/resources/application.properties
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/codenames/utils/JsCodeNamesCard.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.b7a97c34.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.b7a97c34.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/453.8dd82a97.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/453.8dd82a97.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.b7a97c34.js.LICENSE.txt
+    visible: false

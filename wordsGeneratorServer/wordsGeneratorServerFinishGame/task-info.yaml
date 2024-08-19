@@ -1,83 +1,99 @@
 type: edu
 custom_name: Word Generator Project - Finish the Game
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Converters.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Words.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsResource.kt
-  visible: false
-- name: test/Tests.kt
-  visible: false
-- name: test/TeamTestClass.kt
-  visible: false
-- name: test/TeamServiceTestClass.kt
-  visible: false
-- name: test/WordServiceTestClass.kt
-  visible: false
-- name: src/main/resources/static/static/js/main.4e86eb2f.js
-  visible: false
-- name: src/main/resources/static/static/js/main.4e86eb2f.js.map
-  visible: false
-- name: src/main/resources/static/static/js/787.96c202b3.chunk.js
-  visible: false
-- name: src/main/resources/static/static/js/787.96c202b3.chunk.js.map
-  visible: false
-- name: src/main/resources/static/static/js/main.4e86eb2f.js.LICENSE.txt
-  visible: false
-- name: src/main/resources/static/static/css/main.e831fed1.css
-  visible: false
-- name: src/main/resources/static/static/css/main.e831fed1.css.map
-  visible: false
-- name: src/main/resources/static/static/media/bg.36ac84bcfc4b1fa64b64.svg
-  visible: false
-- name: src/main/resources/static/static/media/arrow.03ce2a8b89368995030f.svg
-  visible: false
-- name: src/main/resources/static/static/media/bg_white.00acddcc6609eb49c481.svg
-  visible: false
-- name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
-  visible: false
-- name: src/main/resources/static/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg
-  visible: false
-- name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
-  visible: false
-- name: src/main/resources/static/static/media/stats_button.02922c6aba32559dee33.svg
-  visible: false
-- name: src/main/resources/static/static/media/logo.0692f83b779df962bc620de99e407f23.svg
-  visible: false
-- name: src/main/resources/static/static/media/new_round_button.2ec595b063128ba70a1f.svg
-  visible: false
-- name: src/main/resources/static/static/media/next_team_button.44e46e26f6c9a1811241.svg
-  visible: false
-- name: src/main/resources/static/static/media/finish_game_button.35abf842e12f7d7a4c8e.svg
-  visible: false
-- name: src/main/resources/static/index.html
-  visible: false
-- name: src/main/resources/static/robots.txt
-  visible: false
-- name: src/main/resources/static/favicon.ico
-  visible: false
-- name: src/main/resources/static/manifest.json
-  visible: false
-- name: src/main/resources/static/asset-manifest.json
-  visible: false
-- name: test/GameResultsServiceTestClass.kt
-  visible: false
-- name: src/main/resources/application.properties
-  visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Converters.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/util/Words.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/TeamResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/word/WordResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsResource.kt
+    visible: false
+  - name: test/Tests.kt
+    visible: false
+  - name: test/TeamTestClass.kt
+    visible: false
+  - name: test/TeamServiceTestClass.kt
+    visible: false
+  - name: test/WordServiceTestClass.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.4e86eb2f.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.4e86eb2f.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/787.96c202b3.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/787.96c202b3.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.4e86eb2f.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.e831fed1.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.e831fed1.css.map
+    visible: false
+  - name: src/main/resources/static/static/media/bg.36ac84bcfc4b1fa64b64.svg
+    visible: false
+  - name: src/main/resources/static/static/media/arrow.03ce2a8b89368995030f.svg
+    visible: false
+  - name: src/main/resources/static/static/media/bg_white.00acddcc6609eb49c481.svg
+    visible: false
+  - name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
+    visible: false
+  - name: src/main/resources/static/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg
+    visible: false
+  - name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
+    visible: false
+  - name: src/main/resources/static/static/media/stats_button.02922c6aba32559dee33.svg
+    visible: false
+  - name: src/main/resources/static/static/media/logo.0692f83b779df962bc620de99e407f23.svg
+    visible: false
+  - name: src/main/resources/static/static/media/new_round_button.2ec595b063128ba70a1f.svg
+    visible: false
+  - name: src/main/resources/static/static/media/next_team_button.44e46e26f6c9a1811241.svg
+    visible: false
+  - name: src/main/resources/static/static/media/finish_game_button.35abf842e12f7d7a4c8e.svg
+    visible: false
+  - name: src/main/resources/static/index.html
+    visible: false
+  - name: src/main/resources/static/robots.txt
+    visible: false
+  - name: src/main/resources/static/favicon.ico
+    visible: false
+  - name: src/main/resources/static/manifest.json
+    visible: false
+  - name: src/main/resources/static/asset-manifest.json
+    visible: false
+  - name: test/GameResultsServiceTestClass.kt
+    visible: false
+  - name: src/main/resources/application.properties
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/team/JsTeam.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.f9153c57.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.f9153c57.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/453.ac2285d6.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/453.ac2285d6.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.f9153c57.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.5c3559b1.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.5c3559b1.css.map
+    visible: false
