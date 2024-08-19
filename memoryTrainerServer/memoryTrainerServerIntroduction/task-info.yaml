@@ -1,71 +1,83 @@
 type: theory
 custom_name: Memory Trainer Project - Introduction
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/MemoryTrainerApplication.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Converters.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
-  visible: false
-- name: src/main/resources/application.properties
-  visible: false
-- name: src/main/resources/static/static/js/main.97a7b88b.js
-  visible: false
-- name: src/main/resources/static/static/js/main.97a7b88b.js.map
-  visible: false
-- name: src/main/resources/static/static/js/787.de30ccfb.chunk.js
-  visible: false
-- name: src/main/resources/static/static/js/787.de30ccfb.chunk.js.map
-  visible: false
-- name: src/main/resources/static/static/js/main.97a7b88b.js.LICENSE.txt
-  visible: false
-- name: src/main/resources/static/static/css/main.b4de2bbf.css
-  visible: false
-- name: src/main/resources/static/static/css/main.b4de2bbf.css.map
-  visible: false
-- name: src/main/resources/static/static/media/back.578d2b1544fe8bc2e2ec.svg
-  visible: false
-- name: src/main/resources/static/static/media/know.0fb122e6ade5c1b93f61.svg
-  visible: false
-- name: src/main/resources/static/static/media/stats.127dcf3dc65bb4121d5a.svg
-  visible: false
-- name: src/main/resources/static/static/media/big_card.b9fbc88cc98ea6fd7147.svg
-  visible: false
-- name: src/main/resources/static/static/media/dontknow.67ebf471040d40c46b2a.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_bg.36ac84bcfc4b1fa64b64.svg
-  visible: false
-- name: src/main/resources/static/static/media/small-card.5b4cefb99fcb6a8cdacc.svg
-  visible: false
-- name: src/main/resources/static/static/media/finish_game.2e4ab89d10148dcafb77.svg
-  visible: false
-- name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
-  visible: false
-- name: src/main/resources/static/static/media/big_card_front.faa5775005a2e1fe4f63.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_bg_white.00acddcc6609eb49c481.svg
-  visible: false
-- name: src/main/resources/static/static/media/logo.167e6cdb952b1683e98c7820458359a8.svg
-  visible: false
-- name: src/main/resources/static/index.html
-  visible: false
-- name: src/main/resources/static/robots.txt
-  visible: false
-- name: src/main/resources/static/favicon.ico
-  visible: false
-- name: src/main/resources/static/manifest.json
-  visible: false
-- name: src/main/resources/static/asset-manifest.json
-  visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/MemoryTrainerApplication.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/card/CardResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/stat/StatService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Converters.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/Countries.kt
+    visible: false
+  - name: src/main/resources/application.properties
+    visible: false
+  - name: src/main/resources/static/static/js/main.97a7b88b.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.97a7b88b.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.97a7b88b.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.b4de2bbf.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.b4de2bbf.css.map
+    visible: false
+  - name: src/main/resources/static/static/media/back.578d2b1544fe8bc2e2ec.svg
+    visible: false
+  - name: src/main/resources/static/static/media/know.0fb122e6ade5c1b93f61.svg
+    visible: false
+  - name: src/main/resources/static/static/media/stats.127dcf3dc65bb4121d5a.svg
+    visible: false
+  - name: src/main/resources/static/static/media/big_card.b9fbc88cc98ea6fd7147.svg
+    visible: false
+  - name: src/main/resources/static/static/media/dontknow.67ebf471040d40c46b2a.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_bg.36ac84bcfc4b1fa64b64.svg
+    visible: false
+  - name: src/main/resources/static/static/media/small-card.5b4cefb99fcb6a8cdacc.svg
+    visible: false
+  - name: src/main/resources/static/static/media/finish_game.2e4ab89d10148dcafb77.svg
+    visible: false
+  - name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
+    visible: false
+  - name: src/main/resources/static/static/media/big_card_front.faa5775005a2e1fe4f63.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_bg_white.00acddcc6609eb49c481.svg
+    visible: false
+  - name: src/main/resources/static/static/media/logo.167e6cdb952b1683e98c7820458359a8.svg
+    visible: false
+  - name: src/main/resources/static/index.html
+    visible: false
+  - name: src/main/resources/static/robots.txt
+    visible: false
+  - name: src/main/resources/static/favicon.ico
+    visible: false
+  - name: src/main/resources/static/manifest.json
+    visible: false
+  - name: src/main/resources/static/asset-manifest.json
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/card/trainer/util/JsCardTrainerModel.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.097beed2.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.097beed2.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/453.b32f7bf0.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/453.b32f7bf0.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.097beed2.js.LICENSE.txt
+    visible: false

@@ -1,81 +1,99 @@
 type: edu
 custom_name: Alias Project - Teams
 files:
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamModel.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamService.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamResource.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Utils.kt
-  visible: true
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Words.kt
-  visible: false
-- name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
-  visible: false
-- name: test/Tests.kt
-  visible: false
-- name: test/IdentifierFactoryTestClass.kt
-  visible: false
-- name: test/TeamTestClass.kt
-  visible: false
-- name: src/main/resources/static/static/js/main.6f70c592.js
-  visible: false
-- name: src/main/resources/static/static/js/main.6f70c592.js.map
-  visible: false
-- name: src/main/resources/static/static/js/787.281e1195.chunk.js
-  visible: false
-- name: src/main/resources/static/static/js/787.281e1195.chunk.js.map
-  visible: false
-- name: src/main/resources/static/static/js/main.6f70c592.js.LICENSE.txt
-  visible: false
-- name: src/main/resources/static/static/css/main.9629e922.css
-  visible: false
-- name: src/main/resources/static/static/css/main.9629e922.css.map
-  visible: false
-- name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
-  visible: false
-- name: src/main/resources/static/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg
-  visible: false
-- name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
-  visible: false
-- name: src/main/resources/static/static/media/skip_button.3b78db6c5c11557f0ee9.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_Alias_bg.36ac84bcfc4b1fa64b64.svg
-  visible: false
-- name: src/main/resources/static/static/media/new_card_button.a012fc749601cbfe3962.svg
-  visible: false
-- name: src/main/resources/static/static/media/new_round_button.dddfee315cc11fb67e94.svg
-  visible: false
-- name: src/main/resources/static/static/media/finish_game_button.5802af17c68793ad5611.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_Alias_cards.d9e02eb58caef72a698d.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_Alias_bg_white.00acddcc6609eb49c481.svg
-  visible: false
-- name: src/main/resources/static/static/media/Kotlin_Alias_cover.4088f27960b405fba209d6531940b03e.svg
-  visible: false
-- name: src/main/resources/static/index.html
-  visible: false
-- name: src/main/resources/static/robots.txt
-  visible: false
-- name: src/main/resources/static/favicon.ico
-  visible: false
-- name: src/main/resources/static/manifest.json
-  visible: false
-- name: src/main/resources/static/asset-manifest.json
-  visible: false
-- name: src/main/resources/application.properties
-  visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/CardService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/results/GameResultsService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamModel.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamService.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/TeamResource.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Utils.kt
+    visible: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Words.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
+    visible: false
+  - name: test/Tests.kt
+    visible: false
+  - name: test/IdentifierFactoryTestClass.kt
+    visible: false
+  - name: test/TeamTestClass.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.6f70c592.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.6f70c592.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/787.281e1195.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/787.281e1195.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.6f70c592.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.9629e922.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.9629e922.css.map
+    visible: false
+  - name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
+    visible: false
+  - name: src/main/resources/static/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg
+    visible: false
+  - name: src/main/resources/static/static/media/play_button.aad770749eabbe8ac9b1.svg
+    visible: false
+  - name: src/main/resources/static/static/media/skip_button.3b78db6c5c11557f0ee9.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_Alias_bg.36ac84bcfc4b1fa64b64.svg
+    visible: false
+  - name: src/main/resources/static/static/media/new_card_button.a012fc749601cbfe3962.svg
+    visible: false
+  - name: src/main/resources/static/static/media/new_round_button.dddfee315cc11fb67e94.svg
+    visible: false
+  - name: src/main/resources/static/static/media/finish_game_button.5802af17c68793ad5611.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_Alias_cards.d9e02eb58caef72a698d.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_Alias_bg_white.00acddcc6609eb49c481.svg
+    visible: false
+  - name: src/main/resources/static/static/media/Kotlin_Alias_cover.4088f27960b405fba209d6531940b03e.svg
+    visible: false
+  - name: src/main/resources/static/index.html
+    visible: false
+  - name: src/main/resources/static/robots.txt
+    visible: false
+  - name: src/main/resources/static/favicon.ico
+    visible: false
+  - name: src/main/resources/static/manifest.json
+    visible: false
+  - name: src/main/resources/static/asset-manifest.json
+    visible: false
+  - name: src/main/resources/application.properties
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/card/JsCard.kt
+    visible: false
+  - name: src/main/kotlin/jetbrains/kotlin/course/alias/team/JsTeam.kt
+    visible: false
+  - name: src/main/resources/static/static/js/main.d5fc3866.js
+    visible: false
+  - name: src/main/resources/static/static/js/main.d5fc3866.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/453.6846c50c.chunk.js
+    visible: false
+  - name: src/main/resources/static/static/js/453.6846c50c.chunk.js.map
+    visible: false
+  - name: src/main/resources/static/static/js/main.d5fc3866.js.LICENSE.txt
+    visible: false
+  - name: src/main/resources/static/static/css/main.242c9780.css
+    visible: false
+  - name: src/main/resources/static/static/css/main.242c9780.css.map
+    visible: false
