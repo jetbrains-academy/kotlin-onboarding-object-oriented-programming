@@ -3,7 +3,7 @@
 [![Gradle Build With Detekt](https://github.com/jetbrains-academy/kotlin-onboarding-part2/actions/workflows/gradle-build-with-detekt.yml/badge.svg)](https://github.com/jetbrains-academy/kotlin-onboarding-part2/actions/workflows/gradle-build-with-detekt.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Kotlin Onboarding: Object-oriented programming
+# Kotlin Onboarding: Object-Oriented Programming
 
 This course is designed for novices in Kotlin and focuses on the object-oriented (OOP) concepts of the Kotlin language. 
 This is the second module of the course, the first module can be found on JetBrains [Marketplace](https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding--introduction).
