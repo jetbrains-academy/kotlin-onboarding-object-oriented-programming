@@ -1,25 +1,24 @@
 type: marketplace
 title: "Kotlin Onboarding: Object-Oriented Programming"
 language: English
+summary: " <p>This course is designed for novices in Kotlin and focuses on the object-oriented\
+  \ (OOP) concepts of the Kotlin language. This is the second module of the course,\
+  \ the first module can be found on JetBrains <a href=\"https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding--introduction\"\
+  >Marketplace</a>. This module assumes that you are familiar with all the constructs\
+  \ discussed in the first part.</p>\n<p>Each lesson of the course is built in the\
+  \ form of a web project: step by step, by completing different small tasks, you\
+  \ will get a functional project in the end. At the end of each lesson, an additional\
+  \ similar project will be offered: it includes all the topics of the lesson but\
+  \ does not contain the theory part.</p>\n<p><i>Note, this course does not provide\
+  \ a detailed explanation of the OOP concepts, it just shows how to use them in Kotlin\
+  \ and can briefly remind you the definitions.</i></p>\n<p>All topics will be accompanied\
+  \ by links to <a href=\"https://kotlinlang.org/docs/home.html\">the official Kotlin\
+  \ documentation</a>, which you can read later. After this course, you will be ready\
+  \ to write basic Kotlin applications.</p> "
 vendor:
   name: JetBrains
   email: support@jetbrains.com
   url: https://www.jetbrains.com/
-summary: "
-<p>This course is designed for novices in Kotlin and focuses on the object-oriented (OOP) concepts of the Kotlin language.
-This is the second module of the course, the first module can be found on JetBrains <a href=\"https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding--introduction\">Marketplace</a>.
-This module assumes that you are familiar with all the constructs discussed in the first part.</p>
-
-<p>Each lesson of the course is built in the form of a web project: step by step, by completing different small tasks,
-you will get a functional project in the end. At the end of each lesson, an additional similar project
-will be offered: it includes all the topics of the lesson but does not contain the theory part.</p>
-
-<p><i>Note, this course does not provide a detailed explanation of the OOP concepts, 
-it just shows how to use them in Kotlin and can briefly remind you the definitions.</i></p>
-
-<p>All topics will be accompanied by links to <a href=\"https://kotlinlang.org/docs/home.html\">the official Kotlin documentation</a>, 
-which you can read later. After this course, you will be ready to write basic Kotlin applications.</p>
-"
 programming_language: Kotlin
 content:
   - introduction
@@ -30,3 +29,78 @@ content:
   - FeedbackSurvey
 tags:
   - Backend
+environment_settings:
+  jvm_language_level: JDK_18
+additional_files:
+  - name: utils/src/main/kotlin/commonTests/team/Util.kt
+  - name: utils/src/main/kotlin/commonTests/results/Util.kt
+  - name: utils/src/main/resources/images/run/alias_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/codenames_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/alias_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/codenames_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/memory_trainer_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/words_generator_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/memory_trainer_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/words_generator_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/alias.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/codenames.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/memory_trainer.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/words_generator.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/alias_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/codenames_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/alias_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/codenames_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/memory_trainer_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/words_generator_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/memory_trainer_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/words_generator_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/alias/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/alias/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/keycard.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/keycardSmall.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/memoryTrainer/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/memoryTrainer/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/wordGenerator/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/wordGenerator/state2.gif
+    is_binary: true
+  - name: utils/build.gradle.kts
+  - name: LICENSE
+  - name: codenamesServer/build.gradle.kts
+  - name: contributing.md
+  - name: build.gradle.kts
+  - name: gradle.properties
+  - name: settings.gradle.kts
+  - name: wordsGeneratorServer/build.gradle.kts
+  - name: courseIcon.svg
+yaml_version: 2

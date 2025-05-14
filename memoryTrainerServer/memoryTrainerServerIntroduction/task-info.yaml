@@ -21,16 +21,6 @@ files:
     visible: false
   - name: src/main/resources/application.properties
     visible: false
-  - name: src/main/resources/static/static/js/main.97a7b88b.js
-    visible: false
-  - name: src/main/resources/static/static/js/main.97a7b88b.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js
-    visible: false
-  - name: src/main/resources/static/static/js/787.de30ccfb.chunk.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/main.97a7b88b.js.LICENSE.txt
-    visible: false
   - name: src/main/resources/static/static/css/main.b4de2bbf.css
     visible: false
   - name: src/main/resources/static/static/css/main.b4de2bbf.css.map
@@ -65,6 +55,7 @@ files:
     visible: false
   - name: src/main/resources/static/favicon.ico
     visible: false
+    is_binary: true
   - name: src/main/resources/static/manifest.json
     visible: false
   - name: src/main/resources/static/asset-manifest.json

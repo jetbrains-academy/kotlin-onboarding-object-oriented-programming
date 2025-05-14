@@ -25,20 +25,6 @@ files:
     visible: false
   - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
     visible: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js
-    visible: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/787.281e1195.chunk.js
-    visible: false
-  - name: src/main/resources/static/static/js/787.281e1195.chunk.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js.LICENSE.txt
-    visible: false
-  - name: src/main/resources/static/static/css/main.9629e922.css
-    visible: false
-  - name: src/main/resources/static/static/css/main.9629e922.css.map
-    visible: false
   - name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
     visible: false
   - name: src/main/resources/static/static/media/next_button.4aa1de9e8ebd7a1be0ac.svg
@@ -67,6 +53,7 @@ files:
     visible: false
   - name: src/main/resources/static/favicon.ico
     visible: false
+    is_binary: true
   - name: src/main/resources/static/manifest.json
     visible: false
   - name: src/main/resources/static/asset-manifest.json
