@@ -23,16 +23,6 @@ files:
     visible: true
   - name: src/main/kotlin/jetbrains/kotlin/course/codenames/card/CardResource.kt
     visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js
-    visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js
-    visible: false
-  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js.LICENSE.txt
-    visible: false
   - name: src/main/resources/static/static/css/main.ee32ae68.css
     visible: false
   - name: src/main/resources/static/static/css/main.ee32ae68.css.map
@@ -77,6 +67,7 @@ files:
     visible: false
   - name: src/main/resources/static/favicon.ico
     visible: false
+    is_binary: true
   - name: src/main/resources/static/manifest.json
     visible: false
   - name: src/main/resources/static/asset-manifest.json

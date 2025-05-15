@@ -1,19 +1,19 @@
 type: framework
 custom_name: Codenames
 content:
-- codenamesServerIntroduction
-- codenamesServerHowToRun
-- codenamesServerObject
-- codenamesServerInit
-- codenamesServerUtils
-- codenamesServerEnum
-- codenamesServerKeyCardType
-- codenamesServerSam
-- codenamesServerKeyCardGenerator
-- codenamesServerUtilsPartTwo
-- codenamesServerKeyCardService
-- codenamesServerInterfaces
-- codenamesServerCardData
-- codenamesServerCard
-- codenamesServerCardService
+  - codenamesServerIntroduction
+  - codenamesServerHowToRun
+  - codenamesServerObject
+  - codenamesServerInit
+  - codenamesServerUtils
+  - codenamesServerEnum
+  - codenamesServerKeyCardType
+  - codenamesServerSam
+  - codenamesServerKeyCardGenerator
+  - codenamesServerUtilsPartTwo
+  - codenamesServerKeyCardService
+  - codenamesServerInterfaces
+  - codenamesServerCardData
+  - codenamesServerCard
+  - codenamesServerCardService
 is_template_based: false

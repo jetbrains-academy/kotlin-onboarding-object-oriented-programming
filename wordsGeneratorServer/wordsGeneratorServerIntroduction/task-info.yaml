@@ -23,20 +23,6 @@ files:
     visible: true
   - name: src/main/kotlin/jetbrains/kotlin/course/words/generator/results/GameResultsResource.kt
     visible: false
-  - name: src/main/resources/static/static/js/main.4e86eb2f.js
-    visible: false
-  - name: src/main/resources/static/static/js/main.4e86eb2f.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/787.96c202b3.chunk.js
-    visible: false
-  - name: src/main/resources/static/static/js/787.96c202b3.chunk.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/main.4e86eb2f.js.LICENSE.txt
-    visible: false
-  - name: src/main/resources/static/static/css/main.e831fed1.css
-    visible: false
-  - name: src/main/resources/static/static/css/main.e831fed1.css.map
-    visible: false
   - name: src/main/resources/static/static/media/bg.36ac84bcfc4b1fa64b64.svg
     visible: false
   - name: src/main/resources/static/static/media/arrow.03ce2a8b89368995030f.svg
@@ -65,6 +51,7 @@ files:
     visible: false
   - name: src/main/resources/static/favicon.ico
     visible: false
+    is_binary: true
   - name: src/main/resources/static/manifest.json
     visible: false
   - name: src/main/resources/static/asset-manifest.json

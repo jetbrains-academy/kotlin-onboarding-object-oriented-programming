@@ -85,6 +85,7 @@ files:
     visible: false
   - name: src/main/resources/static/favicon.ico
     visible: false
+    is_binary: true
   - name: src/main/resources/static/manifest.json
     visible: false
   - name: src/main/resources/static/asset-manifest.json
