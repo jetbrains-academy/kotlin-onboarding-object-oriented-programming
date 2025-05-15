@@ -103,4 +103,6 @@ additional_files:
   - name: settings.gradle.kts
   - name: wordsGeneratorServer/build.gradle.kts
   - name: courseIcon.svg
+  - name: .idea/inspectionProfiles/Custom_Inspections.xml
+  - name: .idea/inspectionProfiles/profiles_settings.xml
 yaml_version: 2
