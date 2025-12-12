@@ -83,7 +83,7 @@ It is the **same** as
 
 <div class="hint" title="Click me to learn about `contains` and `in`">
 
-In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) insted of several functions to make code shorter.
+In Kotlin, you can use [operators](https://kotlinlang.org/docs/java-interop.html#operators) instead of several functions to make code shorter.
 For example, instead of the `contains` function, you can use the `in` operator to check if the collection contains a certain element:
 
   ```kotlin
