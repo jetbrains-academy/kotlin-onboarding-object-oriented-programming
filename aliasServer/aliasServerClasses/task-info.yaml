@@ -29,28 +29,6 @@ files:
     propagatable: false
   - name: src/main/kotlin/jetbrains/kotlin/course/alias/util/Converters.kt
     visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js.map
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/js/787.281e1195.chunk.js
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/js/787.281e1195.chunk.js.map
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/js/main.6f70c592.js.LICENSE.txt
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/css/main.9629e922.css
-    visible: false
-    propagatable: false
-  - name: src/main/resources/static/static/css/main.9629e922.css.map
-    visible: false
-    propagatable: false
   - name: src/main/resources/static/static/media/back_button.578d2b1544fe8bc2e2ec.svg
     visible: false
     propagatable: false
