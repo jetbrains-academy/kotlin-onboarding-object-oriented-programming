@@ -1,4 +1,5 @@
 type: framework
+custom_name: Introduction
 content:
   - welcome
 is_template_based: false
