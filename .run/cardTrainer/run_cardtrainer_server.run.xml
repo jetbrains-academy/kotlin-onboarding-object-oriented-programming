@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="run_cardtrainer_server" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <module name="CSC_Kotlin_Course_Part2.cardTrainerServer-cardTrainerServerFinishGame.main" />
+    <module name="Kotlin_Onboarding_OOP.cardTrainerServer-cardTrainerServerFinishGame.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="jetbrains.kotlin.course.card.trainer.CardTrainerApplication" />
     <extension name="net.ashald.envfile">
       <option name="IS_ENABLED" value="false" />
