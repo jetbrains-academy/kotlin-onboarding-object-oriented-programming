@@ -29,16 +29,6 @@ files:
     visible: false
   - name: test/KeyCardTypeTestClass.kt
     visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js
-    visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js
-    visible: false
-  - name: src/main/resources/static/static/js/787.d00c2049.chunk.js.map
-    visible: false
-  - name: src/main/resources/static/static/js/main.f19b7724.js.LICENSE.txt
-    visible: false
   - name: src/main/resources/static/static/css/main.ee32ae68.css
     visible: false
   - name: src/main/resources/static/static/css/main.ee32ae68.css.map
