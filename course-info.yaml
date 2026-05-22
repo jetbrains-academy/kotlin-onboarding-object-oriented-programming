@@ -1,9 +1,9 @@
 type: marketplace
 title: "Kotlin Onboarding 2: Object-Oriented Programming"
 language: English
-summary: " <p>Build more than just code—build structure. This hands-on Kotlin module \
-  \ introduces object-oriented programming through guided, creative projects like a \
-  \ Memory Trainer. Ideal for learners with basic Kotlin.</p> "
+summary: " <p>Build more than just code—build structure. This hands-on Kotlin module\
+  \  introduces object-oriented programming through guided, creative projects like\
+  \ a  Memory Trainer. Ideal for learners with basic Kotlin.</p> "
 vendor:
   name: JetBrains s.r.o.
   email: support@jetbrains.com
@@ -22,4 +22,9 @@ environment_settings:
   jvm_language_level: JDK_17
 additional_files:
   - name: gradle/wrapper/gradle-wrapper.properties
+  - name: build.gradle.kts
+  - name: contributing.md
+  - name: LICENSE
+  - name: settings.gradle.kts
+  - name: gradle.properties
 yaml_version: 5
