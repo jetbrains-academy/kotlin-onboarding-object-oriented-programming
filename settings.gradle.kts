@@ -29,6 +29,5 @@ fun sanitizeName(name: String) =
 fun isTaskDir(dir: File) = File(dir, "src").exists()
 
 include(
-    "common",
     "utils",
 )

@@ -79,7 +79,7 @@ internal val cardServiceTestClass = TestClass(
         TestVariable(
             name = "cardsAmount",
             javaType = "Int",
-            visibility = Visibility.PRIVATE,
+            visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
             isStatic = true,
         ),

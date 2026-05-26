@@ -10,8 +10,7 @@ internal val kotlinTypeWord = TestKotlinType("String", params = listOf("jetbrain
 internal val numberOfWordsTestVariable = TestVariable(
     name = "numberOfWords",
     javaType = "Int",
-    // Because it is inside companion object
-    visibility = Visibility.PRIVATE,
+    visibility = Visibility.PUBLIC,
     mutability = VariableMutability.VAL,
     isStatic = true,
 )

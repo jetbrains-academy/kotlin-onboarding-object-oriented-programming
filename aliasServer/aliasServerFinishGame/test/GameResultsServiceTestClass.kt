@@ -37,8 +37,7 @@ internal val gameHistoryVariable = TestVariable(
         "List",
         params = listOf("jetbrains.kotlin.course.alias.results.GameResult")
     ),
-    // Because it is inside companion object
-    visibility = Visibility.PRIVATE,
+    visibility = Visibility.PUBLIC,
     mutability = VariableMutability.VAL,
     isStatic = true,
 )
