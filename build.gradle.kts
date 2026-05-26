@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.siouan.frontendgradleplugin.infrastructure.gradle.FrontendExtension
 
 group = "jetbrains.kotlin.course"
 version = "0.0.1-SNAPSHOT"
@@ -16,7 +17,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7" apply false
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion apply false
 
-    id("org.siouan.frontend-jdk17") version "10.0.0"
+    id("org.siouan.frontend-jdk17") version "10.0.0" apply false
 }
 
 fun printOutput(output: Any): Task {
@@ -162,10 +163,9 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
         plugin("org.siouan.frontend-jdk17")
     }
 
-    frontend {
+    extensions.configure<FrontendExtension>("frontend") {
         nodeDistributionProvided.set(false)
         nodeVersion.set("22.0.0")
-
         installScript.set("install")
     }
 
