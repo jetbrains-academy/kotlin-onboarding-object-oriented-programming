@@ -1,6 +1,6 @@
 name: Gradle Build
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -14,8 +14,8 @@ jobs:
           java-version: 11
           distribution: liberica
       - name: Gradle Wrapper Validation
-        uses: gradle/wrapper-validation-action@v1.0.4
-      - uses: gradle/gradle-build-action@v2.1.5
+        uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/gradle-build-action@v2.4.2
         with:
           arguments: build --stacktrace
           
