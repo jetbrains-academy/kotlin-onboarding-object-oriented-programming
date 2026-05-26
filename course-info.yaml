@@ -19,11 +19,11 @@ tags:
 environment_settings:
   jvm_language_level: JDK_17
 additional_files:
-  - name: gradle/wrapper/gradle-wrapper.properties
-  - name: build.gradle.kts
-  - name: contributing.md
   - name: LICENSE
-  - name: settings.gradle.kts
+  - name: gradle/wrapper/gradle-wrapper.properties
+  - name: codenamesServer/build.gradle.kts
+  - name: contributing.md
+  - name: build.gradle.kts
   - name: gradle.properties
   - name: utils/build.gradle.kts
   - name: utils/src/main/resources/images/run/alias_run.png
@@ -88,4 +88,9 @@ additional_files:
     is_binary: true
   - name: utils/src/main/kotlin/commonTests/team/Util.kt
   - name: utils/src/main/kotlin/commonTests/results/Util.kt
+  - name: settings.gradle.kts
+  - name: wordsGeneratorServer/build.gradle.kts
+  - name: courseIcon.svg
+  - name: .idea/inspectionProfiles/Custom_Inspections.xml
+  - name: .idea/inspectionProfiles/profiles_settings.xml
 yaml_version: 5
