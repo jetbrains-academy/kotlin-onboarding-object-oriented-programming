@@ -86,4 +86,6 @@ additional_files:
     is_binary: true
   - name: utils/src/main/resources/images/states/wordGenerator/state2.gif
     is_binary: true
+  - name: utils/src/main/kotlin/commonTests/team/Util.kt
+  - name: utils/src/main/kotlin/commonTests/results/Util.kt
 yaml_version: 5
