@@ -43,7 +43,7 @@ class GameCard
 
 #### Properties
 
-Next, you can set up all _properties_ in the [_primary constructor_](https://kotlinlang.org/docs/classes.html#constructors),
+Next, you can set up all _properties_ in the [_primary constructor_](https://kotlinlang.org/docs/classes.html#primary-constructor),
 which should store each _instance_ in this class:
 
 ```kotlin

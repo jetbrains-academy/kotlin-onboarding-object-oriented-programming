@@ -21,10 +21,15 @@ tags:
 environment_settings:
   jvm_language_level: JDK_17
 additional_files:
-  - name: gradle/wrapper/gradle-wrapper.properties
-  - name: build.gradle.kts
-  - name: contributing.md
   - name: LICENSE
-  - name: settings.gradle.kts
+  - name: gradle/wrapper/gradle-wrapper.properties
+  - name: codenamesServer/build.gradle.kts
+  - name: contributing.md
+  - name: build.gradle.kts
   - name: gradle.properties
+  - name: settings.gradle.kts
+  - name: wordsGeneratorServer/build.gradle.kts
+  - name: courseIcon.svg
+  - name: .idea/inspectionProfiles/Custom_Inspections.xml
+  - name: .idea/inspectionProfiles/profiles_settings.xml
 yaml_version: 5
