@@ -164,7 +164,7 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
     }
 
     extensions.configure<FrontendExtension>("frontend") {
-        nodeDistributionProvided.set(false)
+        nodeDistributionProvided.set(true)
         nodeVersion.set("22.0.0")
         installScript.set("install")
     }
