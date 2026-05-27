@@ -17,10 +17,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'yarn'
-          cache-dependency-path: '**/package.json'
       - name: Enable Corepack
         run: corepack enable
+      - name: Set Yarn Version
+        run: corepack prepare yarn@3.8.7 --activate
       - name: Gradle Wrapper Validation
         uses: gradle/actions/wrapper-validation@v3
       - uses: gradle/gradle-build-action@v2.4.2
