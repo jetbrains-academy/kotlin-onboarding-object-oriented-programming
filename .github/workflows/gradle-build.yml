@@ -21,6 +21,8 @@ jobs:
         run: corepack enable
       - name: Set Yarn Version
         run: corepack prepare yarn@3.8.7 --activate
+      - name: Add Yarn to PATH
+        run: sudo ln -sf $(which yarn) /usr/local/bin/yarn
       - name: Gradle Wrapper Validation
         uses: gradle/actions/wrapper-validation@v3
       - uses: gradle/gradle-build-action@v2.4.2
