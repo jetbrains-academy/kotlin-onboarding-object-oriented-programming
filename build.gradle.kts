@@ -57,7 +57,6 @@ configure(subprojects.filter { frontendSuffix !in it.name }) {
     java {
         toolchain {
             languageVersion.set(JavaLanguageVersion.of(21))
-            vendor.set(JvmVendorSpec.ADOPTIUM)
         }
     }
 
