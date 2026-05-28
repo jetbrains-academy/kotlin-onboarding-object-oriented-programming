@@ -6,8 +6,6 @@ summary: " <p>Build more than just code – build structure. This hands-on Kotli
   \ a  Memory Trainer. Ideal for learners with basic Kotlin.</p> "
 vendor:
   name: JetBrains s.r.o.
-  email: support@jetbrains.com
-  url: https://www.jetbrains.com/
 programming_language: Kotlin
 content:
   - introduction
@@ -27,6 +25,69 @@ additional_files:
   - name: contributing.md
   - name: build.gradle.kts
   - name: gradle.properties
+  - name: utils/build.gradle.kts
+  - name: utils/src/main/resources/images/run/alias_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/codenames_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/alias_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/codenames_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/memory_trainer_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/words_generator_run.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/memory_trainer_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/run/words_generator_run_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/alias.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/codenames.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/memory_trainer.png
+    is_binary: true
+  - name: utils/src/main/resources/images/main/words_generator.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/alias_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/codenames_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/alias_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/codenames_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/memory_trainer_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/words_generator_stop.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/memory_trainer_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/stop/words_generator_stop_dark.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/alias/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/alias/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/keycard.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/codenames/keycardSmall.png
+    is_binary: true
+  - name: utils/src/main/resources/images/states/memoryTrainer/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/memoryTrainer/state2.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/wordGenerator/state1.gif
+    is_binary: true
+  - name: utils/src/main/resources/images/states/wordGenerator/state2.gif
+    is_binary: true
+  - name: utils/src/main/kotlin/commonTests/team/Util.kt
+  - name: utils/src/main/kotlin/commonTests/results/Util.kt
   - name: settings.gradle.kts
   - name: wordsGeneratorServer/build.gradle.kts
   - name: courseIcon.svg

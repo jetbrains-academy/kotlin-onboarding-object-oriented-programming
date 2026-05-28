@@ -1,5 +1,6 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.siouan.frontendgradleplugin.infrastructure.gradle.FrontendExtension
 
 group = "jetbrains.kotlin.course"
 version = "0.0.1-SNAPSHOT"
@@ -9,14 +10,14 @@ fun properties(key: String) = project.findProperty(key).toString()
 @Suppress("DSL_SCOPE_VIOLATION") // "libs" produces a false-positive warning, see https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     java
-    val kotlinVersion = "2.0.0"
+    val kotlinVersion = "2.3.20"
     id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
     id("org.jetbrains.kotlin.multiplatform") version kotlinVersion apply false
-    id("org.springframework.boot") version "2.7.3" apply false
-    id("io.spring.dependency-management") version "1.0.13.RELEASE" apply false
+    id("org.springframework.boot") version "3.5.0" apply false
+    id("io.spring.dependency-management") version "1.1.7" apply false
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion apply false
 
-    id("org.siouan.frontend-jdk11") version "6.0.0"
+    id("org.siouan.frontend-jdk17") version "10.0.0" apply false
 }
 
 fun printOutput(output: Any): Task {
@@ -50,26 +51,29 @@ val server = "Server"
 configure(subprojects.filter { frontendSuffix !in it.name }) {
     apply {
         plugin("java")
-        plugin("kotlin")
+        plugin("org.jetbrains.kotlin.jvm")
+    }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(21))
+        }
+    }
+
+    extensions.configure<KotlinJvmProjectExtension> {
+        jvmToolchain(21)
     }
 
     dependencies {
         implementation("org.jetbrains.academy.test.system:kotlin-test-system:1.0.9")
     }
 
-    val jvmVersion = JvmTarget.JVM_11
 
     tasks {
         withType<KotlinCompile> {
             compilerOptions {
                 freeCompilerArgs.add("-Xjsr305=strict")
-                jvmTarget.set(jvmVersion)
             }
-        }
-
-        withType<JavaCompile> {
-            sourceCompatibility = jvmVersion.target
-            targetCompatibility = jvmVersion.target
         }
 
         withType<Test> {
@@ -108,11 +112,10 @@ configure(subprojects.filter { server in it.name || "utils" in it.name }) {
     }
 
     dependencies {
-        val junitJupiterVersion = "5.9.0"
-        implementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
-        testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-        testRuntimeOnly("org.junit.platform:junit-platform-console:1.9.0")
+        implementation(platform("org.junit:junit-bom:5.12.2"))
+        implementation("org.junit.jupiter:junit-jupiter")
+        implementation("org.junit.jupiter:junit-jupiter-params")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
 }
 
@@ -132,8 +135,8 @@ configure(subprojects.filter { server in it.name }) {
         implementation(project(":utils"))
 
         implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     }
 
     // Uncomment to update clients in server resources
@@ -157,16 +160,12 @@ configure(subprojects.filter { frontendSuffix in it.name }) {
     val gameName = projectName.getGameName(frontendSuffix)
 
     apply {
-        plugin("org.siouan.frontend-jdk11")
+        plugin("org.siouan.frontend-jdk17")
     }
 
-    frontend {
+    extensions.configure<FrontendExtension>("frontend") {
         nodeDistributionProvided.set(false)
-        nodeVersion.set("16.17.1")
-
-        yarnEnabled.set(true)
-        yarnVersion.set("3.0.0")
-
+        nodeVersion.set("22.0.0")
         installScript.set("install")
     }
 

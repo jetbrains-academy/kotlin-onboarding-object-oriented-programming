@@ -9,6 +9,10 @@ pluginManagement {
     }
 }
 
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
+
 rootProject.projectDir.walkTopDown().forEach {
     if (!isTaskDir(it) || it.path.contains(".idea") || it.path.contains("build") || it.path.contains("node_modules")) {
         return@forEach
@@ -29,6 +33,5 @@ fun sanitizeName(name: String) =
 fun isTaskDir(dir: File) = File(dir, "src").exists()
 
 include(
-    "common",
     "utils",
 )

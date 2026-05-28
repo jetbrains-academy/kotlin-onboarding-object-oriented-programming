@@ -36,8 +36,7 @@ internal val teamServiceTestClass = TestClass(
         TestVariable(
             name = "teamsStorage",
             javaType = "Map",
-            // Because it is inside companion object
-            visibility = Visibility.PRIVATE,
+            visibility = Visibility.PUBLIC,
             mutability = VariableMutability.VAL,
             isStatic = true,
         ),
