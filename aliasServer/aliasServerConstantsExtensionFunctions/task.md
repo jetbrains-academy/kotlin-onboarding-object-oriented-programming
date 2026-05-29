@@ -53,10 +53,18 @@ It's important to note that this functionality only works for functions that _do
 If you define a new function that is already defined in the class, then the original implementation will be called:
 
 ```kotlin
-fun String.isEmpty() = true
+class Example {
+    fun printFunctionType() {
+        println("Class method")
+    }
+}
+
+fun Example.printFunctionType() {
+    println("Extension function")
+}
 
 fun main() {
-    println("photothermoelasticity".isEmpty()) // false because the original isEmpty function was called
+    Example().printFunctionType() // Class method
 }
 ```
 
