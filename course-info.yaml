@@ -13,7 +13,6 @@ content:
   - wordsGeneratorServer
   - codenamesServer
   - memoryTrainerServer
-  - FeedbackSurvey
 tags:
   - Backend
 environment_settings:
@@ -90,7 +89,6 @@ additional_files:
   - name: utils/src/main/kotlin/commonTests/results/Util.kt
   - name: settings.gradle.kts
   - name: wordsGeneratorServer/build.gradle.kts
-  - name: courseIcon.svg
   - name: .idea/inspectionProfiles/Custom_Inspections.xml
   - name: .idea/inspectionProfiles/profiles_settings.xml
 yaml_version: 5
