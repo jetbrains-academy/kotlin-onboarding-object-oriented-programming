@@ -1,6 +1,6 @@
 # Feedback Survey
 
-Thank you for taking our Kotlin Onboarding: Introduction course!
+Thank you for taking our Kotlin Onboarding 2: Object-Oriented Programming!
 We would really appreciate it if you could take a few minutes to answer our survey.
 Your feedback will help us improve this and further parts of the course and make them more relevant for future students.
 The [survey](https://surveys.jetbrains.com/s3/kotlin-onboarding-feedback-survey?part=2) is anonymous and should take no more than 5 minutes to complete.
