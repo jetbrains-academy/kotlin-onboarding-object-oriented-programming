@@ -3,7 +3,7 @@ However, if some functionality is not yet ready,
 then some buttons may not work, and some information may not be displayed.
 
 To run the application, you need to run the `main` function inside
-the [WordsGeneratorApplication.kt](./src/main/kotlin/jetbrains/kotlin/course/words/generator/WordsGeneratorApplication.kt) file:
+the [WordsGeneratorApplication.kt](course://wordsGeneratorServer/wordsGeneratorServerHowToRun) file:
 
 ![How to run the game](../../utils/src/main/resources/images/run/words_generator_run.png)
 
