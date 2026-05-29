@@ -1,0 +1,7 @@
+type: theory
+files:
+  - name: edu_plugin_overview.png
+    visible: false
+    is_binary: true
+  - name: src/main/kotlin/jetbrains/kotlin/course/welcome/Main.kt
+    visible: true
