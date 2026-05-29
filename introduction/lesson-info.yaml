@@ -2,4 +2,8 @@ type: framework
 custom_name: Introduction
 content:
   - welcome
+  - Navigating Around
+  - Course View
+  - Editor
+  - Task Description
 is_template_based: false
