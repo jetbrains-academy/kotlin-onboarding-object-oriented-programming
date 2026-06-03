@@ -3,7 +3,7 @@ However, if some functionality has not been implemented yet,
 some buttons may not work and some information may not be displayed.
 
 To run the application, you need to run the `main` function inside 
-the [MemoryTrainerApplication.kt](./src/main/kotlin/jetbrains/kotlin/course/card/trainer/MemoryTrainerApplication.kt) file:
+the [MemoryTrainerApplication.kt](course://memoryTrainerServer/memoryTrainerServerHowToRun) file:
 
 ![How to run the application](../../utils/src/main/resources/images/run/memory_trainer_run.png)
 

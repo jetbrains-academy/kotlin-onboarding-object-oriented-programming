@@ -1,6 +1,6 @@
 #### General definition
 
-You are already familiar with [`companion objects`]((https://kotlinlang.org/docs/object-declarations.html#companion-objects)).
+You are already familiar with [`companion objects`](https://kotlinlang.org/docs/object-declarations.html#companion-objects).
 
 Kotlin also has [`objects`](https://kotlinlang.org/docs/object-declarations.html#object-declarations-overview).
 To better understand what they are, you need to be familiar with the [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern.

@@ -3,7 +3,7 @@ However, if some functionality is not yet ready,
 then some buttons may not work, and some information may not be displayed.
 
 To run the application, you need to run the `main` function inside
-the [AliasApplication.kt](./src/main/kotlin/jetbrains/kotlin/course/alias/AliasApplication.kt) file:
+the [AliasApplication.kt](course://aliasServer/aliasServerHowToRun) file:
 
 ![How to run the game](../../utils/src/main/resources/images/run/alias_run.png)
 
