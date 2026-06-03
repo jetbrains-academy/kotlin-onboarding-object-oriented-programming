@@ -6,7 +6,7 @@
 <a href="https://plugins.jetbrains.com/plugin/21913/versions" target="_blank">
 <img src="https://img.shields.io/badge/dynamic/yaml?query=%24.course_version&url=https://raw.githubusercontent.com/jetbrains-academy/kotlin-onboarding-object-oriented-programming/refs/heads/main/course-remote-info.yaml&logo=jetbrains&logoColor=FC801D&label=Marketplace&color=6b59fe&style=flat&prefix=v" alt="Marketplace"></a>
 
-# Kotlin Onboarding: Object-Oriented Programming
+# Kotlin Onboarding 2: Object-Oriented Programming
 
 This course is designed for novices in Kotlin and focuses on the object-oriented (OOP) concepts of the Kotlin language. 
 This is the second module of the course, the first module can be found on JetBrains [Marketplace](https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding--introduction).
