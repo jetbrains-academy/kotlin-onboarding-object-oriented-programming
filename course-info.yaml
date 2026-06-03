@@ -6,6 +6,8 @@ summary: " <p>Build more than just code – build structure. This hands-on Kotli
   \ a  Memory Trainer. Ideal for learners with basic Kotlin.</p> "
 vendor:
   name: JetBrains s.r.o.
+  email: support@jetbrains.com
+  url: https://www.jetbrains.com/
 programming_language: Kotlin
 content:
   - introduction
@@ -17,7 +19,7 @@ content:
 tags:
   - Backend
 environment_settings:
-  jvm_language_level: JDK_17
+  jvm_language_level: JDK_18
 additional_files:
   - name: LICENSE
   - name: gradle/wrapper/gradle-wrapper.properties
