@@ -6,7 +6,7 @@ Find the already added `WordService` class in the `jetbrains.kotlin.course.words
 
   - If `newWord` (the word inputted by the user) _is empty_, return `false`.
   - If `newWord` contains symbols not present in `keyWord`, return `false`.
-  - Note, the number of times some symbol occurs in `newWord` cannot be grater
+  - Note, the number of times some symbol occurs in `newWord` cannot be greater
     than the number of times this symbol occurs in `keyWord`.
   ```kotlin
   val a = service.isValidWord("photothermoelasticity", "") // false
@@ -26,7 +26,7 @@ Find the already added `WordService` class in the `jetbrains.kotlin.course.words
 
 After solving this step, the game will be almost done:
 
-![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state1.gif)
+<img src="../../utils/src/main/resources/images/states/wordGenerator/state1.gif" alt="The current state of the game" width="800">
 
 If you have any difficulties, **hints will help you solve this task**.
 

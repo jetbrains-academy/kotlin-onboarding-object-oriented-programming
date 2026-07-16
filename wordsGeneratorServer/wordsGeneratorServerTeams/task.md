@@ -31,7 +31,7 @@ If you have any difficulties, **hints will help you solve this task**.
 
 <div class="hint" title="Click me to learn about the usage of type aliases">
 
-Sometimes, type aliases are used in cases where there uncertainty whether
+Sometimes, type aliases are used in cases where there is uncertainty whether
 the type being used will be replaced in the future.
 
 For example, right now, we're using the `Int` type as the `Identifier`,

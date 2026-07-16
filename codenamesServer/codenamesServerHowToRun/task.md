@@ -5,18 +5,18 @@ then some buttons may not work, and some information may not be displayed.
 To run the application, you need to run the `main` function inside
 the [CodenamesApplication.kt](course://codenamesServer/codenamesServerHowToRun) file:
 
-![How to run the game](../../utils/src/main/resources/images/run/codenames_run.png)
+<img src="../../utils/src/main/resources/images/run/codenames_run.png" alt="How to run the game" width="500">
 
 Please don't forget to _stop all other runs_ by pressing the red square button:
 
-![How to stop the game](../../utils/src/main/resources/images/stop/codenames_stop.png)
+<img src="../../utils/src/main/resources/images/stop/codenames_stop.png" alt="How to stop the game" width="500">
 
 Next, you need to open any browser (we recommend using [Google Chrome](https://www.google.com/chrome/) to display the elements as in the examples)
 and open http://localhost:8080/. You will see the main page of the application.
 
 <div class="hint" title="Click me to view what the main page of the application looks like">
 
-![The main page of the game](../../utils/src/main/resources/images/main/codenames.png)
+<img src="../../utils/src/main/resources/images/main/codenames.png" alt="The main page of the game" width="500">
 
 </div>
 

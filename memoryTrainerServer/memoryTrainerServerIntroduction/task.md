@@ -14,4 +14,4 @@ This application will allow you to train your memory and memorize countries and 
 
 At the end of this task, you will create the following application:
 
-![An example of the application](../../utils/src/main/resources/images/states/memoryTrainer/state2.gif)
+<img src="../../utils/src/main/resources/images/states/memoryTrainer/state2.gif" alt="An example of the application" width="800">

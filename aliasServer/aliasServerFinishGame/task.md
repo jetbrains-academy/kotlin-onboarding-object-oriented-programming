@@ -20,7 +20,7 @@ the `jetbrains.kotlin.course.alias.results` package:
 
 Hooray! After finishing this step, the game will work well:
 
-![The current state of the game](../../utils/src/main/resources/images/states/alias/state2.gif)
+<img src="../../utils/src/main/resources/images/states/alias/state2.gif" alt="The current state of the game" width="800">
 
 <div class="hint" title="Click me to learn about possible ways to extend the project">
 

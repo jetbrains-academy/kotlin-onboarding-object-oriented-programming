@@ -5,18 +5,18 @@ some buttons may not work and some information may not be displayed.
 To run the application, you need to run the `main` function inside 
 the [MemoryTrainerApplication.kt](course://memoryTrainerServer/memoryTrainerServerHowToRun) file:
 
-![How to run the application](../../utils/src/main/resources/images/run/memory_trainer_run.png)
+<img src="../../utils/src/main/resources/images/run/memory_trainer_run.png" alt="How to run the application" width="500">
 
 Please don't forget to _stop all other runs_ by pressing the square red button:
 
-![How to stop the application](../../utils/src/main/resources/images/stop/memory_trainer_stop.png)
+<img src="../../utils/src/main/resources/images/stop/memory_trainer_stop.png" alt="How to stop the application" width="500">
 
 Next, you need to open any browser (we recommend using [Google Chrome](https://www.google.com/chrome/) to display the elements as in the examples) 
 and open http://localhost:8080/. You will see the main page of the application.
 
 <div class="hint" title="Click me to view what the main page of the application looks like">
 
-![The main page of the application](../../utils/src/main/resources/images/main/memory_trainer.png)
+<img src="../../utils/src/main/resources/images/main/memory_trainer.png" alt="The main page of the application" width="500">
 
 </div>
 
