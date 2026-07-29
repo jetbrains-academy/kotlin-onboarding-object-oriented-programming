@@ -7,7 +7,7 @@ The package `jetbrains.kotlin.course.codenames.card` already has the regular cla
 
 Good luck! After finishing this step, the application will work well:
 
-![The current state of the game](../../utils/src/main/resources/images/states/codenames/state2.gif)
+<img src="../../utils/src/main/resources/images/states/codenames/state2.gif" alt="The current state of the game" width="800">
 
 <div class="hint" title="Click me to learn about possible ways to extend the project">
 

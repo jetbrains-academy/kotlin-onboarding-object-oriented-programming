@@ -21,4 +21,4 @@ You can read the detailed rules in [Wikipedia](https://en.wikipedia.org/wiki/Cod
 
 By the end of this task, you will create the following game:
 
-![An example of the application](../../utils/src/main/resources/images/states/codenames/state2.gif)
+<img src="../../utils/src/main/resources/images/states/codenames/state2.gif" alt="An example of the application" width="800">

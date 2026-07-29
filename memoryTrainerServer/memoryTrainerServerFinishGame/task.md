@@ -16,7 +16,7 @@ in the package `jetbrains.kotlin.course.card.trainer.card`:
 
 Hooray! After finishing this step, the application will work well:
 
-![The current state of the application](../../utils/src/main/resources/images/states/memoryTrainer/state2.gif)
+<img src="../../utils/src/main/resources/images/states/memoryTrainer/state2.gif" alt="The current state of the application" width="800">
 
 <div class="hint" title="Click me to learn about possible ways to extend the project">
 

@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service
 class CardService {
     fun generateWordsCards(): List<Card> {
         require(words.size >= Utils.TOTAL_NUMBER) { "Not enough words for the game!" }
-        if (words.size < Utils.TOTAL_NUMBER) {
-            error("Not enough words for the game!")
-        }
         val shuffledWords = words.shuffled()
         val cards = shuffledWords.take(Utils.TOTAL_NUMBER).map {
             Card(

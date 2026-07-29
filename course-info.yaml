@@ -1,9 +1,9 @@
 type: marketplace
 title: "Kotlin Onboarding 2: Object-Oriented Programming"
 language: English
-summary: " <p>Build more than just code – build structure. This hands-on Kotlin module\
-  \  introduces object-oriented programming through guided, creative projects like\
-  \ a  Memory Trainer. Ideal for learners with basic Kotlin.</p> "
+summary: "<p>Build more than just code – build structure. This hands-on Kotlin module\
+  \ introduces object-oriented programming through guided, creative projects like\
+  \ a Memory Trainer. Ideal for learners with basic Kotlin.</p>"
 vendor:
   name: JetBrains s.r.o.
   email: support@jetbrains.com
@@ -95,4 +95,4 @@ additional_files:
   - name: courseIcon.svg
   - name: .idea/inspectionProfiles/Custom_Inspections.xml
   - name: .idea/inspectionProfiles/profiles_settings.xml
-yaml_version: 5
+yaml_version: 6

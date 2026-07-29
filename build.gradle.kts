@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.siouan.frontendgradleplugin.infrastructure.gradle.FrontendExtension
 
@@ -55,13 +55,8 @@ configure(subprojects.filter { frontendSuffix !in it.name }) {
     }
 
     java {
-        toolchain {
-            languageVersion.set(JavaLanguageVersion.of(21))
-        }
-    }
-
-    extensions.configure<KotlinJvmProjectExtension> {
-        jvmToolchain(21)
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     dependencies {
@@ -73,6 +68,8 @@ configure(subprojects.filter { frontendSuffix !in it.name }) {
         withType<KotlinCompile> {
             compilerOptions {
                 freeCompilerArgs.add("-Xjsr305=strict")
+                // Keep in sync with source/target versions in `java` block above
+                jvmTarget = JvmTarget.JVM_21
             }
         }
 

@@ -22,7 +22,7 @@ You just need to add several properties and implement several methods:
 
 After finishing this task you will be able to play the game:
 
-![The current state of the game](../../utils/src/main/resources/images/states/alias/state1.gif)
+<img src="../../utils/src/main/resources/images/states/alias/state1.gif" alt="The current state of the game" width="800">
 
 If you have any difficulties, **hints will help you solve this task**.
 

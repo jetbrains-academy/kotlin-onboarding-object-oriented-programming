@@ -48,6 +48,7 @@ Before starting this course, check the following requirements.
 4. Make sure that you use the [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?_ga=2.189310830.494255415.1682514714-1823138827.1669894241&_gac=1.83806948.1682684894.Cj0KCQjw3a2iBhCFARIsAD4jQB3QkDU43KtbIx2HzEz02KvcN7Ma3QGzkIbyX4KS3H4x8b2bl9p4EfYaAvWsEALw_wcB&_gl=1*1h13lr8*_ga*MTgyMzEzODgyNy4xNjY5ODk0MjQx*_ga_9J976DJZ68*MTY4MjY5NDIyMy4xMjUuMS4xNjgyNjk0MjM4LjQ1LjAuMA..#section=windows) with version at least `2023.1.1`.
 5. Make sure that you use the [EduTools](https://plugins.jetbrains.com/plugin/10081-edutools) plugin with version at least `2023.1`.
 6. To be able to run web applications, you need to have a web browser. We recommend using [Google Chrome](https://www.google.com/chrome/). 
+7. The Kotlin compiler needs a large heap to build the course modules. The provided `gradle.properties` already sets `org.gradle.jvmargs=-Xmx6g` and `kotlin.compiler.execution.strategy=in-process` for this reason. If you still hit an `OutOfMemoryError` during `./gradlew build` or `compileKotlin` (for example when building from the command line with a custom Gradle configuration), run the build with a larger heap, e.g. `GRADLE_OPTS=-Xmx6g ./gradlew build -Pkotlin.compiler.execution.strategy=in-process`.
 
 The course is integrated into the [IntelliJ Idea IDE](https://www.jetbrains.com/idea/), which has a free Community license. 
 You can use this license to complete the course. 
@@ -62,7 +63,7 @@ This module is dedicated to the creation of popular board games. During this mod
 <details>
 <summary>Game example</summary>
 
-![An example of the Alias application](./utils/src/main/resources/images/states/alias/state2.gif)
+<img src="./utils/src/main/resources/images/states/alias/state2.gif" alt="An example of the Alias application" width="800">
 </details>
 
 2) **Word generator**. The goal of this game is to generate a card with a long word, and 
@@ -71,7 +72,7 @@ the task for the teams is to come up with as many words as possible using the le
 <details>
 <summary>Game example</summary>
 
-![An example of the Words generator application](./utils/src/main/resources/images/states/wordGenerator/state2.gif)
+<img src="./utils/src/main/resources/images/states/wordGenerator/state2.gif" alt="An example of the Words generator application" width="800">
 </details>
 
 3) **Codenames**. The purpose of this project is to implement the popular board game Codenames. 
@@ -81,7 +82,7 @@ Each team chooses a leader and tries to guess all the words of its team color in
 <details>
 <summary>Game example</summary>
 
-![An example of the Codenames application](./utils/src/main/resources/images/states/codenames/state2.gif)
+<img src="./utils/src/main/resources/images/states/codenames/state2.gif" alt="An example of the Codenames application" width="800">
 </details>
 
 4) **Memory trainer**. This application will allow you to train your memory and memorize countries and their capitals.
@@ -89,7 +90,7 @@ Each team chooses a leader and tries to guess all the words of its team color in
 <details>
 <summary>Game example</summary>
 
-![An example of the Memory trainer application](./utils/src/main/resources/images/states/memoryTrainer/state2.gif)
+<img src="./utils/src/main/resources/images/states/memoryTrainer/state2.gif" alt="An example of the Memory trainer application" width="800">
 </details>
 
 ## Getting started

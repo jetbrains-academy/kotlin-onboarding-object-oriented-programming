@@ -23,7 +23,7 @@ the `jetbrains.kotlin.course.words.generator.results` package. Note, this class 
 
 Hooray! After finishing this step, the game will work well:
 
-![The current state of the game](../../utils/src/main/resources/images/states/wordGenerator/state2.gif)
+<img src="../../utils/src/main/resources/images/states/wordGenerator/state2.gif" alt="The current state of the game" width="800">
 
 <div class="hint" title="Click me to learn about possible ways to extend the project">
 

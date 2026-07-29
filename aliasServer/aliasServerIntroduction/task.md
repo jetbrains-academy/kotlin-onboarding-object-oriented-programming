@@ -21,4 +21,4 @@ card as possible in a limited time.
 
 By the end of this task, you will create the following game:
 
-![An example of the application](../../utils/src/main/resources/images/states/alias/state2.gif)
+<img src="../../utils/src/main/resources/images/states/alias/state2.gif" alt="An example of the application" width="800">

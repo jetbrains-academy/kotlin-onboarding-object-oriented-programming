@@ -7,7 +7,7 @@ In this task, you need to implement the `generateKeyCard` function to make the g
 
 After finishing this task, you will be able to see the generated `KeyCard`, but the game field will not be generated yet:
 
-![The current state of the game](../../utils/src/main/resources/images/states/codenames/state1.gif)
+<img src="../../utils/src/main/resources/images/states/codenames/state1.gif" alt="The current state of the game" width="800">
 
 If you have any difficulties, **hints will help you solve this task**.
 
