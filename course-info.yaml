@@ -95,4 +95,4 @@ additional_files:
   - name: courseIcon.svg
   - name: .idea/inspectionProfiles/Custom_Inspections.xml
   - name: .idea/inspectionProfiles/profiles_settings.xml
-yaml_version: 5
+yaml_version: 6
